@@ -1,0 +1,247 @@
+    @media only screen and (max-width: 350px) {
+body {
+overflow-x:hidden;
+width:100%;
+}
+}
+
+#slide-1 button {
+background:#272822;
+  border: 1px solid #ccc;
+  /*padding: 10px 30px;*/
+  /*border-radius: 3px;*/
+  cursor: pointer;
+}
+
+#slide-1 button:focus {
+background:#272822;
+  outline: none;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+}
+.lowSlide{
+}
+
+textarea {
+width:100%;
+//top:-45px;
+z-index:0;
+}
+
+.card-body{
+background:#272822;
+position:relative;
+top:-15px;
+width:100%;
+//margin-left:5%
+}
+
+.card2 {
+background:#272822;
+position:relative;
+top:-43px;
+width:95%;
+margin-top:0px;
+//margin-left:5%;
+z-index:1;
+}
+
+#card21 {
+background:#272822;
+position:relative;
+width:95%;
+top:-55px;
+z-index:2;
+}
+
+#header{
+background:#272822;
+width:95%;
+height:30px;
+color:#fff;
+top:-20;
+position:relative;
+
+}
+
+#icons{
+float:right;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slider {
+background:#272822;
+  width: 100%;
+  //text-align: center;
+  overflow: hidden;
+postion: relative;
+float:right;
+}
+
+.slides {
+background:#272822;
+  display: flex;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  //scroll-snap-align: start;
+  flex-shrink: 0;
+  //width: 210px;
+  height: 30px;
+  //margin-right:10px;
+  border-radius: 10px;
+background:#272822;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.slides > div:target {
+/*   transform: scale(0.8); */
+}
+.author-info {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+.author-info a {
+  color: white;
+}
+.header1 button {
+margin-top:1px;
+
+}
+
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+background:#272822;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0.5rem 0 0.5rem 0;
+  position: relative;
+}
+.slider > a:active {
+  top: 1px;
+}
+.slider > a:focus {
+  background: #000;
+}
+
+/* Don't need button navigation */
+@supports (scroll-snap-type) {
+  .slider > a {
+    display: none;
+  }
+}
+
+/*
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //background: linear-gradient(to bottom, #74ABE2, #5563DE);
+  font-family: 'Ropa Sans', sans-serif;
+}
+*/
+body{
+background:#272822;
+}
+
+.header1 button {
+font-size: 10px;
+  background-color: #272822; /* monoki */
+  border: 1;
+  border-color: white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+//float:left;
+//postion:relative;
+}
+
+.header1 {
+width:95%;
+background:#272822;
+//border: solid;
+}
+
+#lowSlide button {
+font-size: 10px;
+  background-color: #272822; /* monoki */
+  border: 1;
+  border-color: white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+//top:-100px;
+//float:left;
+//postion:relative;
+}
+
+#card21 {
+background:#272822;
+  position: relative;
+  display: inline-block;
+  //width:80%;
+  //top: -370px;
+  //left: calc(100% - 52px);
+  //display:none;
+
+}
+
+button {
+  background-color: #272822; /* monoki */
+  border: 1;
+  border-color: white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+
+}
+
