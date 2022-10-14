@@ -1,6 +1,6 @@
  
 //  if(Able a typeof tk !== "undefined" && tk !== null) {
-
+try{
 //var fileResult;
 var fileSystem = {}
 var flashArray = []
@@ -1401,4 +1401,7 @@ function handleError(evt) {
 //alert(evt)
 }
 
+}catch(err){
+alert(err)
+}
 
