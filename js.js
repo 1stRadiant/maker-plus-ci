@@ -5,7 +5,6 @@ try{
 var fileSystem = {}
 var flashArray = []
 
-alert('here')
 
 tk = {
 readFile: function(f){
@@ -47,6 +46,7 @@ function download(filename, text) {
     }
 }
 
+alert('here')
 
 var fr = new FileReader();
 let test;
