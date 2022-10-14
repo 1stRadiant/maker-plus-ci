@@ -471,7 +471,8 @@ download("mpBackup.json",JSON.stringify(fileSystem));
 
 if(newText.includes("Import")){
 
-download("mpBackup.json",JSON.stringify(fileSystem));
+$('#fileOpener').click();
+
 }
 
 
