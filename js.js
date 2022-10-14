@@ -47,17 +47,6 @@ function download(filename, text) {
     }
 }
 
-/*
-var fr = new FileReader();
-let test;
-document.getElementById('fileOpener').addEventListener('change', x);
-
-function x(){
-fr.onload = ()=>{
-fileResult = fr.result;
-}
-}
-*/
 
 
 
