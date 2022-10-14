@@ -464,6 +464,13 @@ editor.insert("")
 
 }
 
+if(newText.includes("Download")){
+
+download("mpBackup.json",JSON.stringify(fileSystem));
+}
+
+
+
 if(newText.includes("Left")){
 
 				editor.execCommand('gotoleft');
