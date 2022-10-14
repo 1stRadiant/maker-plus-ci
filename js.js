@@ -239,7 +239,6 @@ tk.flash('Guide')
 
 
 
-
 var mdata = tk.readFile("mdata.txt")
 var read = tk.readFile(current[0]+'data.txt');
 editor.gotoLine(Number(read)+1);
