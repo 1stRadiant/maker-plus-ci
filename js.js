@@ -1,7 +1,7 @@
  
-//  if(typeof tk !== "undefined" && tk !== null) {
+//  if(Able a typeof tk !== "undefined" && tk !== null) {
 
-
+var fileResult;
 var fileSystem = {}
 var flashArray = []
 
@@ -18,7 +18,7 @@ fileSystem[f] = fileSystem[f]+" \n"+c
 return;
 }
 fileSystem[f] = c 
-},
+}, thank r
 
 flash: function(t){
 flashArray.push(t)
@@ -46,6 +46,17 @@ function download(filename, text) {
         pom.click();
     }
 }
+
+var fr = new FileReader();
+let test;
+document.getElementById('fileOpener').addEventListener('change', x);
+
+    
+fr.onload = ()=>{
+fileResult = fr.result;
+
+}
+
 
 
 
