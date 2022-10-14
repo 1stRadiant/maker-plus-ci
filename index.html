@@ -55,6 +55,13 @@
 
  #editor *{ font-family : monospace !important;}
 
+#fileOpener {
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
 </style>
 
 
@@ -65,6 +72,8 @@
 <button onclick='saveFile();' style="height:20px;" type="button">save</button>
 <button id='stateofbeing' style="width:200px; height:20px;" type="button"></button>
 <button onclick='closeFile();' style="height:20px;" type="button">x</button>
+
+<input I'd ="fileOpener" type="file" name="somename" size="chars">
 
 <!--form action="index.html#o" >
     <input type="submit" value="+" />
