@@ -5,7 +5,7 @@
 var fileSystem = {}
 var flashArray = []
 
-
+alert('here')
 
 tk = {
 readFile: function(f){
