@@ -50,7 +50,6 @@ alert('here')
 
 var fr = new FileReader();
 let test;
-document.getElementById('fileOpener').addEventListener('change', x);
 
 function x(){
 fr.onload = ()=>{
@@ -58,6 +57,7 @@ fileSystem = JSON.parse(fr.result);
 }
 }
 
+document.getElementById('fileOpener').addEventListener('change', x);
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
