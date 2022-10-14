@@ -46,8 +46,7 @@ function download(filename, text) {
     }
 }
 
-alert('here')
-
+/*
 var fr = new FileReader();
 let test;
 
@@ -58,6 +57,7 @@ fileSystem = JSON.parse(fr.result);
 }
 
 document.getElementById('fileOpener').addEventListener('change', x);
+*/
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -76,7 +76,7 @@ buttonElm.textContent = flashArray[flashArray.length]
 await delay(800);
 buttonElm.textContent = flashArray[i]
 }
- 
+ alert('here')
 /*
 if(ccount == 1){
 await delay(1000);
