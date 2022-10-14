@@ -130,7 +130,7 @@ let lock = false;
 
 
 var objList = objR;
-var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Voice","Left","Right"];
+var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Voice","Left","Right","Export","Import"];
 
 
 //tk.flash(aliases)
@@ -194,7 +194,7 @@ btn.setAttribute("id", "bttn"+i);
 var textarea = document.getElementById("ta");
 
 var toLoad = list[i];
-btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right')){editor.insert(newText); editor.focus();} ");
+btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import')){editor.insert(newText); editor.focus();} ");
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
 }
@@ -464,11 +464,16 @@ editor.insert("")
 
 }
 
-if(newText.includes("Download")){
+if(newText.includes("Export")){
 
 download("mpBackup.json",JSON.stringify(fileSystem));
 }
 
+
+if(newText.includes("Import")){
+
+download("mpBackup.json",JSON.stringify(fileSystem));
+}
 
 
 if(newText.includes("Left")){
