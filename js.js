@@ -54,6 +54,7 @@ function execute(){
 fr.onload = ()=>{
 fileSystem = JSON.parse(fr.result);
 tk.flash(fr.result)
+processImport()
 }
 }
 
@@ -755,6 +756,107 @@ editor.setValue(f);
 
 
 }
+
+
+function processImport(){
+
+var read = tk.readFile("Current.txt");
+var current = read.split(" ")
+
+
+if(current[0]!=undefined){
+
+tk.writeFile('Current.txt',newText,false);
+alert('1')
+extention = newText.split(".");
+extention = extention[1];
+
+switch(extention) {
+  case "js":
+    ex = "javascript";
+    break;
+  case "html":
+    ex = "text/html";
+    break;
+  case "css":
+    ex = "css";
+    break;
+  default:
+    ex = "text/html";
+ break;
+}
+
+//detectMode()
+
+editor.setValue(read);
+
+//document.getElementById("ta").value = read;
+
+
+
+}else {
+
+tk.writeFile('Current.txt',newText,false);
+
+//alert(newText)
+//ta.value = "";
+//detectMode()
+editor.setValue("");
+tk.writeFile(newText,"",false);
+
+}
+var r = tk.readFile("filelist.txt");
+var toWrite;
+
+//files.push(newText);
+files.unshift(newText);
+
+toWrite = files.join("\n");
+if (r == "undefined"){
+tk.writeFile("filelist.txt",newText,false);
+
+}else{
+tk.writeFile("filelist.txt",r+newText,false);
+
+
+}
+
+
+var r = tk.readFile("filelist.txt");
+if(r.includes("\n")){
+r = r.split("\n");
+
+}
+ 
+//tk.flash ("this far");
+//tk.flash(newText);
+ii = r.length - 1;
+
+for (var i = ii; i < r.length; i++) {
+var btn = document.createElement("button");
+var t = document.createTextNode(newText);
+document.getElementById('slide-1').appendChild(btn);
+var filename = newText.replace(/^.*[\\\/]/, '')
+btn.textContent = filename;
+btn.setAttribute("id", newText);
+btn.setAttribute("class", newText);
+tk.flash(newText);
+//var textarea = document.getElementById("ta");
+toLoad = newText;
+
+btn.setAttribute("onclick", "tk.writeFile('Current.txt\','"+toLoad+"\',false); tk.flash('"+toLoad+"'); detectMode(); editor.setValue('"+toLoad+"\'); editor.setValue(tk.readFile('"+toLoad+"\'));");
+
+detectMode()
+ii = ii+1;
+}
+
+
+//editor.getDoc().setValue
+
+}
+
+}
+
 
 function saveFile(){
 tk.writeFile('makerst.txt',JSON.stringify(editor.getOptions()),false);
