@@ -53,6 +53,7 @@ let test;
 function execute(){
 fr.onload = ()=>{
 fileSystem = JSON.parse(fr.result);
+tk.flash(fr.result)
 }
 }
 
