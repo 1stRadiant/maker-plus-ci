@@ -49,7 +49,7 @@ function download(filename, text) {
 
 var fr = new FileReader();
 let test;
-
+alert('2')
 function execute(){
 fr.onload = ()=>{
 fileSystem = JSON.parse(fr.result);
