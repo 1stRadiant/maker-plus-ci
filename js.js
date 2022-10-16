@@ -52,6 +52,7 @@ let test;
 
 
 function execute(){
+tk.flash('(this far')
 fr.onload = ()=>{
 fileSystem = JSON.parse(fr.result);
 tk.flash(fr.result)
