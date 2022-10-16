@@ -104,9 +104,6 @@ flashArray = []
 
 }
 
-
-alert('2')
-
 tk.flash('Welcome to Maker+ Js')
 
 
