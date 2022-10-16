@@ -763,7 +763,7 @@ function processImport(){
 var read = tk.readFile("Current.txt");
 var current = read.split(" ")
 
-
+/*
 if(current[0]!=undefined){
 
 tk.writeFile('Current.txt',newText,false);
@@ -853,7 +853,7 @@ ii = ii+1;
 
 //editor.getDoc().setValue
 
-}
+}*/
 
 }
 
