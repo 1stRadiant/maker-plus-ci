@@ -49,19 +49,20 @@ function download(filename, text) {
 
 var fr = new FileReader();
 let test;
+document.getElementById('fileOpener').addEventListener('change', execute());
 
 
 function execute(){
 tk.flash('(this far')
 fr.onload = ()=>{
-fileSystem = JSON.parse(fr.result);
 tk.flash(fr.result)
+fileSystem = JSON.parse(fr.result);
+
 alert(fr.result)
 //processImport()
 }
 }
 
-document.getElementById('fileOpener').addEventListener('change', execute);
 
 
 function delay(time) {
