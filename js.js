@@ -49,11 +49,12 @@ function download(filename, text) {
 
 var fr = new FileReader();
 let test;
-alert('1')
+
 function execute(){
 fr.onload = ()=>{
 fileSystem = JSON.parse(fr.result);
 tk.flash(fr.result)
+alert(fr.result)
 processImport()
 }
 }
