@@ -47,7 +47,7 @@ function download(filename, text) {
 }
 
 //alert("th")
-
+/*
 function onChange(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
@@ -59,7 +59,7 @@ function onChange(event) {
   };
 
   reader.readAsText(file); 
-/*for ( var property in fileSystem ) {
+for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
 }
 
@@ -88,9 +88,9 @@ ii = i+1;
 }
 }catch(err){
 alert(err)
-}*/
 }
-
+}
+*/
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
