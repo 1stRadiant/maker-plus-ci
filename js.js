@@ -92,8 +92,9 @@ ii = i+1;
 alert(err)
 }
 }
+tk.flash('here')
 }catch(err){
 alert(err)
 }
 
-tk.flash("this")
+
