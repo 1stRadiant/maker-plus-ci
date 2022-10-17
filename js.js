@@ -90,7 +90,7 @@ alert(err)
 }
 }
 
-alert("this")
+alert("th")
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
