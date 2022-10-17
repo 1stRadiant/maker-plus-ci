@@ -21,7 +21,7 @@ fileSystem[f] = c
 
 flash: function(t){
 flashArray.push(t)
-toFlash(t)
+//toFlash(t)
 },
 
 ReadFromAssets: function(f){
