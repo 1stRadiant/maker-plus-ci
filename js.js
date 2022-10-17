@@ -47,22 +47,16 @@ function download(filename, text) {
 }
 
 
-var fr = new FileReader();
-let test;
-document.getElementById('fileOpener').addEventListener('change', execute());
+function onChange(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    // The file's text will be printed here
+   fileSystem = JSON.parse(e.target.result);
+  };
 
-
-function execute(){
-tk.flash('(this far')
-fr.onload = ()=>{
-tk.flash(fr.result)
-fileSystem = JSON.parse(fr.result);
-
-alert(fr.result)
-//processImport()
+  reader.readAsText(file);
 }
-}
-
 
 
 function delay(time) {
