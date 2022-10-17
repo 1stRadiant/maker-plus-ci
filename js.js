@@ -46,7 +46,7 @@ function download(filename, text) {
     }
 }
 
-alert("th")
+//alert("th")
 
 function onChange(event) {
   var file = event.target.files[0];
