@@ -1,6 +1,6 @@
  
 //  if(Able a typeof tk !== "undefined" && tk !== null) {
-try{
+
 alert("1")
 //var fileResult;
 var fileSystem = {}
@@ -94,8 +94,6 @@ alert(err)
 }
 }
 alert('here')
-}catch(err){
-alert(err)
-}
+
 
 
