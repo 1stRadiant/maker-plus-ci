@@ -113,7 +113,7 @@ for ( var property in fileSystem ) {
 }
 
 var r = tk.readFile("filelist.txt");
-tk.flash ("this far");
+alert("this far");
 r = r.split("\n");
 //tk.flash(newText);
 
