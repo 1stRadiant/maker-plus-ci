@@ -95,3 +95,5 @@ alert(err)
 }catch(err){
 alert(err)
 }
+
+tk.flash("this")
