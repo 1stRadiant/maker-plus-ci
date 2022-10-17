@@ -3,7 +3,7 @@
 
 alert("1")
 //var fileResult;
-/*var fileSystem = {}
+var fileSystem = {}
 var flashArray = []
 
 
@@ -95,5 +95,5 @@ alert(err)
 }
 alert('here')
 
-*/
+
 
