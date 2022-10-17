@@ -46,7 +46,7 @@ function download(filename, text) {
     }
 }
 
-/*
+
 function onChange(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
@@ -92,7 +92,7 @@ ii = i+1;
 alert(err)
 }
 }
-*/
+
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
