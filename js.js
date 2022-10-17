@@ -1,7 +1,6 @@
  
 //  if(Able a typeof tk !== "undefined" && tk !== null) {
 
-alert("1")
 //var fileResult;
 var fileSystem = {}
 var flashArray = []
