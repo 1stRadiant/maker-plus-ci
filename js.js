@@ -46,6 +46,7 @@ function download(filename, text) {
     }
 }
 
+alert("th")
 
 function onChange(event) {
   var file = event.target.files[0];
@@ -90,7 +91,6 @@ alert(err)
 }*/
 }
 
-alert("th")
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
