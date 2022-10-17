@@ -64,7 +64,7 @@ for ( var property in fileSystem ) {
 
 try{
 var r = tk.readFile("filelist.txt");
-//tk.flash ("this far");
+tk.flash ("this far");
 r = r.split("\n");
 //tk.flash(newText);
 
