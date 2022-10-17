@@ -58,12 +58,12 @@ function onChange(event) {
   };
 
   reader.readAsText(file); 
-for ( var property in fileSystem ) {
+/*for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
 }
 
 try{
-/*var r = tk.readFile("filelist.txt");
+var r = tk.readFile("filelist.txt");
 tk.flash ("this far");
 r = r.split("\n");
 //tk.flash(newText);
@@ -84,10 +84,10 @@ var toLoad = r[i];
 btn.setAttribute("onclick", "tk.writeFile('Current.txt','"+toLoad+"',false); var readC = tk.readFile('Current.txt'); var current = readC.split('\n'); tk.flash(current[0]); detectMode(); editor.setValue('"+toLoad+"'); editor.setValue(tk.readFile('"+toLoad+"'));");
 //btn.setAttribute("onclick","alert('gets here');");
 ii = i+1;
-}*/
+}
 }catch(err){
 alert(err)
-}
+}*/
 }
 
 alert("th")
