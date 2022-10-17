@@ -61,7 +61,6 @@ function onChange(event) {
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
 }
-alert("this")
 /*
 var r = tk.readFile("filelist.txt");
 //tk.flash ("this far");
@@ -88,6 +87,7 @@ ii = i+1;
 */
 }
 
+alert("this")
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
