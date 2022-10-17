@@ -51,6 +51,9 @@ function onChange(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
   reader.onload = function(e) {
+
+alert(e.target.result)
+
     // The file's text will be printed here
    fileSystem = JSON.parse(e.target.result);
   };
