@@ -46,7 +46,6 @@ function download(filename, text) {
     }
 }
 
-alert("yo")
 /*
 function onChange(event) {
   var file = event.target.files[0];
@@ -59,6 +58,9 @@ function onChange(event) {
   };
 
   reader.readAsText(file); 
+
+alert("yo")
+
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
 }
