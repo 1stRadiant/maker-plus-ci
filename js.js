@@ -1,6 +1,7 @@
  
 //  if(Able a typeof tk !== "undefined" && tk !== null) {
 try{
+alert("1")
 //var fileResult;
 var fileSystem = {}
 var flashArray = []
@@ -30,7 +31,7 @@ ReadFromAssets: function(f){
 
 
 }
-
+alert('2')
 function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -46,7 +47,7 @@ function download(filename, text) {
     }
 }
 
-
+alert("3")
 function onChange(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
