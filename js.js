@@ -61,7 +61,8 @@ function onChange(event) {
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
 }
-/*
+
+try{
 var r = tk.readFile("filelist.txt");
 //tk.flash ("this far");
 r = r.split("\n");
@@ -84,7 +85,9 @@ btn.setAttribute("onclick", "tk.writeFile('Current.txt','"+toLoad+"',false); var
 //btn.setAttribute("onclick","alert('gets here');");
 ii = i+1;
 }
-*/
+}catch(err){
+alert(err)
+}
 }
 
 alert("this")
