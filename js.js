@@ -1,10 +1,10 @@
  
-//  if(Able a typeof tk !== "undefined" && tk !== null) {
+//  if(typeof tk !== "undefined" && tk !== null) {
 
-//var fileResult;
-try{
+
 var fileSystem = {}
 var flashArray = []
+
 
 
 tk = {
@@ -18,7 +18,7 @@ fileSystem[f] = fileSystem[f]+" \n"+c
 return;
 }
 fileSystem[f] = c 
-}, 
+},
 
 flash: function(t){
 flashArray.push(t)
@@ -47,53 +47,7 @@ function download(filename, text) {
     }
 }
 
-alert("yo")
 
-function onChange(event) {
-  var file = event.target.files[0];
-  var reader = new FileReader();
-  reader.onload = function(e) {
-
-
-    // The file's text will be printed here
-   fileSystem = JSON.parse(e.target.result);
-  };
-
-  reader.readAsText(file); 
-
-
-for ( var property in fileSystem ) {
-  tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
-}
-
-try{
-var r = tk.readFile("filelist.txt");
-tk.flash ("this far");
-r = r.split("\n");
-//tk.flash(newText);
-
-for (var i = ii; i < r.length; i++) {
-if(r[i].includes(".")){
-var btn = document.createElement("button");
-var t = document.createTextNode(r[i]);
-document.getElementById('slide-1').appendChild(btn);
-
-var filename = r[i].replace(/^.*[\\\/]/, '')
-btn.textContent = filename;
-btn.setAttribute("id", r[i]);
-btn.setAttribute("class", r[i]);
-//var textarea = document.getElementById("ta");
-
-var toLoad = r[i];
-btn.setAttribute("onclick", "tk.writeFile('Current.txt','"+toLoad+"',false); var readC = tk.readFile('Current.txt'); var current = readC.split('\n'); tk.flash(current[0]); detectMode(); editor.setValue('"+toLoad+"'); editor.setValue(tk.readFile('"+toLoad+"'));");
-//btn.setAttribute("onclick","alert('gets here');");
-ii = i+1;
-}
-}catch(err){
-alert(err)
-}
-}
-alert('here')
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -112,7 +66,7 @@ buttonElm.textContent = flashArray[flashArray.length]
 await delay(800);
 buttonElm.textContent = flashArray[i]
 }
-
+ 
 /*
 if(ccount == 1){
 await delay(1000);
@@ -139,6 +93,9 @@ flashArray = []
 
 
 }
+
+
+
 
 tk.flash('Welcome to Maker+ Js')
 
@@ -174,6 +131,7 @@ let lock = false;
 
 var objList = objR;
 var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Voice","Left","Right","Export","Import"];
+
 
 
 //tk.flash(aliases)
@@ -279,6 +237,7 @@ guide();
 tk.flash('Guide')
 }
 }
+
 
 
 
@@ -790,10 +749,6 @@ editor.setValue(f);
 
 
 }
-
-
-
-
 
 function saveFile(){
 tk.writeFile('makerst.txt',JSON.stringify(editor.getOptions()),false);
@@ -1437,12 +1392,4 @@ window.addEventListener("error", handleError, true);
 function handleError(evt) {
 //alert(evt)
 }
-
-}catch(err){
-alert(err.stack)
-}
-
-
-
-
 
