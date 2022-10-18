@@ -16,7 +16,7 @@ return fileSystem[f]
 
 writeFile: function(f,c,a){
 if(a){
-fileSystem[f] = fileSystem[f]+" \n"+c 
+fileSystem[f] = fileSystem[f]+"\n"+c 
 return;
 }
 fileSystem[f] = c 
