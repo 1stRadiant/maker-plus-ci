@@ -113,12 +113,14 @@ for ( var property in fileSystem ) {
 }
 
 var r = tk.readFile("filelist.txt");
-alert("this far");
 r = r.split("\n");
 //tk.flash(newText);
 
 for (var i = ii; i < r.length; i++) {
-if(r[i].includes(".")){
+//if(r[i].includes(".")){
+
+tk.flash(r[i]);
+
 var btn = document.createElement("button");
 var t = document.createTextNode(r[i]);
 document.getElementById('slide-1').appendChild(btn);
@@ -134,7 +136,7 @@ var toLoad = r[i];
 btn.setAttribute("onclick", "tk.writeFile('Current.txt','"+toLoad+"',false); var readC = tk.readFile('Current.txt'); var current = readC.split('\n'); tk.flash(current[0]); detectMode(); editor.setValue('"+toLoad+"'); editor.setValue(tk.readFile('"+toLoad+"'));");
 //btn.setAttribute("onclick","alert('gets here');");
 ii = i+1;
-}
+//}
 }
 
 
