@@ -5,6 +5,8 @@
 var fileSystem = {}
 var flashArray = []
 
+var ii =1;
+
 
 
 tk = {
@@ -196,7 +198,6 @@ var endPos;
 var mode;
 var ex = "javascript";
 var ta = document.getElementById('ta');
-var ii =1;
 let nP;
 let currentLineText;
 let column;
