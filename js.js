@@ -701,7 +701,7 @@ if (r == "undefined"){
 tk.writeFile("filelist.txt",newText,false);
 
 }else{
-if(r != "undefined"){
+if(r != undefined){
 tk.writeFile("filelist.txt",r+"\n"+newText,false);
 }
 
