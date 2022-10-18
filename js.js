@@ -97,7 +97,7 @@ flashArray = []
 }
 
 
-function onChange(event) {
+async function onChange(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
   reader.onload = function(e) {
