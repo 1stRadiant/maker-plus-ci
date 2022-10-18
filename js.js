@@ -117,6 +117,7 @@ for ( var property in fileSystem ) {
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
 tk.flash(r.length);
+alert(r.length);
 for (var i = ii; i < r.length; i++) {
 if(r[i].includes(".")){
 
