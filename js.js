@@ -1,7 +1,7 @@
  
 //  if(typeof tk !== "undefined" && tk !== null) {
 
-
+try{
 var fileSystem = {}
 var flashArray = []
 
@@ -1442,4 +1442,6 @@ window.addEventListener("error", handleError, true);
 function handleError(evt) {
 //alert(evt)
 }
-
+}catch(err){
+alert(err.stack)
+}
