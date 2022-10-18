@@ -113,7 +113,6 @@ async function onChange(event) {
 
 await delay(500)
 var r = tk.readFile("filelist.txt");
-tk.flash ("this far");
 r = r.split("\n");
 //tk.flash(newText);
 
