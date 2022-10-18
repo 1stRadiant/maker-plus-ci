@@ -679,7 +679,7 @@ editor.setValue(read);
 
 //document.getElementById("ta").value = read;
 
-
+alert("1")
 
 }else {
 
@@ -702,6 +702,8 @@ toWrite = files.join("\n");
 if (r == "undefined"){
 tk.writeFile("filelist.txt",newText,false);
 
+alert("2")
+
 }else{
 if(r != undefined){
 tk.writeFile("filelist.txt",r+"\n"+newText,false);
@@ -716,7 +718,7 @@ r = r.split("\n");
 
 }
  
-//tk.flash ("this far");
+tk.flash ("this far");
 //tk.flash(newText);
 ii = r.length - 1;
 
