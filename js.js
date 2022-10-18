@@ -115,7 +115,7 @@ for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
 }*/
 
-await delay(500);
+//await delay(500);
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
 for (var i = ii; i < r.length; i++) {
