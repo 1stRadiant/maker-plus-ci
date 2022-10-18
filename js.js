@@ -109,7 +109,7 @@ function onChange(event) {
 
 
 for ( var property in fileSystem ) {
-  tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
+  tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
 }
 
 var r = tk.readFile("filelist.txt");
