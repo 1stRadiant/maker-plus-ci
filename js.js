@@ -5,6 +5,8 @@
 var fileSystem = {}
 var flashArray = []
 
+var ii =1;
+
 
 
 tk = {
@@ -114,7 +116,7 @@ for ( var property in fileSystem ) {
 
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
-tk.flash("here");
+tk.flash(r.length);
 for (var i = ii; i < r.length; i++) {
 if(r[i].includes(".")){
 
@@ -197,7 +199,6 @@ var endPos;
 var mode;
 var ex = "javascript";
 var ta = document.getElementById('ta');
-var ii =1;
 let nP;
 let currentLineText;
 let column;
