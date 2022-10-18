@@ -97,7 +97,7 @@ flashArray = []
 }
 
 
-async function onChange(event) {
+function onChange(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
   reader.onload = function(e) {
@@ -114,8 +114,8 @@ async function onChange(event) {
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
 }*/
-alert('q')
-await delay(500);
+
+//await delay(500);
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
 for (var i = ii; i < r.length; i++) {
