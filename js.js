@@ -107,10 +107,10 @@ function onChange(event) {
 
   reader.readAsText(file); 
 
-
+/*
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
-}
+}*/
 
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
@@ -652,7 +652,7 @@ var read = tk.readFile(newText);
 if(read!=undefined){
 
 tk.writeFile('Current.txt',newText,false);
-alert('1')
+
 extention = newText.split(".");
 extention = extention[1];
 
