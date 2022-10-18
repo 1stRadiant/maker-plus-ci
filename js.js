@@ -1,11 +1,9 @@
  
 //  if(typeof tk !== "undefined" && tk !== null) {
 
-try{
+
 var fileSystem = {}
 var flashArray = []
-
-var ii =1;
 
 
 
@@ -16,7 +14,7 @@ return fileSystem[f]
 
 writeFile: function(f,c,a){
 if(a){
-fileSystem[f] = fileSystem[f]+"\n"+c 
+fileSystem[f] = fileSystem[f]+" \n"+c 
 return;
 }
 fileSystem[f] = c 
@@ -96,8 +94,7 @@ flashArray = []
 
 }
 
-
-async function onChange(event) {
+function onChange(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
   reader.onload = function(e) {
@@ -105,24 +102,22 @@ async function onChange(event) {
 
     // The file's text will be printed here
    fileSystem = JSON.parse(e.target.result);
- 
-};
+  };
 
   reader.readAsText(file); 
 
-/*
-for ( var property in fileSystem ) {
-  tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
-}*/
 
-await delay(500);
+for ( var property in fileSystem ) {
+  tk.writeFile('filelist.txt',property+"\n",true); // Outputs: foo, fiz or fiz, foo
+}
+
 var r = tk.readFile("filelist.txt");
+tk.flash ("this far");
 r = r.split("\n");
+//tk.flash(newText);
+
 for (var i = ii; i < r.length; i++) {
 if(r[i].includes(".")){
-
-tk.flash(r[i]);
-
 var btn = document.createElement("button");
 var t = document.createTextNode(r[i]);
 document.getElementById('slide-1').appendChild(btn);
@@ -142,8 +137,9 @@ ii = i+1;
 }
 
 
-
 }
+
+
 
 tk.flash('Welcome to Maker+ Js')
 
@@ -200,6 +196,7 @@ var endPos;
 var mode;
 var ex = "javascript";
 var ta = document.getElementById('ta');
+var ii =1;
 let nP;
 let currentLineText;
 let column;
@@ -654,7 +651,7 @@ var read = tk.readFile(newText);
 if(read!=undefined){
 
 tk.writeFile('Current.txt',newText,false);
-
+alert('1')
 extention = newText.split(".");
 extention = extention[1];
 
@@ -679,7 +676,7 @@ editor.setValue(read);
 
 //document.getElementById("ta").value = read;
 
-alert("1")
+
 
 }else {
 
@@ -702,12 +699,9 @@ toWrite = files.join("\n");
 if (r == "undefined"){
 tk.writeFile("filelist.txt",newText,false);
 
-alert("2")
-
 }else{
-if(r != undefined){
-tk.writeFile("filelist.txt",r+"\n"+newText,false);
-}
+tk.writeFile("filelist.txt",r+newText,false);
+
 
 }
 
@@ -718,7 +712,7 @@ r = r.split("\n");
 
 }
  
-tk.flash ("this far");
+//tk.flash ("this far");
 //tk.flash(newText);
 ii = r.length - 1;
 
@@ -1442,6 +1436,4 @@ window.addEventListener("error", handleError, true);
 function handleError(evt) {
 //alert(evt)
 }
-}catch(err){
-alert(err.stack)
-}
+
