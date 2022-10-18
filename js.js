@@ -117,6 +117,7 @@ r = r.split("\n");
 //tk.flash(newText);
 
 for (var i = ii; i < r.length; i++) {
+alert(i)
 if(r[i].includes(".")){
 
 tk.flash(r[i]);
