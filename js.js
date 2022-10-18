@@ -115,7 +115,7 @@ for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
 }*/
 var r = tk.readFile("filelist.txt");
-alert('here')
+alert(r)
 r = r.split("\n");
 for (var i = ii; i < r.length; i++) {
 if(r[i].includes(".")){
