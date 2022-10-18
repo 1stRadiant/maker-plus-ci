@@ -115,7 +115,6 @@ for ( var property in fileSystem ) {
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
 tk.flash("here");
-try{
 for (var i = ii; i < r.length; i++) {
 if(r[i].includes(".")){
 
@@ -138,9 +137,7 @@ btn.setAttribute("onclick", "tk.writeFile('Current.txt','"+toLoad+"',false); var
 ii = i+1;
 }
 }
-}catch(err){
-alert(err.stack)
-}
+
 
 
 }
