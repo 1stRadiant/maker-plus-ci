@@ -113,7 +113,7 @@ function onChange(event) {
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
 }*/
-
+tk.flash('gets here')
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
 tk.flash(r.length);
