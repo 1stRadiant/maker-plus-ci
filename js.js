@@ -105,7 +105,8 @@ function onChange(event) {
 
     // The file's text will be printed here
    fileSystem = JSON.parse(e.target.result);
-  };
+  alert('gets hh')
+};
 
   reader.readAsText(file); 
 
@@ -113,6 +114,7 @@ function onChange(event) {
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
 }*/
+alert('gets here')
 tk.flash('gets here')
 var r = tk.readFile("filelist.txt");
 r = r.split("\n");
