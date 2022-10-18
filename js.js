@@ -114,8 +114,9 @@ async function onChange(event) {
 for ( var property in fileSystem ) {
   tk.writeFile('filelist.txt',"\n"+property,true); // Outputs: foo, fiz or fiz, foo
 }*/
+
+await delay(500);
 var r = tk.readFile("filelist.txt");
-alert(r)
 r = r.split("\n");
 for (var i = ii; i < r.length; i++) {
 if(r[i].includes(".")){
