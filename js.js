@@ -119,7 +119,7 @@ r = r.split("\n");
 
 //ii = r.length - 1;
 
-for (var i = ii; i < r.length; i++) {
+for (var i = 0; i < r.length; i++) {
 if(r[i].includes(".")){
 var btn = document.createElement("button");
 var t = document.createTextNode(r[i]);
