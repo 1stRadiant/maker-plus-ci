@@ -133,7 +133,9 @@ tk.flash(i)
 //var textarea = document.getElementById("ta");
 
 var toLoad = r[i];
-btn.setAttribute("onclick", "tk.writeFile('Current.txt','"+toLoad+"',false); var readC = tk.readFile('Current.txt'); var current = readC.split('\n'); tk.flash(current[0]); detectMode(); editor.setValue('"+toLoad+"'); editor.setValue(tk.readFile('"+toLoad+"'));");
+btn.setAttribute("onclick", "tk.writeFile('Current.txt\','"+toLoad+"\',false); tk.flash('"+toLoad+"'); detectMode(); editor.setValue('"+toLoad+"\'); editor.setValue(tk.readFile('"+toLoad+"\'));");
+
+detectMode()
 //btn.setAttribute("onclick","alert('gets here');");
 ii = i+1;
 }
