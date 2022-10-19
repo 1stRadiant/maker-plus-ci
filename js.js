@@ -129,7 +129,7 @@ var filename = r[i].replace(/^.*[\\\/]/, '')
 btn.textContent = filename;
 btn.setAttribute("id", r[i]);
 btn.setAttribute("class", r[i]);
-
+tk.flash(i)
 //var textarea = document.getElementById("ta");
 
 var toLoad = r[i];
