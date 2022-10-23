@@ -557,7 +557,7 @@ if(newText.includes("Codify!")){
 
 currline = editor.getSelectionRange().start.row;
 inpuT = editor.session.getLine(currline)
-input2 = inpuT;
+//input2 = inpuT;
 
 
 var row = editor.selection.lead.row
@@ -1211,7 +1211,7 @@ tk.writeFile(current[0]+'data.txt',store,false);
 function magicCode(){
 //var str = tk.ReadFromAssets("aliases2.txt");
 
-process(inpuT)
+//process(inpuT)
 
 str = aliases2.split("\n")
 
