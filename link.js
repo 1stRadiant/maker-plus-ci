@@ -1,25 +1,7 @@
 function process(inputer){
 	
-	var ta = document.getElementById("ta");
 	
-	
-	tk.flash("I am processing your request");
-	//Get input and set up variables
-	if (inputer=='ta'){
-		var textinput = ta.value;
-		command = ta.value;
-		processFiles()
-		//tk.writeFile("commandlist.txt",ta.value+"\n",true);
-		
-	}else{
-		
-		tk.flash(inputer);
-		var textinput = inputer;
-		command = inputer;
-		processFiles();
-		
-	}
-	var textinput2 = textinput;
+	var textinput2 = inputer;
 	var spl = textinput.split(" ");
 	var joined;
 	var found;
