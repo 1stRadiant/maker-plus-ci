@@ -565,10 +565,8 @@ var selText = ""
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //Type text or variable
 
-var commandCheck = getCommand(inpuT)
-if(!commandCheck){
 magicCode();
-}
+
 }
 
 if(newText.includes("Voice")){
