@@ -1208,7 +1208,7 @@ tk.writeFile(current[0]+'data.txt',store,false);
 
 function magicCode(){
 //var str = tk.ReadFromAssets("aliases2.txt");
-
+tk.flash('this')
 //process(inpuT)
 
 str = aliases2.split("\n")
