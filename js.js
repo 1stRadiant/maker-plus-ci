@@ -1208,7 +1208,7 @@ tk.writeFile(current[0]+'data.txt',store,false);
 
 function magicCode(){
 //var str = tk.ReadFromAssets("aliases2.txt");
-tk.flash('this')
+//tk.flash('this')
 //process(inpuT)
 
 str = aliases2.split("\n")
@@ -1220,7 +1220,7 @@ var rating = match.bestMatch.rating
 //tk.flash(rating)
 if(rating > 0.4){
 inpuT = inpuT.toLowerCase();
-tk.flash(inpuT)
+//tk.flash(inpuT)
 function splitBet(data,a,b){
 var spl = data;//Type text or variable
 
@@ -1376,7 +1376,7 @@ var keys = Object.keys( obj );
        w = '*'+w;
        var re = new RegExp('/'+w+'/', 'g');
        if(f!=null){
-           tk.flash(w+" "+f);
+           //tk.flash(w+" "+f);
 
            readd = readd.replace(w,f)
            readd= replaceAll2(readd,w,f);
