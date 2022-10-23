@@ -1397,7 +1397,7 @@ newText = readd
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), newText)  */
 readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 
-editor.insert(readd+"\n")
+editor.insert(readd)
 
 
 //}
