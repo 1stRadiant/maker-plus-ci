@@ -1209,8 +1209,9 @@ tk.writeFile(current[0]+'data.txt',store,false);
 function magicCode(){
 //var str = tk.ReadFromAssets("aliases2.txt");
 //tk.flash('this')
-//process(inpuT)
+process(inpuT)
 
+if(link == false){
 str = aliases2.split("\n")
 
 var match = stringSimilarity.findBestMatch(inpuT,str);
@@ -1418,6 +1419,7 @@ function replaceAll2(string, search, replace) {
 
 function replaceLine2(str,num){
 return str.split("\n").slice(num).join("\n");
+}
 }
 }
 }
