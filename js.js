@@ -1212,6 +1212,7 @@ function magicCode(){
 //var str = tk.ReadFromAssets("aliases2.txt");
 str = aliases2.split("\n")
 tk.flash('One')
+process(input)
 var match = stringSimilarity.findBestMatch(inpuT,str);
 
 inpuT = match.bestMatch.target;
