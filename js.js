@@ -1210,9 +1210,11 @@ tk.writeFile(current[0]+'data.txt',store,false);
 
 function magicCode(){
 //var str = tk.ReadFromAssets("aliases2.txt");
+
+process(inpuT)
+
 str = aliases2.split("\n")
-tk.flash('One')
-process(input)
+
 var match = stringSimilarity.findBestMatch(inpuT,str);
 
 inpuT = match.bestMatch.target;
