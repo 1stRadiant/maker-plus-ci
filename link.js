@@ -195,3 +195,33 @@ appFound = "true";
 				
 				if(checkFound===false&&result===true){
 					//magicCode();
+			}
+}
+			
+			
+			
+			textinput2 = textinput2.replace(textinput2.match(/(\d{2}:\d{2})/g),"")
+			
+			var saidToday = tk.readFile('saidToday.txt')
+			var time = tk.global("TIME")
+			time = time.split(".")
+			time = time[0]+":"+time[1]
+			var re = /^When|^What|^How|^Why/gm
+			if(!saidToday.includes(textinput2) && !textinput2.match(re)){
+				var value = tk.global('Stateofbeing')
+				//say(greet)
+				var ok = tk.writeFile('saidToday.txt',textinput2+" at "+time+". ",true)
+				
+			}
+			var re = /^when|^what|^how|^why/gm
+			
+			if(textinput.match(re)){
+				
+				eval(tk.readFile("qna.js"))
+			}
+			
+		}//appfound
+	}
+	
+}
+
