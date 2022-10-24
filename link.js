@@ -221,7 +221,10 @@ appFound = "true";
 			}
 			
 		}//appfound
+
 	}
+
+magicCode()
 	
 }
 
