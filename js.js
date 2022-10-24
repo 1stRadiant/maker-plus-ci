@@ -1404,11 +1404,11 @@ editor.insert(readd)
 //}
 //tk.flash(legopn);
 
-}else{
+}
 
 process(inpuT)
 
-}
+
 }
 
 function getProperty(obj,propertyName) {
