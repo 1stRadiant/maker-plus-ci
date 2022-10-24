@@ -17,9 +17,9 @@ if(textinput.includes(" ")){
 	var apps = ""
         var sapps;
 
-if(apps.includes(",")){
+//if(apps.includes(",")){
  sapps = apps.split(",");
-}
+//}
 	var appFound = "false";
 	var check;
 	var result;
