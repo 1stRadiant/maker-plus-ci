@@ -32,6 +32,7 @@ if(textinput.includes(" ")){
 	containSpec = checkFormat.test(textinput)
 	if(containSpec ==true){
 		eval(textinput)
+        link = true
 	}else{
 		function capitalizeFirstLetter(string) {
 			return textinput2.charAt(0).toUpperCase() + string.slice(1);
@@ -63,6 +64,9 @@ if(textinput.includes(" ")){
 					tk.loadApp(item,'',false);
 					tk.flash(item);
 					appFound = "true";
+
+link = true
+
 				}
 			}
 		}//for loop
@@ -72,6 +76,8 @@ if(textinput.includes(" ")){
 sapps.forEach(checkApps);
 function checkApps(item, index){
 if(item.toLowerCase()===textinput2.toLowerCase()){
+
+link = true
 
 tk.flash(item);
 
@@ -145,12 +151,18 @@ appFound = "true";
 				
 				spec = format.test(read);
 				if(spec===false){
-					ta.value = read;
+					editor.insert = read;
+
+                                         link = true
+
 					//elemText( "Ai Skin", "TextEdit11", "repl",  );
 				}else{
 					
 					
 					eval(read);
+
+                                         link = true
+
 					
 					
 					
@@ -173,42 +185,13 @@ appFound = "true";
 						if(check===true){
 							tk.setLocal("collected",item);
 							checkFound = true;
+
+                                                        link = true
+
 						}
 					}
 				}//for loop
 				
 				
-				/*	if(checkFound===false&&result===true){
-					var search = textinput;
-					var searchSplit = search.split(" ");
-					search = searchSplit.join("+");
-					tk.browseURL("https://www.google.com/search?q="+search+"&aqs=chrome..69i57.85921j0j4&client=ms-android-samsung&sourceid=chrome-mobile&ie=UTF-8");
-				}*/
-			}
-			
-			
-			
-			textinput2 = textinput2.replace(textinput2.match(/(\d{2}:\d{2})/g),"")
-			
-			var saidToday = tk.readFile('saidToday.txt')
-			var time = tk.global("TIME")
-			time = time.split(".")
-			time = time[0]+":"+time[1]
-			var re = /^When|^What|^How|^Why/gm
-			if(!saidToday.includes(textinput2) && !textinput2.match(re)){
-				var value = tk.global('Stateofbeing')
-				//say(greet)
-				var ok = tk.writeFile('saidToday.txt',textinput2+" at "+time+". ",true)
-				
-			}
-			var re = /^when|^what|^how|^why/gm
-			
-			if(textinput.match(re)){
-				
-				eval(tk.readFile("qna.js"))
-			}
-			
-		}//appfound
-	}
-	
-}
+				if(checkFound===false&&result===true){
+					//magicCode();
