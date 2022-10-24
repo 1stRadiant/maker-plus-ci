@@ -194,7 +194,7 @@ appFound = "true";
 				
 				
 				if(checkFound===false&&result===true){
-					//magicCode();
+					magicCode();
 			}
 }
 			
