@@ -4,7 +4,7 @@ function process(inputer){
 	var textinput2 = inputer;
         var textinput = inputer;
         var spl;
-if(textinput.includes(" "){
+if(textinput.includes(" ")){
 	spl = textinput.split(" ");
 }
 	var joined;
@@ -15,7 +15,11 @@ if(textinput.includes(" "){
 	var checkFormat;
 	var containSpec;
 	var apps = ""
-	var sapps = apps.split(",");
+        var sapps;
+
+if(apps.includes(",")){
+ sapps = apps.split(",");
+}
 	var appFound = "false";
 	var check;
 	var result;
