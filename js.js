@@ -1387,7 +1387,7 @@ var keys = Object.keys( obj );
               readd = replaceAll2(readd,f,`'`+f+`'`)
            }
 
-       }
+       
 
    }
 
@@ -1405,7 +1405,7 @@ editor.insert(readd)
 //}
 //tk.flash(legopn);
 
-
+}
 }
 
 function getProperty(obj,propertyName) {
