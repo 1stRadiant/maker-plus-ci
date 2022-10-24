@@ -192,6 +192,7 @@ as = aliases.split("\n");
 }
 
 let settingPoints
+var link
 var currline, inpuT
 var files = [];
 var editor;
