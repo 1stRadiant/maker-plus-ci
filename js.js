@@ -1211,7 +1211,7 @@ function magicCode(){
 //var str = tk.ReadFromAssets("aliases2.txt");
 //tk.flash('this')
 
-if(link == false){
+
 str = aliases2.split("\n")
 
 var match = stringSimilarity.findBestMatch(inpuT,str);
@@ -1405,7 +1405,7 @@ process(inpuT)
 //}
 //tk.flash(legopn);
 
-}
+
 }
 
 function getProperty(obj,propertyName) {
