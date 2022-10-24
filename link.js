@@ -3,7 +3,10 @@ function process(inputer){
 	tk.flash('I am processing your request please wait...')
 	var textinput2 = inputer;
         var textinput = inputer;
-	var spl = textinput.split(" ");
+        var spl;
+if(textinput.includes(" "){
+	spl = textinput.split(" ");
+}
 	var joined;
 	var found;
 	var finalMatch;
