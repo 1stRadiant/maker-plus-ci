@@ -1400,7 +1400,7 @@ readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 
 editor.insert(readd)
 
-process(inpuT)
+//process(inpuT)
 
 //}
 //tk.flash(legopn);
