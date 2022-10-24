@@ -1221,7 +1221,7 @@ var rating = match.bestMatch.rating
 //tk.flash(rating)
 if(rating > 0.4){
 inpuT = inpuT.toLowerCase();
-//tk.flash(inpuT)
+tk.flash(inpuT)
 function splitBet(data,a,b){
 var spl = data;//Type text or variable
 
