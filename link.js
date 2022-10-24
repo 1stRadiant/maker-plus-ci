@@ -27,7 +27,7 @@ if(textinput.includes(" ")){
 	var format = /[()]/;
 	var spec;
 	
-	
+		tk.flash('Here')
 	checkFormat = /[()]/;
 	containSpec = checkFormat.test(textinput)
 	if(containSpec ==true){
