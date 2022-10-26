@@ -4,6 +4,7 @@ function process(inputer){
 	var textinput2 = inputer;
         var textinput = inputer;
         var spl;
+        link = "false"
 if(textinput.includes(" ")){
 	spl = textinput.split(" ");
 }
@@ -32,7 +33,7 @@ if(textinput.includes(" ")){
 	containSpec = checkFormat.test(textinput)
 	if(containSpec ==true){
 		eval(textinput)
-        link = true
+        link = "true"
 	}else{
 		function capitalizeFirstLetter(string) {
 			return textinput2.charAt(0).toUpperCase() + string.slice(1);
@@ -65,7 +66,7 @@ if(textinput.includes(" ")){
 					tk.flash(item);
 					appFound = "true";
 
-link = true
+link = "true"
 
 				}
 			}
@@ -77,7 +78,7 @@ sapps.forEach(checkApps);
 function checkApps(item, index){
 if(item.toLowerCase()===textinput2.toLowerCase()){
 
-link = true
+"link = true"
 
 
 if(item==="Chrome"){
@@ -152,7 +153,7 @@ appFound = "true";
 				if(spec===false){
 					editor.insert = read;
 
-                                         link = true
+                                         link = "true"
 
 					//elemText( "Ai Skin", "TextEdit11", "repl",  );
 				}else{
@@ -165,7 +166,7 @@ appFound = "true";
 					
 					
 				}
-                          link = true
+                          link = "true"
 
 
 			}else{
@@ -190,7 +191,7 @@ appFound = "true";
                                                        
 
 						}
-                                             link = true
+                                             link = "true"
 					}
 				}//for loop
 				
