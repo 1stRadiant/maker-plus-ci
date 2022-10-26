@@ -566,7 +566,7 @@ var selText = ""
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //Type text or variable
 process(inpuT);
-if(link != true){
+if(link != false){
 magicCode();
 }
 
