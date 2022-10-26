@@ -27,7 +27,7 @@ if(textinput.includes(" ")){
 	var format = /[()]/;
 	var spec;
 	
-		tk.flash('Here')
+		
 	checkFormat = /[()]/;
 	containSpec = checkFormat.test(textinput)
 	if(containSpec ==true){
@@ -39,7 +39,7 @@ if(textinput.includes(" ")){
 		}
 		
 		textinput2 = capitalizeFirstLetter(textinput2);
-		tk.flash(textinput2);
+	
 		
 		
 		//remove white spaces
@@ -79,7 +79,6 @@ if(item.toLowerCase()===textinput2.toLowerCase()){
 
 link = true
 
-tk.flash(item);
 
 if(item==="Chrome"){
 tk.performTask("ChromeTask")
