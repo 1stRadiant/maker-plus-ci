@@ -572,6 +572,15 @@ magicCode();
 
 if(newText.includes("Link Ai")){
 
+currline = editor.getSelectionRange().start.row;
+inpuT = editor.session.getLine(currline)
+//input2 = inpuT;
+
+
+var row = editor.selection.lead.row
+var selText = ""
+editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
+//Type text or variable
 process(inpuT);
 
 }
