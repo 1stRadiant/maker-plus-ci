@@ -7,7 +7,7 @@ var flashArray = []
 
 var ii =1;
 
-alert("start")
+//alert("start")
 
 tk = {
 readFile: function(f){
@@ -179,7 +179,7 @@ let lock = false;
 
 
 var objList = objR;
-var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Voice","Left","Right","Export","Import"];
+var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import"];
 
 
 
@@ -244,7 +244,7 @@ btn.setAttribute("id", "bttn"+i);
 var textarea = document.getElementById("ta");
 
 var toLoad = list[i];
-btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import')){editor.insert(newText); editor.focus();} ");
+btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){editor.insert(newText); editor.focus();} ");
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
 }
@@ -567,6 +567,12 @@ editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //Type text or variable
 process(inpuT);
 magicCode();
+
+}
+
+if(newText.includes("Link Ai")){
+
+process(inpuT);
 
 }
 
