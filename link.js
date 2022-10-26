@@ -160,12 +160,14 @@ appFound = "true";
 					
 					eval(read);
 
-                                         link = true
-
+                                         
 					
 					
 					
 				}
+                          link = true
+
+
 			}else{
 				//Enter  message as a string
 				
@@ -185,9 +187,10 @@ appFound = "true";
 							tk.setLocal("collected",item);
 							checkFound = true;
 
-                                                        link = true
+                                                       
 
 						}
+                                             link = true
 					}
 				}//for loop
 				
