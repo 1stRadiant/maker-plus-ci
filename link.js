@@ -224,7 +224,7 @@ appFound = "true";
 
 	}
 
-magicCode()
+
 	
 }
 
