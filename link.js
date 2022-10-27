@@ -90,7 +90,7 @@ tk.loadApp(item,'',false);
 appFound = "true";
 }//item===new_val
 		}//for loop*/
-		
+		alert("1")
 		if(appFound==="false"){
 			//Loop through the input
 			spl.forEach(myfunc);
@@ -135,7 +135,7 @@ appFound = "true";
 			//using the last match
 			finalMatch = found;
 			
-			
+			alert("2")
 			
 			toRead = textinput.split(finalMatch);
 			read = tk.readFile(finalMatch+".txt");
@@ -195,7 +195,7 @@ appFound = "true";
 					}
 				}//for loop
 				
-				alert("gets")
+			
 				if(checkFound===false&&result===true){
 					magicCode();
 			}
