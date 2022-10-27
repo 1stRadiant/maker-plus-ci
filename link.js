@@ -8,6 +8,8 @@ function process(inputer){
 if(textinput.includes(" ")){
 	spl = textinput.split(" ");
 } 
+
+var saidToday = "";
 	var joined;
 	var found;
 	var finalMatch;
@@ -135,7 +137,7 @@ appFound = "true";
 			//using the last match
 			finalMatch = found;
 			
-			alert("2")
+			
 			
 			toRead = textinput.split(finalMatch);
 			read = tk.readFile(finalMatch+".txt");
@@ -211,12 +213,14 @@ var h = today.getHours()+":"
 var m = today.getMinutes()			
 		time = h+m
 			var re = /^When|^What|^How|^Why/gm
-			if(!saidToday.includes(textinput2) && !textinput2.match(re)){
-				var value = tk.global('Stateofbeing')
+		
+if(!saidToday.includes(textinput2) && !textinput2.match(re)){
+				//var value = tk.global('Stateofbeing')
 				//say(greet)
 				var ok = tk.writeFile('saidToday.txt',textinput2+" at "+time+". ",true)
 				
 			}
+
 			var re = /^when|^what|^how|^why/gm
 			
 			if(textinput.match(re)){
