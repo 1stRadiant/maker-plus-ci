@@ -171,7 +171,7 @@ appFound = "true";
 
 			}else{
 				//Enter  message as a string
-				
+				 
 				
 				var features = tk.readFile("features.txt");
 				var conditions = textinput.split(" ");
