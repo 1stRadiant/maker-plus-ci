@@ -29,6 +29,12 @@ toFlash(t)
 
 ReadFromAssets: function(f){
  return fileSystem[f]
+},
+global: function(t){
+return fileSystem.variables[t]
+},
+setGlobal: function(t,s){
+fileSystem.varables[t] = s
 }
 
 
