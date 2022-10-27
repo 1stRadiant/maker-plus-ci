@@ -139,7 +139,7 @@ appFound = "true";
 			
 			toRead = textinput.split(finalMatch);
 			read = tk.readFile(finalMatch+".txt");
-			tk.setGlobal("toRead",toRead[1]);
+			//tk.setGlobal("toRead",toRead[1]);
 			//result = read.includes(undefined)
 			
 			
