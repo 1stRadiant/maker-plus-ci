@@ -213,8 +213,8 @@ var h = today.getHours()+":"
 var m = today.getMinutes()			
 		time = h+m
 			var re = /^When|^What|^How|^Why/gm
-		
-if(!saidToday.includes(textinput2) && !textinput2.match(re)){
+
+if(!textinput2.match(re)){
 				//var value = tk.global('Stateofbeing')
 				//say(greet)
 				var ok = tk.writeFile('saidToday.txt',textinput2+" at "+time+". ",true)
