@@ -206,9 +206,10 @@ appFound = "true";
 			textinput2 = textinput.replace(textinput2.match(/(\d{2}:\d{2})/g),"")
 			
 			var saidToday = tk.readFile('saidToday.txt')
-			var time = tk.global("TIME")
-			time = time.split(".")
-			time = time[0]+":"+time[1]
+var today = new Date()
+var h = today.getHours()+":"
+var m = today.getMinutes()			
+		time = h+m
 			var re = /^When|^What|^How|^Why/gm
 			if(!saidToday.includes(textinput2) && !textinput2.match(re)){
 				var value = tk.global('Stateofbeing')
