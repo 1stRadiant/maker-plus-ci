@@ -574,7 +574,7 @@ try{
 process(inpuT);
 //alert(link)
 }catch(err){
-tk.flash(err)
+tk.flash(err.stack)
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 magicCode();
 }
