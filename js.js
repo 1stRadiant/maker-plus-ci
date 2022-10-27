@@ -563,12 +563,12 @@ inpuT = editor.session.getLine(currline)
 
 var row = editor.selection.lead.row
 var selText = ""
-editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //Type text or variable
 try{
 process(inpuT);
 //alert(link)
 }catch(err){
+editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 magicCode();
 }
 
