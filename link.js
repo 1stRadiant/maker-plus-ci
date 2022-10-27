@@ -195,15 +195,15 @@ appFound = "true";
 					}
 				}//for loop
 				
-				
+				alert("gets")
 				if(checkFound===false&&result===true){
 					magicCode();
 			}
 }
-			alert("gets")
+		
 			
 			
-			textinput2 = textinput.replace(textinput2.match(/(\d{2}:\d{2})/g),"")
+			textinput2 = textinput2.replace(textinput2.match(/(\d{2}:\d{2})/g),"")
 			
 			var saidToday = tk.readFile('saidToday.txt')
 var today = new Date()
