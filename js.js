@@ -587,7 +587,7 @@ editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //Type text or variable
 process(inpuT);
 
-}
+} 
 
 if(newText.includes("Voice")){
 tk.getVoice();
