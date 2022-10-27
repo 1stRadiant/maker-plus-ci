@@ -120,7 +120,7 @@ appFound = "true";
 				
 				checkFormat = /[()]/;
 				containSpec = checkFormat.test(read);
-				result = read.includes("undefined")
+				//result = read.includes("undefined")
 				if(read === "undefined"){
 					joined += " "+item;
 					
@@ -140,7 +140,7 @@ appFound = "true";
 			toRead = textinput.split(finalMatch);
 			read = tk.readFile(finalMatch+".txt");
 			tk.setGlobal("toRead",toRead[1]);
-			result = read.includes(undefined)
+			//result = read.includes(undefined)
 			
 			
 			
