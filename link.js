@@ -66,7 +66,7 @@ if(textinput.includes(" ")){
 					tk.flash(item);
 					appFound = "true";
 
-link = "true"
+//link = "true"
 
 				}
 			}
@@ -78,7 +78,7 @@ sapps.forEach(checkApps);
 function checkApps(item, index){
 if(item.toLowerCase()===textinput2.toLowerCase()){
 
-"link = true"
+//link = "true"
 
 
 if(item==="Chrome"){
