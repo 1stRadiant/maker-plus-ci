@@ -7,7 +7,7 @@ function process(inputer){
         link = "false"
 if(textinput.includes(" ")){
 	spl = textinput.split(" ");
-}
+} 
 	var joined;
 	var found;
 	var finalMatch;
