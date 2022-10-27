@@ -28,7 +28,7 @@ if(textinput.includes(" ")){
 	var format = /[()]/;
 	var spec;
 	
-		
+		 
 	checkFormat = /[()]/;
 	containSpec = checkFormat.test(textinput)
 	if(containSpec ==true){
