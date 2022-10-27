@@ -34,6 +34,7 @@ global: function(t){
 return fileSystem.variables[t]
 },
 setGlobal: function(t,s){
+alert(s)
 fileSystem.varables[t] = s
 }
 
