@@ -1392,12 +1392,13 @@ var keys = Object.keys( obj );
 
 
            if(!getProperty(obj,keys[i])){
-                 f = prompt(str[i], '');
+                 //f = prompt(str[i], '');
+                 tk.flash(str[i])
            }
 
       }else{
-                 f = prompt(str[i], '');
-
+                 //f = prompt(str[i], '');
+                tk.flash(str[i])
             }
 
        w = 1+i;
