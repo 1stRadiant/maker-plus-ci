@@ -2,7 +2,9 @@
 //  if(typeof tk !== "undefined" && tk !== null) {
 
  
-var fileSystem = {}
+var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
+
+
 var flashArray = []
 
 var ii =1;
@@ -838,6 +840,10 @@ tk.writeFile(current[0],editor.getValue(),false);
  tk.writeFile("session "+current[0]+".txt",JSON.stringify(sessionData),false)
 
 //editor.getValue();
+
+localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
+
+
 tk.flash('Saved!')
 }
 
