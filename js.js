@@ -505,21 +505,29 @@ lock = false
 }
 
 if(newText.includes("Paste")){
-newText = tk.pasteText()
+newText = editor.getCopyText()
 
 
 }
 
 if(newText.includes("Copy")){
 var text = editor.getSelectedText()
-tk.copyText(text)
+
+  /*var sel = editor.selection.toJSON(); // save selection
+  editor.selectAll();
+  editor.focus();*/
+  document.execCommand('copy');
+  //editor.selection.fromJSON(sel); // restore selection
+
 tk.flash("Copied!");
 
 }
 
 if(newText.includes("Cut")){
 var text = editor.getSelectedText()
-tk.copyText(text)
+
+  document.execCommand('copy');
+
 editor.insert("")
 //tk.flash("Cu!");
 
