@@ -513,24 +513,10 @@ newText = editor.getCopyText()
 if(newText.includes("Copy")){
 var text = editor.getSelectedText()
 
-  // 2. Store text that will be copied to clipboard
 let copyText = editor.getCopyText();
 
-// 3. Simulate Cut in the editor
 //editor.insert("");
 
-// 4. Verify if clipboard writing is allowed
-isClipboardWritingAllowed().then(function(allowed){
-
-    // 5. Write to clipboard if allowed (simulating that text has been cutted from the editor)
-    if(allowed){
-        navigator.clipboard.writeText(copyText).then(
-tk.flash("The text has been succesfully cutted to the clipboard!");
-        });
-    }
-}).catch(function(err){
-    tk.flash("Cannot copy to clipboard");
-});
 
 tk.flash("Copied!");
 
