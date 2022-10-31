@@ -227,7 +227,7 @@ if(!textinput2.match(re)){
 var knowledge = tk.readFile("knowledge.txt")
 
 var splSim = knowledge.split(".")
- 		      var matches = stringSimilarity.findBestMatch(str2,splSim);
+ 		      var matches = stringSimilarity.findBestMatch(textinput,splSim);
 	              var sims = matches.bestMatch.target
 	              tk.flash(sims)
 editor.insert(tk.readFile(sims+".txt"))
