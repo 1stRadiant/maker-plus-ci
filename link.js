@@ -224,8 +224,215 @@ if(!textinput2.match(re)){
 			var re = /^when|^what|^how|^why/gm
 			
 			if(textinput.match(re)){
+                      Enter  path as a string
+var nouns = tk.readFile('nouns.txt')
+var verbs = tk.readFile('verbs.txt')
+var adjectives = tk.readFile('adjectives.txt')
+var copulars = tk.readFile('copular.txt')
+var input = tk.readFile('infp.txt')
+var question = tk.readFile('ta.txt')
+input = input+tk.readFile('saidtoday.txt')
+var question = question.split("\n")
+//Enter  message as a string
+question = question[0]
+
+//Enter  message as a string
+
+
+
+//var question = "when did i go to get val"
+//question = "how was your day?"
+//question = "what his name?"
+//question = "when did you go to africa?"
+/*question = "how do cars run?"
+question = "how do i get Javascript?"
+question = "Where can I download JavaScript?"*/
+//question = "Is JavaScript Free?"
+//question = "what makes fire?"
+//question = "are infps assuming"
+/*question = "what do infps happily lose themselves in"*/
+//question = "what do infps invent all sorts of stories"
+//question = "what do mediators long for?"
+//question = "how do mediators about feel others?"
+input = input+ " Although they may seem quiet or unassuming, Mediators (INFPs) have vibrant passionate inner lives. Creative and imaginative, they happily lose themselves in daydreams, inventing all sorts of stories and conversations in their minds. Idealistic and empathetic, Mediators long for deep, soulful relationships, and they feel called to help others. But because this personality type makes up such a small portion of the population, Mediators may sometimes feel lonely or invisible, adrift in a world that doesn’t seem to appreciate the traits that make them unique. You don't have to get or download JavaScript. JavaScript is already running in your browser on your computer, on your tablet, and on your smart-phone. JavaScript is free to use for everyone. match sticks make fire. ehehdb ehdhd dhdh engines make cars run. little more ,difficulty. I in a lot of text and context I went to africa in 2012 lets make it hard for you. ndjf fjfjfj dhdhhd his name is Nigel. maybe something here my day was good. though im just making this up president munangagwa is in zimbabwe adding random text is fun and all that. president munangagwa is president of zimbabwe try to see if that will do."
+//question = "do mediators make friends easy?"
+//question = "what type of friends do keep close?"
+
+//question = "where is president munangagwa?"
+//question = "who is the president of zimbabwe?"
+//question = "what brings mediators happiness?"
+
+
+
+
+
+
+obj = {
+	" you " : iome(),
+	"I " : "you",
+	" my " : " your ",
+	" your " : " my ",
+	"go " : "went ",
+	"Is " : "",
+	his : "his",
+	her : "her",
+	was : "",
+	the : "",
+	are : "",
+	"s " : " ",
+	" is" : "",
+	how :"",
+	what : "",
+	who : "",
+	when : "",
+	where : "",
+	did : "",
+	can : "",
+	"do " : "",
+	"?" : ""
+	
+}
+
+
+input2 = input
+obj2 = {
+	"(":"",
+	")":"",
+	",":"",
+	"ing ":" "
+}
+
+input = input.replace(/\)|\(|\,|ing /gi, function(matched){
+	return obj2[matched];
+});
+
+var str;
+input = " "+input
+input = input.replace("."," ")
+input = input.toLowerCase()
+var splSim = input.split(".");
+
+
+question = question.toLowerCase()
+str = question.replace(/ you | me |I | my | your |go |Is |can |his|s |her|are|was|the| is|did|do |how|where|who|what|when|\?/gi, function(matched){
+	return obj[matched];
+});
+str = str.trim()
+str = str.toLowerCase()
+strSpl = str.split(" ")
+
+// 'the purple dinosaurs'
+
+
+
+var answerToProcess = str +" "+ everythingAfter(input,str)
+answerToProcess = answerToProcess.trim()
+var spl = input.split(" ");
+
+var str2 = ""
+
+//Stage one of processing
+toProcess = str
+var result = ""
+spl.forEach(processor);
+function processor(item, index){
+	
+	if(toProcess.includes(item) && !result.includes(item)){
+		
+		
+		result = result+" "+item
+		
+		
+		result = result.replace("undefined","")
+		
+		for ( var i = 0; i < strSpl.length; i++){
+			if(item.includes(strSpl[i])){
+				str2 = str2+" "+item
 				
-				eval(tk.readFile("qna.js"))
+			}
+			
+		}
+		
+	}
+}
+
+//Enter  message as a string
+
+
+
+result = result.trim()
+str = str.trim()
+str2 = str2.trim()
+changeProcess()
+result = result.split(str)
+result = str + result[1]
+
+
+
+
+
+//Stage two of processing
+str2 = str2.replace(".","")
+str2Spl = str2.split(" ")
+var strL = str2Spl.length
+var expStr = ""
+splSim.forEach(processor2);
+function processor2(item, index){
+	for ( var i = 0; i < strL; i++){
+		
+		//Enter  message as a string
+		
+		if(str2Spl.length > i){
+			if(item.includes(str2Spl[i]) && item.includes(str2Spl[i+1])){
+				expStr = expStr+" "+str2Spl[i]
+			}
+		}
+		
+		if(str2Spl.length-1 == i){
+			if(item.includes(str2Spl[i]) && item.includes(str2Spl[i-1])){
+				expStr = expStr+" "+str2Spl[i]
+				
+			}
+		}
+		
+	}
+}
+
+
+//alert(expStr+"thdh")
+if(strL != 0){
+	str2 = expStr.trim()
+	//str2 = "mediators feel"
+	//Filling in the gap
+	if(!input.includes(str2)){
+		for ( var i = 0; i < str2Spl.length; i++){
+			//Enter  message as a string
+			
+			try{
+				if(input.includes(str2Spl[i]+" "+wordAfter(input,str2Spl[i]))){
+					//add thrm togethrt
+					
+					str2 = str2Spl[i]+" "+wordAfter(input,str2Spl[i])
+					tk.flash(i)
+					
+				}
+			}catch(err4){
+				
+				str2 = str2+" "+str2Spl[i].trim()
+				
+			}
+		}
+	}
+	//Enter path as a string,Enter text as a string,append? true or false
+	var ok = tk.writeFile('testers.txt',str2,false)
+	
+	
+}
+
+		      var matches = stringSimilarity.findBestMatch(str2,splSim);
+	              var sims = matches.bestMatch.target
+	              tk.flash(sims)
+
 			}
 			
 		}//appfound
