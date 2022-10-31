@@ -237,7 +237,7 @@ var input = " Although they may seem quiet or unassuming, Mediators (INFPs) have
 alert("ggh")
 var splSim = input.split(".")
 
-		      var matches = stringSimilarity.findBestMatch(question,splSim);
+		      var matches = stringSimilarity.findBestMatch(textinput,splSim);
 	              var sims = matches.bestMatch.target
 	              tk.flash(sims)
 
