@@ -230,7 +230,7 @@ var splSim = knowledge.split(".")
  		      var matches = stringSimilarity.findBestMatch(str2,splSim);
 	              var sims = matches.bestMatch.target
 	              tk.flash(sims)
-editor.insert(tk.readFile("sims.txt"))
+editor.insert(tk.readFile(sims+".txt"))
 
 			}
 			
