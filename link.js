@@ -224,7 +224,7 @@ if(!textinput2.match(re)){
 			var re = /^when|^what|^how|^why/gm
 			
 			if(textinput.match(re)){
-
+var question = textinput
 var input = " Although they may seem quiet or unassuming, Mediators (INFPs) have vibrant passionate inner lives. Creative and imaginative, they happily lose themselves in daydreams, inventing all sorts of stories and conversations in their minds. Idealistic and empathetic, Mediators long for deep, soulful relationships, and they feel called to help others. But because this personality type makes up such a small portion of the population, Mediators may sometimes feel lonely or invisible, adrift in a world that doesn’t seem to appreciate the traits that make them unique. You don't have to get or download JavaScript. JavaScript is already running in your browser on your computer, on your tablet, and on your smart-phone. JavaScript is free to use for everyone. match sticks make fire. ehehdb ehdhd dhdh engines make cars run. little more ,difficulty. I in a lot of text and context I went to africa in 2012 lets make it hard for you. ndjf fjfjfj dhdhhd his name is Nigel. maybe something here my day was good. though im just making this up president munangagwa is in zimbabwe adding random text is fun and all that. president munangagwa is president of zimbabwe try to see if that will do."
 //question = "do mediators make friends easy?"
 //question = "what type of friends do keep close?"
