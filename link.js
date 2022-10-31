@@ -231,10 +231,7 @@ var adjectives = tk.readFile('adjectives.txt')
 var copulars = tk.readFile('copular.txt')
 var input = tk.readFile('infp.txt')
 var question = tk.readFile('ta.txt')
-input = input+tk.readFile('saidtoday.txt')
-var question = question.split("\n")
-//Enter  message as a string
-question = question[0]
+//input = input+tk.readFile('saidtoday.txt')
 
 //Enter  message as a string
 
@@ -267,7 +264,7 @@ alert("ggh")
 
 
 
-obj = {
+var obj1 = {
 	" you " : iome(),
 	"I " : "you",
 	" my " : " your ",
@@ -315,7 +312,7 @@ var splSim = input.split(".");
 
 question = question.toLowerCase()
 str = question.replace(/ you | me |I | my | your |go |Is |can |his|s |her|are|was|the| is|did|do |how|where|who|what|when|\?/gi, function(matched){
-	return obj[matched];
+	return obj1[matched];
 });
 str = str.trim()
 str = str.toLowerCase()
