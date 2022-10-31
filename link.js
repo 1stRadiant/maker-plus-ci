@@ -236,7 +236,14 @@ var input = " Although they may seem quiet or unassuming, Mediators (INFPs) have
 
 //var splSim = input.split(".")
  obj = {
-	" you " : iome(),
+	" you " : function(){
+	if(input.includes("I")){
+		var toRtn = " I "
+		return toRtn
+	}else{
+		var toRtn = " me "
+		return toRtn
+	},
 	"I " : "you",
 	" my " : " your ",
 	" your " : " my ",
