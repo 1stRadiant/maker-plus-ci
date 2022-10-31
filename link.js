@@ -263,7 +263,7 @@ input = input+ " Although they may seem quiet or unassuming, Mediators (INFPs) h
 //question = "what brings mediators happiness?"
 
 
-
+alert("ggh")
 
 
 
