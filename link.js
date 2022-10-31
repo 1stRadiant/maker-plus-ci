@@ -224,7 +224,7 @@ if(!textinput2.match(re)){
 			var re = /^when|^what|^how|^why/gm
 			
 			if(textinput.match(re)){
-var knowledge = tk.reaFile("knowledge.txt")
+var knowledge = tk.readFile("knowledge.txt")
 
 var splSim = knowledge.split(".")
  		      var matches = stringSimilarity.findBestMatch(str2,splSim);
