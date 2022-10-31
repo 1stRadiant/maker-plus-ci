@@ -269,7 +269,7 @@ var input = " Although they may seem quiet or unassuming, Mediators (INFPs) have
 }
 
 
-input2 = input
+var input2 = input
 obj2 = {
 	"(":"",
 	")":"",
