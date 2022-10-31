@@ -234,9 +234,8 @@ var input = " Although they may seem quiet or unassuming, Mediators (INFPs) have
 //question = "what brings mediators happiness?"
 
 
-alert("ggh")
 var splSim = input.split(".")
-
+ 
 		      var matches = stringSimilarity.findBestMatch(textinput,splSim);
 	              var sims = matches.bestMatch.target
 	              tk.flash(sims)
