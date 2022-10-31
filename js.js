@@ -1,7 +1,6 @@
  
 //  if(typeof tk !== "undefined" && tk !== null) {
 
- alert('gaga')
 var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
 
 
