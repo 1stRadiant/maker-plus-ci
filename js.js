@@ -586,7 +586,7 @@ process(inpuT);
 var sims = tk.readFile("currentSims.txt")
 
 editor.selection.selectLine();
-editor.session.insert(editor.getCursorPosition(), "")
+editor.insert("")
 
 editor.session.insert(editor.getCursorPosition(), tk.readFile(sims+".txt"))
 //alert(link)
