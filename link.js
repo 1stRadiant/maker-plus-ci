@@ -211,8 +211,8 @@ appFound = "true";
 var today = new Date()
 var h = today.getHours()+":"
 var m = today.getMinutes()			
-		time = h+m
-			var re = /^When|^What|^How|^Why/gm
+var time = h+m
+var re = /^When|^What|^How|^Why/gm
 
 if(!textinput2.match(re)){
 				//var value = tk.global('Stateofbeing')
