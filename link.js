@@ -92,7 +92,7 @@ tk.loadApp(item,'',false);
 appFound = "true";
 }//item===new_val
 		}//for loop*/
-		alert("1")
+	
 		if(appFound==="false"){
 			//Loop through the input
 			spl.forEach(myfunc);
