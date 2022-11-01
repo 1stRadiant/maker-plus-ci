@@ -585,10 +585,10 @@ try{
 process(inpuT);
 var sims = tk.readFile("currentSims.txt")
 
-editor.selection.selectLine();
-editor.insert("")
+//editor.selection.selectLine();
+//editor.insert("")
 
-editor.session.insert(editor.getCursorPosition(), tk.readFile(sims+".txt"))
+editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 //alert(link)
 }catch(err){
 tk.flash(err+"\n"+err.stack)
