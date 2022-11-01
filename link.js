@@ -231,7 +231,7 @@ var splSim = knowledge.split(".")
 	              var sims = matches.bestMatch.target
 
 
-tk.flash(tk.readFile(sims+".txt"))
+tk.flash(sims)
 
 			}
 			
