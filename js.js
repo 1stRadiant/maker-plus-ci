@@ -584,7 +584,7 @@ var selText = ""
 try{
 process(inpuT);
 var sims = tk.readFile("currentSims.txt")
-editor.insert(tk.readFile(sims+".txt"))
+editor.session.insert(editor.getCursorPosition(), tk.readFile(sims+".txt"))
 //alert(link)
 }catch(err){
 tk.flash(err+"\n"+err.stack)
