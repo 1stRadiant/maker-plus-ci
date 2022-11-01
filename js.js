@@ -582,7 +582,7 @@ var row = editor.selection.lead.row
 var selText = ""
 //Type text or variable
 try{
-//process(inpuT);
+process(inpuT);
 var sims = tk.readFile("currentSims.txt")
 
 //editor.selection.selectLine();
@@ -592,7 +592,6 @@ var column = editor.session.getLine(row).length // or simply Infinity
 editor.gotoLine(row + 1, column)
 
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
-//alert(link)
 }catch(err){
 tk.flash(err+"\n"+err.stack)
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
