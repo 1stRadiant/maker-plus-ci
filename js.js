@@ -602,7 +602,7 @@ magicCode();
 }
 
 if(newText.includes("Link Ai")){
-
+ 
 currline = editor.getSelectionRange().start.row;
 inpuT = editor.session.getLine(currline)
 //input2 = inpuT;
