@@ -583,6 +583,7 @@ var selText = ""
 //Type text or variable
 try{
 process(inpuT);
+var sims = tk.readFile("currentSims.txt")
 editor.insert(tk.readFile(sims+".txt"))
 //alert(link)
 }catch(err){
