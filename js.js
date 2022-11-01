@@ -582,7 +582,7 @@ var row = editor.selection.lead.row
 var selText = ""
 //Type text or variable
 try{
-process(inpuT);
+//process(inpuT);
 var sims = tk.readFile("currentSims.txt")
 
 //editor.selection.selectLine();
