@@ -229,7 +229,7 @@ var knowledge = tk.readFile("knowledge.txt")
 var splSim = knowledge.split(".")
  		      var matches = stringSimilarity.findBestMatch(textinput,splSim);
 	              var sims = matches.bestMatch.target
-
+tk.writeFile("currentSims.txt",sims,false)
 
 tk.flash(sims)
 
