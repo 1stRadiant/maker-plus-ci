@@ -504,19 +504,16 @@ lock = false
 }
 
 if(newText.includes("Paste")){
-newText = editor.getCopyText()
-
+navigator.clipboard.readText().then(function(text) {
+    editor.execCommand("paste", text)
+})
 
 }
 
 if(newText.includes("Copy")){
-var text = editor.getSelectedText()
-
-let copyText = editor.getCopyText();
-
-//editor.insert("");
-
-
+var text = editor.getCopyText()
+editor.execCommand("copy") // or cut
+navigator.clipboard.writeText(text)
 tk.flash("Copied!");
 
 }
