@@ -20,7 +20,7 @@ var time = h+m
 var re = /^When|^What|^How|^Why/gm
 
 if(!textinput.match(re)){
-				//var value = tk.global('Stateofbeing')
+				//var value = tk.global('Stateofbeing');
 				//say(greet)
 				var ok = tk.writeFile('saidToday.txt',textinput+" at "+time+". ",true)
 				
