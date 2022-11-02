@@ -149,7 +149,7 @@ ii = i+1;
 }
 }
 
-
+localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 }
 
 
@@ -588,7 +588,9 @@ var row = editor.session.getLength() - 1
 var column = editor.session.getLine(row).length // or simply Infinity
 //editor.gotoLine(row + 1, column)
 editor.execCommand("gotolineend")
+if(readFile(sims+".txt")!="undefined"){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
+}
 }catch(err){
 tk.flash(err+"\n"+err.stack)
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
@@ -785,7 +787,7 @@ ii = ii+1;
 }else{
 alert("PLEASE ENTER A VALID FILE PATH!")
 }
-
+localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 }
 
 function closeFile(){
@@ -835,7 +837,7 @@ editor.setValue(f);
 
 }
 
-
+localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 }
 
 function saveFile(){
