@@ -3,7 +3,7 @@
 
 var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
 
-alert("shsh")
+
 var flashArray = []
  
 var ii =1;
@@ -589,8 +589,8 @@ var sims = tk.readFile("currentSims.txt")
 //editor.insert(tk.readFile(sims+".txt"))
 var row = editor.session.getLength() - 1
 var column = editor.session.getLine(row).length // or simply Infinity
-editor.gotoLine(row + 1, column)
-
+//editor.gotoLine(row + 1, column)
+editor.execCommand("gotolineend")
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }catch(err){
 tk.flash(err+"\n"+err.stack)
@@ -699,7 +699,6 @@ var read = tk.readFile(newText);
 if(read!=undefined){
 
 tk.writeFile('Current.txt',newText,false);
-alert('1')
 extention = newText.split(".");
 extention = extention[1];
 
