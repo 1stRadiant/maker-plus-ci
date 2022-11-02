@@ -1198,6 +1198,7 @@ settingPoints = true;
 
 editor.getSession().on('change', function() {
   lock = false
+localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 });
 
 let rangePoints = [];
