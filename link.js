@@ -19,7 +19,7 @@ var m = today.getMinutes()
 var time = h+m
 var re = /^When|^What|^How|^Why/gm
 
-if(!textinput2.match(re)){
+if(!textinput.match(re)){
 				//var value = tk.global('Stateofbeing')
 				//say(greet)
 				var ok = tk.writeFile('saidToday.txt',textinput2+" at "+time+". ",true)
