@@ -48,13 +48,13 @@ tk.writeFile("currentSims.txt","",false)
 }
 			
 		}//appfound
-		
+magicCode()		
 count = 1
 	}
 
 }
 
-magicCode()
+
 	
 
 
