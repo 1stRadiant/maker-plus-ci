@@ -626,7 +626,7 @@ tk.writeFile("currentSims.txt",sims,false)
 tk.flash(sims)
 
 			}else{
-tk.writeFile("currentSims.txt","-",false)
+tk.writeFile("currentSims.txt","blankone",false)
   
 
 }
@@ -651,7 +651,7 @@ var row = editor.session.getLength() - 1
 var column = editor.session.getLine(row).length // or simply Infinity
 //editor.gotoLine(row + 1, column)
 editor.execCommand("gotolineend")
-if(tk.readFile(sims+".txt")!="-"){
+if(tk.readFile(sims+".txt")!="blankone"){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }
 
