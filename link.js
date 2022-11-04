@@ -1,5 +1,6 @@
-var count = 0
+
 function process(inputer){
+var count = 0;
 if(count == 0){
 	 var stateofbeing = ""
 	tk.flash('I am processing your request please wait...')
