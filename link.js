@@ -15,7 +15,7 @@ function process(inputer){
 	}else{
 
 
-			var saidToday = tk.readFile('saidToday.txt')
+			//var saidToday = tk.readFile('saidToday.txt')
 var today = new Date()
 var h = today.getHours()+":"
 var m = today.getMinutes()			
