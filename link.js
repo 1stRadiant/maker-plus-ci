@@ -14,7 +14,7 @@ function process(inputer){
 
 	}else{
 
-		tk.flash(inputer)	 		
+
 			var saidToday = tk.readFile('saidToday.txt')
 var today = new Date()
 var h = today.getHours()+":"
@@ -50,7 +50,7 @@ tk.writeFile("currentSims.txt","",false)
 count = 1
 	
 
-}
+} 
 
 
 	
