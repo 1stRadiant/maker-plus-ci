@@ -588,7 +588,7 @@ magicCode()
 
 	 var stateofbeing = ""
 	tk.flash('I am processing your request please wait...')
-	var textinput = inputer
+	var textinput = inpuT
 	 
 
 	checkFormat = /[()]/;
