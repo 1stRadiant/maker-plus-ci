@@ -578,7 +578,7 @@ inpuT = editor.session.getLine(currline)
 var row = editor.selection.lead.row
 var selText = ""
 //Type text or variable
-//try{
+try{
 process(inpuT);
 var sims = tk.readFile("currentSims.txt")
 
@@ -591,12 +591,13 @@ editor.execCommand("gotolineend")
 if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }
-//}catch(err){
-//tk.flash(err+"\n"+err.stack)
+}catch(err){
+tk.flash(err+"\n"+err.stack)
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //magicCode();
 
 
+}
 }
 
 if(newText.includes("Link Ai")){
