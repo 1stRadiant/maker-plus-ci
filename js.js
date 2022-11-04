@@ -627,7 +627,7 @@ tk.flash(sims)
 
 			}else{
 tk.writeFile("currentSims.txt","blankone",false)
-  
+  magicCode()
 
 }
 			
