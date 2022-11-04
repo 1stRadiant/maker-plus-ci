@@ -1,5 +1,5 @@
 function process(inputer){
-	 
+	 var stateofbeing = ""
 	tk.flash('I am processing your request please wait...')
 	var textinput = inputer
 	
@@ -8,6 +8,7 @@ function process(inputer){
 	var containSpec = checkFormat.test(textinput)
 	if(containSpec ==true){
 		eval(textinput)
+		stateofbeing = "true"
 
 	}else{
 
@@ -39,9 +40,11 @@ tk.flash(sims)
 
 			}else{
 tk.writeFile("currentSims.txt","",false)
+magicCode()
 }
 			
 		}//appfound
+		
 
 	}
 
