@@ -40,9 +40,10 @@ tk.flash(sims)
 
 			}else{
 tk.writeFile("currentSims.txt","",false)
-//if(inputer!=oldInputer){
+if(count==0){
 magicCode()
-//}
+count = 1
+}
 }
 			
 		}//appfound
