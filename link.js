@@ -13,7 +13,7 @@ function process(inputer){
 		stateofbeing = "true"
 
 	}else{
-magicCode()
+
 
 			var saidToday = tk.readFile('saidToday.txt')
 var today = new Date()
