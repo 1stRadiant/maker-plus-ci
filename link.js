@@ -5,7 +5,7 @@ function process(inputer){
 	tk.flash('I am processing your request please wait...')
 	var textinput = inputer
 	 
-	tk.flash(inputer)	 
+
 	checkFormat = /[()]/;
 	var containSpec = checkFormat.test(textinput)
 	if(containSpec ==true){
@@ -14,7 +14,7 @@ function process(inputer){
 
 	}else{
 
-			
+		tk.flash(inputer)	 		
 			var saidToday = tk.readFile('saidToday.txt')
 var today = new Date()
 var h = today.getHours()+":"
