@@ -581,8 +581,8 @@ var selText = ""
 try{
 var str = aliases2.split("\n")
 if(str.includes(inpuT)){
-magicCode()
 alert("her")
+magicCode()
 }else{
 process(inpuT);
 }
