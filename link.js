@@ -1,4 +1,5 @@
 function process(inputer){
+if(count == 0){
 	 var stateofbeing = ""
 	tk.flash('I am processing your request please wait...')
 	var textinput = inputer
@@ -40,17 +41,17 @@ tk.flash(sims)
 
 			}else{
 tk.writeFile("currentSims.txt","",false)
-if(count==0){
 magicCode()
-count = 1
-}
+
+
 }
 			
 		}//appfound
 		
-
+count = 1
 	}
 
+}
 
 	
 
