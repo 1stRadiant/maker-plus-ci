@@ -8,7 +8,7 @@ var flashArray = []
  
 var ii =1;
 
-//alert("still")
+alert("still")
 
 tk = {
 readFile: function(f){
