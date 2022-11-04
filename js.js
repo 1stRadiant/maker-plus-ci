@@ -594,7 +594,7 @@ editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }catch(err){
 tk.flash(err+"\n"+err.stack)
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
-magicCode();
+//magicCode();
 }
 
 }
