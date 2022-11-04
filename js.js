@@ -568,7 +568,7 @@ selectFromTo();
 }
 
 if(newText.includes("Codify!")){
-
+var count = 0
 
 currline = editor.getSelectionRange().start.row;
 inpuT = editor.session.getLine(currline)
