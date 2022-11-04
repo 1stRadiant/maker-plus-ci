@@ -1,6 +1,6 @@
   
 //  if(typeof tk !== "undefined" && tk !== null) {
-var count;
+
 var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
 
 
