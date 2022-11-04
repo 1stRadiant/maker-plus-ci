@@ -1,3 +1,4 @@
+var count = 0
 function process(inputer){
 if(count == 0){
 	 var stateofbeing = ""
