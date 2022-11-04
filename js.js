@@ -582,6 +582,7 @@ try{
 var str = aliases2.split("\n")
 if(str.includes(inpuT)){
 magicCode()
+alert("her")
 }else{
 process(inpuT);
 }
