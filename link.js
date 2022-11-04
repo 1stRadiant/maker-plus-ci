@@ -47,7 +47,7 @@ tk.writeFile("currentSims.txt","",false)
 }
 			
 		}//appfound		
-count = 1
+
 	
 
 } 
