@@ -41,7 +41,6 @@ tk.flash(sims)
 
 			}else{
 tk.writeFile("currentSims.txt","",false)
-magicCode()
 
 
 }
@@ -53,6 +52,7 @@ count = 1
 
 }
 
+magicCode()
 	
 
 
