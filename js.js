@@ -27,7 +27,7 @@ flash: function(t){
 flashArray.push(t)
 toFlash(t)
 },
-
+ 
 ReadFromAssets: function(f){
  return fileSystem[f]
 },
