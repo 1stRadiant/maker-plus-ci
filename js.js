@@ -581,7 +581,6 @@ var selText = ""
 try{
 var str = aliases2.split("\n")
 if(str.includes(inpuT)){
-alert("her")
 magicCode()
 }else{
 
@@ -1513,6 +1512,8 @@ editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), newText)  */
 readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 
 editor.insert(readd)
+editor.find('*1');
+editor.replace('');
 
 
 //}
