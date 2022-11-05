@@ -1518,9 +1518,9 @@ readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 splRead = readd.split(/\*[0-9]/)
 editor.insert(splRead[1])
 
-/*for (var i = 0; i < splRead.length; i++) {
+for (var i = 0; i < splRead.length; i++) {
 var btn = document.createElement("button");
-var t = document.createTextNode(as[i]);
+var t = document.createTextNode(splRead[i]);
 document.getElementById('lowSlide').appendChild(btn);
 
 btn.textContent = splRead[i];
@@ -1536,7 +1536,7 @@ btn.setAttribute("onclick", "editor.insert("+splRead[i]");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 
-}*/
+}
 }catch(err){
 tk.flash(err)
 }
