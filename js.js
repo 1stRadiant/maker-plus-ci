@@ -1526,13 +1526,13 @@ document.getElementById('lowSlide').appendChild(btn);
 btn.textContent = splRead[i];
 btn.setAttribute("id", "as"+i);
 btn.setAttribute("class", "as"+i);
-btn.setAttribute("style", "width:100px");
-btn.setAttribute("style", "height:20px");
+btn.setAttribute("style", "width:100px;");
+btn.setAttribute("style", "height:20px;");
 
 //var textarea = document.getElementById("ta");
 
 var toLoad = "as"+i;
-btn.setAttribute("onclick", "editor.insert("+splRead[i]");
+btn.setAttribute("onclick", "editor.insert("+splRead[i]+");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 
