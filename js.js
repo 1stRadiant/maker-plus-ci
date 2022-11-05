@@ -1506,14 +1506,14 @@ var keys = Object.keys( obj );
        
 
    }
-
+try{
    readd = replaceLine2(readd,0);
    tk.writeFile('Alias.txt',readd,false);
 var row = editor.selection.lead.row
 newText = readd
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), newText)  
 readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
-try {
+
 
 splRead = readd.split(/\*[0-9]/)
 editor.insert(splRead[1])
