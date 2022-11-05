@@ -1517,7 +1517,7 @@ try {
 splRead = readd.split(/\*[0-9]/)
 editor.insert(splRead[1])
 
-for (var i = 0; i < splRead.length; i++) {
+/*for (var i = 0; i < splRead.length; i++) {
 var btn = document.createElement("button");
 var t = document.createTextNode(as[i]);
 document.getElementById('lowSlide').appendChild(btn);
@@ -1535,7 +1535,7 @@ btn.setAttribute("onclick", "editor.insert("+splRead[i]");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 
-}
+}*/
 }catch(err){
 tk.flash(err)
 }
