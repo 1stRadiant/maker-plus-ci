@@ -1,4 +1,4 @@
-try{  
+try{   
 //  if(typeof tk !== "undefined" && tk !== null) {
 var splRead = []
 var codifying = 0
@@ -1596,5 +1596,5 @@ function handleError(evt) {
 }
 
 }catch (err){
-tk.flash(err)
+alert(err)
 }
