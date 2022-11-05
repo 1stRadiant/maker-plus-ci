@@ -227,18 +227,20 @@ var slides = document.getElementById('slides');
 function printBtn(){
 //lowSlide
 
-for (var i = 0; i < as.length; i++) {
+for (var i = 0; i < 5; i++) {
 var btn = document.createElement("button");
 var t = document.createTextNode(as[i]);
 document.getElementById('lowSlide').appendChild(btn);
 
-btn.textContent = as[i];
+btn.textContent = "";
 btn.setAttribute("id", "as"+i);
 btn.setAttribute("class", "as"+i);
+btn.setAttribute("style", "width:50px");
+
 //var textarea = document.getElementById("ta");
 
 var toLoad = "as"+i;
-btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; alias(); ");
+//btn.setAttribute("onclick", "editor.insert("+ ");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 }
