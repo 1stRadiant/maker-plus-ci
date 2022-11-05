@@ -575,8 +575,6 @@ if(newText.includes("Codify!")){
 currline = editor.getSelectionRange().start.row;
 inpuT = editor.session.getLine(currline)
 //input2 = inpuT;
-
-
 var row = editor.selection.lead.row
 var selText = ""
 //Type text or variable
@@ -1536,13 +1534,13 @@ var toLoad = "as"+i;
 btn.setAttribute("onclick", "editor.insert("+splRead[i]");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
-*/
-}
+
+}*/
 }catch(err){
 tk.flash(err)
 }
 
-codifying = 1;
+
 //editor.replace('');
 
 
