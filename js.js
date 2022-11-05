@@ -1515,6 +1515,7 @@ newText = readd
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), newText)  */
 readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 try {
+/*
 splRead = readd.split(/\*[0-9]/)
 editor.insert(splRead[1])
 
@@ -1535,6 +1536,7 @@ var toLoad = "as"+i;
 btn.setAttribute("onclick", "editor.insert("+splRead[i]");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
+*/
 }
 }catch(err){
 tk.flash(err)
