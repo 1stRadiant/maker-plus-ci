@@ -1,6 +1,7 @@
   
 //  if(typeof tk !== "undefined" && tk !== null) {
-
+var splRead = []
+var codifying = 0
 var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
 
 
@@ -569,7 +570,7 @@ selectFromTo();
 
 if(newText.includes("Codify!")){
 
-
+if(splRead.length===0){
 currline = editor.getSelectionRange().start.row;
 inpuT = editor.session.getLine(currline)
 //input2 = inpuT;
@@ -659,6 +660,9 @@ tk.flash(err+"\n"+err.stack)
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //magicCode();
 
+
+}
+}else{
 
 }
 }
@@ -1510,9 +1514,9 @@ var keys = Object.keys( obj );
 newText = readd
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), newText)  */
 readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
-
-editor.insert(readd)
-editor.find('*1');
+splRead = readd.split(/\*[0-9]/)
+editor.insert(splRead[1])
+codifying = 1;
 //editor.replace('');
 
 
