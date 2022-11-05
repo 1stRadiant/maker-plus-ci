@@ -235,7 +235,7 @@ document.getElementById('lowSlide').appendChild(btn);
 btn.textContent = "";
 btn.setAttribute("id", "as"+i);
 btn.setAttribute("class", "as"+i);
-btn.setAttribute("style", "width:50px");
+btn.setAttribute("style", "width:100px");
 
 //var textarea = document.getElementById("ta");
 
@@ -572,7 +572,6 @@ selectFromTo();
 
 if(newText.includes("Codify!")){
 
-if(splRead.length===0){
 currline = editor.getSelectionRange().start.row;
 inpuT = editor.session.getLine(currline)
 //input2 = inpuT;
@@ -664,9 +663,8 @@ editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 
 
 }
-}else{
 
-}
+
 }
 
 if(newText.includes("Link Ai")){
@@ -1518,6 +1516,26 @@ editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), newText)  */
 readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 splRead = readd.split(/\*[0-9]/)
 editor.insert(splRead[1])
+
+for (var i = 0; i < splRead.length; i++) {
+var btn = document.createElement("button");
+var t = document.createTextNode(as[i]);
+document.getElementById('lowSlide').appendChild(btn);
+
+btn.textContent = splRead[i];
+btn.setAttribute("id", "as"+i);
+btn.setAttribute("class", "as"+i);
+btn.setAttribute("style", "width:100px");
+btn.setAttribute("style", "height:20px");
+
+//var textarea = document.getElementById("ta");
+
+var toLoad = "as"+i;
+btn.setAttribute("onclick", "editor.insert("+splRead[i]");
+//btn.setAttribute("onclick","alert('gets here');");
+//ii = i+1;
+}
+
 codifying = 1;
 //editor.replace('');
 
