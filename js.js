@@ -1513,7 +1513,7 @@ readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 
 editor.insert(readd)
 editor.find('*1');
-editor.replace('');
+//editor.replace('');
 
 
 //}
