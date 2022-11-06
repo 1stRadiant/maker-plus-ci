@@ -1516,7 +1516,7 @@ readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 
 
 splRead = readd.split(/\*[0-9]/)
-editor.insert(splRead[1])
+
 
 for (var i = 0; i < splRead.length; i++) {
 var btn = document.createElement("button");
@@ -1530,9 +1530,11 @@ btn.setAttribute("style", "width:100px;");
 btn.setAttribute("style", "height:20px;");
 
 //var textarea = document.getElementById("ta");
-
+if(i === 0){
+editor.insert(splRead[0])
+}
 var toLoad = "as"+i;
-btn.setAttribute("onclick", "editor.insert("+splRead[i]+");");
+btn.setAttribute("onclick", "editor.insert('"+splRead[i]+"');");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 
