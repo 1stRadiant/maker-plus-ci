@@ -1534,7 +1534,7 @@ if(i === 0){
 editor.insert(splRead[0])
 }
 var toLoad = "as"+i;
-btn.setAttribute("onclick", "editor.insert('text');");
+btn.setAttribute("onclick", "editor.insert('"+splRead[i]+"');");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 
