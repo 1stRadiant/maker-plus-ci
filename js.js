@@ -582,7 +582,7 @@ var selText = ""
 try{
 var str = aliases2.split("\n")
 if(str.includes(inpuT)){
-magicCode()
+//magicCode()
 }else{
 
 
