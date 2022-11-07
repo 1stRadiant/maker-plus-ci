@@ -1518,27 +1518,25 @@ readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 splRead = readd.split(/\*[0-9]/)
 
 
-for (var i = 0; i < splRead.length; i++) {
+
 var btn = document.createElement("button");
-var t = document.createTextNode(splRead[i]);
+var t = document.createTextNode(splRead[codifying]);
 document.getElementById('lowSlide').appendChild(btn);
 
-btn.textContent = splRead[i];
+btn.textContent = splRead[codifying];
 btn.setAttribute("id", "as"+i);
 btn.setAttribute("class", "as"+i);
 btn.setAttribute("style", "width:100px;");
 btn.setAttribute("style", "height:20px;");
 
 //var textarea = document.getElementById("ta");
-if(i === 0){
+
 editor.insert(splRead[0])
-}
-var toLoad = "as"+i;
+var toLoad = "as"+codifying;
 btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent);");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 
-}
 }catch(err){
 tk.flash(err)
 }
