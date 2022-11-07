@@ -1523,6 +1523,7 @@ function removeDummy() {
 if (typeof(element) != 'undefined' && element != null)
 {
 element.textContent = splRead[codifying];
+editor.insert(splRead[codifying-1])
 }else{
 var btn = document.createElement("button");
 var t = document.createTextNode(splRead[codifying]);
