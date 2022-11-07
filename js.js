@@ -1479,12 +1479,12 @@ var keys = Object.keys( obj );
 
            if(!getProperty(obj,keys[i])){
                  //f = prompt(str[i], '');
-                 tk.flash(str[i])
+                 //tk.flash(str[i])
            }
 
       }else{
                  //f = prompt(str[i], '');
-                tk.flash(str[i])
+                //tk.flash(str[i])
             }
 
        w = 1+i;
@@ -1522,6 +1522,7 @@ if (typeof(element) != 'undefined' && element != null)
 {
 element.textContent = splRead[1];
 editor.insert(splRead[0])
+tk.flash(str[0])
 codifying = 2
 }else{
 var btn = document.createElement("button");
@@ -1538,9 +1539,10 @@ btn.setAttribute("style", "height:20px;");
 
 editor.insert(splRead[0])
 var toLoad = "as0";
-btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1");
+btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1; tk.flash(str["+codifying+"])");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
+tk.flash(str[0])
 codifying = 2
 }
 
