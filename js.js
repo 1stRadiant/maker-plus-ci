@@ -1536,7 +1536,7 @@ var toLoad = "as"+codifying;
 btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent);");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
-
+codifying = codifying+1
 }catch(err){
 tk.flash(err)
 }
