@@ -2,7 +2,7 @@ try{
 
 //  if(typeof tk !== "undefined" && tk !== null) {
 var splRead = []
-var codifying = 0
+var codifying = 1
 var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
 
 
