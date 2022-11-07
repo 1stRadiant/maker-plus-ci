@@ -1517,7 +1517,12 @@ readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 
 splRead = readd.split(/\*[0-9]/)
 
-
+function removeDummy() {
+    var elem = document.getElementById('as0');
+    elem.parentNode.removeChild(elem);
+    return false;
+}
+removeDummy()
 
 var btn = document.createElement("button");
 var t = document.createTextNode(splRead[codifying]);
