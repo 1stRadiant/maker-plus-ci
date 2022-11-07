@@ -1518,8 +1518,12 @@ readd = readd.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
 splRead = readd.split(/\*[0-9]/)
 
 function removeDummy() {
-    var elem = document.getElementById('as0');
+
+    var element = document.getElementById('as0');
+if (typeof(element) != 'undefined' && element != null)
+{
     elem.parentNode.removeChild(elem);
+}
     return false;
 }
 removeDummy()
