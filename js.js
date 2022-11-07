@@ -1524,6 +1524,7 @@ if (typeof(element) != 'undefined' && element != null)
 {
 element.textContent = splRead[1];
 editor.insert(splRead[0])
+codifying = 2
 }else{
 var btn = document.createElement("button");
 var t = document.createTextNode(splRead[codifying]);
@@ -1539,12 +1540,12 @@ btn.setAttribute("style", "height:20px;");
 
 editor.insert(splRead[0])
 var toLoad = "as0";
-btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent);");
+btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
-
+codifying = 2
 }
-codifying = codifying+1
+
     return false;
 }
 removeDummy()
