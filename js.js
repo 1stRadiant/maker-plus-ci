@@ -1533,15 +1533,15 @@ var t = document.createTextNode(splRead[codifying]);
 document.getElementById('lowSlide').appendChild(btn);
 
 btn.textContent = splRead[codifying];
-btn.setAttribute("id", "as"+i);
-btn.setAttribute("class", "as"+i);
+btn.setAttribute("id", "as0");
+btn.setAttribute("class", "as0");
 btn.setAttribute("style", "width:100px;");
 btn.setAttribute("style", "height:20px;");
 
 //var textarea = document.getElementById("ta");
 
 editor.insert(splRead[0])
-var toLoad = "as"+codifying;
+var toLoad = "as0";
 btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent);");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
