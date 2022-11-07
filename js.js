@@ -1529,7 +1529,7 @@ var btn = document.createElement("button");
 var t = document.createTextNode(splRead[codifying]);
 document.getElementById('lowSlide').appendChild(btn);
 
-btn.textContent = splRead[1];
+btn.textContent = splRead[1]
 btn.setAttribute("id", "as0");
 btn.setAttribute("class", "as0");
 btn.setAttribute("style", "width:100px;");
