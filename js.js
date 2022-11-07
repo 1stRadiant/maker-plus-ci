@@ -1522,7 +1522,7 @@ function removeDummy() {
     var element = document.getElementById('as0');
 if (typeof(element) != 'undefined' && element != null)
 {
-    elem.parentNode.removeChild(elem);
+    element.parentNode.removeChild(element);
 }
     return false;
 }
