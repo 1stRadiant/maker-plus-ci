@@ -1522,14 +1522,14 @@ function removeDummy() {
     var element = document.getElementById('as0');
 if (typeof(element) != 'undefined' && element != null)
 {
-element.textContent = splRead[codifying];
+element.textContent = splRead[1];
 editor.insert(splRead[0])
 }else{
 var btn = document.createElement("button");
 var t = document.createTextNode(splRead[codifying]);
 document.getElementById('lowSlide').appendChild(btn);
 
-btn.textContent = splRead[codifying];
+btn.textContent = splRead[1];
 btn.setAttribute("id", "as0");
 btn.setAttribute("class", "as0");
 btn.setAttribute("style", "width:100px;");
