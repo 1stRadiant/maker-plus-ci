@@ -1522,12 +1522,8 @@ function removeDummy() {
     var element = document.getElementById('as0');
 if (typeof(element) != 'undefined' && element != null)
 {
-    element.parentNode.removeChild(element);
-}
-    return false;
-}
-removeDummy()
-
+element.textContent = splRead[codifying];
+}else{
 var btn = document.createElement("button");
 var t = document.createTextNode(splRead[codifying]);
 document.getElementById('lowSlide').appendChild(btn);
@@ -1546,6 +1542,12 @@ btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).text
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 codifying = codifying+1
+}
+    return false;
+}
+removeDummy()
+
+
 }catch(err){
 tk.flash(err)
 }
