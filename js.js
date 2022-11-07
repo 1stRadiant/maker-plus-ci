@@ -572,7 +572,7 @@ selectFromTo();
 }
 
 if(newText.includes("Codify!")){
-
+codifying = 1
 currline = editor.getSelectionRange().start.row;
 inpuT = editor.session.getLine(currline)
 //input2 = inpuT;
@@ -1542,8 +1542,9 @@ var toLoad = "as0";
 btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent);");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
-codifying = codifying+1
+
 }
+codifying = codifying+1
     return false;
 }
 removeDummy()
