@@ -658,8 +658,8 @@ var sims = tk.readFile("currentSims.txt")
 //editor.selection.selectLine();
 //editor.insert(tk.readFile(sims+".txt"))
 editor.execCommand("gotolineend")
-editor.gotoLine(store,column,true)
-editor.session.insert(store, "")
+editor.focus()
+editor.blur()
 editor.focus()
 if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
