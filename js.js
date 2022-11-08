@@ -661,7 +661,6 @@ var row = editor.session.getLength() - 1
 var column = editor.session.getLine(row).length // or simply Infinity
 //editor.gotoLine(row + 1, column)
 editor.execCommand("gotolineend")
-	editor.focus()
 if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }
@@ -1535,8 +1534,7 @@ if (typeof(element) != 'undefined' && element != null)
 {
 element.textContent = splRead[1];
 editor.insert(splRead[0])
-editor.blur()
-editor.focus()
+
 tk.flash(str[0])
 codifying = 2
 }else{
@@ -1553,11 +1551,10 @@ btn.setAttribute("style", "height:20px;");
 //var textarea = document.getElementById("ta");
 
 editor.insert(splRead[0])
-editor.blur()
 editor.focus()
 var toLoad = "as0";
 str2 = str
-btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); editor.blur(); editor.focus(); document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1; tk.flash(str2["+codifying+"])");
+btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); editor.focus(); document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1; tk.flash(str2["+codifying+"])");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 tk.flash(str[0])
