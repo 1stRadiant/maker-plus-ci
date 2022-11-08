@@ -661,6 +661,8 @@ editor.execCommand("gotolineend")
 editor.focus()
 editor.blur()
 editor.focus()
+
+
 if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }
@@ -1558,7 +1560,7 @@ editor.insert(splRead[0])
 
 var toLoad = "as0";
 str2 = str
-btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1; tk.flash(str2["+codifying+"])");
+btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); document.getElementById(this.id).textContent = splRead[codifying]; editor.focus(); editor.blur(); editor.focus(); codifying = codifying+1; tk.flash(str2["+codifying+"])");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 tk.flash(str[0])
