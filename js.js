@@ -1189,7 +1189,7 @@ tk.writeFile(current[0]+'data.txt',store,false);
 
 editor.on("focus", function() {
 actionLast = "focus"
- e.setAttribute("style","height:150px");
+ e.setAttribute("style","height:50px");
 editor.resize()
 
 if(quickKey == false){
