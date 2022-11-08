@@ -87,6 +87,7 @@ buttonElm.textContent = flashArray[flashArray.length]
 await delay(800);
 buttonElm.textContent = flashArray[i]
 }
+}
  
 /*
 if(ccount == 1){
