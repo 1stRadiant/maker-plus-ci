@@ -661,6 +661,7 @@ var row = editor.session.getLength() - 1
 var column = editor.session.getLine(row).length // or simply Infinity
 //editor.gotoLine(row + 1, column)
 editor.execCommand("gotolineend")
+editor.insert("")
 if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }
