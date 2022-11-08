@@ -1523,6 +1523,7 @@ if (typeof(element) != 'undefined' && element != null)
 {
 element.textContent = splRead[1];
 editor.insert(splRead[0])
+editor.focus()
 tk.flash(str[0])
 codifying = 2
 }else{
@@ -1539,9 +1540,10 @@ btn.setAttribute("style", "height:20px;");
 //var textarea = document.getElementById("ta");
 
 editor.insert(splRead[0])
+editor.focus()
 var toLoad = "as0";
 str2 = str
-btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1; tk.flash(str2["+codifying+"])");
+btn.setAttribute("onclick", "editor.insert(document.getElementById(this.id).textContent); editor.focus() document.getElementById(this.id).textContent = splRead[codifying]; codifying = codifying+1; tk.flash(str2["+codifying+"])");
 //btn.setAttribute("onclick","alert('gets here');");
 //ii = i+1;
 tk.flash(str[0])
