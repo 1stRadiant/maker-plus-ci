@@ -8,7 +8,7 @@ var flashArray = []
  
 var ii =1;
 
-alert("starting...")
+//alert("starting...")
 
 tk = {
 readFile: function(f){
@@ -658,7 +658,7 @@ var sims = tk.readFile("currentSims.txt")
 //editor.selection.selectLine();
 //editor.insert(tk.readFile(sims+".txt"))
 editor.execCommand("gotolineend")
-editor.moveCursorLineEnd()
+editor.insert(" ")
 editor.blur()
 editor.focus()
 if(tk.readFile(sims+".txt")!=undefined){
