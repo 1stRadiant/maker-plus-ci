@@ -658,8 +658,8 @@ var sims = tk.readFile("currentSims.txt")
 //editor.selection.selectLine();
 //editor.insert(tk.readFile(sims+".txt"))
 editor.execCommand("gotolineend")
-editor.insert(" ")
-editor.blur()
+editor.gotoLine(store,column,true)
+editor.session.insert(store, "")
 editor.focus()
 if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
@@ -1270,11 +1270,15 @@ actionLast = "scroll"
 
 editor.session.selection.on('changeCursor', function(){
 settingPoints = true;
+store = editor.getCursorPosition().row+1;
+ column = editor.getCursorPosition().column
 });
 
 
 editor.getSession().on('change', function() {
-  lock = false
+store = editor.getCursorPosition().row+1;
+ column = editor.getCursorPosition().column
+lock = false
 localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 });
 
