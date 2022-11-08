@@ -8,7 +8,7 @@ var flashArray = []
  
 var ii =1;
 
-alert("starting...")
+//alert("starting...")
 
 tk = {
 readFile: function(f){
@@ -71,6 +71,17 @@ var oldText, i
 async function toFlash(f) {
 
 for(var i = 0; i < flashArray.length; i++){
+if(flashArray.length > 3){
+await delay(500);
+buttonElm.textContent = flashArray[flashArray.length]
+await delay(500);
+buttonElm.textContent = flashArray[i]
+}else if(flashArray.length > 5){
+await delay(100);
+buttonElm.textContent = flashArray[flashArray.length]
+await delay(100);
+buttonElm.textContent = flashArray[i]
+}else{
 await delay(800);
 buttonElm.textContent = flashArray[flashArray.length]
 await delay(800);
