@@ -1231,6 +1231,8 @@ editor.setValue(indented)
 editor.gotoLine(store,column,true)
 editor.session.insert(store, "")
 editor.focus()
+editor.blur()
+editor.focus()
 rtn = true;
         // Call event.preventDefault() to stop the character before the cursor
         // from being deleted. Remove this line if you don't want to do that.
@@ -1272,8 +1274,8 @@ actionLast = "scroll"
 
 editor.session.selection.on('changeCursor', function(){
 settingPoints = true;
-store = editor.getCursorPosition().row+1;
- column = editor.getCursorPosition().column
+//store = editor.getCursorPosition().row+1;
+ //column = editor.getCursorPosition().column
 });
 
 
