@@ -1215,9 +1215,9 @@ store = editor.getCursorPosition().row+1;
 var code = editor.getValue();
 var indented = indent.js(code, {tabString: '\t'});
 editor.setValue(indented)
-editor.gotoLine(store,column,true)
-editor.session.insert(store, "")
-editor.focus()
+//editor.gotoLine(store,column,true)
+//editor.session.insert(store, "")
+//editor.focus()
 rtn = true;
 });
 
