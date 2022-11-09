@@ -77,9 +77,9 @@ buttonElm.textContent = flashArray[flashArray.length]
 //await delay(500);
 buttonElm.textContent = flashArray[i]
 }else if(flashArray.length > 5){
-await delay(100);
+//await delay(100);
 buttonElm.textContent = flashArray[flashArray.length]
-await delay(100);
+//await delay(100);
 buttonElm.textContent = flashArray[i]
 }else{
 await delay(800);
