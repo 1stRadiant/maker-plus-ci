@@ -72,9 +72,9 @@ async function toFlash(f) {
 
 for(var i = 0; i < flashArray.length; i++){
 if(flashArray.length > 3){
-await delay(500);
+//await delay(500);
 buttonElm.textContent = flashArray[flashArray.length]
-await delay(500);
+//await delay(500);
 buttonElm.textContent = flashArray[i]
 }else if(flashArray.length > 5){
 await delay(100);
@@ -520,6 +520,7 @@ lock = false
 if(newText.includes("Paste")){
 navigator.clipboard.readText().then(function(text) {
     editor.execCommand("paste", text)
+    newText = ""
 })
 
 }
