@@ -1272,8 +1272,8 @@ actionLast = "scroll"
 
 editor.session.selection.on('changeCursor', function(){
 settingPoints = true;
-//store = editor.getCursorPosition().row+1;
- //column = editor.getCursorPosition().column
+store = editor.getCursorPosition().row+1;
+ column = editor.getCursorPosition().column
 });
 
 
