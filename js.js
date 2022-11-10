@@ -579,7 +579,7 @@ inpuT = editor.session.getLine(currline)
 var row = editor.selection.lead.row
 var selText = ""
 //Type text or variable
-try{
+//try{
 var str = aliases2.split("\n")
 if(str.includes(inpuT)){
 //magicCode()
@@ -657,13 +657,13 @@ if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 }
 
-}catch(err){
+//}catch(err){
 tk.flash(err+"\n"+err.stack)
 editor.session.replace(new Range(row, 0, row, Number.MAX_VALUE), selText)
 //magicCode();
 
 
-}
+//}
 
 
 }
