@@ -1,4 +1,4 @@
-try{  
+//try{  
  
 //  if(typeof tk !== "undefined" && tk !== null) {
 var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
@@ -1622,6 +1622,6 @@ function handleError(evt) {
 //alert(evt)
 }
 
-}catch (err){
-alert(err)
-}
+//}catch (err){
+//alert(err)
+//}
