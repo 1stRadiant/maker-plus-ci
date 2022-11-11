@@ -247,44 +247,7 @@ var toLoad = "as"+i;
 
 //upperSlide
 interface()
-function interface(){
-try{
-const myNode = document.getElementById("card21");
-  myNode.innerHTML = '';
-var current = tk.readFile("Current.txt")
-var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import"];
-current = current.split("\n")
-var ext = current[0].split(".")
-var list2 = tk.readFile("inft."+ext[1])
-var list1 = tk.readFile("intf"+current[0])
 
-if(list2!=undefined){
-list = list2.split("\n")
-}
-
-if(list1!=undefined){
-list = list1.split("\n")
-}
-
-
-
-for (var i = 0; i < list.length; i++) {
-var btn = document.createElement("button");
-var t = document.createTextNode(list [i]);
-document.getElementById('card21').appendChild(btn);
-btn.textContent = list [i];
-btn.setAttribute("id", "bttn"+i);
-var textarea = document.getElementById("ta");
-
-var toLoad = list[i];
-btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){editor.insert(newText); editor.focus();} ");
-//var bttn = document.getElementById("bttn");
-//bttn.onclick = function() { setTextTo(this);};
-}
-}catch(err){
-tk.flash(err)
-}
-}
 
 var r = tk.readFile("filelist.txt");
 //tk.flash ("this far");
@@ -305,7 +268,7 @@ btn.setAttribute("class", r[i]);
 
 var toLoad = r[i];
 
-btn.setAttribute("onclick", "tk.writeFile('Current.txt\','"+toLoad+"\',false); tk.flash('"+toLoad+"'); detectMode(); editor.setValue('"+toLoad+"\'); editor.setValue(tk.readFile('"+toLoad+"\'));");
+btn.setAttribute("onclick", "tk.writeFile('Current.txt\','"+toLoad+"\',false); tk.flash('"+toLoad+"'); detectMode(); editor.setValue('"+toLoad+"\'); editor.setValue(tk.readFile('"+toLoad+"\')); interface();");
 
 //btn.setAttribute("onclick","alert('gets here');");
 ii = i+1;
@@ -467,7 +430,44 @@ alert(errNoExist)
 
 }
 
+function interface(){
+try{
+const myNode = document.getElementById("card21");
+  myNode.innerHTML = '';
+var current = tk.readFile("Current.txt")
+var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import"];
+current = current.split("\n")
+var ext = current[0].split(".")
+var list2 = tk.readFile("inft."+ext[1])
+var list1 = tk.readFile("intf"+current[0])
 
+if(list2!=undefined){
+list = list2.split("\n")
+}
+
+if(list1!=undefined){
+list = list1.split("\n")
+}
+
+
+
+for (var i = 0; i < list.length; i++) {
+var btn = document.createElement("button");
+var t = document.createTextNode(list [i]);
+document.getElementById('card21').appendChild(btn);
+btn.textContent = list [i];
+btn.setAttribute("id", "bttn"+i);
+var textarea = document.getElementById("ta");
+
+var toLoad = list[i];
+btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){editor.insert(newText); editor.focus();} ");
+//var bttn = document.getElementById("bttn");
+//bttn.onclick = function() { setTextTo(this);};
+}
+}catch(err){
+tk.flash(err)
+}
+}
 
 function func(){
 
@@ -869,7 +869,7 @@ tk.flash(newText);
 //var textarea = document.getElementById("ta");
 toLoad = newText;
 
-btn.setAttribute("onclick", "tk.writeFile('Current.txt\','"+toLoad+"\',false); tk.flash('"+toLoad+"'); detectMode(); editor.setValue('"+toLoad+"\'); editor.setValue(tk.readFile('"+toLoad+"\'));");
+btn.setAttribute("onclick", "tk.writeFile('Current.txt\','"+toLoad+"\',false); tk.flash('"+toLoad+"'); detectMode(); editor.setValue('"+toLoad+"\'); editor.setValue(tk.readFile('"+toLoad+"\')); interface();");
 
 detectMode()
 ii = ii+1;
@@ -882,6 +882,7 @@ ii = ii+1;
 }else{
 alert("PLEASE ENTER A VALID FILE PATH!")
 }
+interface()
 localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 }
 
@@ -931,7 +932,7 @@ editor.setValue(f);
 }
 
 }
-
+interface()
 localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 }
 
