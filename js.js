@@ -246,7 +246,7 @@ var toLoad = "as"+i;
 }*/
 
 //upperSlide
-//interface()
+interface()
 function interface(){
 const myNode = document.getElementById("card21");
   myNode.innerHTML = '';
