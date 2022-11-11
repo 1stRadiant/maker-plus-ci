@@ -254,10 +254,18 @@ const myNode = document.getElementById("card21");
 var current = tk.readFile("Current.txt")
 var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import"];
 current = current.split("\n")
+var ext = current[0].split(".")
+var list2 = tk.readFile("inft."+ext[1])
 var list1 = tk.readFile("intf"+current[0])
+
+if(list2!=undefined){
+list = list2.split("\n")
+}
+
 if(list1!=undefined){
 list = list1.split("\n")
 }
+
 
 
 for (var i = 0; i < list.length; i++) {
