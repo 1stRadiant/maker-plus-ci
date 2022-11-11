@@ -1225,8 +1225,8 @@ rtn = false
 
 
 editor.commands.bindKey("Return", (editor) => {
-store = editor.getCursorPosition().row+1;
- column = editor.getCursorPosition().column;
+var store = editor.getCursorPosition().row+1;
+var column = editor.getCursorPosition().column;
 editor.insert("\n")
 editor.focus()
 var code = editor.getValue();
@@ -1292,8 +1292,8 @@ actionLast = "scroll"
 
 editor.session.selection.on('changeCursor', function(){
 settingPoints = true;
-//store = editor.getCursorPosition().row+1;
-//column = editor.getCursorPosition().column
+store = editor.getCursorPosition().row+1;
+column = editor.getCursorPosition().column
 });
 
 
