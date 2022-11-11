@@ -246,6 +246,13 @@ var toLoad = "as"+i;
 }*/
 
 //upperSlide
+interface()
+function interface(){
+const myNode = document.getElementById("card21");
+  myNode.innerHTML = '';
+var current = tk.readFile("Current.txt")
+current = current.split("\n")
+var list = tk.readFile("intf"+current[0]).split("\n")
 for (var i = 0; i < list.length; i++) {
 var btn = document.createElement("button");
 var t = document.createTextNode(list [i]);
@@ -259,7 +266,7 @@ btn.setAttribute("onclick", "newText = document.getElementById(this.id).textCont
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
 }
-
+}
 var r = tk.readFile("filelist.txt");
 //tk.flash ("this far");
 r = r.split("\n");
