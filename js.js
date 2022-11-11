@@ -1225,15 +1225,16 @@ rtn = false
 
 
 editor.commands.bindKey("Return", (editor) => {
-//editor.insert("\n")
+
 store = editor.getCursorPosition().row+1;
 
  column = editor.getCursorPosition().column;
 var code = editor.getValue();
 var indented = indent.js(code, {tabString: '\t'});
 editor.setValue(indented)
-editor.gotoLine(store,column,true)
-editor.session.insert(store, "")
+editor.insert("\n")
+//editor.gotoLine(store,column,true)
+//editor.session.insert(store, "")
 editor.focus()
 rtn = true;
 });
