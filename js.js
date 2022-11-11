@@ -1,9 +1,13 @@
 //try{  
  
 //  if(typeof tk !== "undefined" && tk !== null) {
-var fileSystem = JSON.parse(localStorage.getItem('fileSystem'));
 
-
+var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
+if(fsCheck!=undefined){
+fileSystem = fsCheck;
+}else{
+fileSystem = JSON.parse(fileSystem)
+}
 var flashArray = []
  
 var ii =1;
