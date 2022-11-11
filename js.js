@@ -1235,7 +1235,7 @@ editor.setValue(indented)
 
 editor.gotoLine(store,column,true)
 editor.session.insert(store, "")
-//editor.focus()
+editor.focus()
 rtn = true;
 });
 
@@ -1292,8 +1292,8 @@ actionLast = "scroll"
 
 editor.session.selection.on('changeCursor', function(){
 settingPoints = true;
-store = editor.getCursorPosition().row+1;
-column = editor.getCursorPosition().column
+//store = editor.getCursorPosition().row+1;
+//column = editor.getCursorPosition().column
 });
 
 
