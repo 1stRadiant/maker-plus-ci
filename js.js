@@ -188,7 +188,7 @@ let lock = false;
 
 
 var objList = objR;
-var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import"];
+
 
 
 
@@ -251,8 +251,14 @@ function interface(){
 const myNode = document.getElementById("card21");
   myNode.innerHTML = '';
 var current = tk.readFile("Current.txt")
+var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import"];
 current = current.split("\n")
-var list = tk.readFile("intf"+current[0]).split("\n")
+var list1 = tk.readFile("intf"+current[0])
+if(list1!="undefined"){
+list = list1.split("\n")
+}
+
+
 for (var i = 0; i < list.length; i++) {
 var btn = document.createElement("button");
 var t = document.createTextNode(list [i]);
@@ -267,6 +273,7 @@ btn.setAttribute("onclick", "newText = document.getElementById(this.id).textCont
 //bttn.onclick = function() { setTextTo(this);};
 }
 }
+
 var r = tk.readFile("filelist.txt");
 //tk.flash ("this far");
 r = r.split("\n");
