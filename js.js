@@ -1235,7 +1235,7 @@ editor.setValue(indented)
 
 editor.gotoLine(store,column,true)
 editor.session.insert(store, "")
-editor.focus()
+//editor.focus()
 rtn = true;
 });
 
