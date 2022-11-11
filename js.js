@@ -248,6 +248,7 @@ var toLoad = "as"+i;
 //upperSlide
 interface()
 function interface(){
+try{
 const myNode = document.getElementById("card21");
   myNode.innerHTML = '';
 var current = tk.readFile("Current.txt")
@@ -271,6 +272,9 @@ var toLoad = list[i];
 btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){editor.insert(newText); editor.focus();} ");
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
+}
+}catch(err){
+tk.flash(err)
 }
 }
 
