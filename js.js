@@ -1655,5 +1655,5 @@ function handleError(evt) {
 }
 
 }catch (err){
-//alert(err)
+alert(err)
 }
