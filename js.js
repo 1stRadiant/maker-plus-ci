@@ -1225,7 +1225,7 @@ rtn = false
 
 
 editor.commands.bindKey("Return", (editor) => {
-editor.insert("\n")
+//editor.insert("\n")
 store = editor.getCursorPosition().row+1;
 
  column = editor.getCursorPosition().column;
