@@ -255,7 +255,7 @@ var current = tk.readFile("Current.txt")
 var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import"];
 current = current.split("\n")
 var list1 = tk.readFile("intf"+current[0])
-if(list1!="undefined"){
+if(list1!=undefined){
 list = list1.split("\n")
 }
 
