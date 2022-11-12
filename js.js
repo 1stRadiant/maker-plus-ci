@@ -7,6 +7,7 @@ if(fsCheck!="undefined"){
 fileSystem = fsCheck;
 }else{
 fileSystem = JSON.parse(fileSystem)
+//alert("here")
 }
 var flashArray = []
  
