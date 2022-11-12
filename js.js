@@ -3,6 +3,7 @@ try{
 //  if(typeof tk !== "undefined" && tk !== null) {
 
 var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
+alert(fsCheck)
 if(fsCheck){
 fileSystem = fsCheck;
 }else{
