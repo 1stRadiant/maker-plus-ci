@@ -467,7 +467,7 @@ btn.setAttribute("onclick", "newText = document.getElementById(this.id).textCont
 //bttn.onclick = function() { setTextTo(this);};
 }
 //}catch(err){
-tk.flash("err")
+//tk.flash("err")
 //}
 }
 
