@@ -1,4 +1,4 @@
-//try{  
+try{  
  
 //  if(typeof tk !== "undefined" && tk !== null) {
 
@@ -1655,6 +1655,6 @@ function handleError(evt) {
 //alert(evt)
 }
 
-//}catch (err){
-//alert(err)
-//}
+}catch (err){
+alert(err)
+}
