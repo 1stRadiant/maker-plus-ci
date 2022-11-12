@@ -436,7 +436,7 @@ alert(errNoExist)
 }
 
 function interface(){
-try{
+//try{
 const myNode = document.getElementById("card21");
   myNode.innerHTML = '';
 var current = tk.readFile("Current.txt")
@@ -469,9 +469,9 @@ btn.setAttribute("onclick", "newText = document.getElementById(this.id).textCont
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
 }
-}catch(err){
+//}catch(err){
 tk.flash("err")
-}
+//}
 }
 
 function func(){
