@@ -5,10 +5,6 @@ try{
 var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
 if(fsCheck!== null){
 fileSystem = fsCheck;
-}else{
-alert(fileSysyem)
-fileSystem = JSON.parse(fileSystem)
-
 }
 var flashArray = []
  
