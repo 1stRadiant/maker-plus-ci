@@ -6,7 +6,7 @@ var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
 if(fsCheck!== null){
 fileSystem = fsCheck;
 }else{
-alert(fileSystem.JSON.stringify())
+alert(JSON.stringify(fileSysyem))
 fileSystem = JSON.parse(fileSystem)
 
 }
