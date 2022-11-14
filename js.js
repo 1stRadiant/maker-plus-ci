@@ -1241,6 +1241,9 @@ editor.setValue(indented)
 editor.gotoLine(store,column,true)
 editor.session.insert(store, "")
 editor.focus()
+editor.blur()
+editor.focus()
+
 rtn = true;
 });
 
