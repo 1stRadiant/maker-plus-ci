@@ -8,7 +8,7 @@ fileSystem = fsCheck;
 }
 var flashArray = []
  
-var ii =1;
+var ii =1; 
 alert("starting...")
 
 tk = {
