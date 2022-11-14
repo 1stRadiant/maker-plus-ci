@@ -961,7 +961,7 @@ tk.writeFile(current[0],editor.getValue(),false);
 localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 
 
-tk.flash('Saved as '+current[0])
+tk.flash('Saved in '+current[0])
 }
 
 function runCode(toLoad){
