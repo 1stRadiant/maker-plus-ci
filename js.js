@@ -444,11 +444,11 @@ var list2 = tk.readFile("inft."+ext[1])
 var list1 = tk.readFile("intf"+current[0])
 
 if(list2!=undefined){
-list = list2.split(",")
+list = list2.split("\n")
 }
 
 if(list1!=undefined){
-list = list1.split(",")
+list = list1.split("\n")
 }
 
 
