@@ -444,11 +444,11 @@ var list2 = tk.readFile("inft."+ext[1])
 var list1 = tk.readFile("intf"+current[0])
 
 if(list2!=undefined){
-list = list2.split("\n")
+list = list2.split(",")
 }
 
 if(list1!=undefined){
-list = list1.split("\n")
+list = list1.split(",")
 }
 
 
@@ -462,7 +462,7 @@ btn.setAttribute("id", "bttn"+i);
 var textarea = document.getElementById("ta");
 
 var toLoad = list[i];
-btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; newText = newText.split('\n'); newText = newText[0]; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
+btn.setAttribute("onclick", "newText = document.getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
 }
