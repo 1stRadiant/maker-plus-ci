@@ -535,9 +535,10 @@ lock = false
 }
 
 if(newText.includes("Paste")){
+    newText = ""
 navigator.clipboard.readText().then(function(text) {
     editor.execCommand("paste", text)
-    newText = ""
+
 })
 
 }
@@ -551,9 +552,10 @@ tk.flash("Copied!");
 }
 
 if(newText.includes("Cut")){
-var text = editor.getSelectedText()
 
-  document.execCommand('copy');
+    newText = ""
+editor.execCommand("copy") // or cut
+navigator.clipboard.writeText(text)
 
 editor.insert("")
 //tk.flash("Cu!");
@@ -956,7 +958,7 @@ tk.writeFile(current[0],editor.getValue(),false);
 localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 
 
-tk.flash('Saved!')
+tk.flash('Saved as '+current[0])
 }
 
 function runCode(toLoad){
