@@ -462,7 +462,7 @@ btn.setAttribute("id", "bttn"+i);
 var textarea = document.getElementById("ta");
 
 var toLoad = list[i];
-newText = document.getElementById(this.id).textContent;
+newText = document.getElementById("bttn"+i).textContent;
 if(newText.includes("\n")){
 newText = newText.split("\n")
 newText = newText[0]
