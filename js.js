@@ -686,6 +686,8 @@ editor.focus()
 if(tk.readFile(sims+".txt")!=undefined){
 editor.session.insert(editor.getCursorPosition(), "\n"+tk.readFile(sims+".txt"))
 editor.focus()
+editor.blur()
+editor.focus()
 }
 
 //}catch(err){
