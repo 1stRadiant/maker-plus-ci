@@ -73,9 +73,9 @@ async function toFlash(f) {
 
 for(var i = 0; i < flashArray.length; i++){
 if(flashArray.length < 2 ){
-await delay(500);
+await delay(1000);
 buttonElm.textContent = flashArray[flashArray.length]
-await delay(500);
+await delay(1000);
 buttonElm.textContent = flashArray[i]
 }else{
 
