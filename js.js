@@ -469,7 +469,7 @@ var textarea = document.getElementById("ta");
 
 var toLoad = list[i];
 
-btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
+btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; if(newText.includes(/\r\n|\n|\r/)){ newText = newText.split(/\r\n|\n|\r/); newText = newText[0];} quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
 }
