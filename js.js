@@ -38,6 +38,13 @@ return fileSystem.variables[t]
 setGlobal: function(t,s){
 alert(s)
 fileSystem.varables[t] = s
+},
+time: function(){
+var today = new Date()
+var h = today.getHours()+":"
+var m = today.getMinutes()			
+var time = h+m
+return time;
 }
 
 
