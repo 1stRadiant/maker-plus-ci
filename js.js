@@ -450,7 +450,7 @@ eval(commandFun)
 }
 
 function interface(){
-//try{
+try{
 const myNode = document.getElementById("card21");
   myNode.innerHTML = '';
 var current = tk.readFile("Current.txt")
@@ -506,9 +506,9 @@ btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newT
 
 
 }
-//}catch(err){
-//tk.flash("err")
-//}
+}catch(err){
+tk.flash("err")
+}
 }
 
 function func(){
