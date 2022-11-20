@@ -445,6 +445,10 @@ alert(errNoExist)
 
 }
 
+function runIt(commandFun){
+eval(commandFun)
+}
+
 function interface(){
 //try{
 const myNode = document.getElementById("card21");
@@ -467,6 +471,26 @@ list = list1.split("\n")
 
 
 for (var i = 0; i < list.length; i++) {
+
+var rx = /\w+\.\w+\(\)/gm
+  var commandFun = rx.exec(list[i]);
+var item = list[i].replace(/\w+\.\w+\(\)/gm,'')
+item = item.trim();
+if(list[i].includes(/\w+\.\w+\(\)/gm)){
+var btn = document.createElement("button");
+var t = document.createTextNode(item);
+document.getElementById('card21').appendChild(btn);
+btn.textContent = item;
+btn.setAttribute("id", "bttn"+i);
+var textarea = document.getElementById("ta");
+
+var toLoad = item
+
+btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); runIt(commandFun); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
+//var bttn = document.getElementById("bttn");
+//bttn.onclick = function() { setTextTo(this);};
+}else{
+
 var btn = document.createElement("button");
 var t = document.createTextNode(list [i]);
 document.getElementById('card21').appendChild(btn);
@@ -477,8 +501,10 @@ var textarea = document.getElementById("ta");
 var toLoad = list[i];
 
 btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
-//var bttn = document.getElementById("bttn");
-//bttn.onclick = function() { setTextTo(this);};
+
+}
+
+
 }
 //}catch(err){
 //tk.flash("err")
