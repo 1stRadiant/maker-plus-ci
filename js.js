@@ -507,7 +507,7 @@ btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newT
 
 }
 }catch(err){
-tk.flash("err")
+tk.flash(err)
 }
 }
 
