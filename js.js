@@ -446,7 +446,11 @@ alert(errNoExist)
 }
 
 function runIt(commandFun){
-eval(commandFun)
+
+var codeToExecute = commandFun;
+var tmpFunc = new Function(codeToExecute);
+tmpFunc();
+
 }
 
 function interface(){
