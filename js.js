@@ -476,7 +476,7 @@ var rx = /\w+\.\w+\(\)/gm
   var commandFun = rx.exec(list[i]);
 var item = list[i].replace(/\w+\.\w+\(\)/gm,'')
 item = item.trim();
-if(list[i].includes(commandFun())){
+if(list[i].includes(commandFun)){
 var btn = document.createElement("button");
 var t = document.createTextNode(item);
 document.getElementById('card21').appendChild(btn);
