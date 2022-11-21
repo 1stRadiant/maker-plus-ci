@@ -449,8 +449,8 @@ function runIt(){
 try{
 var rx = /{([^}]*)}/gm
  var cf = rx.exec(commandFun);
-alert(cf)
- eval(cf)
+//alert(cf)
+ eval(cf[1])
 //var codeToExecute = cf;
 //var tmpFunc = new Function(codeToExecute);
 //tmpFunc();
