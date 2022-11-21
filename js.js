@@ -445,10 +445,10 @@ alert(errNoExist)
 
 }
 
-function runIt(commandFun){
-alert(commandFun)
+function runIt(cf){
+alert(cf)
 //eval(commandFun)
-var codeToExecute = commandFun;
+var codeToExecute = cf;
 var tmpFunc = new Function(codeToExecute);
 tmpFunc();
 
