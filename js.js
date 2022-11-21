@@ -495,7 +495,7 @@ var textarea = document.getElementById("ta");
 
 var toLoad = item
 
-btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); runIt(list[i]); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
+btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); runIt("+list[i]+"); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
 //var bttn = document.getElementById("bttn");
 //bttn.onclick = function() { setTextTo(this);};
 }else{
