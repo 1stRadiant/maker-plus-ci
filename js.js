@@ -446,7 +446,7 @@ alert(errNoExist)
 }
 
 function runIt(commandFun){
-//alert("here")
+alert(commandFun)
 //eval(commandFun)
 var codeToExecute = commandFun;
 var tmpFunc = new Function(codeToExecute);
