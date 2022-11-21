@@ -476,11 +476,12 @@ list = list1.split("\n")
 
 for (var i = 0; i < list.length; i++) {
 
-var rx = /\w+\.\w+\(\)/gm
+var rx = /{([^}]*)}/gm
   var commandFun = rx.exec(list[i]);
-var item = list[i].replace(/\w+\.\w+\(\)/gm,'')
-item = item.trim();
 if(list[i].includes(commandFun)){
+var item = list[i].split('{')
+item = item[0].trim();
+
 var btn = document.createElement("button");
 var t = document.createTextNode(item);
 document.getElementById('card21').appendChild(btn);
