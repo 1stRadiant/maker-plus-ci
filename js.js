@@ -477,10 +477,11 @@ list = list1.split("\n")
 
 for (var i = 0; i < list.length; i++) {
 
-var rx = /{([^}]*)}/gm
- commandFun = rx.exec(list[i]);
 //alert(commandFun)
 if(list[i].includes("{")){
+
+var rx = /{([^}]*)}/gm
+ commandFun = rx.exec(list[i]);
 var item = list[i].split('{')
 item = item[0].trim();
 
