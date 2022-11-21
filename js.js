@@ -446,13 +446,16 @@ alert(errNoExist)
 }
 
 function runIt(){
-
+try{
 var rx = /{([^}]*)}/gm
  var cf = rx.exec(commandFun);
-//eval(commandFun)
+ //eval(commandFun)
 var codeToExecute = cf;
 var tmpFunc = new Function(codeToExecute);
 tmpFunc();
+}catch(err){
+alert(err)
+}
 
 }
 
