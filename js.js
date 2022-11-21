@@ -479,6 +479,7 @@ for (var i = 0; i < list.length; i++) {
 var rx = /{([^}]*)}/gm
   var commandFun = rx.exec(list[i]);
 if(list[i].includes(commandFun)){
+tk.flash("Hhh")
 var item = list[i].split('{')
 item = item[0].trim();
 
