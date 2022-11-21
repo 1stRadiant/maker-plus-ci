@@ -447,9 +447,9 @@ alert(errNoExist)
 
 function runIt(commandFun){
 
-var codeToExecute = commandFun;
-var tmpFunc = new Function(codeToExecute);
-tmpFunc();
+//var codeToExecute = commandFun;
+//var tmpFunc = new Function(codeToExecute);
+//tmpFunc();
 
 }
 
