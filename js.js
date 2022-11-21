@@ -447,9 +447,9 @@ alert(errNoExist)
 
 function runIt(){
 try{
-//var rx = /{([^}]*)}/gm
- //var cf = rx.exec(commandFun);
- eval(commandFun)
+var rx = /{([^}]*)}/gm
+ var cf = rx.exec(commandFun);
+ eval(cf)
 //var codeToExecute = cf;
 //var tmpFunc = new Function(codeToExecute);
 //tmpFunc();
