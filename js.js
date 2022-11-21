@@ -479,8 +479,8 @@ for (var i = 0; i < list.length; i++) {
 var rx = /{([^}]*)}/gm
   var commandFun = rx.exec(list[i]);
 //alert(commandFun)
-if(list[i].includes(commandFun)){
-alert("Hhh")
+if(list[i].includes("{")){
+//alert("Hhh")
 var item = list[i].split('{')
 item = item[0].trim();
 
