@@ -170,7 +170,7 @@ localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 
 
 
-tk.flash('Welcome to Maker+ Js')
+tk.flash('Welcome to Maker+ Ci')
 
 
 
