@@ -16,22 +16,29 @@ tk.flash(str message);
 tk.time();
 
 So how do I get started with Maker+ Ci?
+
 Heard to this GitHub pages link of Maker+ Ci
 
 Opening or Creating a file:
+
 To open/create a file in Maker+ Ci simply tap on “+”.
 
 Interacting with the editor:
+
 Once created you can edit by typing in the editor, when the editor is focused it becomes smaller in order to to review the interface of keys. When you scroll the editor becomes large in order to allow you to see and analyse the code or text that you are editing better.
 
 Supported code and syntax highlighting:
+
 Maker+ Ci’s editor recognises upto 40 languages, syntax highlights them and indents upon tapping “return”.
 
 Messages from M+Ci:
+
 You’ll also notice that M+ Ci tells you what’s going on and it also tells you which document you are editing. You can see M+ Ci’s messages on top of the editor and tabs.
 
 Saving a file:
+
 Once you are satisfied with your content tap on “Save” to store your changes.
 
 Closing a file:
+
 You can close a file by tapping on the “X” on the top right Maker+ Ci
