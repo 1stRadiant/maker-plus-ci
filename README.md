@@ -1,6 +1,6 @@
 Maker+ Ci (coding interfaces) is a platform built to allow you to code on your mobile faster by using various unique techniques. Maker+ Ci gives you, the developer power over your powerful editor by allowing you to customise or create interfaces for each of the 40 filetypes it recognises. Moreover, M+ Ci allows you create and customise interfaces for each file, which means the difference between interfaces is not just limited to filetypes. This means the number of different interfaces that you can create is ultimately endless which is pretty cool.
 
-What are interfaces exactly and how do I create them?
+<h3><b>What are interfaces exactly and how do I create them?</b></h3>
 
 An interface is an area on Maker+ Ci which contains special keys and buttons (We will call these “Keys” for reference) which can be used to interact with your editor faster, and maybe invoke some JavaScript code.
 
@@ -78,7 +78,7 @@ Clear Line
 
 
 
-So how do I get started with Maker+ Ci?
+<h3><b> So how do I get started with Maker+ Ci? </h3></b>
 
 Heard to this GitHub pages link of Maker+ Ci
 
