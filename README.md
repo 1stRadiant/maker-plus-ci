@@ -15,7 +15,7 @@ tk.flash(str message);
 
 tk.time();
 
-Also to give you and Idea of what a inft.<extn> or intf<filename>.<extn> list which creates an interface looks like please take a look at the example below:
+<b>Also to give you and Idea of what a inft.<extn> or intf<filename>.<extn> list which creates an interface looks like please take a look at the example below:</b>
 
 Codify!
 
