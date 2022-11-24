@@ -1354,7 +1354,9 @@ rtn = true;
 		actionLast = "scroll"
 	});
 	
+	
 		var settingPoints = false
+		var rangePoints = [];
 	editor.session.selection.on('changeCursor', function(){
 		settingPoints = true;
 		store = editor.getCursorPosition().row+1;
@@ -1369,7 +1371,7 @@ rtn = true;
 		localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 	});
 	
-	let rangePoints = [];
+
 
 	
 	async function selectFromTo(){
