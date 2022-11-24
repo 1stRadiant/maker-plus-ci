@@ -18,33 +18,61 @@ tk.time();
 Also to give you and Idea of what a inft.<extn> or intf<filename>.<extn> list which creates an interface looks like please take a look at the example below:
 
 Codify!
-<html> {tk.flash("this is an html tag")}
-</html>
+
+\<html\> {tk.flash("this is an html tag")}
+
+\</html\>
+
 <head>
+
 </head>
+
 <title>
+
 </title>
+
 <script>
+
 </script>
+
 <body>
+
 </body>
+
 <p>
+
 </p>
+
 <div>
+
 </div>
+
 <link rel="stylesheet" href="styles.css">
+
 <script src="filename.js"></script>
+
 <
+
 >
+
 /
+
 Copy
+
 Paste
+
 Cut
+
 Undo
+
 Redo
+
 Sel from here to
+
 Select Line
+
 Select all
+
 Clear Line
 
 So how do I get started with Maker+ Ci?
