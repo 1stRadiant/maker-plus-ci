@@ -1373,7 +1373,7 @@ rtn = true;
 	
 	async function selectFromTo(){
 		var sp
-		
+		try{
 		await until(_ => settingPoints == true)
 		if(rangePoints.length==0){
 			
@@ -1399,6 +1399,9 @@ rtn = true;
 			rangePoints = []
 			
 		}
+		}catch(err){
+			tk.flash(err)
+			}
 	}
 	
 	function until(conditionFunction) {
