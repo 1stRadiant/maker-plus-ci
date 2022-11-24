@@ -80,7 +80,8 @@ Clear Line
 
 <h3><b> So how do I get started with Maker+ Ci? </h3></b>
 
-Heard to this GitHub pages link of Maker+ Ci
+Go to the GitHub pages link of Maker+ Ci
+https://1stradiant.github.io/maker-plus-ci/
 
 Opening or Creating a file:
 
