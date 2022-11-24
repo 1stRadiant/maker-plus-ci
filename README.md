@@ -105,3 +105,7 @@ Once you are satisfied with your content tap on “Save” to store your changes
 Closing a file:
 
 You can close a file by tapping on the “X” on the top right Maker+ Ci
+
+File System:
+
+Maker+ Ci uses a virtual filesystem which is basically a javascript object. All files are written and read from the fileSystem object. You can actually download your filesystem by using the Export key which can be added to any interface. You can also import or merge a file System by using the Import key which can be added to any interface.
