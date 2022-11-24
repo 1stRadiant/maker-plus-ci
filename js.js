@@ -216,7 +216,7 @@ ccount = -1
 			as = aliases.split("\n");
 		}
 	
-	let settingPoints
+	var settingPoints
 		var link
 			var currline, inpuT
 	var files = [];
