@@ -15,7 +15,7 @@ tk.flash(str message);
 
 tk.time();
 
-<b>Also to give you and Idea of what a inft.<extn> or intf<filename>.<extn> list which creates an interface looks like please take a look at the example below:</b>
+<b>Also to give you and Idea of what a inft.\<extn> or intf\<filename>.\<extn> list which creates an interface looks like please take a look at the example below:</b>
 
 Codify!
 
@@ -23,33 +23,33 @@ Codify!
 
 \</html\>
 
-<head>
+\<head>
 
-</head>
+\</head>
 
-<title>
+\<title>
 
-</title>
+\</title>
 
-<script>
+\<script>
 
-</script>
+\</script>
 
-<body>
+\<body>
 
-</body>
+\</body>
 
-<p>
+\<p>
 
-</p>
+\</p>
 
-<div>
+\<div>
 
-</div>
+\</div>
 
-<link rel="stylesheet" href="styles.css">
+\<link rel="stylesheet" href="styles.css">
 
-<script src="filename.js"></script>
+\<script src="filename.js"></script>
 
 <
 
