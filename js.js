@@ -456,7 +456,7 @@ var toLoad = "as"+i;
 			var tmpFunc = new Function(codeToExecute);
 			tmpFunc();
 		}catch(err){
-			alert(err)
+			alert(err+"\n"+err.stack)
 		}
 		
 	}
