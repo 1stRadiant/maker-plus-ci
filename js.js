@@ -447,17 +447,17 @@ var toLoad = "as"+i;
 	}
 	
 	async function runIt(input){
-		try{
+		//try{
 			var rx = /{([^}]*)}/gm
 			var cf = rx.exec(input);
 			//alert(cf)
-			eval(cf[1])
-			//var codeToExecute = cf[1];
-			//var tmpFunc = new Function(codeToExecute);
-			//tmpFunc();
-		}catch(err){
+			//eval(cf[1])
+			var codeToExecute = cf[1];
+			var tmpFunc = new Function(codeToExecute);
+			tmpFunc();
+		/*}catch(err){
 			alert(err+"\n"+err.stack)
-		}
+		}*/
 		
 	}
 	
