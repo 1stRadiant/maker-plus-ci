@@ -10,7 +10,7 @@ try{
 	var flashArray = []
 	
 	var ii =1;
-	alert("starting...")
+	//alert("starting...")
 	
 	tk = {
 		readFile: function(f){
@@ -447,7 +447,7 @@ var toLoad = "as"+i;
 	}
 	
 	async function runIt(input){
-		//try{
+		try{
 			var rx = /{([^}]*)}/gm
 			var cf = rx.exec(input);
 			//alert(cf)
@@ -455,9 +455,9 @@ var toLoad = "as"+i;
 			var codeToExecute = cf[1];
 			var tmpFunc = new Function(codeToExecute);
 			tmpFunc();
-		/*}catch(err){
+		}catch(err){
 			alert(err+"\n"+err.stack)
-		}*/
+		}
 		
 	}
 	
