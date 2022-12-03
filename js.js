@@ -446,7 +446,7 @@ var toLoad = "as"+i;
 		
 	}
 	
-	function runIt(input){
+	async function runIt(input){
 		try{
 			var rx = /{([^}]*)}/gm
 			var cf = rx.exec(input);
