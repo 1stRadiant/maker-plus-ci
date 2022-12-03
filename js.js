@@ -10,6 +10,7 @@ try{
 	var flashArray = []
 	
 	var ii =1;
+	alert("dhdb...1")
 
 	alert("starting...1")
 	
