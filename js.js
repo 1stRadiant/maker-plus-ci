@@ -477,7 +477,14 @@ async function query(data) {
 }
 
 function runBloom(inp){
-query({"inputs": inp}).then((response) => { tk.writeFile("currentSims.txt",JSON.stringify(response),false) });
+query({"inputs": inp}).then((response) => { 
+
+editor.session.insert(editor.getCursorPosition(), "\n"+ response.generated_text)
+				editor.focus()
+				editor.blur()
+				editor.focus()
+
+});
 }
 	
 	function interface(){
@@ -726,11 +733,7 @@ query({"inputs": inp}).then((response) => { tk.writeFile("currentSims.txt",JSON.
 						var splSim = knowledge.split(".")
 						var matches = stringSimilarity.findBestMatch(textinput,splSim);*/
 					        runBloom(textinput)
-					var sims = tk.readFile("currentSims.txt")			
-editor.session.insert(editor.getCursorPosition(), "\n"+sims)
-				editor.focus()
-				editor.blur()
-				editor.focus()
+				
 						
 					}else{
 						tk.writeFile("currentSims.txt","blankone",false)
