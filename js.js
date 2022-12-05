@@ -12,7 +12,7 @@ try{
 	var ii =1;
 	//alert("dhdb...1")
 
-	alert("starting...”)
+	//alert("starting...”)
 	
 	tk = {
 		readFile: function(f){
@@ -735,7 +735,7 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response[0].generated_te
 						var splSim = knowledge.split(".")
 						var matches = stringSimilarity.findBestMatch(textinput,splSim);*/
 					        runBloom(textinput)
-				
+				 
 						
 					}else{
 						tk.writeFile("currentSims.txt","blankone",false)
