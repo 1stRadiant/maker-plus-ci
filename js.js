@@ -726,7 +726,11 @@ query({"inputs": inp}).then((response) => { tk.writeFile("currentSims.txt",JSON.
 						var splSim = knowledge.split(".")
 						var matches = stringSimilarity.findBestMatch(textinput,splSim);*/
 					        runBloom(textinput)
-					
+					var sims = tk.readFile("currentSims.txt")			
+editor.session.insert(editor.getCursorPosition(), "\n"+sims)
+				editor.focus()
+				editor.blur()
+				editor.focus()
 						
 					}else{
 						tk.writeFile("currentSims.txt","blankone",false)
