@@ -12,7 +12,7 @@ try{
 	var ii =1;
 	//alert("dhdb...1")
 
-	alert("starting...1")
+	//alert("starting...1")
 	
 	tk = {
 		readFile: function(f){
@@ -462,6 +462,21 @@ var toLoad = "as"+i;
 		}
 		
 	}
+
+async function query(data) {
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/bigscience/bloom",
+		{
+			headers: { Authorization: "Bearer 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" },
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
+}
+
+
 	
 	function interface(){
 		try{
