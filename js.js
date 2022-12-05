@@ -729,7 +729,7 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response[0].generated_te
 					
 					var re = /^when|^what|^how|^why/gm
 					try{
-					//if(textinput.includes(”!”)){
+					if(textinput.match(re)){
 						
 						/*var knowledge = tk.readFile("knowledge.txt")
 						var splSim = knowledge.split(".")
@@ -737,11 +737,11 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response[0].generated_te
 					        runBloom(textinput)
 				
 						
-					/*}else{
+					}else{
 						tk.writeFile("currentSims.txt","blankone",false)
 						magicCode()
 						
-					}*/
+					}
                                             }catch(err){
 alert(err)
 }   
