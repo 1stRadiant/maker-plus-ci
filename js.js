@@ -479,7 +479,7 @@ async function query(data) {
 function runBloom(inp){
 query({"inputs": inp}).then((response) => { 
 
-tk.flash(response[”generated_text”])
+//tk.flash(response[”generated_text”])
 
 editor.session.insert(editor.getCursorPosition(), "\n"+ JSON.stringify(response))
 				editor.focus()
