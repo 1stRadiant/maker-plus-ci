@@ -753,7 +753,7 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response.generated_text)
 			
 			
 			
-			var sims = tk.readFile("currentSims.txt")
+			/*var sims = tk.readFile("currentSims.txt")
 			
 			//editor.selection.selectLine();
 			//editor.insert(tk.readFile(sims+".txt"))
@@ -768,7 +768,7 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response.generated_text)
 				editor.focus()
 				editor.blur()
 				editor.focus()
-			}
+			}*/
 			
 			//}catch(err){
 			tk.flash(err+"\n"+err.stack)
