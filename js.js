@@ -12,7 +12,7 @@ try{
 	var ii =1;
 	//alert("dhdb...1")
 
-	alert("starting...1")
+	//alert("starting...1")
 	
 	tk = {
 		readFile: function(f){
@@ -479,7 +479,9 @@ async function query(data) {
 function runBloom(inp){
 query({"inputs": inp}).then((response) => { 
 
-editor.session.insert(editor.getCursorPosition(), "\n"+ response.generated_text)
+tk.flash(response.generated_text)
+
+editor.session.insert(editor.getCursorPosition(), "\n"+ JSON.stringify(response))
 				editor.focus()
 				editor.blur()
 				editor.focus()
