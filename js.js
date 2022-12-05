@@ -729,7 +729,7 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response[0].generated_te
 					
 					var re = /^when|^what|^how|^why/gm
 					
-					if(textinput.match(re)){
+					if(textinput.includes(”!”)){
 						
 						/*var knowledge = tk.readFile("knowledge.txt")
 						var splSim = knowledge.split(".")
