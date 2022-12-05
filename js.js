@@ -476,7 +476,9 @@ async function query(data) {
 	return result;
 }
 
-
+runBloom(inp){
+query({"inputs": inp}).then((response) => { tk.flash(JSON.stringify(response)) });
+}
 	
 	function interface(){
 		try{
