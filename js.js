@@ -487,10 +487,10 @@ var toLoad = "as"+i;
 			for (var i = 0; i < list.length; i++) {
 				
 				//alert(commandFun)
-				if(list[i].includes("{")){
+				if(list[i].includes("<<")){
 					
 					commandFun = list[i];
-					var item = list[i].split('{')
+					var item = list[i].split('<<')
 					item = item[0].trim();
 					
 					var btn = document.createElement("button");
