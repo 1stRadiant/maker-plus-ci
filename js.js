@@ -476,7 +476,7 @@ async function query(data) {
 	return result;
 }
 
-runBloom(inp){
+function runBloom(inp){
 query({"inputs": inp}).then((response) => { tk.flash(JSON.stringify(response)) });
 }
 	
