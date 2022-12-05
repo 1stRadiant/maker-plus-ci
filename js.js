@@ -728,7 +728,7 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response[0].generated_te
 					}
 					
 					var re = /^when|^what|^how|^why/gm
-					
+					try{
 					if(textinput.includes(”!”)){
 						
 						/*var knowledge = tk.readFile("knowledge.txt")
@@ -742,6 +742,9 @@ editor.session.insert(editor.getCursorPosition(), "\n"+ response[0].generated_te
 						magicCode()
 						
 					}
+                                            }catch(err){
+alert(err)
+}   
 					
 				}//appfound
 				
