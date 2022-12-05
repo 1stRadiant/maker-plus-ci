@@ -477,7 +477,7 @@ async function query(data) {
 }
 
 function runBloom(inp){
-query({"inputs": inp}).then((response) => { tk.flash(JSON.stringify(response)) });
+return query({"inputs": inp}).then((response) => { tk.flash(JSON.stringify(response)) });
 }
 	
 	function interface(){
@@ -722,10 +722,11 @@ query({"inputs": inp}).then((response) => { tk.flash(JSON.stringify(response)) }
 					
 					if(textinput.match(re)){
 						
-						var knowledge = tk.readFile("knowledge.txt")
+						/*var knowledge = tk.readFile("knowledge.txt")
 						var splSim = knowledge.split(".")
-						var matches = stringSimilarity.findBestMatch(textinput,splSim);
-						var sims = matches.bestMatch.target
+						var matches = stringSimilarity.findBestMatch(textinput,splSim);*/
+						var sims = JSON.parse(runBloom)
+                                                sims = sims.generated_text
 						tk.writeFile("currentSims.txt",sims,false)
 						tk.flash(sims)
 						
