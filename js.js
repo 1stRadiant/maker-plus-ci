@@ -450,7 +450,7 @@ var toLoad = "as"+i;
 	
 	async function runIt(input){
 		try{
-			var rx = /{([^}]*)}/gm
+			var rx = /<<([^}]*)>>/gm
 			var cf = rx.exec(input);
 			//alert(cf)
 			//eval(cf[1])
@@ -526,27 +526,6 @@ var toLoad = "as"+i;
 			tk.flash(err)
 		}
 	}
-
-async function query(data) {
-	const response = await fetch(
-		"https://api-inference.huggingface.co/models/bigscience/bloom",
-		{
-			headers: { Authorization: "Bearer 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" },
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-try{
-	query({"inputs": "Can you please let us know more details about your "}).then((response) => {
-		tk.flash(JSON.stringify(response));
-	});
-}catch(err){
-	alert(err)
-}
 
 	
 	function func(){
