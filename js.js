@@ -540,6 +540,13 @@ async function query(data) {
 	return result;
 }
 
+try{
+	query({"inputs": "Can you please let us know more details about your "}).then((response) => {
+		tk.flash(JSON.stringify(response));
+	});
+}catch(err){
+	alert(err)
+}
 
 	
 	function func(){
