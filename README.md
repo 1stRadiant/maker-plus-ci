@@ -19,7 +19,7 @@ tk.time();
 
 Codify!
 
-\<html\> {tk.flash("this is an html tag")}
+\<html\> <<tk.flash("this is an html tag")>>
 
 \</html\>
 
