@@ -467,7 +467,7 @@ async function query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/bigscience/bloom",
 		{
-			headers: { Authorization: tk.readFile("sc.txt")},
+			headers: { Authorization: function(){return tk.readFile("sc.txt");}},
 			method: "POST",
 			body: JSON.stringify(data),
 		}
