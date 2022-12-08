@@ -463,11 +463,13 @@ var toLoad = "as"+i;
 		
 	}
 
+var sc = tk.readFile("sc.txt");
+
 async function query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/bigscience/bloom",
 		{
-			headers: { Authorization: function(){ return tk.readFile("sc.txt");}},
+			headers: { Authorization: xx},
 			method: "POST",
 			body: JSON.stringify(data),
 		}
