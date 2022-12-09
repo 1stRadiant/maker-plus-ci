@@ -183,6 +183,7 @@ ccount = -1
 	//editor.setOptions(obj)
 	editor.setTheme("ace/theme/monokai");
 	editor.getSession().setUseWorker(true);
+        editor.setOption("wrap", true)
 	editor.getSession().on("changeAnnotation", function(){
 		
 		var annot = editor.getSession().getAnnotations();
