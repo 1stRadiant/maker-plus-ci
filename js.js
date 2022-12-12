@@ -484,7 +484,7 @@ query({"inputs": inp}).then((response) => {
 
 tk.flash(response[0].generated_text)
 
-editor.session.insert(editor.getCursorPosition(), "\n"+ response[0].generated_text)
+editor.session.insert(editor.getCursorPosition(), response[0].generated_text)
 				editor.focus()
 				editor.blur()
 				editor.focus()
