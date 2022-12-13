@@ -508,13 +508,13 @@ async function openai_test() {
   var prompt_text = inp;
   var prompt_text2 = "MORE TEXT HERE."
   
-  var url = "https://api.openai.com/v1/engines/text-davinci-002/completions";
+  var url = "https://api.openai.com/v1/engines/text-davinci-003/completions";
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url);
 
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", ""+sc+"");
+  xhr.setRequestHeader("Authorization", "${sc}");
 
   xhr.onreadystatechange = function () {
      if (xhr.readyState === 4) {
