@@ -499,49 +499,34 @@ editor.session.insert(editor.getCursorPosition(), spl[1])
 
 runGpt(inp){
 
-let open_ai_response;
+let ai_response;
 
-try{
-openai_test();
-}catch(err){
-	alert(err)
-	}
+var url = "https://api.openai.com/v1/completions";
 
-async function openai_test() {
-  
-  var prompt_text = inp;
-  var prompt_text2 = "MORE TEXT HERE."
-  
-  var url = "https://api.openai.com/v1/engines/text-davinci-003/completions";
+var xhr = new XMLHttpRequest();
+xhr.open("POST", url);
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", url);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Authorization", "Bearer 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");
 
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Authorization", "${sc}");
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+						alert(ai_response)
+   }};
 
-  xhr.onreadystatechange = function () {
-     if (xhr.readyState === 4) {
-        tk.flash(xhr.status);
-        tk.flash(xhr.responseText);
-        open_ai_response = xhr.responseText;
-        tk.flash(open_ai_response);
+var data = `{
+  "model": "text-davinci-003",
+  "prompt": "Brainstorm some ideas combining VR and fitness:",
+  "temperature": 0.6,
+  "max_tokens": 150,
+  "top_p": 1,
+  "frequency_penalty": 1,
+  "presence_penalty": 1
+}`;
 
-        editor.insert(open_ai_response);
-
-     }};
-
-  var data = `{
-    "prompt": "${prompt_text}",
-    "temperature": 0.7,
-    "max_tokens": 256,
-    "top_p": 1,
-    "frequency_penalty": 0.75,
-    "presence_penalty": 0
-  }`;
-
-  xhr.send(data);
-}
+xhr.send(data);
 
 }
 	
