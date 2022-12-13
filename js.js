@@ -468,7 +468,7 @@ var sc = tk.readFile("sc.txt");
 
 async function query(data) {
 	const response = await fetch(
-		""+tk.readFile('huggingapi.txt)+"",
+		tk.readFile('huggingapi.txt),
 		{
 			headers: { Authorization: ""+sc+""},
 			method: "POST",
