@@ -516,7 +516,7 @@ xhr.onreadystatechange = function () {
 						alert(ai_response)
    }};
 
-var data = `{
+var data = {
   "model": "text-davinci-003",
   "prompt": "Brainstorm some ideas combining VR and fitness:",
   "temperature": 0.6,
@@ -524,7 +524,7 @@ var data = `{
   "top_p": 1,
   "frequency_penalty": 1,
   "presence_penalty": 1
-}`;
+};
 
 xhr.send(data);
 
