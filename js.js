@@ -501,7 +501,11 @@ runGpt(inp){
 
 let open_ai_response;
 
+try{
 openai_test();
+}catch(err){
+	alert(err)
+	}
 
 async function openai_test() {
   
