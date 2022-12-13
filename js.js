@@ -471,7 +471,7 @@ var ha = tk.readFile("huggingapi.txt");
 
 async function query(data) {
 	const response = await fetch(
-	""+ha+"",
+	"https://api-inference.huggingface.co/models/EleutherAI/gpt-j-6B",
 		{
 			headers: { Authorization: ""+sc+""},
 			method: "POST",
