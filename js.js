@@ -497,38 +497,7 @@ editor.session.insert(editor.getCursorPosition(), spl[1])
 });
 }
 
-runGpt(inp){
 
-let ai_response;
-
-var url = "https://api.openai.com/v1/completions";
-
-var xhr = new XMLHttpRequest();
-xhr.open("POST", url);
-
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Authorization", "Bearer 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");
-
-xhr.onreadystatechange = function () {
-   if (xhr.readyState === 4) {
-      console.log(xhr.status);
-      console.log(xhr.responseText);
-						alert(ai_response)
-   }};
-
-var data = {
-  "model": "text-davinci-003",
-  "prompt": "Brainstorm some ideas combining VR and fitness:",
-  "temperature": 0.6,
-  "max_tokens": 150,
-  "top_p": 1,
-  "frequency_penalty": 1,
-  "presence_penalty": 1
-};
-
-xhr.send(data);
-
-}
 	
 	function interface(){
 		try{
