@@ -466,11 +466,12 @@ var toLoad = "as"+i;
 
 var sc = tk.readFile("sc.txt");
 
+var ha = tk.readFile("huggingapi.txt");
+
+
 async function query(data) {
 	const response = await fetch(
-		function(){
-return tk.readFile('huggingapi.txt)
-},
+	""+ha+"",
 		{
 			headers: { Authorization: ""+sc+""},
 			method: "POST",
