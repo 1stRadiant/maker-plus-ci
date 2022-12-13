@@ -496,6 +496,50 @@ editor.session.insert(editor.getCursorPosition(), spl[1])
 
 });
 }
+
+runGpt(inp){
+
+let open_ai_response;
+
+openai_test();
+
+async function openai_test() {
+  
+  var prompt_text = inp;
+  var prompt_text2 = "MORE TEXT HERE."
+  
+  var url = "https://api.openai.com/v1/engines/text-davinci-002/completions";
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
+
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", ""+sc+"");
+
+  xhr.onreadystatechange = function () {
+     if (xhr.readyState === 4) {
+        tk.flash(xhr.status);
+        tk.flash(xhr.responseText);
+        open_ai_response = xhr.responseText;
+        tk.flash(open_ai_response);
+
+        editor.insert(open_ai_response);
+
+     }};
+
+  var data = `{
+    "prompt": "${prompt_text}",
+    "temperature": 0.7,
+    "max_tokens": 256,
+    "top_p": 1,
+    "frequency_penalty": 0.75,
+    "presence_penalty": 0
+  }`;
+
+  xhr.send(data);
+}
+
+}
 	
 	function interface(){
 		try{
