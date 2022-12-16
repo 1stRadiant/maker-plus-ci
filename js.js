@@ -489,7 +489,7 @@ tk.flash(response[0].generated_text)
 
 var spl = response[0].generated_text.split(inp);
 spl = spl[1].split(".")
-editor.session.insert(editor.getCursorPosition(), spl[0])
+editor.session.insert(editor.getCursorPosition(), spl[0]+".")
 				editor.focus()
 				editor.blur()
 				editor.focus()
