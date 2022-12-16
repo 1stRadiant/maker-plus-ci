@@ -487,8 +487,8 @@ query({"inputs": inp}).then((response) => {
 
 tk.flash(response[0].generated_text)
 
-var spl = response[0].generated_text.split(inp)
-
+var spl = response[0].generated_text.split(inp);
+spl = spl[1].split("\n")
 editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
 				editor.blur()
