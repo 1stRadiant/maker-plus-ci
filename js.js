@@ -483,7 +483,7 @@ async function query(data) {
 }
 
 function runBloom(inp){
-query({"inputs": inp}).then((response) => { 
+query({"inputs": inp, "parameters": {"do_sample": False}}).then((response) => { 
 
 tk.flash(response[0].generated_text)
 
