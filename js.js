@@ -488,12 +488,19 @@ query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => {
 tk.flash(response[0].generated_text)
 
 var spl = response[0].generated_text.split(inp);
-if(spl[1].includes("\n\n")){
-spl = spl[1].split("\n\n")
+if(spl[1].includes(".\n")){
+spl = spl[1].split(".\n")
 editor.session.insert(editor.getCursorPosition(), spl[0])
 				editor.focus()
 				editor.blur()
 				editor.focus()
+}else{
+	editor.session.insert(editor.getCursorPosition(), spl[1])
+				editor.focus()
+				editor.blur()
+				editor.focus()
+	
+	
 }
 });
 }
