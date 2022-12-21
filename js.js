@@ -1311,7 +1311,7 @@ window.location.href = "index.html#"+m;
 		var current = tk.readFile('Current.txt');
 		current = current.split("\n")
 		tk.writeFile(current[0]+'data.txt',store,false);
-		editor.focus()
+	
 		
 		
 	})
