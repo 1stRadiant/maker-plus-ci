@@ -1348,7 +1348,7 @@ window.location.href = "index.html#"+m;
 			editor.setValue(indented)
 			
 			editor.gotoLine(store,column,true)
-			editor.session.insert(store, "")
+			//editor.session.insert(store, "")
 			editor.focus()
 			editor.blur()
 			editor.focus()
