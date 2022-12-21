@@ -1311,6 +1311,9 @@ window.location.href = "index.html#"+m;
 		var current = tk.readFile('Current.txt');
 		current = current.split("\n")
 		tk.writeFile(current[0]+'data.txt',store,false);
+		editor.focus()
+		editor.blur()
+			editor.focus()
 		
 	})
 	
@@ -1340,8 +1343,7 @@ window.location.href = "index.html#"+m;
 			var column = editor.getCursorPosition().column;
 			
 			editor.focus()
-			editor.blur()
-			editor.focus()
+			
 			var code = editor.getValue();
 			var indented = indent.js(code, {tabString: '\t'});
 			editor.setValue(indented)
