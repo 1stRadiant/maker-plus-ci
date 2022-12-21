@@ -1312,8 +1312,7 @@ window.location.href = "index.html#"+m;
 		current = current.split("\n")
 		tk.writeFile(current[0]+'data.txt',store,false);
 		editor.focus()
-		editor.blur()
-			editor.focus()
+		
 		
 	})
 	
