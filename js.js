@@ -494,11 +494,13 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				editor.focus()
 				editor.blur()
 				editor.focus()
+				tk.flash(spl[0])
 }else{
 	editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
 				editor.blur()
 				editor.focus()
+				tk.flash(spl[1])
 	
 	
 }
