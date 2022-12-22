@@ -485,7 +485,7 @@ async function query(data) {
 function runBloom(inp){
 query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => { 
 
-tk.flash(response[0].generated_text)
+//tk.flash(response[0].generated_text)
 
 var spl = response[0].generated_text.split(inp);
 if(spl[1].includes("User:")){
@@ -495,12 +495,14 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				editor.blur()
 				editor.focus()
 				tk.flash(spl[0])
+				tk.writeFile("test.txt","User: "+spl[0],true)
 }else{
 	editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
 				editor.blur()
 				editor.focus()
 				tk.flash(spl[1])
+								tk.writeFile("test.txt","User: "+spl[1],true)
 	
 	
 }
