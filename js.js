@@ -184,6 +184,7 @@ ccount = -1
 	editor.setTheme("ace/theme/monokai");
 	editor.getSession().setUseWorker(true);
         editor.setOption("wrap", true)
+								editor.setOption("tooltipFollowsMouse", true)
 	editor.getSession().on("changeAnnotation", function(){
 		
 		var annot = editor.getSession().getAnnotations();
