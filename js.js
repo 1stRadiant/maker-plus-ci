@@ -496,14 +496,14 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				editor.blur()
 				editor.focus()
 				tk.flash(spl[0])
-				tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
+				//tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
 }else{
 	editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
 				editor.blur()
 				editor.focus()
 				tk.flash(spl[1])
-								tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
+								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
 	
 	
 }
