@@ -565,7 +565,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 					
 					var toLoad = list[i];
 					
-					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
+					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Lock Editor') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
 					
 				}
 				
@@ -704,6 +704,19 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 		if(newText.includes("Sel from here to")){
 			selectFromTo();
 			//tk.flash("Cu!");
+			
+		}
+		
+		if(newText.includes("Lock Editor")){
+			if(lock == false){
+				lock = true
+				//tk.flash("true")
+			}else{
+				lock = false
+				//tk.flash("false")
+				
+				
+			}
 			
 		}
 		
