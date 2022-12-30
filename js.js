@@ -483,7 +483,8 @@ async function query(data) {
 	return result;
 }
 
-function runBloom(inp){
+async function runBloom(inp){
+var toRtn;	
 query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => { 
 
 //tk.flash(response[0].generated_text)
@@ -491,23 +492,29 @@ query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => {
 var spl = response[0].generated_text.split(inp);
 if(spl[1].includes("User:")){
 spl = spl[1].split("User:")
+	/*
 editor.session.insert(editor.getCursorPosition(), spl[0])
 				editor.focus()
 				editor.blur()
 				editor.focus()
 				tk.flash(spl[0])
+				*/
 				//tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
+	toRtn = spl[0]
 }else{
-	editor.session.insert(editor.getCursorPosition(), spl[1])
+	/*editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
 				editor.blur()
 				editor.focus()
-				tk.flash(spl[1])
+				tk.flash(spl[1])*/
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
-	
+		toRtn = spl[1]
+
 	
 }
 });
+	return await toRtn;
+	
 }
 
 
