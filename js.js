@@ -513,7 +513,9 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 	
 }
 });
-	return await toRtn;
+	
+	await delay(500);
+	return toRtn;
 	
 }
 
