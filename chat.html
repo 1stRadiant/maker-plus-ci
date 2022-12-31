@@ -63,9 +63,6 @@ var outputText;
         <!-- chat content -->
 
 
-<script>
-  document.getElementById("app").innerHTML = outputText;
-</script>
 
       </div>
       <!--/div-->
@@ -126,6 +123,7 @@ var myFunction = function() {
     toMessage.unshift(text)
   runBloom(inpuT+" User: "+text)
   outputText = toMessage.join("\n");
+    document.getElementById("app").innerHTML = outputText;
   }catch(err){
   alert(err)
   }
