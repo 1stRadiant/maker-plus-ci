@@ -501,6 +501,10 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				*/
 				//tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
 	toRtn = spl[0]
+	tk.writeFile("toMessage.txt",toRtn,true)
+							  var outputText = tk.readFile("toMessage.txt");
+    document.getElementById("app").innerHTML = outputText;
+
 }else{
 	/*editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
@@ -509,15 +513,16 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				tk.flash(spl[1])*/
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
 		toRtn = spl[1]
+		tk.writeFile("toMessage.txt",toRtn,true)
+							  var outputText = tk.readFile("toMessage.txt");
+    document.getElementById("app").innerHTML = outputText;
+
 			    
 	
 }
 });
 	
-await delay(1000);
-tk.writeFile("toMessage.txt",toRtn,true)
-							  var outputText = tk.readFile("toMessage.txt");
-    document.getElementById("app").innerHTML = outputText;
+
 
 
 	 
