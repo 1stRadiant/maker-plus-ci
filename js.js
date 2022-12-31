@@ -514,7 +514,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 }
 });
 	
-await delay(500);
+await delay(1000);
 tk.writeFile("toMessage.txt",toRtn,true)
 							  var outputText = tk.readFile("toMessage.txt");
     document.getElementById("app").innerHTML = outputText;
