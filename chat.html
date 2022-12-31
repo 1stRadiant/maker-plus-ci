@@ -13,6 +13,7 @@
 <script src="Aliases.js"></script>
 <script src="aliases2.js"></script>
 <script src="link.js"></script> 
+<script>var toMesaage = [];</script>
     <style>
     #editor {
         position: absolute;
@@ -138,7 +139,9 @@ var myFunction = function() {
     //var attribute = this.getAttribute("data-myattribute");
   inpuT = tk.readFile(tk.readFile("linkedfile.txt"));
   try{
-  alert(runBloom(inpuT+" User: "+document.getElementById('type-area').value));
+  var text = document.getElementById('type-area').value
+    toMessage.unshift(text)
+  runBloom(inpuT+" User: "+text)
   }catch(err){
   alert(err)
   }
