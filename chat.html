@@ -13,7 +13,10 @@
 <script src="Aliases.js"></script>
 <script src="aliases2.js"></script>
 <script src="link.js"></script> 
-<script>var toMesaage = [];</script>
+<script>
+var toMesaage = [];
+var outputText;
+</script>
     <style>
     #editor {
         position: absolute;
@@ -60,24 +63,9 @@
         <!-- chat content -->
 
 
-        <!-- YOUR CHAT TEMPLATE -->
-        <div id="your-chat" class="your-chat">
-          <p class="your-chat-balloon">sure m8</p>
-          <p class="chat-datetime"><span class="glyphicon glyphicon-ok"></span> Sun, Aug 30 | 15:45</p>
-        </div>
-
-        <!-- FRIENDS CHAT TEMPLATE -->
-        <div id="friends-chat" class="friends-chat">
-          <div class="profile friends-chat-photo">
-            <img src="images/ava2.jpg" alt="">
-          </div>
-          <div class="friends-chat-content">
-            <p class="friends-chat-name">Mario Gomez</p>
-            <p class="friends-chat-balloon">Thanks!</p>
-            <h5 class="chat-datetime">Sun, Aug 30 | 15:41</h5>
-          </div>
-        </div>
-
+<script>
+  document.getElementById("app").innerHTML = outputText;
+</script>
 
       </div>
       <!--/div-->
@@ -86,12 +74,7 @@
       <div id="typing-area" class="typing-area">
         <!-- input form -->
         <input id="type-area" class="type-area" placeholder="Type something...">
-        <!-- attachment btn -->
-        <div class="attach-btn">
-          <span class="glyphicon glyphicon-paperclip file-btn"></span>
-          <span class="glyphicon glyphicon-camera"></span>
-          <span class="glyphicon glyphicon-picture"></span>
-        </div>
+        
         <!-- send btn -->
         <span class="glyphicon glyphicon-send send-btn"></span>
       </div>
@@ -99,7 +82,7 @@
   
 
   <div id="creator" class="creator">
-    <p>&copy; 2020 | Created by <span>Iqbal Taufiq</span></p>
+    <p>&copy; 2020 | Created by <span>Nigel Mhizha</span></p>
   </div>
 
 
@@ -142,6 +125,7 @@ var myFunction = function() {
   var text = document.getElementById('type-area').value
     toMessage.unshift(text)
   runBloom(inpuT+" User: "+text)
+  outputText = toMessage.join("\n");
   }catch(err){
   alert(err)
   }
