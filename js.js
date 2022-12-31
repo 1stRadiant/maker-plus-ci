@@ -501,7 +501,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				*/
 				//tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
 	toRtn = spl[0]
-	tk.writeFile("toMessage.txt",toRtn+"\n",true)
+	tk.writeFile("toMessage.txt",toRtn+"\nIntj:",true)
 							  var outputText = tk.readFile("toMessage.txt");
     document.getElementById("app").innerHTML = outputText;
 
@@ -513,7 +513,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				tk.flash(spl[1])*/
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
 		toRtn = spl[1]
-		tk.writeFile("toMessage.txt",toRtn+"\n",true)
+		tk.writeFile("toMessage.txt",toRtn+"\nIntj:",true)
 							  var outputText = tk.readFile("toMessage.txt");
     document.getElementById("app").innerHTML = outputText;
 
