@@ -123,10 +123,10 @@ var myFunction = function() {
   var text = document.getElementById('type-area').value
     //toMessage.unshift(text)
     tk.writeFile("toMessage.txt",text,true)
-  runBloom(inpuT+" User: "+text)
-  var outputText = tk.readFile("toMessage.txt");
+    runBloom(inpuT+" User: "+text+"\nIntj:")
+    var outputText = tk.readFile("toMessage.txt");
     document.getElementById("app").innerHTML = outputText;
-      text.value = "";
+    text.value = "";
   }catch(err){
   alert(err)
   }
