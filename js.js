@@ -515,7 +515,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 });
 	
 	await delay(500);
-	 alert(toRtn)
+	 toMessage.unshift(toRtn)
 	
 }
 
