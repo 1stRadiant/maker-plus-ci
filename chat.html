@@ -125,7 +125,7 @@ var myFunction = function() {
     tk.writeFile("toMessage.txt",text+"\nIntj:",true)
     runBloom(inpuT+" User: "+text+"\nIntj:")
     var outputText = tk.readFile("toMessage.txt");
-    document.getElementById("app").innerHTML = outputText;
+    document.getElementById("ap").innerHTML = outputText;
     text.value = "";
   }catch(err){
   alert(err)
