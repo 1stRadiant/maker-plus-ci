@@ -514,8 +514,11 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
 		toRtn = spl[1]
 		tk.writeFile("toMessage.txt",toRtn,true)
-							  var outputText = tk.readFile("toMessage.txt");
-    document.getElementById("ap").innerHTML = outputText;
+		var outputText = tk.readFile("toMessage.txt");
+  document.getElementById("ap").innerHTML = outputText;
+		if(toRtn.at(-1)!="."){
+			runBloom(tk.readFile("toMessage.txt"))
+			}
 
 			    
 	
