@@ -503,7 +503,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 	toRtn = spl[0]
 	tk.writeFile("toMessage.txt",toRtn,true)
 							  var outputText = tk.readFile("toMessage.txt");
-    document.getElementById("app").innerHTML = outputText;
+    document.getElementById("ap").innerHTML = outputText;
 
 }else{
 	/*editor.session.insert(editor.getCursorPosition(), spl[1])
