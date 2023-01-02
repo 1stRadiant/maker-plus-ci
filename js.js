@@ -525,9 +525,9 @@ function type() {
   // print the current charater with current index
   //document.write(outputText[i]);
 write = write + text[i]
-		tk.writeFile("toMessage.txt",write,true)
+
 				var outputText = tk.readFile("toMessage.txt");
-		  document.getElementById("ap").innerHTML =outputText;
+		  document.getElementById("ap").innerHTML = outputText+ " "+write;
   
   // increase the index
   i++;
@@ -544,7 +544,7 @@ write = write + text[i]
 // pass in function, instead of calling it
 timer = setInterval(type, 100);
 
-
+		tk.writeFile("toMessage.txt",write,true)
 
 
 			    
