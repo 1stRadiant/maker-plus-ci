@@ -527,7 +527,7 @@ function type() {
 write =+ text[i]
 		tk.writeFile("toMessage.txt",write,true)
 				var outputText = tk.readFile("toMessage.txt");
-		  document.getElementById("ap").innerHTML =write;
+		  document.getElementById("ap").innerHTML =outputText;
   
   // increase the index
   i++;
