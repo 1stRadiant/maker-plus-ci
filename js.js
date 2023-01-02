@@ -548,7 +548,7 @@ timer = setInterval(type, 100);
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessage.txt"))
 			}*/
-		tk.writeFile("toMessage.txt",write,true)
+		tk.writeFile("toMessage.txt",outputText+ " " +write,false)
 			    
 	
 }
