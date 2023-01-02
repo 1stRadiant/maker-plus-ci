@@ -524,7 +524,7 @@ function type() {
 
   // print the current charater with current index
   //document.write(outputText[i]);
-		  document.getElementById("ap").innerHTML = outputText+" "+text[i]
+		  document.getElementById("ap").innerHTML =+ text[i]
   
   // increase the index
   i++;
