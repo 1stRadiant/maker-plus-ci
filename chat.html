@@ -130,7 +130,9 @@ if(!text == ""){
     document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
     }else{
+      alert(toRtn)
       runBloom(tk.readFile("toMessage.txt")+ " "+toRtn)
+      
     }
   }catch(err){
   alert(err)
