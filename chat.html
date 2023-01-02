@@ -98,6 +98,7 @@
     var spl = []
     var commandFun
     var settingPoints
+    var toRtn;
   </script>
 
     <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
@@ -129,7 +130,7 @@ if(!text == ""){
     document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
     }else{
-      runBloom(tk.readFile("toMessage.txt"))
+      runBloom(tk.readFile("toMessage.txt")+ " "+toRtn)
     }
   }catch(err){
   alert(err)
