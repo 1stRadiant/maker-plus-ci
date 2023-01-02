@@ -514,7 +514,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
 		var text = toRtn = spl[1]
 		let timer;
-		var write = text;
+		var write = "";
 
 // the current index
 let i = 0;
@@ -525,9 +525,9 @@ function type() {
   // print the current charater with current index
   //document.write(outputText[i]);
 write = write + text[i]
-
+		tk.writeFile("toMessage.txt",write,true)
 				var outputText = tk.readFile("toMessage.txt");
-		  document.getElementById("ap").innerHTML = write;
+		  document.getElementById("ap").innerHTML = outputText;
   
   // increase the index
   i++;
@@ -544,7 +544,7 @@ write = write + text[i]
 // pass in function, instead of calling it
 timer = setInterval(type, 100);
 
-		tk.writeFile("toMessage.txt",write,true)
+
 
 
 			    
