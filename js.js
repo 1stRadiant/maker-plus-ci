@@ -524,7 +524,7 @@ function type() {
 
   // print the current charater with current index
   //document.write(outputText[i]);
-write = write + " " + text[i]
+write = write + text[i]
 		tk.writeFile("toMessage.txt",write,true)
 				var outputText = tk.readFile("toMessage.txt");
 		  document.getElementById("ap").innerHTML =outputText;
@@ -535,7 +535,7 @@ write = write + " " + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
     clearInterval(timer);
-						if(text[i] === "."){
+						if(text[i] != "." || text[i] != "?"){
 			runBloom(tk.readFile("toMessage.txt"))
 			}
 				}
