@@ -531,10 +531,16 @@ write = write + text[i]
   
   // increase the index
   i++;
-  
+  if(text[i].includes(".") || text[i].includes("?") || text[i].includes(":")){
+			clearInterval(timer);
+			}
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
     clearInterval(timer);
+				if(!text.at(-1)!="." ||  !text.at(-1)!="?" ||!text.at(-1)!=":"){
+			tk.writeFile("toMessage.txt",write,true)
+			runBloom(tk.readFile("toMessag.txt"))
+			}
 						
 				}
 				
@@ -545,10 +551,7 @@ write = write + text[i]
 // pass in function, instead of calling it
 timer = setInterval(type, 100);
 
-/*if(!text[i] == ":" || !text[i] == "." || !text[i] == "?" || text[i] == "\n"){
-			tk.writeFile("toMessage.txt",write,true)
-			runBloom(tk.readFile("toMessage.txt"))
-			}*/
+
 		tk.writeFile("toMessage.txt",write,true)
 			    
 	
