@@ -543,7 +543,7 @@ write = write + text[i]
 // pass in function, instead of calling it
 timer = setInterval(type, 100);
 
-if(!text.includes(".") || !text.includes("?"){
+if(!text.includes(".") || !text.includes("?")){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessage.txt"))
 			}
