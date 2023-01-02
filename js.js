@@ -524,7 +524,7 @@ function type() {
 
   // print the current charater with current index
   //document.write(outputText[i]);
-write =+ text[i]
+write = write + " " + text[i]
 		tk.writeFile("toMessage.txt",write,true)
 				var outputText = tk.readFile("toMessage.txt");
 		  document.getElementById("ap").innerHTML =outputText;
