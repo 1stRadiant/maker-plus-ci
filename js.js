@@ -523,8 +523,8 @@ let i = 0;
 function type() {
 
   // print the current charater with current index
-  //document.write(outputText[i]);
-		  document.getElementById("ap").innerHTML = outputText + " " + text[i]
+  document.write(outputText[i]);
+		  //document.getElementById("ap").innerHTML = outputText + " " + text[i]
   
   // increase the index
   i++;
