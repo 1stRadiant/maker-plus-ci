@@ -531,13 +531,13 @@ write = write + text[i]
   
   // increase the index
   i++;
-  if(text[i].includes(".") || text[i].includes("?") || text[i].includes(":")){
+  if(text[i] == "." || text[i] == "?" || text[i] == ":"){
 			clearInterval(timer);
 			}
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
     clearInterval(timer);
-				if(!text.at(-1)!="." ||  !text.at(-1)!="?" ||!text.at(-1)!=":"){
+				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessag.txt"))
 			}
