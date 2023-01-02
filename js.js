@@ -537,17 +537,17 @@ write = write + text[i]
 						
 				}
 				
-				if(!text[i] == ":" || !text[i] == "." || !text[i] == "?" || text[i] == "\n"){
-			tk.writeFile("toMessage.txt",write,true)
-			runBloom(tk.readFile("toMessage.txt"))
-			}
+				
 
 }
 
 // pass in function, instead of calling it
 timer = setInterval(type, 100);
 
-
+/*if(!text[i] == ":" || !text[i] == "." || !text[i] == "?" || text[i] == "\n"){
+			tk.writeFile("toMessage.txt",write,true)
+			runBloom(tk.readFile("toMessage.txt"))
+			}*/
 		tk.writeFile("toMessage.txt",write,true)
 			    
 	
