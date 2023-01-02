@@ -512,13 +512,37 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				editor.focus()
 				tk.flash(spl[1])*/
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
-		toRtn = spl[1]
-		tk.writeFile("toMessage.txt",toRtn,true)
+		var text = toRtn = spl[1]
 		var outputText = tk.readFile("toMessage.txt");
-  document.getElementById("ap").innerHTML = outputText;
-		if(toRtn.at(-1)!="."){
+		let timer;
+
+// the current index
+let i = 0;
+
+// you don't need a for loop in setInterval, the function itself is aleady called in iterations, just treat it as a loop iteration.
+function type() {
+
+  // print the current charater with current index
+  //document.write(outputText[i]);
+		  document.getElementById("ap").innerHTML = outputText+" "+text[i]
+  
+  // increase the index
+  i++;
+  
+  // if the index reaches the maximum text length, cease the timer
+  if(i >= text.length){
+    clearInterval(timer);
+						if(text[i] === "."){
 			runBloom(tk.readFile("toMessage.txt"))
 			}
+				}
+}
+
+// pass in function, instead of calling it
+timer = setInterval(type, 100);
+		tk.writeFile("toMessage.txt",toRtn,true)
+
+
 
 			    
 	
