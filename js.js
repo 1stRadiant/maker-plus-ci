@@ -500,10 +500,47 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				tk.flash(spl[0])
 				*/
 				//tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
-	toRtn = spl[0]
-	tk.writeFile("toMessage.txt",toRtn,true)
-							  var outputText = tk.readFile("toMessage.txt");
-    document.getElementById("ap").innerHTML = outputText;
+			var text = toRtn = spl[0]
+		let timer;
+		var write = "";
+
+// the current index
+let i = 0;
+
+// you don't need a for loop in setInterval, the function itself is aleady called in iterations, just treat it as a loop iteration.
+function type() {
+
+  // print the current charater with current index
+  //document.write(outputText[i]);
+write = write + text[i]
+				var outputText = tk.readFile("toMessage.txt");
+				outputText = outputText.trim()
+		  document.getElementById("ap").innerHTML = outputText + " " + write;
+  
+  // increase the index
+  i++;
+  /*if(text[i] == "." || text[i] == "?" || text[i] == ":"){
+			clearInterval(timer);
+			}*/
+  // if the index reaches the maximum text length, cease the timer
+  if(i >= text.length){
+    clearInterval(timer);
+				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
+			tk.writeFile("toMessage.txt",write,true)
+			runBloom(tk.readFile("toMessag.txt"))
+			}*/
+						
+				}
+				
+				
+
+}
+
+// pass in function, instead of calling it
+timer = setInterval(type, 100);
+
+
+		tk.writeFile("toMessage.txt",write,true)
 
 }else{
 	/*editor.session.insert(editor.getCursorPosition(), spl[1])
@@ -531,16 +568,16 @@ write = write + text[i]
   
   // increase the index
   i++;
-  if(text[i] == "." || text[i] == "?" || text[i] == ":"){
+  /*if(text[i] == "." || text[i] == "?" || text[i] == ":"){
 			clearInterval(timer);
-			}
+			}*/
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
     clearInterval(timer);
-				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
+				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessag.txt"))
-			}
+			}*/
 						
 				}
 				
