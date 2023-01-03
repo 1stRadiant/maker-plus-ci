@@ -124,8 +124,9 @@ var myFunction = function() {
   var text = document.getElementById('type-area').value
     //toMessage.unshift(text)
 if(!text == ""){
-    tk.writeFile("toMessage.txt",text+"\nAI:",true)
-    runBloom(inpuT+" User: "+text+"\nAI:")
+  var toAi = tk.readFile("toAi.txt")
+    tk.writeFile("toMessage.txt",text+"\n"+toAi,true)
+    runBloom(inpuT+" User: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
     document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
