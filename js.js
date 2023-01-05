@@ -541,6 +541,9 @@ timer = setInterval(type, 100);
 
 
 		tk.writeFile("toMessage.txt",write,true)
+		if(!isSentenceFinished(text)){
+											runBloom(tk.readFile("toMessag.txt"))
+								}
 
 }else{
 	/*editor.session.insert(editor.getCursorPosition(), spl[1])
@@ -590,7 +593,9 @@ timer = setInterval(type, 100);
 
 
 		tk.writeFile("toMessage.txt",write,true)
-			    
+			    if(!isSentenceFinished(text)){
+											runBloom(tk.readFile("toMessag.txt"))
+								}
 	
 }
 });
@@ -602,7 +607,10 @@ timer = setInterval(type, 100);
 	
 }
 
-
+function isSentenceFinished(sentence) {
+  // A sentence is finished if it ends in a period, exclamation point, or question mark
+  return /[.!?]$/.test(sentence);
+}
 	
 	function interface(){
 		try{
