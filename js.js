@@ -541,7 +541,7 @@ timer = setInterval(type, 100);
 
 
 		tk.writeFile("toMessage.txt",write,true)
-		if(!isSentenceFinished(text)){
+			    if(isSentenceFinished(text)== false){
 											runBloom(tk.readFile("toMessag.txt"))
 								}
 
@@ -593,7 +593,7 @@ timer = setInterval(type, 100);
 
 
 		tk.writeFile("toMessage.txt",write,true)
-			    if(!isSentenceFinished(text)){
+			    if(isSentenceFinished(text)== false){
 											runBloom(tk.readFile("toMessag.txt"))
 								}
 	
