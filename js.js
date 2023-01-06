@@ -524,10 +524,10 @@ write = write + text[i]
 			}*/
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
-    clearInterval(timer);
-				if(isSentenceFinished(text)== false){
+if(text[i] != "." || text[i] != "?" || text[i] != "!" || text.substr(-1) === string){
 											runBloom(tk.readFile("toMessag.txt"))
 								}
+								clearInterval(timer);
 				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessag.txt"))
@@ -577,10 +577,11 @@ write = write + text[i]
 			}*/
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
-    clearInterval(timer);
+    
 							    if(text[i] != "." || text[i] != "?" || text[i] != "!" || text.substr(-1) === string){
 											runBloom(tk.readFile("toMessag.txt"))
 								}
+								clearInterval(timer);
 				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessag.txt"))
