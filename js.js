@@ -483,6 +483,7 @@ async function query(data) {
 	return result;
 }
 
+var r2;
 async function runBloom(inp){
 	
 query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => { 
@@ -526,11 +527,11 @@ write = write + text[i]
   if(i >= text.length){
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = document.getElementById("ap").textContent
-			if(r > 3){
+			if(r2 > 3){
 			runBloom(runMore+ " "+write)
 			}
 			
-			if(r < 3){
+			if(r2 < 3){
 																		clearInterval(timer);
 												}
 			}
