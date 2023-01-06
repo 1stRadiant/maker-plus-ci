@@ -525,9 +525,16 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
-			runBloom(tk.readFile("toMessag.txt"))
+			var runMore = document.getElementById("ap").textContent
+			if(r > 3){
+			runBloom(runMore+ " "+write)
 			}
-														clearInterval(timer);
+			
+			if(r < 3){
+																		clearInterval(timer);
+												}
+			}
+
 				}
 				
 				
