@@ -595,9 +595,10 @@ timer = setInterval(type, 100);
 
 //await type();
 if(text.substr(-1) === string && text.at(-1) != "."  && text.at(-1) != "!" && text.at(-1) != "?"){
+			tk.writeFile("toMessage.txt",write,true)
 											runBloom(tk.readFile("toMessag.txt"))
 								}
-		tk.writeFile("toMessage.txt",write,true)
+
 
 	
 }
