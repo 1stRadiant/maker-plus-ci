@@ -525,6 +525,9 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
     clearInterval(timer);
+				if(isSentenceFinished(text)== false){
+											runBloom(tk.readFile("toMessag.txt"))
+								}
 				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessag.txt"))
@@ -541,10 +544,7 @@ timer = setInterval(type, 100);
 
 
 		tk.writeFile("toMessage.txt",write,true)
-			    if(isSentenceFinished(text)== false){
-											alert(isSentenceFinished(text))
-											runBloom(tk.readFile("toMessag.txt"))
-								}
+			    
 
 }else{
 	/*editor.session.insert(editor.getCursorPosition(), spl[1])
@@ -578,6 +578,9 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
     clearInterval(timer);
+							    if(isSentenceFinished(text)== false){
+											runBloom(tk.readFile("toMessag.txt"))
+								}
 				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessag.txt"))
@@ -594,10 +597,7 @@ timer = setInterval(type, 100);
 
 
 		tk.writeFile("toMessage.txt",write,true)
-			    if(isSentenceFinished(text)== false){
-							 alert(isSentenceFinished(text))
-											runBloom(tk.readFile("toMessag.txt"))
-								}
+
 	
 }
 });
