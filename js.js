@@ -593,7 +593,7 @@ if(text.substr(-1) === string && text.at(-1) != "."  && text.at(-1) != "!" && te
 // pass in function, instead of calling it
 timer = setInterval(type, 100);
 
-await type();
+//await type();
 if(text.substr(-1) === string && text.at(-1) != "."  && text.at(-1) != "!" && text.at(-1) != "?"){
 											runBloom(tk.readFile("toMessag.txt"))
 								}
