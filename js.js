@@ -581,10 +581,16 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
     
-if(text.substr(-1) === string && text.at(-1) != "."  && text.at(-1) != "!" && text.at(-1) != "?"){
-											runBloom(tk.readFile("toMessag.txt"))
-								}
-								clearInterval(timer);
+if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
+			var runMore = document.getElementById("ap").textContent
+			if(r2 > 3){
+			runBloom(runMore+ " "+write)
+			}
+			
+			if(r2 < 3){
+																		clearInterval(timer);
+												}
+			}
 				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			tk.writeFile("toMessage.txt",write,true)
 			runBloom(tk.readFile("toMessag.txt"))
