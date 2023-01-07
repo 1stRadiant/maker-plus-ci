@@ -528,7 +528,8 @@ write = write + text[i]
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = document.getElementById("ap").textContent
 			if(r2 < 3){ 
-			runBloom(runMore+ " "+write)
+						tk.writeFile("toMessage.txt",runMore,false)
+			runBloom(tk.readFile("toMessage.txt") + " "+write)
 			r2++;
 			}
 			
@@ -548,7 +549,7 @@ write = write + text[i]
 timer = setInterval(type, 100);
 
 
-		tk.writeFile("toMessage.txt",write,true)
+
 			    
 
 }else{
@@ -586,7 +587,8 @@ write = write + text[i]
 if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = document.getElementById("ap").textContent
 			if(r2 < 3){
-			runBloom(runMore+ " "+write)
+						tk.writeFile("toMessage.txt",runMore,false)
+			runBloom(tk.readFile("toMessage.txt") + " "+write)
 						r2++;
 			}
 			
