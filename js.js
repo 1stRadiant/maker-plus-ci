@@ -529,7 +529,7 @@ write = write + text[i]
 			var runMore = document.getElementById("ap").textContent
 			if(r2 < 3){ 
 						tk.writeFile("toMessage.txt",runMore,false)
-			runBloom(tk.readFile("toMessage.txt") + " "+write)
+			runBloom(runMore)
 			r2++;
 			}
 			
@@ -588,7 +588,7 @@ if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = document.getElementById("ap").textContent
 			if(r2 < 3){
 						tk.writeFile("toMessage.txt",runMore,false)
-			runBloom(tk.readFile("toMessage.txt") + " "+write)
+			runBloom(runMore)
 						r2++;
 			}
 			
