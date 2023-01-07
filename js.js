@@ -529,7 +529,7 @@ write = write + text[i]
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
 			if(r2 < 3){ 
-						//tk.writeFile("toMessage.txt",runMore,false)
+						tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 			runBloom(runMore)
 			r2++;
 			}
@@ -588,7 +588,7 @@ write = write + text[i]
 if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
 			if(r2 < 3){
-						//tk.writeFile("toMessage.txt",runMore,false)
+						tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 			runBloom(runMore)
 						r2++;
 			}
