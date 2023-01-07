@@ -525,16 +525,17 @@ write = write + text[i]
 			}*/
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
+				clearInterval(timer);
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
-			var runMore = document.getElementById("ap").textContent
+			var runMore = tk.readFile("toMessage.txt")
 			if(r2 < 3){ 
-						tk.writeFile("toMessage.txt",runMore,false)
+						//tk.writeFile("toMessage.txt",runMore,false)
 			runBloom(runMore)
 			r2++;
 			}
 			
 			if(r2 > 3){
-																		clearInterval(timer);
+
 																		r2 = 0;
 												}
 			}
@@ -583,17 +584,16 @@ write = write + text[i]
 			}*/
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
-    
+  clearInterval(timer);
 if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
-			var runMore = document.getElementById("ap").textContent
+			var runMore = tk.readFile("toMessage.txt")
 			if(r2 < 3){
-						tk.writeFile("toMessage.txt",runMore,false)
+						//tk.writeFile("toMessage.txt",runMore,false)
 			runBloom(runMore)
 						r2++;
 			}
 			
 			if(r2 > 3){
-																		clearInterval(timer);
 																		r2 = 0;
 												}
 			}
