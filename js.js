@@ -483,7 +483,7 @@ async function query(data) {
 	return result;
 }
 
-var r2;
+var r2 = 0;
 async function runBloom(inp){
 	
 query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => { 
@@ -529,10 +529,12 @@ write = write + text[i]
 			var runMore = document.getElementById("ap").textContent
 			if(r2 > 3){
 			runBloom(runMore+ " "+write)
+			r2++;
 			}
 			
 			if(r2 < 3){
 																		clearInterval(timer);
+																		r2 = 0;
 												}
 			}
 
@@ -585,10 +587,12 @@ if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = document.getElementById("ap").textContent
 			if(r2 > 3){
 			runBloom(runMore+ " "+write)
+						r2++;
 			}
 			
 			if(r2 < 3){
 																		clearInterval(timer);
+																		r2 = 0;
 												}
 			}
 				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
