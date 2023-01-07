@@ -527,12 +527,12 @@ write = write + text[i]
   if(i >= text.length){
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = document.getElementById("ap").textContent
-			if(r2 > 3){
+			if(r2 < 3){ 
 			runBloom(runMore+ " "+write)
 			r2++;
 			}
 			
-			if(r2 < 3){
+			if(r2 > 3){
 																		clearInterval(timer);
 																		r2 = 0;
 												}
@@ -585,12 +585,12 @@ write = write + text[i]
     
 if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = document.getElementById("ap").textContent
-			if(r2 > 3){
+			if(r2 < 3){
 			runBloom(runMore+ " "+write)
 						r2++;
 			}
 			
-			if(r2 < 3){
+			if(r2 > 3){
 																		clearInterval(timer);
 																		r2 = 0;
 												}
