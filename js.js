@@ -537,15 +537,15 @@ write = write + text[i]
 				clearInterval(timer);
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
-			if(r1 < 3){ 
+			if(r2 < 3){ 
 						tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 			runBloom(runMore)
-			r1++;
+			r2++;
 			}
 			
-			if(r1 > 3){
+			if(r2 > 3){
 
-																		r1 = 0;
+																		r2 = 0;
 												}
 			}
 
