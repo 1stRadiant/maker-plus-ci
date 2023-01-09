@@ -500,8 +500,8 @@ query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => {
 //tk.flash(response[0].generated_text)
 
 var spl = response[0].generated_text.split(inp);
-if(spl[1].includes("User:")){
-spl = spl[1].split("User:")
+//if(spl[1].includes("User:")){
+//spl = spl[1].split("User:")
 	/*
 editor.session.insert(editor.getCursorPosition(), spl[0])
 				editor.focus()
@@ -510,7 +510,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				tk.flash(spl[0])
 				*/
 				//tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
-			var text = toRtn = spl[0]
+			/*var text = toRtn = spl[0]
 		let timer;
 		var write = "";
 
@@ -529,9 +529,7 @@ write = write + text[i]
   
   // increase the index
   i++;
-  /*if(text[i] == "." || text[i] == "?" || text[i] == ":"){
-			clearInterval(timer);
-			}*/
+
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
 				clearInterval(timer);
@@ -556,20 +554,23 @@ write = write + text[i]
 }
 
 // pass in function, instead of calling it
-timer = setInterval(type, 100);
+timer = setInterval(type, 100);*/
 
 
 
 			    
-
-}else{
+var text;
+if(spl[1].includes("User:")){
+spl = spl[1].split("User:")
+ text = toRtn = spl[0]
+	}else{
 	/*editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
 				editor.blur()
 				editor.focus()
 				tk.flash(spl[1])*/
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
-		var text = toRtn = spl[1]
+		text = toRtn = spl[1]
 		let timer;
 		var write = "";
 
@@ -588,9 +589,7 @@ write = write + text[i]
   
   // increase the index
   i++;
-  /*if(text[i] == "." || text[i] == "?" || text[i] == ":"){
-			clearInterval(timer);
-			}*/
+
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
   clearInterval(timer);
@@ -606,10 +605,7 @@ if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 																		r2 = 0;
 												}
 			}
-				/*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
-			tk.writeFile("toMessage.txt",write,true)
-			runBloom(tk.readFile("toMessag.txt"))
-			}*/
+				
 						
 				}
 				
