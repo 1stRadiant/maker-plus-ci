@@ -173,7 +173,12 @@ ccount = -1
 	
 	
 	
-	tk.flash('Welcome to Maker+ Ci')
+
+	if(document.title == "chatLink"){
+			tk.flash('Welcome to chatLink')
+			}else{
+					tk.flash('Welcome to Maker+ Ci')
+				}
 	
 	
 	
@@ -426,8 +431,11 @@ var toLoad = "as"+i;
 					if (modeObj[key].includes(fileEXT)) {
 						var mode = keys[index].toLowerCase()
 						editor.getSession().setMode("ace/mode/"+mode)
-						tk.flash("You are editing "+current[0]+ " in "+mode)
-						
+						if(document.title == "chatLink"){
+													tk.flash("The context is set with "+tk.readFile("linkedfile.txt")+ " you can change the context/training by selecting a persona or by manually setting the linked file.");
+						}else{
+       							tk.flash("You are editing "+current[0]+ " in "+mode)
+							}
 					}
 				});
 				//sessionUndoM(current[0])
@@ -484,6 +492,7 @@ async function query(data) {
 }
 
 var r2 = 0;
+var r1 = 0;
 async function runBloom(inp){
 	
 query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => { 
@@ -491,7 +500,7 @@ query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => {
 //tk.flash(response[0].generated_text)
 
 var spl = response[0].generated_text.split(inp);
-if(spl[1].startsWith("User:")){
+if(spl[1].includes("User:")){
 spl = spl[1].split("User:")
 	/*
 editor.session.insert(editor.getCursorPosition(), spl[0])
@@ -528,15 +537,15 @@ write = write + text[i]
 				clearInterval(timer);
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
-			if(r2 < 3){ 
+			if(r1 < 3){ 
 						tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 			runBloom(runMore)
-			r2++;
+			r1++;
 			}
 			
-			if(r2 > 3){
+			if(r1 > 3){
 
-																		r2 = 0;
+																		r1 = 0;
 												}
 			}
 
