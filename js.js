@@ -615,7 +615,7 @@ if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 }
 
 // pass in function, instead of calling it
-timer = setInterval(type, 100);
+timer = setInterval(type, 70);
 
 //await type();
 
