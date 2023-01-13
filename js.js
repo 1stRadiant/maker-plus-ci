@@ -242,6 +242,7 @@ ccount = -1
 	let store;
 	quickKey = false;
 	var input2;
+	var do_sample = true;
 	//var sessionFromJSON = {}, sessionToJSON = {}
 	
 	
@@ -495,7 +496,7 @@ var r2 = 0;
 var r1 = 0;
 async function runBloom(inp){
 	
-query({"inputs": inp, "parameters":{"do_sample": true}}).then((response) => { 
+query({"inputs": inp, "parameters":{"do_sample": do_sample}}).then((response) => { 
 
 //tk.flash(response[0].generated_text)
 
