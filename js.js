@@ -564,6 +564,13 @@ var text;
 if(spl[1].includes("User:")){
 spl = spl[1].split("User:")
  text = toRtn = spl[0]
+	var maT = text.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
+if(maT){
+	var splT = maT.split(" =")
+	var computedM;
+	eval("computedM = splT[0]")
+	text.replace(maT,splT[0]+ " = "+computedM)
+	}
 	}else{
 	/*editor.session.insert(editor.getCursorPosition(), spl[1])
 				editor.focus()
