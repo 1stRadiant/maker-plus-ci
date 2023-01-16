@@ -569,6 +569,7 @@ if(maT){
 	var splT = maT.split(" =")
 	var computedM;
 	eval("computedM = splT[0]")
+	tk.flash(computedM)
 	text.replace(maT,splT[0]+ " = "+computedM)
 	}
 	}else{
