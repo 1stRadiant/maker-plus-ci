@@ -596,7 +596,10 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
   clearInterval(timer);
-				var maT = text.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
+		var toM = tk.readFile("toMessage.txt").split("Multiply")
+				alert(toM[toM.length])
+				var toML = toM[toM.length
+				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
 if(maT){
 			alert(maT)
 	/*var splT = maT.split(" =")
