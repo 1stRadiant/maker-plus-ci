@@ -566,9 +566,9 @@ spl = spl[1].split("User:")
  text = toRtn = spl[0]
 	var maT = text.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
 if(maT){
+			alert(maT)
 	var splT = maT.split(" =")
 	var computedM;
-		alert(splT[0])
 	eval("computedM = splT[0]")
 
 	text.replace(maT,splT[0]+ " = "+computedM)
