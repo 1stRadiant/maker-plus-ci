@@ -573,15 +573,7 @@ spl = spl[1].split("User:")
 				tk.flash(spl[1])*/
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
 		text = toRtn = spl[1]
-		var maT = text.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
-if(tk.readFile("toMessage.txt").at(-1) == "="){
-			alert(maT)
-	/*var splT = maT.split(" =")
-	var computedM;
-	eval("computedM = splT[0]")
 
-	text.replace(maT,splT[0]+ " = "+computedM)*/
-	}
 		let timer;
 		var write = "";
 
@@ -604,6 +596,15 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
   clearInterval(timer);
+				var maT = text.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
+if(maT){
+			alert(maT)
+	/*var splT = maT.split(" =")
+	var computedM;
+	eval("computedM = splT[0]")
+
+	text.replace(maT,splT[0]+ " = "+computedM)*/
+	}
 		//tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
