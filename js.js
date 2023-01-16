@@ -574,13 +574,13 @@ spl = spl[1].split("User:")
 								//tk.writeFile(tk.readFile("linkedfile.txt"),spl[1],true)
 		text = toRtn = spl[1]
 		var maT = text.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
-if(maT){
+if(tk.readFile("toMessage.txt").at(-1) == "="{
 			alert(maT)
-	var splT = maT.split(" =")
+	/*var splT = maT.split(" =")
 	var computedM;
 	eval("computedM = splT[0]")
 
-	text.replace(maT,splT[0]+ " = "+computedM)
+	text.replace(maT,splT[0]+ " = "+computedM)*/
 	}
 		let timer;
 		var write = "";
