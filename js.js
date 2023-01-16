@@ -598,7 +598,7 @@ write = write + text[i]
   clearInterval(timer);
 		var toM = tk.readFile("toMessage.txt").split("Multiply")
 				alert(toM[toM.length])
-				var toML = toM[toM.length
+				var toML = toM[toM.length]
 				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
 if(maT){
 			alert(maT)
