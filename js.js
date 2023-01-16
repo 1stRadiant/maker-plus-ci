@@ -568,8 +568,9 @@ spl = spl[1].split("User:")
 if(maT){
 	var splT = maT.split(" =")
 	var computedM;
+		alert(splT[0])
 	eval("computedM = splT[0]")
-	alert(computedM)
+
 	text.replace(maT,splT[0]+ " = "+computedM)
 	}
 	}else{
