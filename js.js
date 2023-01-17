@@ -600,13 +600,12 @@ write = write + text[i]
 		var toM = document.getElementById("ap").textContent.split("ans =")
 				var toML = toM[toM.length-1]
 				alert(toML)
-				toML = toML.split("=")
+				toML = toML.split(" =")
 				
 				
-				alert(toM[toML.length-1])
+				alert(toML[0])
 			 //var toMLO = toML
 
-				
 				try{
 				var getValue = eval(toML[0])
 						  document.getElementById("ap").innerHTML = outputText + " " + write + " "+getValue;
