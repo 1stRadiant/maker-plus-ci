@@ -597,7 +597,9 @@ write = write + text[i]
   if(i >= text.length){
   clearInterval(timer);
 		var toM = document.getElementById("ap").textContent.split("ans =")
-				var toML = toM[toM.length-1]
+				var toML = toM[toM.length]
+				alert(toML)
+				alert(toM[toM.length-1])
 			 var toMLO = toML
 
 				
