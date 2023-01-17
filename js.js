@@ -603,20 +603,10 @@ write = write + text[i]
 				
 				try{
 				var getValue = eval(toML[0])
-						  document.getElementById("ap").innerHTML = outputText + " " + write +getValue;
+						  document.getElementById("ap").innerHTML = outputText + " " + write + " "+getValue;
 				//alert(getValue)
 				}catch(err){alert(err)}
-				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+)$|(?:(?!0\*0)\d+ \*\d+)$|(?:(?!0\*0)\d+ \* \d+)$|(?:(?!0\*0)\d+\*\d+)$/);
-alert(maT)
-if(maT){
-			
-alert(maT)
-	var computedM;
-	eval("computedM = maT")
-alert(computedM)
-toML = toML+" "+computedM
-	toM.replace(toMLO,toML)
-	}
+				
 		//tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
