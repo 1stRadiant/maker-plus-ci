@@ -603,7 +603,7 @@ write = write + text[i]
 				toML = toML.split("=")
 				
 				
-				alert(toM[0])
+				alert(toM[toM.length-1])
 			 //var toMLO = toML
 
 				
