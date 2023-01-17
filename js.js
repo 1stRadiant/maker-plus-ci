@@ -600,9 +600,10 @@ write = write + text[i]
 				var toML = toM[toM.length-1]
 			 var toMLO = toML
 				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+)$|(?:(?!0\*0)\d+ \*\d+)$|(?:(?!0\*0)\d+ \* \d+)$|(?:(?!0\*0)\d+\*\d+)$/);
-if(maT == true){
+alert(maT)
+if(maT){
 			
-
+alert(maT)
 	var computedM;
 	eval("computedM = maT")
 alert(computedM)
