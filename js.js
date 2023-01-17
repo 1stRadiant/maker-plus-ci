@@ -599,7 +599,7 @@ write = write + text[i]
 		//alert("11")
 		var toM = document.getElementById("ap").textContent.split("ans =")
 				var toML = toM[toM.length]
-				alert("222")
+				alert(toML)
 				toML = toML.split("=")
 				
 				
