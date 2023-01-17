@@ -600,8 +600,8 @@ write = write + text[i]
 				var toML = toM[toM.length-1]
 			 var toMLO = toML
 				var toML = toML.split(" =")
-				alert("2")
-				alert(eval("toML[0]"))
+				alert("3")
+				alert(eval(toML[0]))
 				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+)$|(?:(?!0\*0)\d+ \*\d+)$|(?:(?!0\*0)\d+ \* \d+)$|(?:(?!0\*0)\d+\*\d+)$/);
 alert(maT)
 if(maT){
