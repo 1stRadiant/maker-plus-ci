@@ -12,7 +12,7 @@ try{
 	var ii =1;
 	//alert("dhdb...1")
 
-//alert("starting...”)
+alert("starting...”)
 	
 	tk = {
 		readFile: function(f){
