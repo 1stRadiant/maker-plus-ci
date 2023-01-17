@@ -598,8 +598,9 @@ write = write + text[i]
   clearInterval(timer);
 		var toM = document.getElementById("ap").textContent.split("ans =")
 				var toML = toM[toM.length]
+				alert("1")
 				alert(toML)
-				alert(toM[toM.length-1])
+				/*alert(toM[toM.length-1])
 			 var toMLO = toML
 
 				
@@ -607,7 +608,7 @@ write = write + text[i]
 				var getValue = eval(toML)
 						  document.getElementById("ap").innerHTML = outputText + " " + write + " "+getValue;
 				//alert(getValue)
-				}catch(err){alert(err)}
+				}catch(err){alert(err)}*/
 				
 		//tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
