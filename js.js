@@ -12,7 +12,7 @@ try{
 	var ii =1;
 	//alert("dhdb...1")
 
-alert("starting...”)
+//alert("starting...”)
 	
 	tk = {
 		readFile: function(f){
@@ -596,10 +596,10 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
   clearInterval(timer);
-		alert("11")
+		//alert("11")
 		var toM = document.getElementById("ap").textContent.split("ans =")
 				var toML = toM[toM.length]
-				alert("2")
+				alert("222")
 				toML = toML.split("=")
 				
 				
