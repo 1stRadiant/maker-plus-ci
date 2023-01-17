@@ -597,8 +597,8 @@ write = write + text[i]
   if(i >= text.length){
   clearInterval(timer);
 		var toM = document.getElementById("ap").textContent.split("Multiply")
-				alert(toM[toM.length])
-				var toML = toM[toM.length]
+				alert(toM[1])
+				var toML = toM[1]
 				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
 if(maT == true){
 			alert(maT)
