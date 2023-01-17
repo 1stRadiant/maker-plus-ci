@@ -596,11 +596,12 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
   clearInterval(timer);
+		alert("1")
 		var toM = document.getElementById("ap").textContent.split("ans =")
 				var toML = toM[toM.length]
 				toML = toML.split("=")
 				
-				alert("1")
+				
 				alert(toM[0])
 			 //var toMLO = toML
 
