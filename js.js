@@ -598,7 +598,8 @@ write = write + text[i]
   clearInterval(timer);
 		alert("1")
 		var toM = document.getElementById("ap").textContent.split("ans =")
-				var toML = toM[toM.length]
+				var toML = toM[toM.length-1]
+				alert("2")
 				toML = toML.split("=")
 				
 				
