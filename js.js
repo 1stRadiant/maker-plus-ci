@@ -600,10 +600,11 @@ write = write + text[i]
 				var toML = toM[toM.length-1]
 			 var toMLO = toML
 				var toML = toML.split(" =")
-				alert("3")
+				
 				try{
 				var getValue = eval(toML[0])
-				alert(getValue)
+						  document.getElementById("ap").innerHTML = outputText + " " + write +getValue;
+				//alert(getValue)
 				}catch(err){alert(err)}
 				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+)$|(?:(?!0\*0)\d+ \*\d+)$|(?:(?!0\*0)\d+ \* \d+)$|(?:(?!0\*0)\d+\*\d+)$/);
 alert(maT)
