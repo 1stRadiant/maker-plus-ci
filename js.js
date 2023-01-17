@@ -458,7 +458,7 @@ var toLoad = "as"+i;
 		
 		
 	}
-	
+	var ans;
 	async function runIt(input){
 		try{
 			var rx = /<<([^}]*)>>/gm
@@ -596,10 +596,10 @@ write = write + text[i]
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
   clearInterval(timer);
-		var toM = document.getElementById("ap").textContent.split("Multiply")
+		var toM = document.getElementById("ap").textContent.split("ans =")
 				var toML = toM[toM.length-1]
 			 var toMLO = toML
-				var toML = toML.split(" =")
+
 				
 				try{
 				var getValue = eval(toML[0])
