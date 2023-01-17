@@ -600,6 +600,7 @@ write = write + text[i]
 				var toML = toM[toM.length]
 				toML = toML.split("=")
 				
+				alert("1")
 				alert(toM[0])
 			 //var toMLO = toML
 
