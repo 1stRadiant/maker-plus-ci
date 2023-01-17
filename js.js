@@ -597,16 +597,17 @@ write = write + text[i]
   if(i >= text.length){
   clearInterval(timer);
 		var toM = document.getElementById("ap").textContent.split("Multiply")
-				alert(toM[toM.length-1])
 				var toML = toM[toM.length-1]
-				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+ = \d+)$|(?:(?!0\*0)\d+ \*\d+ = \d+)$|(?:(?!0\*0)\d+ \* \d+ = \d+)$|(?:(?!0\*0)\d+\*\d+ = \d+)$/);
+			 var toMLO = toML
+				var maT = toML.match(/^(?:(?!0\*0)\d+\*\d+,)*(?:(?!0\*0)\d+\* \d+)$|(?:(?!0\*0)\d+ \*\d+)$|(?:(?!0\*0)\d+ \* \d+)$|(?:(?!0\*0)\d+\*\d+)$/);
 if(maT == true){
-			alert(maT)
-	/*var splT = maT.split(" =")
-	var computedM;
-	eval("computedM = splT[0]")
+			
 
-	text.replace(maT,splT[0]+ " = "+computedM)*/
+	var computedM;
+	eval("computedM = maT")
+alert(computedM)
+toML = toML+" "+computedM
+	toM.replace(toMLO,toML)
 	}
 		//tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
