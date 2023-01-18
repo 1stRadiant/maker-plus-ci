@@ -605,7 +605,7 @@ write = write + text[i]
 
 				try{
 				var getValue = eval(toML[0])
-						  document.getElementById("ap").innerHTML = outputText + " " + write + " "+getValue;
+						  document.getElementById("ap").innerHTML = outputText + " " + write + " = "+getValue;
 				//alert(getValue)
 				}catch(err){alert(err)}
 			}
