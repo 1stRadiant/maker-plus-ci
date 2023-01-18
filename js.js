@@ -592,9 +592,9 @@ write = write + text[i]
   
   // increase the index
   i++;
-  if(text[i] == ":"){
+  if(text[i] == "="){
 			  clearInterval(timer);
-							var toM = document.getElementById("ap").textContent.split("ans =")
+							var toM = document.getElementById("ap").textContent.split("ans >>")
 				var toML = toM[toM.length-1]
 				
 				toML = toML.split(" =")
@@ -615,7 +615,7 @@ write = write + text[i]
   if(i >= text.length){
   clearInterval(timer);
 		//alert("11")
-		var toM = document.getElementById("ap").textContent.split("ans =")
+		var toM = document.getElementById("ap").textContent.split("ans >>")
 				var toML = toM[toM.length-1]
 				
 				toML = toML.split(" =")
