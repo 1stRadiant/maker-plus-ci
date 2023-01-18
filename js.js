@@ -592,18 +592,36 @@ write = write + text[i]
   
   // increase the index
   i++;
+  if(text[i] == ":"){
+			  clearInterval(timer);
+							var toM = document.getElementById("ap").textContent.split("ans =")
+				var toML = toM[toM.length-1]
+				
+				toML = toML.split(" =")
+				
+				
+				
+			 //var toMLO = toML
 
+				try{
+				var getValue = eval(toML[0])
+						  document.getElementById("ap").innerHTML = outputText + " " + write + " "+getValue;
+				//alert(getValue)
+				}catch(err){alert(err)}
+			}
+			
+			
   // if the index reaches the maximum text length, cease the timer
   if(i >= text.length){
   clearInterval(timer);
 		//alert("11")
 		var toM = document.getElementById("ap").textContent.split("ans =")
 				var toML = toM[toM.length-1]
-				alert(toML)
+				
 				toML = toML.split(" =")
 				
 				
-				alert(toML[0])
+				
 			 //var toMLO = toML
 
 				try{
