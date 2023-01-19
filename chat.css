@@ -63,6 +63,24 @@ background:#272822;
 /*   transform: scale(0.8); */
 }
 
+.header1 button {
+font-size: 10px;
+  background-color: #272822; /* monoki */
+  border: 1;
+  border-color: white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+//float:left;
+//postion:relative;
+}
+
+.header1 {
+width:95%;
+background:#272822;
+//border: solid;
+}
+
 .app {
     border: 3px solid #031426;
     width: 95%;
