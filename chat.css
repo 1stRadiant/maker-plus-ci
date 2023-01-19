@@ -3,6 +3,21 @@ html, body {
     padding: 0;
 }
 
+#slide-1 button {
+background:#272822;
+  border: 1px solid #ccc;
+  /*padding: 10px 30px;*/
+  /*border-radius: 3px;*/
+  cursor: pointer;
+}
+
+#slide-1 button:focus {
+background:#272822;
+  outline: none;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+}
 
 .slider {
 background:#272822;
