@@ -594,6 +594,7 @@ write = write + text[i]
   i++;
   if(text[i] == "="){
 			  clearInterval(timer);
+					if(text.includes("ans")){
 							var toM = document.getElementById("ap").textContent.split("ans >>")
 				var toML = toM[toM.length-1]
 				
@@ -608,6 +609,7 @@ write = write + text[i]
 						  document.getElementById("ap").innerHTML = outputText + " " + write + " = "+getValue;
 				//alert(getValue)
 				}catch(err){alert(err)}
+				}
 			}
 			
 			
@@ -615,6 +617,7 @@ write = write + text[i]
   if(i >= text.length){
   clearInterval(timer);
 		//alert("11")
+					if(text.includes("ans")){
 		var toM = document.getElementById("ap").textContent.split("ans >>")
 				var toML = toM[toM.length-1]
 				
@@ -629,7 +632,7 @@ write = write + text[i]
 						  document.getElementById("ap").innerHTML = outputText + " " + write + " "+getValue;
 				//alert(getValue)
 				}catch(err){alert(err)}
-				
+				}
 		//tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
