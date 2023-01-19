@@ -1501,8 +1501,8 @@ window.location.href = "index.html#"+m;
 	
 	editor.on("focus", function() {
 		actionLast = "focus"
-		e.setAttribute("style","height:50px");
-		editor.resize()
+		//e.setAttribute("style","height:50px");
+		//editor.resize()
 		
 		if(quickKey == false){
 			editor.gotoLine(store,column,true)
