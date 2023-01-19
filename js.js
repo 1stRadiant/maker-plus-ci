@@ -1573,7 +1573,7 @@ rtn = true;
 		});*/
 		
 		let text = editor.getSelectedText();
-		if(rtn == false || bps == false){
+		/*if(rtn == false || bps == false){
 			if(lock == false){
 				window.editor.blur();
 				e.setAttribute("style","height:800px");
@@ -1586,7 +1586,7 @@ rtn = true;
 			
 		}
 		
-		actionLast = "scroll"
+		actionLast = "scroll"*/
 	});
 	
 	
