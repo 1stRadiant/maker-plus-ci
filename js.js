@@ -1475,6 +1475,12 @@ window.location.href = "index.html#"+m;
 		
 	}
 	
+	function indent(){
+			var code = editor.getValue();
+			var indented = indent.js(code, {tabString: '\t'});
+			editor.setValue(indented)
+		}
+	
 	let tm;
 	let focused;
 	let z, x, y;
@@ -1526,9 +1532,7 @@ window.location.href = "index.html#"+m;
 			
 			editor.focus()
 			
-			var code = editor.getValue();
-			var indented = indent.js(code, {tabString: '\t'});
-			editor.setValue(indented)
+		
 			
 			editor.gotoLine(store,column,true)
 			//editor.session.insert(store, "")
