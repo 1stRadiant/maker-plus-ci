@@ -602,14 +602,15 @@ div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
 div.style.color = "white";
-div.innerHTML = write;
-document.getElementById("ap").appendChild(div);
+//div.innerHTML = write;
+//document.getElementById("ap").appendChild(div);
 
 }else{
 //div.innerHTML = write;
 }
 
-  
+		  document.getElementById("div"+countDivs).innerHTML = outputText + " " + write;
+
   // increase the index
   i++;
   if(text[i] == "="){
