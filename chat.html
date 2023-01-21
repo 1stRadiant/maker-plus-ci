@@ -176,8 +176,8 @@ if(!text == ""){
 
 if(currText!= ""){
 
-    tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,true)
-    runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
+    tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,false)
+    runBloom(inpuT+"\n"+currText+" User: "+text+"\n"+toAi)
 var outputText = tk.readFile("toMessage.txt");
     document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
