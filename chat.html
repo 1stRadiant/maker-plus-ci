@@ -176,8 +176,8 @@ if(!text == ""){
 
     //var currText = document.getElementById("ap").textContent
 var currText = tk.readFile("toMessage.txt");
-
-if(currText!= ""){
+alert(currText)
+if(currText!= null){
 
     tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+" User: "+text+"\n"+toAi)
