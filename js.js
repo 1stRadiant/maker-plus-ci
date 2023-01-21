@@ -617,7 +617,7 @@ div.innerHTML = text[i];
   if(text[i] == "="){
 			  clearInterval(timer);
 					if(text.includes("ans")){
-var toM = tk.readFile("toMessage.txt").split("ans >>")		
+var toM = text.split("ans >>")		
 //var toM = document.getElementById("ap").textContent.split("ans >>")
 				var toML = toM[toM.length-1]
 				
@@ -646,7 +646,7 @@ var toM = tk.readFile("toMessage.txt").split("ans >>")
 		//alert("11")
 					if(text.includes("ans")){
 
-var toM = tk.readFile("toMessage.txt").split("ans >>")		
+var toM = text.split("ans >>")		
 
 				var toML = toM[toM.length-1]
 				
