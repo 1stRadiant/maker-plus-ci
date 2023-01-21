@@ -580,6 +580,14 @@ spl = spl[1].split("User:")
 // the current index
 let i = 0;
 
+var countDivs = tk.readFile("countDivs.txt")
+countDivs = Number(countDivs)+1;
+tk.writeFile("countDivs.txt",countDivs,false)
+var div = document.createElement("div"+countDivs);
+div.style.width = "80%";
+div.style.background = "blue";
+div.style.color = "white";
+
 // you don't need a for loop in setInterval, the function itself is aleady called in iterations, just treat it as a loop iteration.
 function type() {
 
@@ -590,15 +598,8 @@ write = write + text[i]
 				outputText = outputText.trim()
 
 		  //document.getElementById("ap").innerHTML = outputText + " " + write;
-var countDivs = tk.readFile("countDivs.txt")
-countDivs = Number(countDivs)+1;
-tk.writeFile("countDivs.txt",countDivs,false)
-var div = document.createElement("div"+countDivs);
-div.style.width = "80%";
-div.style.background = "blue";
-div.style.color = "white";
-div.innerHTML = write;
-document.getElementById("ap").appendChild(div);
+div.innerHTML = "\n"+write;
+document.getElementById("ap").appendChild("div"+countDivs);
 
 
   
