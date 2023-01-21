@@ -171,12 +171,23 @@ var myFunction = function() {
     //toMessage.unshift(text)
 if(!text == ""){
   var toAi = tk.readFile("toAi.txt")
+
+    var currText = document.getElementById("ap").textContent
+
+if(currText!= ""){
+
+    tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,true)
+    runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
+
+}else{
+
     tk.writeFile("toMessage.txt",text+"\n"+toAi,true)
     runBloom(inpuT+" User: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
     document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
-    }else{
+}  
+  }else{
     var currText = document.getElementById("ap").textContent
     tk.writeFile("toMessage.txt",currText,false)
     runBloom(currText)
