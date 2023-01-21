@@ -606,10 +606,10 @@ div.style.color = "white";
 //document.getElementById("ap").appendChild(div);
 
 }else{
-//div.innerHTML = write;
+div.innerHTML = text[i];
 }
 
-		  document.getElementById("div"+countDivs).innerHTML = outputText + " " + write;
+		  //document.getElementById("div"+countDivs).innerHTML = outputText + " " + write;
 
   // increase the index
   i++;
