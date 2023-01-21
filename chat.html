@@ -163,6 +163,8 @@ var outputText;
   <script>
   var elements = document.getElementsByClassName("send-btn");
 var countDivs = 0;
+var tk.writeFile("countDivs.txt",countDivs,false)
+
 var myFunction = function() {
     //var attribute = this.getAttribute("data-myattribute");
   inpuT = tk.readFile(tk.readFile("linkedfile.txt"));
@@ -183,7 +185,9 @@ var outputText = tk.readFile("toMessage.txt");
     //document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
 
-var div = document.createElement("div"+countDivs);
+var countDivs = tk.readFile("countDivs.txt")
+
+var div = document.createElement("div"+Number(countDivs));
 div.style.width = "80%";
 div.style.background = "red";
 div.style.color = "white";
@@ -197,7 +201,9 @@ document.getElementById("ap").appendChild(div);
     tk.writeFile("toMessage.txt",text+"\n"+toAi,true)
     runBloom(inpuT+" User: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
-    var div = document.createElement("div"+countDivs);
+
+var countDivs = tk.readFile("countDivs.txt")
+    var div = document.createElement("div"+Number(countDivs));
 div.style.width = "80%";
 div.style.background = "red";
 div.style.color = "white";
