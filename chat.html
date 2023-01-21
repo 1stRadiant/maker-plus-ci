@@ -176,8 +176,8 @@ if(!text == ""){
 
     //var currText = document.getElementById("ap").textContent
 var currText = tk.readFile("toMessage.txt");
-alert(currText)
-if(currText!= null){
+//alert(currText)
+if(!currText==""){
 
     tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+" User: "+text+"\n"+toAi)
@@ -203,14 +203,15 @@ document.getElementById("ap").appendChild(div);
     var outputText = tk.readFile("toMessage.txt");
 
 var countDivs = tk.readFile("countDivs.txt")
-    var div = document.createElement("div"+Number(countDivs));
+var div = document.createElement("div"+Number(countDivs));
 div.style.width = "80%";
 div.style.background = "red";
 div.style.color = "white";
 div.innerHTML = text;
 document.getElementById('type-area').value = "";
 document.getElementById("ap").appendChild(div);
-}  
+}
+tk.writeFile("countDivs.txt",Number(countDivs)+1,false)  
   }else{
 
 var currText = tk.readFile("toMessage.txt");
