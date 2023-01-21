@@ -588,7 +588,18 @@ function type() {
 write = write + text[i]
 				var outputText = tk.readFile("toMessage.txt");
 				outputText = outputText.trim()
-		  document.getElementById("ap").innerHTML = outputText + " " + write;
+
+		  //document.getElementById("ap").innerHTML = outputText + " " + write;
+
+divCount = divCount+1;
+var div = document.createElement("div"+countDivs);
+div.style.width = "80%";
+div.style.background = "blue";
+div.style.color = "white";
+div.innerHTML = write;
+document.getElementById("ap").appendChild(div);
+
+
   
   // increase the index
   i++;
@@ -606,7 +617,8 @@ write = write + text[i]
 
 				try{
 				var getValue = eval(toML[0])
-						  document.getElementById("ap").innerHTML = outputText + " " + write + " = "+getValue;
+		                document.getElementById("div"+divCount).innerHTML = write + " = "+getValue;
+
 				//alert(getValue)
 				}catch(err){alert(err)}
 
@@ -632,7 +644,10 @@ write = write + text[i]
 
 				try{
 				var getValue = eval(toML[0])
-						  document.getElementById("ap").innerHTML = outputText + " " + write + " "+getValue;
+
+		                document.getElementById("div"+divCount).innerHTML = write + " = "+getValue;
+
+
 				//alert(getValue)
 				}catch(err){alert(err)}
 				}
