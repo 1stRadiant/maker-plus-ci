@@ -582,6 +582,7 @@ let i = 0;
 
 var countDivs = tk.readFile("countDivs.txt")
 countDivs = Number(countDivs)+1;
+Alert(countDivs)
 tk.writeFile("countDivs.txt",countDivs,false)
 
 // you don't need a for loop in setInterval, the function itself is aleady called in iterations, just treat it as a loop iteration.
