@@ -597,12 +597,12 @@ write = write + text[i]
 
 var div
 var myElem = document.getElementById("div"+countDivs);
-if (myElem === null) {
+//if (myElem === null) {
 div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
 div.style.color = "white";
-}
+//}
 div.innerHTML = write;
 document.getElementById("ap").appendChild("div"+countDivs);
 
