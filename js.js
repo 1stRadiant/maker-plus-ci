@@ -598,7 +598,7 @@ write = write + text[i]
 				outputText = outputText.trim()
 
 		  //document.getElementById("ap").innerHTML = outputText + " " + write;
-div.innerHTML = "\n"+write;
+div.innerHTML = write;
 document.getElementById("ap").appendChild("div"+countDivs);
 
 
