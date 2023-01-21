@@ -592,7 +592,7 @@ write = write + text[i]
 		  //document.getElementById("ap").innerHTML = outputText + " " + write;
 var countDivs = tk.readFile("countDivs.txt")
 countDivs = Number(countDivs)+1;
-var tk.writeFile("countDivs.txt",countDivs,false)
+tk.writeFile("countDivs.txt",countDivs,false)
 var div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
