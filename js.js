@@ -595,15 +595,16 @@ write = write + text[i]
 
 		  //document.getElementById("ap").innerHTML = outputText + " " + write;
 
+var div
 var myElem = document.getElementById("div"+countDivs);
 if (myElem === null) {
-var div = document.createElement("div"+countDivs);
+div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
 div.style.color = "white";
+}
 div.innerHTML = write;
 document.getElementById("ap").appendChild("div"+countDivs);
-}
 
   
   // increase the index
