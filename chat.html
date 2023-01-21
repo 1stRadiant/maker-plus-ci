@@ -162,7 +162,7 @@ var outputText;
 </script>
   <script>
   var elements = document.getElementsByClassName("send-btn");
-
+var countDivs = 0;
 var myFunction = function() {
     //var attribute = this.getAttribute("data-myattribute");
   inpuT = tk.readFile(tk.readFile("linkedfile.txt"));
@@ -172,26 +172,42 @@ var myFunction = function() {
 if(!text == ""){
   var toAi = tk.readFile("toAi.txt")
 
-    var currText = document.getElementById("ap").textContent
+    //var currText = document.getElementById("ap").textContent
+var currText = tk.readFile("toMessage.txt");
 
 if(currText!= ""){
 
     tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+" User: "+text+"\n"+toAi)
 var outputText = tk.readFile("toMessage.txt");
-    document.getElementById("ap").innerHTML = outputText;
+    //document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
+
+var div = document.createElement("div"+countDivs);
+div.style.width = "80%";
+div.style.background = "red";
+div.style.color = "white";
+div.innerHTML = text;
+
+document.getElementById('type-area').value = "";
+document.getElementById("ap").appendChild(div);
 
 }else{
 
     tk.writeFile("toMessage.txt",text+"\n"+toAi,true)
     runBloom(inpuT+" User: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
-    document.getElementById("ap").innerHTML = outputText;
-    document.getElementById('type-area').value = "";
+    var div = document.createElement("div"+countDivs);
+div.style.width = "80%";
+div.style.background = "red";
+div.style.color = "white";
+div.innerHTML = text;
+document.getElementById('type-area').value = "";
+document.getElementById("ap").appendChild(div);
 }  
   }else{
-    var currText = document.getElementById("ap").textContent
+
+var currText = tk.readFile("toMessage.txt");
     tk.writeFile("toMessage.txt",currText,false)
     runBloom(currText)
       
