@@ -179,7 +179,7 @@ if(!text == ""){
     //var currText = document.getElementById("ap").textContent
 var currText = tk.readFile("toMessage.txt");
 //alert(currText)
-if(currText=="_blank"){
+if(!currText=="_blank"){
 
     tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+" User: "+text+"\n"+toAi)
@@ -200,7 +200,7 @@ document.getElementById("ap").appendChild(div);
 
 }else{
 
-    tk.writeFile("toMessage.txt",text+"\n"+toAi,true)
+    tk.writeFile("toMessage.txt",text+"\n"+toAi,false)
     runBloom(inpuT+" User: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
 
