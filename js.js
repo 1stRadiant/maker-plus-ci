@@ -590,8 +590,9 @@ write = write + text[i]
 				outputText = outputText.trim()
 
 		  //document.getElementById("ap").innerHTML = outputText + " " + write;
-
-countDivs = countDivs+1;
+var countDivs = tk.readFile("countDivs.txt")
+countDivs = Number(countDivs)+1;
+var tk.writeFile("countDivs.txt",countDivs,false)
 var div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
@@ -606,7 +607,8 @@ document.getElementById("ap").appendChild(div);
   if(text[i] == "="){
 			  clearInterval(timer);
 					if(text.includes("ans")){
-							var toM = document.getElementById("ap").textContent.split("ans >>")
+var toM = tk.readFile("toMessage.txt").split("ans >>")		
+//var toM = document.getElementById("ap").textContent.split("ans >>")
 				var toML = toM[toM.length-1]
 				
 				toML = toML.split(" =")
@@ -633,7 +635,9 @@ document.getElementById("ap").appendChild(div);
   clearInterval(timer);
 		//alert("11")
 					if(text.includes("ans")){
-		var toM = document.getElementById("ap").textContent.split("ans >>")
+
+var toM = tk.readFile("toMessage.txt").split("ans >>")		
+
 				var toML = toM[toM.length-1]
 				
 				toML = toML.split(" =")
