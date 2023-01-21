@@ -609,6 +609,9 @@ write = write + text[i]
 						  document.getElementById("ap").innerHTML = outputText + " " + write + " = "+getValue;
 				//alert(getValue)
 				}catch(err){alert(err)}
+
+		tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+
 				}
 			}
 			
@@ -633,7 +636,7 @@ write = write + text[i]
 				//alert(getValue)
 				}catch(err){alert(err)}
 				}
-		//tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+		tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
 			if(r2 < 3){
