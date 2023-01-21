@@ -602,8 +602,9 @@ div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
 div.style.color = "white";
-//div.innerHTML = write;
-//document.getElementById("ap").appendChild(div);
+
+div.innerHTML = text[i];
+document.getElementById("ap").appendChild(div);
 
 }else{
 div.innerHTML = text[i];
