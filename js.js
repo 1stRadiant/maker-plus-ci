@@ -591,7 +591,7 @@ write = write + text[i]
 
 		  //document.getElementById("ap").innerHTML = outputText + " " + write;
 
-divCount = divCount+1;
+countDivs = countDivs+1;
 var div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
