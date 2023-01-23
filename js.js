@@ -629,13 +629,12 @@ var toM = text.split("ans >>")
 			
 			 //var toMLO = toML
 
-				try{
+				//try{
 				var getValue = eval(toML[0])
-				
 		                document.getElementById("div"+countDivs).innerHTML = write+ " = "+getValue;
 
 				//alert(getValue)
-				}catch(err){alert(err.stack)}
+				//}catch(err){alert(err.stack)}
 
 		tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 
