@@ -537,7 +537,7 @@ write = write + text[i]
 				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
 			if(r2 < 3){ 
-						tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+T yh Yhh h
 			runBloom(runMore)
 			r2++;
 			}
@@ -602,7 +602,6 @@ div = document.createElement("div"+countDivs);
 div.style.width = "80%";
 div.style.background = "blue";
 div.style.color = "white";
-
 div.innerHTML = text[i];
 document.getElementById("ap").appendChild(div);
 
@@ -622,7 +621,11 @@ var toM = text.split("ans >>")
 				var toML = toM[toM.length-1]
 				
 				toML = toML.split(" =")
-				
+
+			var runMore = tk.readFile("toMessage.txt")
+
+				tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+
 				
 				
 			 //var toMLO = toML
@@ -652,7 +655,9 @@ var toM = text.split("ans >>")
 				
 				toML = toML.split(" =")
 				
-				
+							var runMore = tk.readFile("toMessage.txt")
+
+				tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 				
 			 //var toMLO = toML
 
