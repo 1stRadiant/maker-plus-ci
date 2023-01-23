@@ -627,7 +627,7 @@ var toM = text.split("ans >>")
 				tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 
 				
-				
+				alert(toML[0])
 			 //var toMLO = toML
 
 				try{
