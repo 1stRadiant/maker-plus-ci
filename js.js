@@ -631,7 +631,7 @@ var toM = text.split("ans >>")
 			 //var toMLO = toML
 
 				try{
-				var getValue = eval(toML[1])
+				var getValue = eval(toML[0])
 		                document.getElementById("div"+divCount).innerHTML = write + " = "+getValue;
 
 				//alert(getValue)
