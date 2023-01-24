@@ -631,7 +631,7 @@ var toM = text.split("ans >>")
 
 				//try{
 				var getValue = eval(toML[0])
-		                div.innerHTML = write+ " = "+getValue;
+		                div.innerHTML =+ " = "+getValue;
 
 				//alert(getValue)
 				//}catch(err){alert(err.stack)}
@@ -663,7 +663,7 @@ var toM = text.split("ans >>")
 				try{
 				var getValue = eval(toML[0])
 
-		                document.getElementById("div"+countDivs).innerHTML = write + " = "+getValue;
+		                div.innerHTML =+ " = "+getValue;
 
 
 				//alert(getValue)
