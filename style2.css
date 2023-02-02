@@ -1,40 +1,41 @@
+
 body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  background-color: #f5f5f5;
 }
 
-.hero-unit {
-  text-align: center;
+.sign-up-form {
+  padding: 20px;
   margin: 0 auto;
-  padding: 30px;
+  text-align: center;
 }
 
-.hero-unit h1 {
-  font-size: 30px;
+.sign-up-form h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.sign-up-form p {
+  font-size: 1.2rem;
   font-weight: 300;
   color: #000;
-  margin-bottom: 30px;
 }
 
-.hero-unit p {
-  font-size: 20px;
-  font-weight: 300;
-  color: #000;
-  margin-bottom: 30px;
+.sign-up-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
-.hero-unit form {
-  padding: 30px;
-}
-
-.hero-unit form.form-signin {
-  margin-bottom: 30px;
-}
-
-.hero-unit form.form-control {
-  margin-bottom: 30px;
-}
-
-.hero-unit form.form-control:focus {
-  outline: none;
+.sign-up-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #00bcd4;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
 }
