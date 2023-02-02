@@ -1,1 +1,44 @@
-<!DOCTYPE html> <html> <head> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="style2.css"> <title>Refund Policy</title> </head> <body> <div class="overlay"></div> <div class="nav"> <div class="button"><a href="#">Preview</a></div> <div class="button"><a href="#">Code</a></div> <div class="button"><a href="#">Copy</a></div> </div> <div id="dialog"> <div class="dialog"> <p class="question">What's your refund policy?</p> <p>If you are unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full no questions asked.</p> </div> <div class="dialog"> <p class="question">Do you offer technical support?</p> <p>No</p> </div> </div> <script src="https://code.jquery.com/jquery-3.3.1.js"></script> <script> $(document).ready(function() { $(".button").click(function() { $(".button").removeClass('active'); $(this).addClass('active'); }) $(".dialog").hide(); }); </script> <script src="script.js"></script> </body> </html>
+<nav>
+    <ul>
+        <li><a href="#">Preview</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">Copy</a></li>
+    </ul>
+</nav>
+
+<style>
+    nav {
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        padding: 20px;
+        background-color: #f0f0f0;
+        text-align: center;
+        transition: background-color 0.3s;
+    }
+
+    nav ul li:hover {
+        background-color: #f0f0f0;
+    }
+
+    nav ul li a {
+        display: block;
+        color: white;
+        padding: 20px;
+        text-decoration: none;
+    }
+
+    nav ul li a:hover {
+        background-color: #f0f0f0;
+    }
+</style>
