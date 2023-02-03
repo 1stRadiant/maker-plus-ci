@@ -31,6 +31,49 @@
 }
 
 
+
+.thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+}
+
+.caption h4 {
+  margin: 0;
+}
+
+.caption p {
+  margin: 0;
+}
+
+.caption a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 16px;
+  display: block;
+}
+
+.caption a:hover {
+  color: #000;
+}
+
+.thumbnail img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover img {
+  opacity: 0.7;
+}
 </style>
 </head>
 <body>
@@ -82,70 +125,58 @@
   </a>
 </div>
 
-<section class="section section-product">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="section-heading">Products</h2>
-        <hr class="light">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="page-header">Products</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="thumbnail">
+        <img src="https://via.placeholder.com/150" alt="Product 1">
+        <div class="caption">
+          <h3 class="pull-right">$100</h3>
+          <h4>Product name</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at massa ipsum.</p>
+          <p><a href="#" class="btn btn-primary">Add to cart</a></p>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="product">
-          <img class="img-fluid" src="http://placehold.it/350x150" alt="">
-          <div class="product-info">
-            <h3 class="product-title">Product title</h3>
-            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="product-price">
-              <span class="price">$340</span>
-              <span class="price-label">per month</span>
-            </div>
-          </div>
+    <div class="col-lg-4">
+      <div class="thumbnail">
+        <img src="https://via.placeholder.com/150" alt="Product 2">
+        <div class="caption">
+          <h3 class="pull-right">$200</h3>
+          <h4>Product name</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at massa ipsum.</p>
+          <p><a href="#" class="btn btn-primary">Add to cart</a></p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="product">
-          <img class="img-fluid" src="http://placehold.it/350x150" alt="">
-          <div class="product-info">
-            <h3 class="product-title">Product title</h3>
-            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="product-price">
-              <span class="price">$340</span>
-              <span class="price-label">per month</span>
-            </div>
-          </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="thumbnail">
+        <img src="https://via.placeholder.com/150" alt="Product 3">
+        <div class="caption">
+          <h3 class="pull-right">$300</h3>
+          <h4>Product name</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at massa ipsum.</p>
+          <p><a href="#" class="btn btn-primary">Add to cart</a></p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="product">
-          <img class="img-fluid" src="http://placehold.it/350x150" alt="">
-          <div class="product-info">
-            <h3 class="product-title">Product title</h3>
-            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="product-price">
-              <span class="price">$340</span>
-              <span class="price-label">per month</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="product">
-          <img class="img-fluid" src="http://placehold.it/350x150" alt="">
-          <div class="product-info">
-            <h3 class="product-title">Product title</h3>
-            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="product-price">
-              <span class="price">$340</span>
-              <span class="price-label">per month</span>
-            </div>
-          </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="thumbnail">
+        <img src="https://via.placeholder.com/150" alt="Product 4">
+        <div class="caption">
+          <h3 class="pull-right">$400</h3>
+          <h4>Product name</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at massa ipsum.</p>
+          <p><a href="#" class="btn btn-primary">Add to cart</a></p>
         </div>
       </div>
     </div>
   </div>
-</section>
-
+</div>
 </body>
 </html>
