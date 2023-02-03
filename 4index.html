@@ -57,6 +57,7 @@ feature-box {
 
 
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -107,40 +108,51 @@ feature-box {
   </a>
 </div>
 
-<section class="features">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="section-heading">Features</h2>
-        <hr class="light">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, repudiandae.</p>
-      </div>
+Consider https://getbootstrap.com/
+Directive act as a coding assistant.
+
+Input: Design a regulation site. The site should have a menu which contains three items, "Preview", "Copy" and "Code". Set the menu's background color purple.
+Regulation site menu Html:
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Regulation site</a>
     </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="feature-box">
-          <i class="fa fa-check fa-3x"></i>
-          <h3 class="feature-title">Awesome</h3>
-          <p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, repudiandae.</p>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="feature-box">
-          <i class="fa fa-check fa-3x"></i>
-          <h3 class="feature-title">Awesome</h3>
-          <p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, repudiandae.</p>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="feature-box">
-          <i class="fa fa-check fa-3x"></i>
-          <h3 class="feature-title">Awesome</h3>
-          <p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, repudiandae.</p>
-        </div>
-      </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Preview</a></li>
+      <li><a href="#">Copy</a></li>
+      <li><a href="#">Code</a></li>
+    </ul>
+  </div>
+</nav>
+
+Regulation site features section which includes fontawesome icons as well as some examples text Html:
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <i class="fa fa-cog fa-3x"></i>
+      <h3>Features</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
+      </p>
+    </div>
+    <div class="col-md-4">
+      <i class="fa fa-code fa-3x"></i>
+      <h3>Code</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
+      </p>
+    </div>
+    <div class="col-md-4">
+      <i class="fa fa-file-code-o fa-3x"></i>
+      <h3>Preview</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
+      </p>
     </div>
   </div>
-</section>
+</div>
+
 
 </body>
 </html>
