@@ -479,8 +479,8 @@ var sc = tk.readFile("sc.txt");
 var ha = tk.readFile("huggingapi.txt");
 
 
-async function query(data) {
-	const response = await fetch(
+function query(data) {
+	const response = fetch(
 	"https://api-inference.huggingface.co/models/bigscience/bloom",
 		{
 			headers: { Authorization: ""+sc+""},
@@ -488,7 +488,7 @@ async function query(data) {
 			body: JSON.stringify(data),
 		}
 	);
-	const result = await response.json();
+	const result = response.json();
 	return result;
 }
 
