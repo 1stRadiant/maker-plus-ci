@@ -459,7 +459,7 @@ var toLoad = "as"+i;
 		
 	}
 	var ans;
-	async function runIt(input){
+function runIt(input){
 		try{
 			var rx = /<<([^}]*)>>/gm
 			var cf = rx.exec(input);
