@@ -494,7 +494,7 @@ async function query(data) {
 
 var r2 = 0;
 var r1 = 0;
-async function runBloom(inp){
+function runBloom(inp){
 	
 query({"inputs": inp, "parameters":{"do_sample": do_sample}}).then((response) => { 
 
