@@ -494,8 +494,18 @@ function query(data) {
 const request = new XMLHttpRequest();
 request.open("POST", "https://api-inferencehuggingface.co/models/bigscience/bloom", true);
 requestsetRequestHeader("Authorization", ""+sc+"");
-//return request.sendJSON.stringify(data));
+request.sendJSON.stringify(data));
 
+for(; request.readyState !== 4;)
+
+    if (request.status === 200) {
+
+        console.log('SUCCESS', request.responseText);
+
+    } else console.warn('request_error');
+
+    return JSON.parse(request.responseText);
+}
 }
 
 var r2 = 0;
