@@ -479,8 +479,8 @@ var sc = tk.readFile("sc.txt");
 var ha = tk.readFile("huggingapi.txt");
 
 
-function query(data) {
-	/*const response = await fetch(
+async function query(data) {
+	const response = await fetch(
 	"https://api-inference.huggingface.co/models/bigscience/bloom",
 		{
 			headers: { Authorization: ""+sc+""},
@@ -489,23 +489,11 @@ function query(data) {
 		}
 	);
 	const result = await response.json();
-	return result;*/
+	return result;
 
-const request = new XMLHttpRequest();
-request.open("POST", "https://api-inferencehuggingface.co/models/bigscience/bloom", true);
-requestsetRequestHeader("Authorization", ""+sc+"");
-request.sendJSON.stringify(data));
 
-for(; request.readyState !== 4;)
 
-    if (request.status === 200) {
 
-        console.log('SUCCESS', request.responseText);
-
-    } else console.warn('request_error');
-
-    return JSON.parse(request.responseText);
-}
 }
 
 var r2 = 0;
