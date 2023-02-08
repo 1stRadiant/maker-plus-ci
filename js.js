@@ -479,7 +479,7 @@ var sc = tk.readFile("sc.txt");
 var ha = tk.readFile("huggingapi.txt");
 
 
-function query(data) {
+async function query(data) {
 	/*const response = await fetch(
 	"https://api-inference.huggingface.co/models/bigscience/bloom",
 		{
@@ -510,7 +510,7 @@ var r2 = 0;
 var r1 = 0;
 function runBloom(inp){
 	
-return query({"inputs": inp, "parameters":{"do_sample": do_sample}}).then((response) => { 
+query({"inputs": inp, "parameters":{"do_sample": do_sample}}).then((response) => { 
 
 //tk.flash(response[0].generated_text)
 
