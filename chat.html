@@ -168,24 +168,19 @@ tk.writeFile("countDivs.txt",countDivs,false)
 
 tk.writeFile("toMessage.txt","_blank",false)
 var myFunction = function() {
-    //var attribute = this.getAttribute("data-myattribute");
   inpuT = tk.readFile(tk.readFile("linkedfile.txt"));
  
 try{
   var text = document.getElementById('type-area').value
-    //toMessage.unshift(text)
 if(!text == ""){
   var toAi = tk.readFile("toAi.txt")
 
-    //var currText = document.getElementById("ap").textContent
 var currText = tk.readFile("toMessage.txt");
-//alert(currText)
 if(!currText=="_blank"){
 
     tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
 var outputText = tk.readFile("toMessage.txt");
-    //document.getElementById("ap").innerHTML = outputText;
     document.getElementById('type-area').value = "";
 
 var countDivs = tk.readFile("countDivs.txt")
@@ -220,7 +215,6 @@ tk.writeFile("countDivs.txt",Number(countDivs)+1,false)
   }else{
 
 var currText = tk.readFile("toMessage.txt");
-    //tk.writeFile("toMessage.txt",currText,false)
     runBloom(currText)
       
     }
