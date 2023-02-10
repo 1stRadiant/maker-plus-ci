@@ -626,14 +626,6 @@ div.innerHTML = text[i];
 
   // increase the index
   i++;
-if(text[i] == "."){
-			  clearInterval(timer);
-			var runMore = tk.readFile("toMessage.txt")
-
-				tk.writeFile("toMessage.txt",runMore+ " "+text,false)
-
-}
-
 
   if(text[i] == "="){
 			  clearInterval(timer);
