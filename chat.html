@@ -178,7 +178,7 @@ if(!text == ""){
 var currText = tk.readFile("toMessage.txt");
 if(!currText=="_blank"){
 alert(",")
-    tk.writeFile("toMessage.txt",currText+"\n"+text+"\n"+toAi,false)
+    tk.writeFile("toMessage.txt",currText+"\nUser: "+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
 var outputText = tk.readFile("toMessage.txt");
     document.getElementById('type-area').value = "";
@@ -196,7 +196,7 @@ document.getElementById("ap").appendChild(div);
 
 }else{
 
-    tk.writeFile("toMessage.txt",text+"\n"+toAi,false)
+    tk.writeFile("toMessage.txt","User: "+text+"\n"+toAi,false)
     runBloom(inpuT+"\nUser: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
 
