@@ -525,52 +525,7 @@ editor.session.insert(editor.getCursorPosition(), spl[0])
 				tk.flash(spl[0])
 				*/
 				//tk.writeFile(tk.readFile("linkedfile.txt"),spl[0],true)
-			/*var text = toRtn = spl[0]
-		let timer;
-		var write = "";
-
-// the current index
-let i = 0;
-
-// you don't need a for loop in setInterval, the function itself is aleady called in iterations, just treat it as a loop iteration.
-function type() {
-
-  // print the current charater with current index
-  //document.write(outputText[i]);
-write = write + text[i]
-				var outputText = tk.readFile("toMessage.txt");
-				outputText = outputText.trim()
-		  document.getElementById("ap").innerHTML = outputText + " " + write;
-  
-  // increase the index
-  i++;
-
-  // if the index reaches the maximum text length, cease the timer
-  if(i >= text.length){
-				clearInterval(timer);
-				if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
-			var runMore = tk.readFile("toMessage.txt")
-			if(r2 < 3){ 
-			runBloom(runMore)
-			r2++;
-			}
-			
-			if(r2 > 3){
-
-																		r2 = 0;
-												}
-			}
-
-				}
-				
-				
-
-}
-
-// pass in function, instead of calling it
-timer = setInterval(type, 100);*/
-
-
+	
 
 			    
 var text;
@@ -683,6 +638,7 @@ var toM = text.split("ans >>")
 				//alert(getValue)
 				}catch(err){alert(err)}
 				}
+var runMore = tk.readFile("toMessage.txt")
 		tk.writeFile("toMessage.txt",runMore+ " "+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
