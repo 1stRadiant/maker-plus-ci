@@ -698,9 +698,10 @@ var toM = text.split("ans >>")
 			}
 				*/
 						
-				}
-				
-				
+				}else{
+			var runMore = tk.readFile("toMessage.txt")
+		tk.writeFile("toMessage.txt",runMore+ " "+text,false)		
+			}	
 
 }
 
