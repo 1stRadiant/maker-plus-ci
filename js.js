@@ -615,7 +615,7 @@ var toM = text.split("ans >>")
   if(i >= text.length){
   clearInterval(timer);
 		//alert("11")
-					if(text.includes("ans")){
+					if(text.includes("ans >>")){
 
 var toM = text.split("ans >>")		
 
