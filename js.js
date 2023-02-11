@@ -593,7 +593,7 @@ var toM = text.split("ans >>")
 
 			var runMore = tk.readFile("toMessage.txt")
 
-				tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+				tk.writeFile("toMessage.txt",runMore+text,false)
 
 			
 			 //var toMLO = toML
@@ -605,7 +605,7 @@ var toM = text.split("ans >>")
 				//alert(getValue)
 				//}catch(err){alert(err.stack)}
 
-		tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+		tk.writeFile("toMessage.txt",runMore+text,false)
 
 				}
 			}
@@ -625,7 +625,7 @@ var toM = text.split("ans >>")
 				
 							var runMore = tk.readFile("toMessage.txt")
 
-				tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+				tk.writeFile("toMessage.txt",runMore+text,false)
 				
 			 //var toMLO = toML
 
@@ -639,7 +639,7 @@ var toM = text.split("ans >>")
 				}catch(err){alert(err)}
 				}
 var runMore = tk.readFile("toMessage.txt")
-		tk.writeFile("toMessage.txt",runMore+ " "+text,false)
+		tk.writeFile("toMessage.txt",runMore+text,false)
 /*if(text.at(-1)!="." ||  text.at(-1)!="?" ||text.at(-1)!=":"){
 			var runMore = tk.readFile("toMessage.txt")
 			if(r2 < 3){
