@@ -205,7 +205,11 @@ var div = document.createElement("div"+Number(countDivs));
 div.style.width = "80%";
 div.style.background = "red";
 div.style.color = "white";
+if(Number(countDivs)>0){
+div.innerHTML = "<br>"+text;
+}else{
 div.innerHTML = text+"<br>";
+}
 document.getElementById('type-area').value = "";
 document.getElementById("ap").appendChild(div);
 
