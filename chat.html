@@ -170,7 +170,6 @@ tk.writeFile("countDivs.txt",countDivs,false)
 //tk.writeFile("toMessage.txt","_blank",false)
 var myFunction = function() {
   inpuT = tk.readFile(tk.readFile("linkedfile.txt").trim());
- alert(inpuT)
 try{
   var text = document.getElementById('type-area').value
 if(!text == ""){
@@ -198,7 +197,6 @@ document.getElementById("ap").appendChild(div);
 }else{
 
     tk.writeFile("toMessage.txt","User: "+text+"\n"+toAi,false)
-    alert(inpuT+"\nUser: "+text+"\n"+toAi)
     runBloom(inpuT+"\nUser: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
 
