@@ -158,6 +158,7 @@ var readd;
 let quickKey = false;
 var toMesaage = [];
 var outputText;
+var inpuT
 
 
 </script>
@@ -168,8 +169,8 @@ tk.writeFile("countDivs.txt",countDivs,false)
 
 //tk.writeFile("toMessage.txt","_blank",false)
 var myFunction = function() {
-  inpuT = tk.readFile(tk.readFile("linkedfile.txt"));
- 
+  inpuT = tk.readFile(tk.readFile("linkedfile.txt").trim());
+ alert(inpuT)
 try{
   var text = document.getElementById('type-area').value
 if(!text == ""){
