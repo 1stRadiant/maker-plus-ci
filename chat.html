@@ -197,6 +197,7 @@ document.getElementById("ap").appendChild(div);
 }else{
 
     tk.writeFile("toMessage.txt","User: "+text+"\n"+toAi,false)
+    alert(inpuT+"\nUser: "+text+"\n"+toAi)
     runBloom(inpuT+"\nUser: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
 
