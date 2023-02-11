@@ -196,8 +196,9 @@ document.getElementById("ap").appendChild(div);
 
 }else{
 
-    tk.writeFile("toMessage.txt","User: "+text+"\n"+toAi,false)
-    runBloom(inpuT+"\nUser: "+text+"\n"+toAi)
+var currText = tk.readFile("toMessage.txt")
+    tk.writeFile("toMessage.txt",currText+"\nUser: "+text+"\n"+toAi,false)
+    runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
 
 var countDivs = tk.readFile("countDivs.txt")
@@ -206,7 +207,7 @@ div.style.width = "80%";
 div.style.background = "red";
 div.style.color = "white";
 if(Number(countDivs)>0){
-div.innerHTML = "<br>"+text;
+div.innerHTML = "<br>"+text+"<br>";
 }else{
 div.innerHTML = text+"<br>";
 }
