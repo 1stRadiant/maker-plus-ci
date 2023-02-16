@@ -177,8 +177,8 @@ if(!text == ""){
 
 var currText = tk.readFile("toMessage.txt");
 if(currText!=""){
-    tk.writeFile("toMessage.txt",inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi,false)
-    runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
+    tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi,false)
+    runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi)
 var outputText = tk.readFile("toMessage.txt");
     document.getElementById('type-area').value = "";
 
@@ -199,8 +199,8 @@ document.getElementById("ap").appendChild(div);
 }else{
 
 var currText = tk.readFile("toMessage.txt")
-    tk.writeFile("toMessage.txt",inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi,false)
-    runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
+    tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi,false)
+    runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi)
     var outputText = tk.readFile("toMessage.txt");
 
 var countDivs = tk.readFile("countDivs.txt")
