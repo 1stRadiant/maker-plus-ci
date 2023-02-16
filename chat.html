@@ -199,8 +199,8 @@ document.getElementById("ap").appendChild(div);
 }else{
 
 var currText = tk.readFile("toMessage.txt")
-    tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi,false)
-    runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi)
+    tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)
+    runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi.trim())
     var outputText = tk.readFile("toMessage.txt");
 
 var countDivs = tk.readFile("countDivs.txt")
