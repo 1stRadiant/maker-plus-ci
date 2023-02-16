@@ -200,7 +200,12 @@ document.getElementById("ap").appendChild(div);
 
 var currText = tk.readFile("toMessage.txt")
     tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)
+if(tk.readFile(tk.readFile("linkedfile.txt"))!="\n"){
+    runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
+
+}else{
     runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi.trim())
+}
     var outputText = tk.readFile("toMessage.txt");
 
 var countDivs = tk.readFile("countDivs.txt")
