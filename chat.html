@@ -176,7 +176,7 @@ if(!text == ""){
   var toAi = tk.readFile("toAi.txt")
 
 var currText = tk.readFile("toMessage.txt");
-if(!currText=="_blank"){
+if(currText!=""){
 alert(",")
     tk.writeFile("toMessage.txt",currText+"\nUser: "+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
