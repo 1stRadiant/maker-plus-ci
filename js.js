@@ -491,17 +491,6 @@ async function query(data) {
 	const result = await response.json();
 	return result;
 
-/*const xhr = new XMLHttpRequest();
-xhr.open("POST", "https://api-inference.huggingface.co/models/bigscience/bloom", true);
-xhr.setRequestHeader("Authorization", sc);
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-    const result = JSON.parse(xhr.responseText);
-    return result;
-  }
-};
-xhr.send(JSON.stringify(data));*/
 
 
 }
@@ -544,6 +533,10 @@ spl = spl[1].split("User:")
 
 		let timer;
 		var write = "";
+if(text.includes("end while."){
+var tspl = text.split("end while.")
+text = tspl[0];
+}
 
 // the current index
 let i = 0;
