@@ -178,7 +178,13 @@ if(!text == ""){
 var currText = tk.readFile("toMessage.txt");
 if(currText!=""){
     tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi,false)
-    runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi)
+if(tk.readFile(tk.readFile("linkedfile.txt"))=="\n"){
+    runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
+
+}else{
+    runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi.trim())
+}
+
 var outputText = tk.readFile("toMessage.txt");
     document.getElementById('type-area').value = "";
 
@@ -200,7 +206,7 @@ document.getElementById("ap").appendChild(div);
 
 var currText = tk.readFile("toMessage.txt")
     tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)
-if(tk.readFile(tk.readFile("linkedfile.txt"))!="\n"){
+if(tk.readFile(tk.readFile("linkedfile.txt"))=="\n"){
     runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
 
 }else{
