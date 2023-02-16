@@ -177,19 +177,21 @@ if(!text == ""){
 
 var currText = tk.readFile("toMessage.txt");
 if(currText!=""){
-alert(",")
     tk.writeFile("toMessage.txt",currText+"\nUser: "+text+"\n"+toAi,false)
     runBloom(inpuT+"\n"+currText+"\nUser: "+text+"\n"+toAi)
 var outputText = tk.readFile("toMessage.txt");
     document.getElementById('type-area').value = "";
 
 var countDivs = tk.readFile("countDivs.txt")
-alert(countDivs);
 var div = document.createElement("div"+Number(countDivs));
 div.style.width = "80%";
 div.style.background = "red";
 div.style.color = "white";
-div.innerHTML = "<br>"+text;
+if(Number(countDivs)>0){
+div.innerHTML = "<br>"+text+"<br>";
+}else{
+div.innerHTML = text+"<br>";
+}
 
 document.getElementById('type-area').value = "";
 document.getElementById("ap").appendChild(div);
