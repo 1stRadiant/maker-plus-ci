@@ -533,7 +533,7 @@ spl = spl[1].split("User:")
 
 		let timer;
 		var write = "";
-if(text.includes("end while."){
+if(text.includes("end while.")){
 var tspl = text.split("end while.")
 text = tspl[0];
 }
