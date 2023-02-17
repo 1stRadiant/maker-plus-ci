@@ -575,7 +575,7 @@ div.innerHTML = text[i];
   // increase the index
   i++;
 
-  if(text[i] == "="){
+  if(text[i] == "w3e44"){
 			  clearInterval(timer);
 					if(text.includes("ans")){
 var toM = text.split("ans >>")		
