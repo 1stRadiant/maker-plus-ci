@@ -207,8 +207,8 @@ document.getElementById("ap").appendChild(div);
 var currText = tk.readFile("toMessage.txt")
 if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
 //var currSpl = currText.split("\n")
-tk.writeFile("toMessage.txt",User: "+text+"\n"+toAi.trim(),false)
-runBloom(User: "+text+"\n"+toAi.trim())
+tk.writeFile("toMessage.txt","User: "+text+"\n"+toAi.trim(),false)
+runBloom("User: "+text+"\n"+toAi.trim())
         
 }else{
 tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)    
