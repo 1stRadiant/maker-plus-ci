@@ -206,7 +206,7 @@ document.getElementById("ap").appendChild(div);
 
 var currText = tk.readFile("toMessage.txt")
     tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)
-if(tk.readFile(tk.readFile("linkedfile.txt"))=="\n"){
+if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
     runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
 
 }else{
