@@ -175,13 +175,15 @@ try{
 if(!text == ""){
   var toAi = tk.readFile("toAi.txt")
 
-var currText = tk.readFile("toMessage.txt");
+
 if(currText!=""){
     tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi,false)
-if(tk.readFile(tk.readFile("linkedfile.txt"))=="\n"){
+var currText = tk.readFile("toMessage.txt");
+ if(tk.readFile(tk.readFile("linkedfile.txt"))=="\n"){
     runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
 
 }else{
+var currText = tk.readFile("toMessage.txt");
     runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi.trim())
 }
 
