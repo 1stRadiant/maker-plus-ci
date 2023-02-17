@@ -126,7 +126,7 @@
 
   <div id="card21"></div>
 
-
+A
 
 
 
@@ -205,13 +205,14 @@ document.getElementById("ap").appendChild(div);
 }else{
 
 var currText = tk.readFile("toMessage.txt")
-    tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)
 if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
 alert(tk.readFile(tk.readFile("linkedfile.txt"))+"1");
-    runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
-
+runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
+    tk.writeFile("toMessage.txt",currText+"\nUser: "+text+"\n"+toAi.trim(),false)    
 }else{
     runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi.trim())
+    tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)    
+
 }
     var outputText = tk.readFile("toMessage.txt");
 
