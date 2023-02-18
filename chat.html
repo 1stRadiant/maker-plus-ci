@@ -179,7 +179,8 @@ var currText = tk.readFile("toMessage.txt");
 if(currText!=""){
     tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi,false)
  if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
-    runBloom(currText+"\nUser: "+text+"\n"+toAi.trim())
+    currText = tk.readFile("toMessage.txt");
+runBloom(currText)
 
 }else{
 
@@ -210,12 +211,12 @@ if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
 var currText = currText.trim()
 tk.writeFile("toMessage.txt",text+"\n"+toAi.trim(),false);
 currText = tk.readFile("toMessage.txt");
-runBloom(text+"\n"+toAi.trim())
+runBloom(currText)
         
 }else{
 tk.writeFile("toMessage.txt",inpuT+currText+"\nUser: "+text+"\n"+toAi.trim(),false)    
     currText = tk.readFile("toMessage.txt");
-runBloom(inpuT+currText+"\nUser: "+text+"\n"+toAi.trim())
+runBloom(currText)
     
 }
     var outputText = tk.readFile("toMessage.txt");
