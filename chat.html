@@ -184,8 +184,9 @@ tk.writeFile("toMessage.txt",inpuT+currText+"User: "+text+"\n"+toAi,false)
 runBloom(currText)
 
 }else{
-    tk.writeFile("toMessage.txt",inpuT+currText+"User: "+text+"\n"+toAi,false)
-    runBloom(inpuT+"User: "+text+"\n"+toAi)
+    tk.writeFile("toMessage.txt",inpuT+"User: "+text+"\n"+toAi,false)
+   currText = tk.readFile("toMessage.txt"); 
+runBloom(currText)
 }
 
 var outputText = tk.readFile("toMessage.txt");
@@ -209,7 +210,6 @@ document.getElementById("ap").appendChild(div);
 
 var currText = tk.readFile("toMessage.txt")
 if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
-var currText = currText.trim()
 tk.writeFile("toMessage.txt",text+"\n"+toAi,false);
 currText = tk.readFile("toMessage.txt");
 runBloom(currText)
