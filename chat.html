@@ -208,9 +208,9 @@ document.getElementById("ap").appendChild(div);
 
 }else{
 
-var currText = tk.readFile("toMessage.txt")
+//var currText = tk.readFile("toMessage.txt")
 if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
-tk.writeFile("toMessage.txt",text+"\n"+toAi,false);
+tk.writeFile("toMessage.txt",text+" "+toAi,false);
 currText = tk.readFile("toMessage.txt");
 runBloom(currText)
         
