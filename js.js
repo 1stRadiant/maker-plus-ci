@@ -170,8 +170,40 @@ ccount = -1
 		
 		localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 	}
-	
-	
+
+
+	function update(){
+	var r = tk.readFile("filelist.txt");
+		r = r.split("\n");
+		//tk.flash(newText);
+		
+		//ii = r.length - 1;
+		
+		for (var i = 0; i < r.length; i++) {
+			if(r[i].includes(".")){
+				var btn = document.createElement("button");
+				var t = document.createTextNode(r[i]);
+				document.getElementById('slide-1').appendChild(btn);
+				
+				var filename = r[i].replace(/^.*[\\\/]/, '')
+				btn.textContent = filename;
+				btn.setAttribute("id", r[i]);
+				btn.setAttribute("class", r[i]);
+				tk.flash(i)
+				//var textarea = document.getElementById("ta");
+				
+				var toLoad = r[i];
+				btn.setAttribute("onclick", "tk.writeFile('Current.txt\','"+toLoad+"\',false); tk.flash('"+toLoad+"'); detectMode(); editor.setValue('"+toLoad+"\'); editor.setValue(tk.readFile('"+toLoad+"\'));");
+				
+				detectMode()
+				//btn.setAttribute("onclick","alert('gets here');");
+				ii = i+1;
+			}
+		}
+		
+		localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
+
+	}
 	
 
 	if(document.title == "chatLink"){
