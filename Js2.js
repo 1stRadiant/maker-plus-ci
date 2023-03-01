@@ -1058,8 +1058,11 @@ alert(err)
 			
 		}
 		
-		
-		
+		;
+var prompts = tk.readFile("prompts.txt"); 
+var lines = prompts.split("\n"); 
+var match = stringSimilarity.findBestMatch(newText,lines);
+tk.setGlobal("newText",match.bestMatch.target);
 	}
 	
 	//document.getElementById("exampleFormControlTextarea1").innerText = "GeeksforGeeks";
