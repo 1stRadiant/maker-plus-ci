@@ -1063,7 +1063,7 @@ var prompts = tk.readFile("prompts.txt");
 var pNames = tk.readFile("inft.txt")
 var lines = prompts.split("\n");
 var pIndex = pNames.indexOf(newText)
-tk.setGlobal("newText",lines[pNames]);
+tk.setGlobal("newText",lines[pIndex]);
 	}
 	
 	//document.getElementById("exampleFormControlTextarea1").innerText = "GeeksforGeeks";
