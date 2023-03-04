@@ -916,6 +916,19 @@ function isSentenceFinished(sentence) {
 			}
 			
 		}
+
+		if(newText.includes("search")){
+
+// Define the query you want to search for 
+const query = "what is the capital of France"; // Use the fetch API to get the HTML content of the Google search results page 
+fetch(`https://www.google.com/search?q=${query}`) .then((response) => response.text()) .then((html) => { // Create a new DOMParser to parse the HTML 
+const parser = new DOMParser(); 
+const doc = parser.parseFromString(html, "text/html"); // Find the answer element and extract the answer text 
+const answerElement = doc.querySelector(".Z0LcW.XcVN5d"); 
+const answerText = answerElement.textContent; // Log the answer to the console 
+tk.flash(answerText); });
+
+}
 		
 		if(newText.includes("Codify!")){
 			codifying = 1
