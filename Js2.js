@@ -709,7 +709,7 @@ function isSentenceFinished(sentence) {
 					
 					var toLoad = item
 					
-					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+list[i]+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
+					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+list[i]+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai') && !newText.includes('search') && !newText.includes('indent')){ editor.insert(newText); editor.focus();} ");
 					//var bttn = document.getElementById("bttn");
 					//bttn.onclick = function() { setTextTo(this);};
 				}else{
@@ -723,7 +723,7 @@ function isSentenceFinished(sentence) {
 					
 					var toLoad = list[i];
 					
-					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Lock Editor') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')){ editor.insert(newText); editor.focus();} ");
+					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Lock Editor') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Link Ai')&& !newText.includes('search') && !newText.includes('indent')){ editor.insert(newText); editor.focus();} ");
 					
 				}
 				
@@ -848,6 +848,19 @@ function isSentenceFinished(sentence) {
 			editor.session.insert(store, "")
 			editor.focus()
 		}
+
+		if(newText.includes("search")){
+
+// Define the query you want to search for 
+const query = "what is the capital of France"; // Use the fetch API to get the HTML content of the Google search results page 
+fetch(`https://www.google.com/search?q=${query}`) .then((response) => response.text()) .then((html) => { // Create a new DOMParser to parse the HTML 
+const parser = new DOMParser(); 
+const doc = parser.parseFromString(html, "text/html"); // Find the answer element and extract the answer text 
+const answerElement = doc.querySelector(".Z0LcW.XcVN5d"); 
+const answerText = answerElement.textContent; // Log the answer to the console 
+tk.flash(answerText); });
+
+}
 		
 		if(newText.includes("Right")){
 			
