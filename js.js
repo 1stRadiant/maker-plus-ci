@@ -530,8 +530,8 @@ async function query(data) {
 var r2 = 0;
 var r1 = 0;
 function runBloom(inp){
-	
-query({"inputs": inp, "parameters":{"do_sample": do_sample}}).then((response) => { 
+	//, "parameters":{"do_sample": do_sample}
+query({"inputs": inp}).then((response) => { 
 
 //tk.flash(response[0].generated_text)
 
