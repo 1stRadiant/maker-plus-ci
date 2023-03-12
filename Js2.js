@@ -1072,6 +1072,9 @@ var lines = prompts.split("\n");
 var pNames = pNames.split("\n")
 var pIndex = pNames.indexOf(newText)
 tk.setGlobal("newText",lines[pIndex]);
+}else{
+tk.setGlobal("newText",newText);
+
 }
 	}
 	
