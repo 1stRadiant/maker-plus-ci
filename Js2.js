@@ -669,9 +669,16 @@ function isSentenceFinished(sentence) {
   // A sentence is finished if it ends in a period, exclamation point, or question mark
   return /[.!?]$/.test(sentence);
 }
-	
+	var toggle = "large";
 	function interface(){
 		try{
+if(toggle!="small"){
+e.setAttribute("style","height:50px");
+		editor.resize()
+}else if(tk.readFile("Current.txt")=="inft.txt"){
+e.setAttribute("style","height:0px");
+		editor.resize()
+}
 			const myNode = document.getElementById("card21");
 			myNode.innerHTML = '';
 			var current = tk.readFile("Current.txt")
@@ -733,7 +740,7 @@ function isSentenceFinished(sentence) {
 			//tk.flash(err)
 		}
 	}
-var toggle = "large";
+
 	
 	function func(){
 		
