@@ -467,9 +467,9 @@ function runIt(input){
 		
 	}
 
-var sc = tk.readFile("sc.txt");
+var sc = "";//tk.readFile("sc.txt");
 
-var ha = tk.readFile("huggingapi.txt");
+var ha = "";//tk.readFile("huggingapi.txt");
 
 
 async function query(data) {
@@ -862,6 +862,7 @@ if(toggle!="small"){
 e.setAttribute("style","height:0px");
 		editor.resize()
 }else{
+toggle = "large";
 e.setAttribute("style","height:50px");
 		editor.resize()
 }
