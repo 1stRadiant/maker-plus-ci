@@ -671,12 +671,14 @@ function isSentenceFinished(sentence) {
 	var toggle = "large";
 	function interface(){
 		try{
-if(toggle!="small"){
+if(toggle!="small" && tk.readFile("Current.txt")!="inft.txt"){
 e.setAttribute("style","height:50px");
 		editor.resize()
-}else if(tk.readFile("Current.txt")=="inft.txt"){
+}else{
+if(tk.readFile("Current.txt")=="inft.txt"){
 e.setAttribute("style","height:0px");
 		editor.resize()
+}
 }
 			const myNode = document.getElementById("card21");
 			myNode.innerHTML = '';
