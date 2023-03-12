@@ -730,7 +730,7 @@ function isSentenceFinished(sentence) {
 				
 			}
 		}catch(err){
-			tk.flash(err)
+			//tk.flash(err)
 		}
 	}
 
@@ -850,9 +850,14 @@ function isSentenceFinished(sentence) {
 		}
 
 		if(newText.includes("resize")){
-
+if(toggle!="small"){
+ toggle = "small";
 e.setAttribute("style","height:0px");
 		editor.resize()
+}else{
+e.setAttribute("style","height:50px");
+		editor.resize()
+}
 
 }
 		
@@ -1252,7 +1257,7 @@ tk.setGlobal("newText",newText);
 		tk.writeFile("session "+current[0]+".txt",JSON.stringify(sessionData),false)
 		
 		//editor.getValue();
-		
+		interface();
 		localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
 		
 		
@@ -1651,7 +1656,7 @@ rtn = true;
 			
 		}
 		}catch(err){
-			tk.flash(err)
+			//tk.flash(err)
 			}
 	}
 	
@@ -1912,7 +1917,7 @@ tk.writeFile(current[0]+'data.txt',store,false);
 							
 							
 						}catch(err){
-							tk.flash(err)
+							//tk.flash(err)
 						}
 						
 						
