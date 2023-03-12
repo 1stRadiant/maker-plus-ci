@@ -457,10 +457,9 @@ function runIt(input){
 			var rx = /<<([^}]*)>>/gm
 			var cf = rx.exec(input);
 			//alert(cf)
-			eval(cf[1])
-			//var codeToExecute = cf[1];
-			//var tmpFunc = new Function(codeToExecute);
-			//tmpFunc();
+			var codeToExecute = cf[1];
+			var tmpFunc = new Function(codeToExecute);
+			tmpFunc();
 		}catch(err){
 			alert(err+"\n"+err.stack)
 		}
@@ -686,7 +685,11 @@ e.setAttribute("style","height:0px");
 			current = current.split("\n")
 			var ext = current[0].split(".")
 			var list2 = tk.readFile("inft."+ext[1])
-			var list1 = tk.readFile("intf"+current[0])
+			var list1;
+try{
+list1 = tk.readFile("intf"+current[0])
+}catch(err){
+}
 			
 			if(list2!="undefined"){
 				list = list2.split("\n")
