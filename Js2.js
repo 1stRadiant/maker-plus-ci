@@ -733,7 +733,7 @@ function isSentenceFinished(sentence) {
 			//tk.flash(err)
 		}
 	}
-
+var toggle = "large";
 	
 	function func(){
 		
