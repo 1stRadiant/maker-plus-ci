@@ -311,7 +311,7 @@ var toLoad = "as"+i;
 		
 		
 		
-		var mdata = tk.readFile("mdata.txt")
+		var mdata = ""; //tk.readFile("mdata.txt")
 		var read = tk.readFile(current[0]+'data.txt');
 		editor.gotoLine(Number(read)+1);
 		editor.selection.selectLine();
@@ -686,7 +686,7 @@ e.setAttribute("style","height:0px");
 			current = current.split("\n")
 			var ext = current[0].split(".")
 			var list2 = tk.readFile("inft."+ext[1])
-			var list1 = tk.readFile("intf"+current[0])
+			var list1 = ""; //tk.readFile("intf"+current[0])
 			
 			if(list2!="undefined"){
 				list = list2.split("\n")
