@@ -375,7 +375,7 @@ tk.writeFile("Current.txt",tk.readFile(match),false);
 interface();
 editor.setValue(tk.readFile("Current.txt"));
 window.location.href = "index.htmt#reset";
-window.location.href = "index.htmt#prompt:"+prompt;
+//window.location.href = "";
 }
 		
 	}
