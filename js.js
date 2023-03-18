@@ -1550,8 +1550,8 @@ str = str.split("\n");
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 tk.writeFile("Current.txt",tk.readFile(match),false);
-//alert(tk.readFile("Current.txt"));
-interface();
+alert(tk.readFile("Current.txt"));
+//interface();
 //window.location.href = "index.html#restart";
 
 };
