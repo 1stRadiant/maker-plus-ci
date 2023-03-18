@@ -1542,18 +1542,7 @@ window.location.href = "index.html#"+m;
 		
 	}
 
-document.onload = function(){
-var prompt = window.location.toString().split("prompt:")
-var str = tk.readFile("filelist.txt");
-str = str.split("\n");	
-var match = stringSimilarity.findBestMatch(prompt[1],str);
-match = match.bestMatch.target;
-tk.writeFile("Current.txt",tk.readFile(match),false);
-alert(tk.readFile("Current.txt"));
-//interface();
-//window.location.href = "index.html#restart";
 
-};
 	
 	editor.on('mousedown', () => {
 		store = editor.getCursorPosition().row+1;
@@ -2023,3 +2012,17 @@ tk.writeFile(current[0]+'data.txt',store,false);
 }catch (err){
 	alert(err.stack)
 }
+
+
+window.onload = function(){
+var prompt = window.location.toString().split("prompt:")
+var str = tk.readFile("filelist.txt");
+str = str.split("\n");	
+var match = stringSimilarity.findBestMatch(prompt[1],str);
+match = match.bestMatch.target;
+tk.writeFile("Current.txt",tk.readFile(match),false);
+alert(tk.readFile("Current.txt"));
+//interface();
+//window.location.href = "index.html#restart";
+
+};
