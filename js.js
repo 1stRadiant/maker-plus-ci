@@ -205,18 +205,7 @@ ccount = -1
 
 	}
 
-window.onload = function(){
-var prompt = window.location.toString().split("prompt:")
-var str = tk.readFile("filelist.txt");
-str = str.split("\n");	
-var match = stringSimilarity.findBestMatch(prompt[1],str);
-match = match.bestMatch.target;
-tk.writeFile("Current.txt",tk.readFile(match),false);
-//alert(tk.readFile("Current.txt"));
-interface();
-//window.location.href = "index.html#restart";
 
-};
 	
 
 	if(document.title == "chatLink"){
@@ -2021,6 +2010,19 @@ tk.writeFile(current[0]+'data.txt',store,false);
 	function handleError(evt) {
 		//alert(evt)
 	}
+
+window.onload = function(){
+var prompt = window.location.toString().split("prompt:")
+var str = tk.readFile("filelist.txt");
+str = str.split("\n");	
+var match = stringSimilarity.findBestMatch(prompt[1],str);
+match = match.bestMatch.target;
+tk.writeFile("Current.txt",tk.readFile(match),false);
+//alert(tk.readFile("Current.txt"));
+interface();
+//window.location.href = "index.html#restart";
+
+};
 	
 }catch (err){
 	alert(err.stack)
