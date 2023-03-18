@@ -1559,9 +1559,13 @@ var str = tk.readFile("filelist.txt");
 str = str.split("\n");	
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
+try{
 tk.writeFile("Current.txt",tk.readFile(match),false);
 interface();
 window.location.href = "index.html#restart";
+}catch(err){
+alert(err);
+}
 };
 	
 	editor.on('mousedown', () => {
