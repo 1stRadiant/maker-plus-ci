@@ -1543,7 +1543,7 @@ window.location.href = "index.html#"+m;
 	}
 
 
-document.onload = function(){
+window.onload = function(){
 var prompt = window.location.toString().split("prompt:")
 var str = tk.readFile("filelist.txt");
 str = str.split("\n");	
