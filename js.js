@@ -362,6 +362,8 @@ try{
 asSetV();
 interface();
 detectMode();
+newText = "Copy";
+func();
 window.close();
 }catch(err){
 alert(err)
