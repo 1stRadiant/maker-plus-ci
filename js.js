@@ -309,7 +309,7 @@ var toLoad = "as"+i;
 		
 		//upperSlide
 		
-		
+		interface();
 		
 		var r = tk.readFile("filelist.txt");
 		//tk.flash ("this far");
@@ -379,7 +379,7 @@ editor.setValue(tk.readFile("Current.txt"))
 //window.location.href = "";
 }
 
-interface();		
+		
 	}
 	
 	/*startPos = editor.selectionStart; endPos = editor.selectionEnd; newText = document.getElementById(this.id).textContent; func(); selected = newText; editor.focus(); editor.setRangeText(newText, startPos, endPos, 'end');*/
