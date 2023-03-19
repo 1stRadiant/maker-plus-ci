@@ -308,7 +308,7 @@ var toLoad = "as"+i;
 		}*/
 		
 		//upperSlide
-		interface()
+		
 		
 		
 		var r = tk.readFile("filelist.txt");
@@ -372,12 +372,13 @@ var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 tk.writeFile("Current.txt",tk.readFile(match),false);
 //alert(tk.readFile("Current.txt"));
-interface();
+//interface();
 editor.setValue(tk.readFile("Current.txt"));
-window.location.href = "index.htmt#reset";
+//window.location.href = "index.htmt#reset";
 //window.location.href = "";
 }
-		
+
+interface();		
 	}
 	
 	/*startPos = editor.selectionStart; endPos = editor.selectionEnd; newText = document.getElementById(this.id).textContent; func(); selected = newText; editor.focus(); editor.setRangeText(newText, startPos, endPos, 'end');*/
