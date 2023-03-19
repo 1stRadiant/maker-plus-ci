@@ -358,8 +358,12 @@ await delay(500);
 editor.setValue(tk.readFile("Current.txt"))
 }
 
+try{
 asSetV();
-//interface();
+interface();
+}catch(err){
+alert(err)
+}
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
 }
