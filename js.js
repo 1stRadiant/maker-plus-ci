@@ -373,7 +373,7 @@ match = match.bestMatch.target;
 tk.writeFile("Current.txt",tk.readFile(match),false);
 //alert(tk.readFile("Current.txt"));
 interface();
-editor.setValue(tk.readFile("Current.txt"));
+editor.setValue("test");
 editor.setValue(tk.readFile("Current.txt"))
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
