@@ -343,7 +343,24 @@ var toLoad = "as"+i;
 			current = current.split("\n")
 			var read = tk.readFile(current[0]);
 			if (read!="undefined"){
-				//ta.value = read;
+				//ta.value = read
+
+if(window.location.toString().includes("prompt:")){
+var prompt = window.location.toString().split("prompt:")
+var str = tk.readFile("filelist.txt");
+str = str.split("\n");	
+/*var match = stringSimilarity.findBestMatch(prompt[1],str);
+match = match.bestMatch.target;
+tk.writeFile("Current.txt",tk.readFile(match),false);*/
+//alert(tk.readFile("Current.txt"));
+//editor.setValue(tk.readFile("Current.txt"))
+interface();
+//window.location.href = "index.htmt#reset";
+//window.location.href = "";
+}
+		current = tk.readFile("Current.txt")
+			current = current.split("\n")
+			var read = tk.readFile(current[0]);
 				editor.setValue(read);
 			}else{
 				guide();
