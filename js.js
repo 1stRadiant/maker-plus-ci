@@ -360,7 +360,7 @@ interface();
 detectMode();
 newText = "Copy";
 func();
-await delay(1000);
+await delay(1500);
 window.close();
 }
 
