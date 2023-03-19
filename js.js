@@ -347,10 +347,10 @@ var toLoad = "as"+i;
 
 if(window.location.toString().includes("prompt:")){
 var prompt = window.location.toString().split("prompt:")
-var str = tk.readFile("filelist.txt");
-str = str.split("\n");	
-var match = stringSimilarity.findBestMatch(prompt[1],str);
-match = match.bestMatch.target;
+//var str = tk.readFile("filelist.txt");
+//str = str.split("\n");	
+//var match = stringSimilarity.findBestMatch(prompt[1],str);
+//match = match.bestMatch.target;
 tk.writeFile("Current.txt","helpAssistant.txt",false);
 //alert(tk.readFile("Current.txt"));
 //editor.setValue(tk.readFile("Current.txt"))
