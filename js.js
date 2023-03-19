@@ -356,15 +356,17 @@ tk.writeFile("Current.txt",tk.readFile(match),false);
 async function asSetV(){
 await delay(500);
 editor.setValue(tk.readFile("Current.txt"))
-}
-
-try{
-asSetV();
 interface();
 detectMode();
 newText = "Copy";
 func();
+await delay(500);
 window.close();
+}
+
+try{
+asSetV();
+
 }catch(err){
 alert(err)
 }
