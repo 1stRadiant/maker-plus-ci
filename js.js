@@ -362,6 +362,7 @@ try{
 asSetV();
 interface();
 detectMode();
+window.close();
 }catch(err){
 alert(err)
 }
