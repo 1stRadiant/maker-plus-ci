@@ -361,7 +361,7 @@ editor.setValue(tk.readFile("Current.txt"))
 try{
 asSetV();
 interface();
-detect();
+detectMode();
 }catch(err){
 alert(err)
 }
