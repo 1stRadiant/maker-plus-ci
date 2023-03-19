@@ -357,11 +357,13 @@ async function asSetV(){
 await delay(500);
 editor.setValue(tk.readFile("Current.txt"))
 interface();
-detectMode();
+//detectMode();
+if(window.location.toString().includes("c-prompt:")){
 newText = "Copy";
 func();
 await delay(1500);
 window.close();
+}
 }
 
 try{
