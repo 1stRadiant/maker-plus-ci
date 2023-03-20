@@ -376,7 +376,7 @@ match = match.bestMatch.target;
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
 await delay(1000);
-editor.setValue(tk.readFile("pText.txt"))
+editor.setValue(tk.readFile("pText.txt").JSON.parse().prompt[prompt]);
 interface();
 //detectMode();
 }
