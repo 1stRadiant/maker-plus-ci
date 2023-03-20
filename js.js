@@ -364,7 +364,7 @@ func();
 await delay(1500);
 window.close();
 }
-}
+
 
 if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("prompt:")
@@ -382,11 +382,13 @@ interface();
 }
 }
 
+
 try{
 asSetV();
 
 }catch(err){
 alert(err)
+}
 }
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
