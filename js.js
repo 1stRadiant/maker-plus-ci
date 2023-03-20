@@ -367,14 +367,13 @@ window.close();
 }
 
 if(window.location.toString().includes("api-prompt:")){
+var prompt = window.location.toString().split("prompt:")
+fetch ("https://makerci.com/prompts-api")
+.then(x => x.text())
+.then(y => f = y.JSON.parse;
+editor.setValue(f.prompt["Linux Terminal"]);
+);
 
-fetch('https://makerci.com/', {
-  method: 'POST',
-  body: JSON.stringify(fileSystem),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
 }
 
 try{
