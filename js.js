@@ -390,7 +390,7 @@ alert(err)
 }*/
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
-
+}
 		current = tk.readFile("Current.txt")
 			current = current.split("\n")
 			var read = tk.readFile(current[0]);
