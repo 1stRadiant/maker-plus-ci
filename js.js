@@ -382,12 +382,12 @@ interface();
 }*/
 }
 
-try{
+/*try{
 asSetV();
 
 }catch(err){
 alert(err)
-}
+}*/
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
 
