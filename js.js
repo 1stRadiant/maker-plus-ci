@@ -365,7 +365,7 @@ await delay(1500);
 window.close();
 }
 }
-
+/*
 if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("prompt:")
 fetch ("https://makerci.com/prompts-api")
@@ -386,7 +386,7 @@ asSetV2();
 
 }catch(err){
 alert(err)
-}
+}*/
 
 try{
 asSetV();
