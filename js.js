@@ -365,7 +365,8 @@ await delay(1500);
 window.close();
 }
 }
-/*if(window.location.toString().includes("api-prompt:")){
+
+if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("prompt:")
 fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
@@ -386,14 +387,16 @@ asSetV2();
 }catch(err){
 alert(err)
 }
-}*/
 
+try{
+asSetV();
 
-
+}catch(err){
+alert(err)
 }
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
-
+}
 		current = tk.readFile("Current.txt")
 			current = current.split("\n")
 			var read = tk.readFile(current[0]);
@@ -2092,5 +2095,4 @@ tk.writeFile(current[0]+'data.txt',store,false);
 }catch (err){
 	alert(err.stack)
 }
-
 
