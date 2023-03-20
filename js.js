@@ -380,13 +380,14 @@ editor.setValue(tk.readFile("pText.txt"))
 interface();
 //detectMode();
 }
-}
+
 
 try{
 asSetV2();
 
 }catch(err){
 alert(err)
+}
 }
 
 try{
