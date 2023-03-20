@@ -371,7 +371,7 @@ asSetV();
 }catch(err){
 alert(err)
 }
-
+}
 if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("prompt:")
 fetch ("https://makerci.com/prompts-api")
@@ -411,7 +411,7 @@ alert(err)
 			}
 		}
 		
-		}
+		
 		
 		
 		var mdata = tk.readFile("mdata.txt")
