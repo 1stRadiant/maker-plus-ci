@@ -368,6 +368,8 @@ window.close();
 
 if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("prompt:")
+var str = tk.readFile("prompts-contnent.txt");
+str = pcontent.split("\n");
 fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
 .then(y => tk.writeFile("pText.txt",y,false));
