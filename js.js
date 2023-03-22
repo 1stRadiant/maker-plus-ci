@@ -367,12 +367,12 @@ window.close();
 }
 }
 
-/*try{
+try{
 asSetV();
 
 }catch(err){
 alert(err)
-}*/
+}
 
 
 //window.location.href = "index.htmt#reset";
@@ -386,12 +386,12 @@ var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
-await fetch ("https://makerci.com/prompts-api")
+/*await fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
 .then(y => tk.writeFile("pText.txt",y,false));
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-await delay(1000);
+await delay(1000);*/
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt["Linux Terminal"]);
 interface();
 //detectMode();
