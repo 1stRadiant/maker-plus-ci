@@ -384,10 +384,14 @@ if(window.location.toString().includes("api:")){
 var prompt = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
+var con = tk.readFile("prompts-content.txt");
+con = con.split("\n");
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-//editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
-asSetV2();
+var match1 = stringSimilarity.findBestMatch(match,con);
+match1 = match1.bestMatch.target;
+editor.setValue(match1);
+//asSetV2();
 
 async function asSetV2(){
 await delay(1000);
