@@ -378,7 +378,7 @@ var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
-await delay(1500);
+await delay(500);
 editor.setValue(match);
 interface();
 //detectMode();
