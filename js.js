@@ -367,12 +367,12 @@ window.close();
 }
 }
 
-try{
+/*try{
 asSetV();
 
 }catch(err){
 alert(err)
-}
+}*/
 
 
 //window.location.href = "index.htmt#reset";
@@ -391,7 +391,7 @@ await fetch ("https://makerci.com/prompts-api")
 .then(y => tk.writeFile("pText.txt",y,false));
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-await delay(500);
+await delay(1000);
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt["Linux Terminal"]);
 interface();
 //detectMode();
