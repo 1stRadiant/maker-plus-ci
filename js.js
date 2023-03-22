@@ -369,7 +369,7 @@ window.close();
 
 if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("api-prompt:")
-var str = tk.readFile("prompt-content.txt");
+var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
@@ -378,8 +378,8 @@ var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
-await delay(500);
-editor.setValue(match);
+await delay(1000);
+editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
 interface();
 //detectMode();
 }
