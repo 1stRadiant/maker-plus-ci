@@ -379,7 +379,7 @@ match = match.bestMatch.target;
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
 await delay(1500);
-editor.setValue(tk.readFile(match));
+editor.setValue(match);
 interface();
 //detectMode();
 }
