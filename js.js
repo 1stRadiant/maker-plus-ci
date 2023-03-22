@@ -391,7 +391,7 @@ async function asSetV2(){
 .then(y => tk.writeFile("pText.txt",y,false));*/
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-await delay(1000);
+await delay(1500);
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
 interface();
 //detectMode();
