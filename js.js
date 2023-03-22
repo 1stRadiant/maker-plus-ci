@@ -386,8 +386,8 @@ var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-alert(match)
-asSetV2();
+editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
+//asSetV2();
 
 async function asSetV2(){
 /*await fetch ("https://makerci.com/prompts-api")
