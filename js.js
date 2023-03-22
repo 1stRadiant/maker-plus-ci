@@ -391,8 +391,8 @@ await fetch ("https://makerci.com/prompts-api")
 .then(y => tk.writeFile("pText.txt",y,false));
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-await match;
-editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
+await delay(500);
+editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt["Linux Terminal"]);
 interface();
 //detectMode();
 }
