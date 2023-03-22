@@ -348,6 +348,7 @@ var toLoad = "as"+i;
 if(window.location.toString().includes("prompt:")){
 var prompt = window.location.toString().split("prompt:")
 var str = tk.readFile("filelist.txt");
+//str = str+"\n"+tk.readFile("prompt-contnent.txt");
 str = str.split("\n");	
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
@@ -366,9 +367,9 @@ window.close();
 }
 }
 
-if(window.location.toString().includes("api-prompt:")){
+if(window.location.toString().includes("api:")){
 var prompt = window.location.toString().split("prompt:")
-var str = tk.readFile("prompt-contnent.txt");
+var str = tk.readFile("prompt-content.txt");
 str = pcontent.split("\n");
 fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
