@@ -380,8 +380,8 @@ alert(err)
 }
 
 
-if(window.location.toString().includes("api-prompt:")){
-var prompt = window.location.toString().split("api-prompt:")
+if(window.location.toString().includes("api:")){
+var prompt = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 
