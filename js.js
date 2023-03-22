@@ -392,7 +392,7 @@ async function asSetV2(){
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 await delay(1500);
-editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
+alert(tk.readFile('pText.txt').JSON.parse().prompt[match]);
 interface();
 //detectMode();
 }
