@@ -388,13 +388,14 @@ var con = tk.readFile("prompts-content.txt");
 con = con.split("\n");
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-var match1 = stringSimilarity.findBestMatch(match,con);
-match1 = match1.bestMatch.target;
-editor.setValue(match1);
+
 //asSetV2();
 
 async function asSetV2(){
+var match1 = stringSimilarity.findBestMatch(match,con);
+match1 = match1.bestMatch.target;
 await delay(1000);
+editor.setValue(match1);
 alert(tk.readFile('pText.txt').JSON.parse().prompt[match])
 /*await fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
