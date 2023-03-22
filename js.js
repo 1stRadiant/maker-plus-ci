@@ -378,7 +378,8 @@ var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
-await delay(1000);
+await delay(1500);
+//editor.setValue(tk.readFile("Current.txt"))
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
 interface();
 //detectMode();
@@ -394,7 +395,7 @@ alert(err)
 }
 
 try{
-asSetV();
+//asSetV();
 
 }catch(err){
 alert(err)
