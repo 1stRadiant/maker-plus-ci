@@ -384,15 +384,14 @@ if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("api-prompt:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
-var match = stringSimilarity.findBestMatch(prompt[1],str);
-match = match.bestMatch.target;
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
 await fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
 .then(y => tk.writeFile("pText.txt",y,false));
-await delay(1000)
-//editor.setValue(tk.readFile("Current.txt"))
+var match = stringSimilarity.findBestMatch(prompt[1],str);
+match = match.bestMatch.target;
+await match;
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
 interface();
 //detectMode();
