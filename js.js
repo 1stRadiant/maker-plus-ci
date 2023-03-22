@@ -384,6 +384,7 @@ if(window.location.toString().includes("api:")){
 var prompt = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
+asSetV2();
 
 async function asSetV2(){
 /*await fetch ("https://makerci.com/prompts-api")
@@ -398,12 +399,7 @@ interface();
 }
 
 
-try{
-asSetV2();
 
-}catch(err){
-alert(err)
-}
 }
 		current = tk.readFile("Current.txt")
 			current = current.split("\n")
