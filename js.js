@@ -390,7 +390,7 @@ match = match.bestMatch.target;
 asSetV2();
 
 async function asSetV2(){
-await delay(500);
+await delay(1000);
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match])
 /*await fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
