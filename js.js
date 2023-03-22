@@ -385,7 +385,7 @@ var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 //alert(tk.readFile("Current.txt"));
 async function asSetV2(){
-await delay(1500);
+await delay(2000);
 //editor.setValue(tk.readFile("Current.txt"))
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
 interface();
