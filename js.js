@@ -391,6 +391,7 @@ async function asSetV2(){
 await fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
 .then(y => tk.writeFile("pText.txt",y,false));
+await delay(1000)
 //editor.setValue(tk.readFile("Current.txt"))
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[match]);
 interface();
