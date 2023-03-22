@@ -367,8 +367,8 @@ window.close();
 }
 }
 
-if(window.location.toString().includes("api:")){
-var prompt = window.location.toString().split("api:")
+if(window.location.toString().includes("api-prompt:")){
+var prompt = window.location.toString().split("api-prompt:")
 var str = tk.readFile("prompt-content.txt");
 str = str.split("\n");
 fetch ("https://makerci.com/prompts-api")
