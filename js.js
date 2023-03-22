@@ -367,6 +367,13 @@ window.close();
 }
 }
 
+try{
+asSetV();
+
+}catch(err){
+alert(err)
+}
+
 if(window.location.toString().includes("api-prompt:")){
 var prompt = window.location.toString().split("api-prompt:")
 var str = tk.readFile("prompts.txt");
@@ -392,13 +399,6 @@ asSetV2();
 }catch(err){
 alert(err)
 }
-}
-
-try{
-//asSetV();
-
-}catch(err){
-alert(err)
 }
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
