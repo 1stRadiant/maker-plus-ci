@@ -394,10 +394,14 @@ match = match.bestMatch.target;
 async function asSetV2(){
 var match1 = stringSimilarity.findBestMatch(match,con);
 match1 = match1.bestMatch.target;
+try{
 await delay(1000);
 tk.writeFile("toread.txt",match1,false);
 tk.writeFile("Current.txt",toread.txt,false);
-//editor.setValue(match1);
+editor.setValue(match1);
+}catch(err){
+alert(err)
+}
 alert(tk.readFile('pText.txt').JSON.parse().prompt[match])
 /*await fetch ("https://makerci.com/prompts-api")
 .then(x => x.text())
