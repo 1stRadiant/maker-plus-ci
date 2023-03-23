@@ -389,7 +389,7 @@ con = con.split("\n");
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
 
-//asSetV2();
+asSetV2();
 
 async function asSetV2(){
 var match1 = stringSimilarity.findBestMatch(match,con);
