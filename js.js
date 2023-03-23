@@ -388,11 +388,8 @@ var con = tk.readFile("prompts-content.txt");
 con = con.split("\n");
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-var match1 = stringSimilarity.findBestMatch(match,con);
-match1 = match1.bestMatch.target;
-tk.writeFile("toread.txt",match1,false);
-tk.writeFile("Current.txt",toread.txt,false);
-alert(match1)
+alert(tk.readFile('pText.txt').JSON.parse().prompt[match])
+
 
 
 //asSetV2();
