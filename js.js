@@ -388,16 +388,20 @@ var con = tk.readFile("prompts-content.txt");
 con = con.split("\n");
 var match = stringSimilarity.findBestMatch(prompt[1],str);
 match = match.bestMatch.target;
-
-asSetV2();
-
-async function asSetV2(){
 var match1 = stringSimilarity.findBestMatch(match,con);
 match1 = match1.bestMatch.target;
+tk.writeFile("toread.txt",match1,false);
+tk.writeFile("Current.txt",toread.txt,false);
+alert(match1)
+
+
+//asSetV2();
+
+async function asSetV2(){
+
 try{
 await delay(1000);
 tk.writeFile("toread.txt",match1,false);
-tk.writeFile("Current.txt",toread.txt,false);
 editor.setValue(match1);
 }catch(err){
 alert(err)
