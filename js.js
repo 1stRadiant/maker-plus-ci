@@ -395,12 +395,12 @@ var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 //var con = tk.readFile("prompts-content.txt");
 var con = cgptPrompts.split("\n");
-try{
+//try{
 var promptsObj = JSON.parse(tk.readFile('pText.txt'));
 alert(promptsObj.act["Storyteller"]);
-}catch(err){
+/*}catch(err){
 alert(err.stack)
-}
+}*/
 async function asSetV2(){
 await delay(500);
 //editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
