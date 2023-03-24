@@ -398,7 +398,7 @@ var con = cgptPrompts.split("\n");
 //try{
 var pText = tk.readFile('pText.txt')
 var promptsObj = JSON.parse(pText);
-alert(promptsObj.prompt['Storyteller']);
+alert(promptsObj.prompt.Storyteller);
 /*}catch(err){
 alert(err.stack)
 }*/
