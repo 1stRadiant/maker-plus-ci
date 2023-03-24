@@ -13,6 +13,15 @@ try{
 	//alert("dhdb...1")
 
 //alert("starting...”)
+var cgptPrompt;
+
+var client = new XMLHttpRequest();
+client.open('GET', '/chatgpt-prompts.txt');
+client.onreadystatechange = function() {
+  cgptPrompt = client.responseText;
+}
+client.send();
+
 	
 	tk = {
 		readFile: function(f){
@@ -384,9 +393,9 @@ if(window.location.toString().includes("api:")){
 var prompt = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
-var con = tk.readFile("prompts-content.txt");
-con = con.split("\n");
-editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
+//var con = tk.readFile("prompts-content.txt");
+var con = cgptPrompts.split("\n");
+editor.setValue(con[1]);
 async function asSetV2(){
 await delay(500);
 //editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
