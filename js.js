@@ -377,7 +377,7 @@ alert(err)
 
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
-
+}
 
 
 if(window.location.toString().includes("api:")){
@@ -401,7 +401,7 @@ interface();
 
 }
 asSetV2();
-}
+
 		current = tk.readFile("Current.txt")
 			current = current.split("\n")
 			var read = tk.readFile(current[0]);
