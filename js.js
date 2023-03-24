@@ -377,7 +377,7 @@ alert(err)
 
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
-}
+
 
 
 if(window.location.toString().includes("api:")){
@@ -386,8 +386,10 @@ var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 var con = tk.readFile("prompts-content.txt");
 con = con.split("\n");
+async function asSetV2(){
+await delay(500);
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
-
+}
 
 
 interface();
@@ -396,6 +398,8 @@ interface();
 
 
 
+}
+asSetV2();
 }
 		current = tk.readFile("Current.txt")
 			current = current.split("\n")
