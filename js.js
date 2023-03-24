@@ -395,7 +395,7 @@ var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 //var con = tk.readFile("prompts-content.txt");
 var con = cgptPrompts.split("\n");
-alert(con[1]);
+alert(con[prompt]);
 async function asSetV2(){
 await delay(500);
 //editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
