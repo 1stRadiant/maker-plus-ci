@@ -13,12 +13,12 @@ try{
 	//alert("dhdb...1")
 
 //alert("starting...”)
-var cgptPrompt;
+var cgptPrompts;
 
 var client = new XMLHttpRequest();
 client.open('GET', '/chatgpt-prompts.txt');
 client.onreadystatechange = function() {
-  cgptPrompt = client.responseText;
+  cgptPrompts = client.responseText;
 }
 client.send();
 
