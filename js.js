@@ -396,8 +396,9 @@ str = str.split("\n");
 //var con = tk.readFile("prompts-content.txt");
 var con = cgptPrompts.split("\n");
 //try{
-var promptsObj = JSON.parse(tk.readFile('pText.txt'));
-alert(promptsObj.act["Storyteller"]);
+var pText = tk.readFile('pText.txt')
+var promptsObj = JSON.parse(pText);
+alert(promptsObj.prompt["Storyteller"]);
 /*}catch(err){
 alert(err.stack)
 }*/
