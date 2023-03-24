@@ -399,7 +399,7 @@ try{
 var promptsObj = JSON.parse(tk.readFile('pText.txt'));
 editor.setValue(promptsObj.prompt[prompter[1]]);
 }catch(err){
-alert(err)
+alert(err.stack)
 }
 async function asSetV2(){
 await delay(500);
