@@ -389,6 +389,7 @@ con = con.split("\n");
 async function asSetV2(){
 await delay(500);
 editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
+alert("here");
 }
 
 
