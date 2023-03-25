@@ -387,10 +387,11 @@ alert(err)
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
 }
+asSetV2();
 
-
+async function asSetV2(){
+await delay(1000);
 if(window.location.toString().includes("api:")){
-try{
 var prompter = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
@@ -405,14 +406,12 @@ if(con[i].includes(prompter)){
 alert(con);
 }
 }
-}catch(err){
-alert(err.stack)
-}
-async function asSetV2(){
-await delay(500);
+
+
+
 //editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
 alert("here");
-}
+
 
 
 interface();
@@ -422,7 +421,7 @@ interface();
 
 
 }
-//asSetV2();
+}
 
 		current = tk.readFile("Current.txt")
 			current = current.split("\n")
