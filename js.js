@@ -398,7 +398,12 @@ var con = cgptPrompts.split("\n");
 //try{
 var pText = tk.readFile('pText.txt')
 var promptsObj = JSON.parse(pText);
-alert(promptsObj.prompt.Storyteller);
+con = con.replace("%20"," ");
+for(var i = 0; i<str.length; i++){
+if(str.includes(con){
+alert(con);
+}
+}
 /*}catch(err){
 alert(err.stack)
 }*/
