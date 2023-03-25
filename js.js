@@ -390,7 +390,7 @@ alert(err)
 asSetV2();
 
 async function asSetV2(){
-await delay(1000);
+await delay(2000);
 if(window.location.toString().includes("api:")){
 var prompter = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
