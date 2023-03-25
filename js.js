@@ -431,9 +431,9 @@ match = match.bestMatch.target;
 var jorb = JSON.stringify(tk.readFile("pText.txt"))
 var promptObj = JSON.parse(jorb)
 editor.setValue(con[str.indexOf(match)]);
-tk.flash("Tap select all then Copy😇");
 tk.writeFile("Current.txt","placeholder.txt",false);
-detectMode();
+tk.flash("Tap select all then Copy😇");
+//detectMode();
 
 interface();
 //detectMode();
