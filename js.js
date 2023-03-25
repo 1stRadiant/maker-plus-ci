@@ -387,10 +387,36 @@ alert(err)
 //window.location.href = "index.htmt#reset";
 //window.location.href = "";
 }
+
+
+		current = tk.readFile("Current.txt")
+			current = current.split("\n")
+			var read = tk.readFile(current[0]);
+				editor.setValue(read);
+			}else{
+				guide();
+				tk.flash('Guide')
+			}
+		}
+		
+		
+		
+		
+		var mdata = tk.readFile("mdata.txt")
+		var read = tk.readFile(current[0]+'data.txt');
+		editor.gotoLine(Number(read)+1);
+		editor.selection.selectLine();
+		
+		if(r.length>0){
+			ii = r.length;
+			//ii = ii+1;
+		}
+
+
 asSetV2();
 
 async function asSetV2(){
-await delay(2000);
+await delay(1000);
 if(window.location.toString().includes("api:")){
 var prompter = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
@@ -423,30 +449,6 @@ interface();
 
 }
 }
-
-		current = tk.readFile("Current.txt")
-			current = current.split("\n")
-			var read = tk.readFile(current[0]);
-				editor.setValue(read);
-			}else{
-				guide();
-				tk.flash('Guide')
-			}
-		}
-		
-		
-		
-		
-		var mdata = tk.readFile("mdata.txt")
-		var read = tk.readFile(current[0]+'data.txt');
-		editor.gotoLine(Number(read)+1);
-		editor.selection.selectLine();
-		
-		if(r.length>0){
-			ii = r.length;
-			//ii = ii+1;
-		}
-
 
 		
 	}
