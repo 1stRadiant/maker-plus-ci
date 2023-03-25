@@ -430,7 +430,7 @@ match = match.bestMatch.target;
 
 var jorb = JSON.stringify(tk.readFile("pText.txt"))
 var promptObj = JSON.parse(jorb)
-editor.setValue(promptObj.prompt[match]);
+editor.setValue(con[str.indexOf(match)]);
 //alert("here");
 
 
