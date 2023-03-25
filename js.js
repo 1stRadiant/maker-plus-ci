@@ -409,8 +409,8 @@ alert(con);
 
 
 
-//editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
-alert("here");
+editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompter]);
+//alert("here");
 
 
 
