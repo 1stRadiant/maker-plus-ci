@@ -426,6 +426,7 @@ var prompter = prompter[1].replace("%20"," ");
 con = con.split("\n");
 var match = stringSimilarity.findBestMatch(prompter,con);
 match = match.bestMatch.target;
+await delay(1000);
 var pText = tk.readFile('pText.txt')
 var promptsObj = JSON.parse(pText);
 for(var i = 0; i < str.length; i++){
