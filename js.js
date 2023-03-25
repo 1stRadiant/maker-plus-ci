@@ -394,13 +394,13 @@ var prompter = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 //var con = tk.readFile("prompts-content.txt");
-var con = cgptPrompts.replaceAll("%20"," ");
-con = con.split("\n");
+var prompter = prompter[1].replaceAll("%20"," ");
+con = cgptPrompts.split("\n");
 try{
 var pText = tk.readFile('pText.txt')
 var promptsObj = JSON.parse(pText);
 for(var i = 0; i<str.length; i++){
-if(con[i].includes(prompter[1])){
+if(con[i].includes(prompter)){
 alert(con);
 }
 }
