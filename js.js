@@ -4,9 +4,9 @@ try{
 	// if(typeof tk !== "undefined" && tk !== null) {
 	
 	var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
-	if(fsCheck!== null){
+	/*if(fsCheck!== null){
 		fileSystem = fsCheck;
-	} 
+	}*/
 	var flashArray = []
 	
 	var ii =1;
