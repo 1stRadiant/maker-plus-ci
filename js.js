@@ -394,19 +394,19 @@ var prompter = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 //var con = tk.readFile("prompts-content.txt");
-var con = cgptPrompts.split("\n");
-//try{
+var con = cgptPrompts.replaceAll("%20"," ");
+con = con.split("\n");
+try{
 var pText = tk.readFile('pText.txt')
 var promptsObj = JSON.parse(pText);
-con = con.replace("%20"," ");
 for(var i = 0; i<str.length; i++){
 if(str.includes(con)){
 alert(con);
 }
 }
-/*}catch(err){
+}catch(err){
 alert(err.stack)
-}*/
+}
 async function asSetV2(){
 await delay(500);
 //editor.setValue(tk.readFile('pText.txt').JSON.parse().prompt[prompt[1]]);
