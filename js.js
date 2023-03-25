@@ -400,7 +400,7 @@ var pText = tk.readFile('pText.txt')
 var promptsObj = JSON.parse(pText);
 con = con.replace("%20"," ");
 for(var i = 0; i<str.length; i++){
-if(str.includes(con){
+if(str.includes(con)){
 alert(con);
 }
 }
