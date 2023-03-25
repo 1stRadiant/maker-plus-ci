@@ -470,6 +470,7 @@ editor.setValue(tk.readFile("Current.txt"))
 }
 
 }
+
 	/*startPos = editor.selectionStart; endPos = editor.selectionEnd; newText = document.getElementById(this.id).textContent; func(); selected = newText; editor.focus(); editor.setRangeText(newText, startPos, endPos, 'end');*/
 	
 	function replaceAll(string, search, replace) {
