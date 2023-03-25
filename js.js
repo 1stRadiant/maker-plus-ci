@@ -436,8 +436,7 @@ alert(con);
 }
 
 
-
-editor.setValue(match);
+alert(match);
 //alert("here");
 
 
