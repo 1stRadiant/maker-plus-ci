@@ -413,7 +413,8 @@ alert(err)
 		}
 
 
-asSetV2();
+
+
 
 async function asSetV2(){
 await delay(1000);
@@ -446,6 +447,7 @@ interface();
 
 
 }
+asSetV2();
 }
 
 		
