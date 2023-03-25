@@ -424,12 +424,12 @@ str = str.split("\n");
 var con = tk.readFile("prompt-content.txt");
 //var prompter = prompter[1].replace("%20"," ");
 con = con.split("\n");
-var match = stringSimilarity.findBestMatch(prompter[1],con);
+var match = stringSimilarity.findBestMatch(prompter[1],str);
 match = match.bestMatch.target;
 
 
 
-editor.setValue(match);
+editor.setValue(JSON.parse(tk.readFile("pText.txt")).prompt[match]);
 //alert("here");
 
 
