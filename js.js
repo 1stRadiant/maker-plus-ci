@@ -394,7 +394,7 @@ var prompter = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
 //var con = tk.readFile("prompts-content.txt");
-var prompter = prompter[1].replaceAll("%20"," ");
+var prompter = prompter[1].replace("%20"," ");
 con = cgptPrompts.split("\n");
 try{
 var pText = tk.readFile('pText.txt')
