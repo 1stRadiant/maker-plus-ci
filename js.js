@@ -421,7 +421,7 @@ if(window.location.toString().includes("api:")){
 var prompter = window.location.toString().split("api:")
 var str = tk.readFile("prompts.txt");
 str = str.split("\n");
-var con = tk.readFile("prompts-content.txt");
+var con = tk.readFile("prompt-content.txt");
 //var prompter = prompter[1].replace("%20"," ");
 con = con.split("\n");
 //var match = stringSimilarity.findBestMatch(prompter[1],con);
