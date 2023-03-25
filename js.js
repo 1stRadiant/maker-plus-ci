@@ -400,7 +400,7 @@ try{
 var pText = tk.readFile('pText.txt')
 var promptsObj = JSON.parse(pText);
 for(var i = 0; i<str.length; i++){
-if(str.includes(con)){
+if(con[i].includes(prompter[1])){
 alert(con);
 }
 }
