@@ -427,13 +427,11 @@ con = con.split("\n");
 var match = stringSimilarity.findBestMatch(prompter,con);
 match = match.bestMatch.target;
 await delay(1000);
-var pText = tk.readFile('pText.txt')
-var promptsObj = JSON.parse(pText);
-for(var i = 0; i < str.length; i++){
+/*for(var i = 0; i < str.length; i++){
 if(con[i].includes(prompter)){
 alert(con);
 }
-}
+}*/
 
 
 alert(match);
