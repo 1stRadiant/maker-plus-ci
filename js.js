@@ -428,8 +428,9 @@ var match = stringSimilarity.findBestMatch(prompter[1],str);
 match = match.bestMatch.target;
 
 
-
-editor.setValue(JSON.parse(tk.readFile("pText.txt")).prompt[match]);
+var jorb = JSON.stringify(tk.readFile("pText.txt"))
+var promptObj = JSON.parse(jorb)
+editor.setValue(promptObj.prompt[match]);
 //alert("here");
 
 
