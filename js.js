@@ -1220,7 +1220,22 @@ alert(err)
 			
 		}
 		
-		
+if(tk.readFile("Current.txt")=="chatGPT prompt names.txt"){	
+var pNames = tk.readFile("chatGPT prompt names.txt");
+var prompts = cgptPrompts;
+var lines = prompts.split("\n");
+var pNames = pNames.split("\n")
+var pIndex = pNames.indexOf(newText)
+newText = "Copy";
+
+var text = lines[pIndex];
+			editor.execCommand("copy") // or cut
+			navigator.clipboard.writeText(text)
+			tk.flash("Copied "+lines[pIndex]);
+}else{
+//tk.setGlobal("newText",newText);
+
+}
 		
 	}
 	
