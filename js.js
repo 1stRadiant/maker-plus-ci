@@ -4,7 +4,35 @@ try{
 	// if(typeof tk !== "undefined" && tk !== null) {
 	
 	var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
-	/*if(fsCheck!== null){
+const owner = 'OWNER_NAME'; // Replace with the repository owner's username
+const repo = 'REPO_NAME'; // Replace with the repository name
+const path = 'FILE_PATH'; // Replace with the path to the file in the repository
+fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${path}`)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error(`Error: ${response.status}`);
+    }
+  })
+  .then(commits => {
+    if (commits.length > 0) {
+      const lastUpdated = commits[0].commit.committer.date;
+  fileSystem.lastupdated = lastUpdated;
+   
+ if(fileSystem.lastupdated != lastUpdated){
+		fileSystem = fsCheck;
+	}
+console.log(`The file was last updated on: ${lastUpdated}`);
+    } else {
+      console.log('No commits found for the specified file.');
+    }
+  })
+  .catch(error => {
+    console.error(`Error fetching file data: ${error.message}`);
+  });
+	
+/*if(fsCheck!== null){
 		fileSystem = fsCheck;
 	}*/
 	var flashArray = []
