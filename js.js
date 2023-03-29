@@ -6,7 +6,7 @@ try{
 	var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
 const owner = '1stRadiant'; // Replace with the repository owner's username
 const repo = 'maker-plus-ci'; // Replace with the repository name
-const path = 'defaults.js; // Replace with the path to the file in the repository
+const path = 'defaults.js'; // Replace with the path to the file in the repository
 fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${path}`)
   .then(response => {
     if (response.ok) {
