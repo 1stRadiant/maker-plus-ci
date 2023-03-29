@@ -4,9 +4,9 @@ try{
 	// if(typeof tk !== "undefined" && tk !== null) {
 	
 	var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
-const owner = 'OWNER_NAME'; // Replace with the repository owner's username
-const repo = 'REPO_NAME'; // Replace with the repository name
-const path = 'FILE_PATH'; // Replace with the path to the file in the repository
+const owner = '1stRadiant'; // Replace with the repository owner's username
+const repo = 'maker-plus-ci'; // Replace with the repository name
+const path = 'defaults.js; // Replace with the path to the file in the repository
 fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${path}`)
   .then(response => {
     if (response.ok) {
