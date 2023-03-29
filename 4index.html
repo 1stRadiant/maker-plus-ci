@@ -64,79 +64,90 @@ feature-box {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Regulation Site</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Preview</a></li>
-      <li><a href="#">Copy</a></li>
-      <li><a href="#">Code</a></li>
-    </ul>
-  </div>
-</nav>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-  </ol>
+<script>
+// Load the pre-trained word embeddings
+const embeddings = {};
+fetch('https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder%405.0.0/').then(res => {
+  return res.arrayBuffer();
+}).then(buffer => {
+  const model = await tf.loadGraphModel(new Uint8Array(buffer));
+  embeddings = async (sentence) => {
+    const embeddings = await model.embed(sentence);
+    return embeddings.arraySync();
+  };
+});
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="image1.png" alt="Chania">
-      <div class="carousel-caption">
-        <h3>Proper care needs to be taken</h3>
-        <p>We will take necessary measures to ensure that, that is our job, that is what we do so worry not!</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="image2.png" alt="Chania">
-      <div class="carousel-caption">
-        <h3>Proper care needs to be taken</h3>
-        <p>We will take necessary measures to ensure that, that is our job, that is what we do so worry not!</p>
-      </div>
-    </div>
-  </div>
+const cosineDistance = (vec1, vec2) => {
+  const dot = vec1.reduce((acc, curr, i) => acc + curr * vec2[i], 0);
+  const mag1 = Math.sqrt(vec1.reduce((acc, curr) => acc + curr * curr, 0));
+  const mag2 = Math.sqrt(vec2.reduce((acc, curr) => acc + curr * curr, 0));
+  return dot / (mag1 * mag2);
+};
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+const predictNextWords = async (paragraph, incompleteSentence) => {
+  const words = incompleteSentence.toLowerCase().split(' ');
+  const searchWords = words.slice(Math.max(words.length - 4, 0));
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-      <h3>Features</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
-      </p>
-    </div>
-    <div class="col-md-4">
-      <i class="fa fa-code fa-3x"></i>
-      <h3>Code</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
-      </p>
-    </div>
-    <div class="col-md-4">
-      <i class="fa fa-file-code-o fa-3x"></i>
-      <h3>Preview</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
-      </p>
-    </div>
-  </div>
-</div>
+  // Dictionary of words with similar intents
+  const intents = {
+    'buy': ['purchase', 'acquire', 'obtain'],
+    'eat': ['consume', 'devour', 'ingest'],
+    'like': ['enjoy', 'prefer', 'fancy'],
+    'go': ['travel', 'move', 'journey'],
+    // add more intents and related words here
+  };
 
+  // Create regex pattern from search words
+  const pattern = searchWords.map(word => `\\b${word}\\b`).join('.*') + '.*';
 
+  // Find examples of sentences that match the pattern
+  const examples = paragraph.toLowerCase().split('.').map(sentence => sentence.trim()).filter(sentence => sentence.match(new RegExp(pattern)));
+
+  if (examples.length === 0) {
+    return null;
+  }
+
+  // Get all words that follow the search words in each example sentence
+  const candidates = examples.flatMap(example => {
+    const exampleWords = example.split(' ');
+    const index = searchWords.reduce((acc, curr) => Math.max(acc, exampleWords.findIndex(word => word === curr)), -1);
+    return exampleWords.slice(index + 1);
+  }).filter(word => word && word.length > 0);
+
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  // Find the top 5 words with the smallest cosine distance to the last word
+  const searchEmbedding = await embeddings(searchWords[searchWords.length - 1]);
+  const predictions = candidates.map(word => {
+    const intentWords = [word, ...(intents[word] || [])];
+    const embeddings = await Promise.all(intentWords.map(embeddings));
+    const distances = embeddings.map(embedding => cosineDistance(searchEmbedding, embedding));
+    const maxDistance = Math.max(...distances);
+    return { word, distance: maxDistance };
+  }).filter(prediction => prediction.distance >= 0.5)
+    .sort((a, b) => b.distance - a.distance)
+    .slice(0, 10)
+    .map(prediction => prediction.word);
+
+  return predictions;
+};
+
+// Example usage
+try {
+  const paragraph = readFile("textconverter.txt");
+  const incompleteSentence = "where are you from";
+  const nextWords = predictNextWords(paragraph, incompleteSentence);
+  if (nextWords) {
+    const completedSentence = `${incompleteSentence} ${nextWords.join(' ')}`;
+    alert(completedSentence);
+  } else{
+    tk.flash("Could not predict the next word(s).");
+  }
+}catch(err){
+  alert(err.stack)
+}
+</script>
 </body>
 </html>
