@@ -65,30 +65,31 @@ feature-box {
 </head>
 <body>
 <script>
-const apiKey = "YOUR_API_KEY"; // Replace with your DictionaryAPI key
+//const apiKey = "YOUR_API_KEY"; // Replace with your DictionaryAPI key
 
 function predictNextWords(input, numWords) {
   let words = input.trim().split(" ");
   let lastWord = words[words.length - 1];
-  let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${lastWord}`;
+  let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${lastWord}`;
 
   fetch(url)
-    .then((response) => {response.json()
-alert(JSON.stringify(response))
-})
-    .then((data) => {
-      let suggestions = data[0].meanings[0].definitions[0].synonyms.slice(0, 5);
-
-      let distances = suggestions.map((word) => levenshteinDistance(word, lastWord));
-      let sortedSuggestions = suggestions.sort((a, b) => {
-        let distanceA = distances[suggestions.indexOf(a)];
-        let distanceB = distances[suggestions.indexOf(b)];
-        return distanceA - distanceB;
-      });
-      let predictedWords = sortedSuggestions.slice(0, numWords);
-      alert(predictedWords);
+    .then(response => response.json())
+    .then(data => {
+      if (data.length > 0 && data[0].meanings.length > 0 && data[0].meanings[0].definitions.length > 0 && data[0].meanings[0].definitions[0].synonyms) {
+        let suggestions = data[0].meanings[0].definitions[0].synonyms.slice(0, 5);
+        let distances = suggestions.map(word => levenshteinDistance(word, lastWord));
+        let sortedSuggestions = suggestions.sort((a, b) => {
+          let distanceA = distances[suggestions.indexOf(a)];
+          let distanceB = distances[suggestions.indexOf(b)];
+          return distanceA - distanceB;
+        });
+        let predictedWords = sortedSuggestions.slice(0, numWords);
+        alert(predictedWords);
+      } else {
+        alert(`No results found for ${lastWord}`);
+      }
     })
-    .catch((error) => alert(error));
+    .catch(error => alert(error));
 }
 
 function levenshteinDistance(word1, word2) {
@@ -109,8 +110,9 @@ function levenshteinDistance(word1, word2) {
   return matrix[word2.length][word1.length];
 }
 
+
 try{
-predictNextWords("hello", 5);
+predictNextWords("The quick brown", 5);
 //alert("t")
 }catch(err){
 alert(err)
