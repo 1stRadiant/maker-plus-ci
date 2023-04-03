@@ -606,8 +606,8 @@ editor.setValue(tk.readFile("Current.txt"))
 													tk.flash("The context is set with "+tk.readFile("linkedfile.txt")+ " you can change the context/training by selecting a persona or by manually setting the linked file.");
 						}else{
        							tk.flash("You are editing "+current[0]+ " in "+mode)
-							}
-					}*/
+							}*/
+					}
 				});
 				//sessionUndoM(current[0])
 			}catch(modeErr){
