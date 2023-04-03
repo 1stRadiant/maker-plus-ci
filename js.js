@@ -1415,8 +1415,8 @@ try {
  // const str = '%anyWord[My name is] John. [I am]%optional [29] years old.%endsWith[Email]: john@example.com. [The time is] %startsWith[13]:[24]';
 var str = prompt("Enter [sentence]. You can include %endsWith[commands]")
   const regex = generateRegexFromString(str);
-  writeFile('text.txt', regex + '', false);
-  alert(regex.toString()); // outputs: /^My \w+ is John\. I am \d{2} years old\. Email: john@example\.com\. The time is \d{2}:\d{2}$/i
+  //writeFile('text.txt', regex + '', false);
+  tk.flash(regex.toString()); // outputs: /^My \w+ is John\. I am \d{2} years old\. Email: john@example\.com\. The time is \d{2}:\d{2}$/i
 } catch (err) {
   console.log(err.stack);
 }
