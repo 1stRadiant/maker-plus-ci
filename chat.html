@@ -164,6 +164,7 @@ var inpuT
 
 </script>
   <script>
+try{
   var elements = document.getElementsByClassName("send-btn");
 var countDivs = 0;
 tk.writeFile("countDivs.txt",countDivs,false)
@@ -213,13 +214,14 @@ document.getElementById("ap").appendChild(div);
 if(tk.readFile(tk.readFile("linkedfile.txt"))==""){
 tk.writeFile("toMessage.txt",text+"\n"+toAi,false);
 currText = tk.readFile("toMessage.txt");
+
 runBloom(currText)
-        
+alert(currText+"1")
 }else{
 tk.writeFile("toMessage.txt",inpuT+"\nUser: "+text+"\n"+toAi,false)    
     currText = tk.readFile("toMessage.txt");
 runBloom(currText)
-    
+alert(currText+"2")    
 }
     var outputText = tk.readFile("toMessage.txt");
 
@@ -243,7 +245,7 @@ tk.writeFile("countDivs.txt",Number(countDivs)+1,false)
 
 var currText = tk.readFile("toMessage.txt");
     runBloom(currText)
-      
+     alert(currText+"3") 
     }
   }catch(err){
   alert(err)
@@ -253,6 +255,9 @@ var currText = tk.readFile("toMessage.txt");
 
 for (var i = 0; i < elements.length; i++) {
     elements[i].addEventListener('click', myFunction, false);
+}
+}catch(err){
+alert(err)
 }
     </script>
 </body>
