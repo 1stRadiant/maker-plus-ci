@@ -672,9 +672,9 @@ function runBloom(inp){
 query({"inputs": inp, "parameters":{"do_sample": do_sample}}).then((response) => { 
 
 //tk.flash(response[0].generated_text)
-
+alert(inp)
 var spl = response[0].generated_text.split(inp);
-alert(spl[1])
+
 //if(spl[1].includes("User:")){
 //spl = spl[1].split("User:")
 	/*
