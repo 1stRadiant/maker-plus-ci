@@ -65,59 +65,22 @@ feature-box {
 </head>
 <body>
 <script>
-//const apiKey = "YOUR_API_KEY"; // Replace with your DictionaryAPI key
-
-function predictNextWords(input, numWords) {
-  let words = input.trim().split(" ");
-  let lastWord = words[words.length - 1];
-  let url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${lastWord}`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (data.length > 0 && data[0].meanings.length > 0 && data[0].meanings[0].definitions.length > 0 && data[0].meanings[0].definitions[0].synonyms) {
-        let suggestions = data[0].meanings[0].definitions[0].synonyms.slice(0, 5);
-        let distances = suggestions.map(word => levenshteinDistance(word, lastWord));
-        let sortedSuggestions = suggestions.sort((a, b) => {
-          let distanceA = distances[suggestions.indexOf(a)];
-          let distanceB = distances[suggestions.indexOf(b)];
-          return distanceA - distanceB;
-        });
-        let predictedWords = sortedSuggestions.slice(0, numWords);
-        alert(predictedWords);
-      } else {
-        alert(`No results found for ${lastWord}`);
-      }
-    })
-    .catch(error => alert(error));
+async function query(data) {
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/bigscience/bloom",
+		{
+			headers: { Authorization: "Bearer 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" },
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
 }
 
-function levenshteinDistance(word1, word2) {
-  let matrix = [];
-  for (let i = 0; i <= word2.length; i++) {
-    matrix[i] = [i];
-    for (let j = 0; j <= word1.length; j++) {
-      if (i === 0) {
-        matrix[i][j] = j;
-      } else {
-        let deletion = matrix[i - 1][j] + 1;
-        let insertion = matrix[i][j - 1] + 1;
-        let substitution = matrix[i - 1][j - 1] + (word2[i - 1] !== word1[j - 1] ? 1 : 0);
-        matrix[i][j] = Math.min(deletion, insertion, substitution);
-      }
-    }
-  }
-  return matrix[word2.length][word1.length];
-}
-
-
-try{
-predictNextWords("hello how are you?", 5);
-//alert("t")
-}catch(err){
-alert(err)
-}
-
+query({"inputs": "Can you please let us know more details about your "}).then((response) => {
+	alert(JSON.stringify(response));
+});
 </script>
 </body>
 </html>
