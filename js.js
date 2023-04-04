@@ -653,7 +653,7 @@ async function query(data) {
 	const response = await fetch(
 	"https://api-inference.huggingface.co/models/bigscience/bloom",
 		{
-			headers: { Authorization: ""+sc+""},
+			headers: { Authorization: "Bearer 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"},
 			method: "POST",
 			body: JSON.stringify(data),
 		}
