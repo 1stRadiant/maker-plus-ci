@@ -868,7 +868,7 @@ e.setAttribute("style","height:0px");
 		editor.resize()
 }else{
 toggle = "large";
-e.setAttribute("style","height:50px");
+e.setAttribute("style","height:100px");
 		editor.resize()
 }
 
