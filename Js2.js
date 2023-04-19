@@ -672,7 +672,7 @@ function isSentenceFinished(sentence) {
 	function interface(){
 		try{
 if(toggle!="small" && tk.readFile("Current.txt")!="inft.txt"){
-e.setAttribute("style","height:50px");
+e.setAttribute("style","height:100px");
 		editor.resize()
 }else{
 if(tk.readFile("Current.txt")=="inft.txt"){
