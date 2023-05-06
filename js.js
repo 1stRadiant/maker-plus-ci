@@ -16,7 +16,7 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${path}`)
     }
   })
   .then(commits => {
-    if (commits.length > 0) {
+    if (commits.length < 1) {
       const lastUpdated = commits[0].commit.committer.date;
   fileSystem.lastupdated = lastUpdated;
    
