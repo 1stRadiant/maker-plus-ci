@@ -481,6 +481,11 @@ alert(err.stack)
 	}
 
 
+function getValue(){
+var str = editor.getValue()
+return str;
+}
+
 	function printBtn2(){ 
 
 if(window.location.toString().includes("prompt:")){
