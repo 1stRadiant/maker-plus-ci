@@ -236,6 +236,7 @@ ccount = -1
 	quickKey = false;
 	var input2;
 	var do_sample = true;
+var toggle = "small";
 	//var sessionFromJSON = {}, sessionToJSON = {}
 	
 	
