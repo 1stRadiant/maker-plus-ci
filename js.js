@@ -857,7 +857,7 @@ function isSentenceFinished(sentence) {
 			const myNode = document.getElementById("card21");
 			myNode.innerHTML = '';
 			var current = tk.readFile("Current.txt")
-			var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Matcher","Voice","Left","Right","Export","Import"];
+			var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Matcher","Voice","Left","Right","Export","Import","Toggle"];
 			current = current.split("\n")
 			var ext = current[0].split(".")
 			var list2 = tk.readFile("inft."+ext[1])
@@ -891,7 +891,7 @@ function isSentenceFinished(sentence) {
 					
 					var toLoad = item
 					
-					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+list[i]+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher') && !newText.includes('search') && !newText.includes('indent')){ editor.insert(newText); editor.focus();} ");
+					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+list[i]+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher') && !newText.includes('search') && !newText.includes('indent') && !newText.includes('Toggle')){ editor.insert(newText); editor.focus();} ");
 					//var bttn = document.getElementById("bttn");
 					//bttn.onclick = function() { setTextTo(this);};
 				}else{
