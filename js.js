@@ -890,7 +890,7 @@ function isSentenceFinished(sentence) {
 					
 					var toLoad = item
 					
-					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+list[i]+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher') && !newText.includes('search') && !newText.includes('indent') && !newText.includes('Toggle')){ editor.insert(newText); editor.focus();} ");
+					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+list[i]+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher') && !newText.includes('search') && !newText.includes('indent') && !newText.includes('Resize')){ editor.insert(newText); editor.focus();} ");
 					//var bttn = document.getElementById("bttn");
 					//bttn.onclick = function() { setTextTo(this);};
 				}else{
@@ -904,7 +904,7 @@ function isSentenceFinished(sentence) {
 					
 					var toLoad = list[i];
 					
-					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Lock Editor') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher')&& !newText.includes('search') && !newText.includes('indent')){ editor.insert(newText); editor.focus();} ");
+					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText.trim();  quickKey = true; func(); if(!newText.includes('Select Line') && !newText.includes('Lock Editor') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher')&& !newText.includes('search') && !newText.includes('indent') && !newText.includes('Resize')){ editor.insert(newText); editor.focus();} ");
 					
 				}
 				
@@ -1059,10 +1059,10 @@ function isSentenceFinished(sentence) {
 			
 		}
 		
-if(newText.includes("Toggle")){
+if(newText.includes("Resize")){
 if(toggle!="small"){
  toggle = "small";
-e.setAttribute("style","height:500px");
+e.setAttribute("style","height:100px");
 		editor.resize()
 }else{
 toggle = "large";
