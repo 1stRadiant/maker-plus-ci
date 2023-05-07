@@ -314,11 +314,10 @@ ccount = -1
 	quickKey = false;
 	var input2;
 	var do_sample = true;
+
 	//var sessionFromJSON = {}, sessionToJSON = {}
-	
-	
 	var slides = document.getElementById('slides');
-	
+	var toggle = "small";
 	
 	
 	function printBtn(){
