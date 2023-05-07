@@ -482,8 +482,9 @@ alert(err.stack)
 
 
 function getValue(){
-var str = editor.getValue()
-return str;
+var str = tk.readFile("Current.txt")
+var str = str.split("\n")
+ runIt(tk.readFile(str[0]))
 }
 
 	function printBtn2(){ 
