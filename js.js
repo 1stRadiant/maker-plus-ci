@@ -635,12 +635,10 @@ editor.setValue(tk.readFile("Current.txt"))
 		
 	}
 	var ans;
-function runIt(input){
+function runIt(input){ 
 		try{
-			var rx = /<<([^}]*)>>/gm
-			var cf = rx.exec(input);
 			//alert(cf)
-			eval(cf[1])
+			eval(input)
 			//var codeToExecute = cf[1];
 			//var tmpFunc = new Function(codeToExecute);
 			//tmpFunc();
