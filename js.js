@@ -482,8 +482,10 @@ alert(err.stack)
 
 
 function getValue(){
-var str = editor.getValue()
-return str;
+var str = readFile("Current.txt")
+var str = str.split("\n");
+var file = readFile(str[0]);
+runIt(file);
 }
 
 	function printBtn2(){ 
