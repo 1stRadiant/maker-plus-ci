@@ -23,7 +23,7 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${path}`)
  if(fileSystem.lastupdated != lastUpdated){
 		fileSystem = fsCheck;
 	}
-console.log(`The file was last updated on: ${lastUpdated}`);
+alert(`The file was last updated on: ${lastUpdated}`);
     } else {
       console.log('No commits found for the specified file.');
     }
