@@ -1059,6 +1059,19 @@ function isSentenceFinished(sentence) {
 			}
 			
 		}
+		
+if(newText.includes("Toggle")){
+if(toggle!="small"){
+ toggle = "small";
+e.setAttribute("style","height:500px");
+		editor.resize()
+}else{
+toggle = "large";
+e.setAttribute("style","height:800px");
+		editor.resize()
+}
+
+}
 
 		if(newText.includes("search")){
 
