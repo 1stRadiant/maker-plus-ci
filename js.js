@@ -32,9 +32,10 @@ alert(`The file was last updated on: ${lastUpdated}`);
     console.error(`Error fetching file data: ${error.message}`);
   });
 	
-/*if(fsCheck!== null){
+if(fsCheck!== null){
 		fileSystem = fsCheck;
-	}*/
+	let fileSystem = Object.assign(fileSystem, fsCheck);
+	}
 	var flashArray = []
 	
 	var ii =1;
