@@ -33,8 +33,8 @@ alert(`The file was last updated on: ${lastUpdated}`);
   });
 	
 if(fsCheck!== null){
-		fileSystem = fsCheck;
-	let fileSystem = Object.assign(fileSystem, fsCheck);
+		//fileSystem = fsCheck;
+fileSystem = Object.assign(fileSystem, fsCheck);
 	}
 	var flashArray = []
 	
