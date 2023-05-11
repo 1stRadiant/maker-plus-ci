@@ -4,33 +4,7 @@ try{
 	// if(typeof tk !== "undefined" && tk !== null) {
 	
 	var fsCheck = JSON.parse(localStorage.getItem('fileSystem'));
-const owner = '1stRadiant'; // Replace with the repository owner's username
-const repo = 'maker-plus-ci'; // Replace with the repository name
-const path = 'defaults.js'; // Replace with the path to the file in the repository
-fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${path}`)
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error(`Error: ${response.status}`);
-    }
-  })
-  .then(commits => {
-    if (commits.length < 1) {
-      const lastUpdated = commits[0].commit.committer.date;
-  fileSystem.lastupdated = lastUpdated;
-   
- if(fileSystem.lastupdated != lastUpdated){
-		fileSystem = fsCheck;
-	}
-alert(`The file was last updated on: ${lastUpdated}`);
-    } else {
-      console.log('No commits found for the specified file.');
-    }
-  })
-  .catch(error => {
-    console.error(`Error fetching file data: ${error.message}`);
-  });
+
 	
 if(fsCheck!== null){
 		//fileSystem = fsCheck;
@@ -1063,7 +1037,7 @@ function isSentenceFinished(sentence) {
 if(newText.includes("Resize")){
 if(toggle!="small"){
  toggle = "small";
-e.setAttribute("style","height:100px");
+e.setAttribute("style","height:150px");
 		editor.resize()
 }else{
 toggle = "large";
