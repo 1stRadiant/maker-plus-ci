@@ -857,7 +857,7 @@ function isSentenceFinished(sentence) {
 			const myNode = document.getElementById("card21");
 			myNode.innerHTML = '';
 			var current = tk.readFile("Current.txt")
-			var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Matcher","Voice","Left","Right","Export","Import","Toggle"];
+			var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Matcher","Voice","Left","Right","Export","Import","Resize"];
 			current = current.split("\n")
 			var ext = current[0].split(".")
 			var list2 = tk.readFile("inft."+ext[1])
