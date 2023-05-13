@@ -856,6 +856,8 @@ function isSentenceFinished(sentence) {
 					var item = list[i].split('<<')
 					item = item[0].trim();
 					
+
+
 					var btn = document.createElement("button");
 					var t = document.createTextNode(item);
 					document.getElementById('card21').appendChild(btn);
@@ -864,8 +866,9 @@ function isSentenceFinished(sentence) {
 					var textarea = document.getElementById("ta");
 					
 					var toLoad = item
-					
-					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+list[i]+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher') && !newText.includes('search') && !newText.includes('indent') && !newText.includes('Resize')){ editor.insert(newText); editor.focus();} ");
+					var lrun = list[i].replace("<<","");
+lrun = list[i].replace(">>","");
+					btn.setAttribute("onclick", "newText = getElementById(this.id).textContent; newText = newText;  quickKey = true; func(); try{runIt(`"+lrun+"`)}catch(err){alert(err.stack)} if(!newText.includes('Select Line') && !newText.includes('Select all') && !newText.includes('Undo') && !newText.includes('Redo') && !newText.includes('Copy') && !newText.includes('Cut') && !newText.includes('Sel from here to') && !newText.includes('Codify!') && !newText.includes('Voice') && !newText.includes('Left') && !newText.includes('Right') && !newText.includes('Export') && !newText.includes('Import') && !newText.includes('Matcher') && !newText.includes('search') && !newText.includes('indent') && !newText.includes('Resize')){ editor.insert(newText); editor.focus();} ");
 					//var bttn = document.getElementById("bttn");
 					//bttn.onclick = function() { setTextTo(this);};
 				}else{
