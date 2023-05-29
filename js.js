@@ -640,7 +640,7 @@ async function query(data) {
 	const result = await response.json();
 	return result;
 
-alert(result.toString());
+tk.flash(result.toString());
 
 }
 
