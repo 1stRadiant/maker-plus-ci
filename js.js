@@ -629,7 +629,7 @@ var ha = tk.readFile("huggingapi.txt");
 
 async function query(data) {
 	const response = await fetch(
-	"https://api-inference.huggingface.co/models/bigscience/bloom",
+	"https://api-inference.huggingface.co/models/OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5",
 		{
 			headers: { Authorization: "Bearer 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"},
 			method: "POST",
@@ -649,7 +649,7 @@ function runBloom(inp){
 	
 query({"inputs": inp}).then((response) => { 
 
-//tk.flash(response[0].generated_text)
+tk.flash(response[0].generated_text)
 alert(inp)
 var spl = response[0].generated_text.split(inp);
 
