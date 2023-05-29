@@ -628,6 +628,7 @@ var ha = tk.readFile("huggingapi.txt");
 
 
 async function query(data) {
+alert("here");
 	const response = await fetch(
 	"https://api-inference.huggingface.co/models/OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5",
 		{
@@ -777,7 +778,7 @@ var toM = text.split("ans >>")
 		                div.innerHTML = " = "+getValue;
 
 
-				//alert(getValue)
+				//alert(getValue)o8
 				}catch(err){alert(err)}
 				}
 var runMore = tk.readFile("toMessage.txt")
