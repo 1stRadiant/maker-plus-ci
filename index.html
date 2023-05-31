@@ -7,7 +7,14 @@
 
 <title>Maker+ Ci</title>
 <!--script src="js.js"></script-->
-
+<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+<script>
+Mendable.initialize({
+    anon_key: 'ad26e8f4-090b-4348-84d4-3e40e4637970',
+    type:"floatingButton",
+    // all the other props for the component type
+});
+</script>
 <!-- Latest compiled and minified CSS -->
 <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
 <link rel="stylesheet" href="style.css">
@@ -176,13 +183,5 @@ let quickKey = false;
 
 <iframe name="hiddenFrame"   style="position: absolute;width:0;height:0;border:0;"></iframe>
 
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-<script>
-Mendable.initialize({
-    anon_key: 'ad26e8f4-090b-4348-84d4-3e40e4637970',
-    type:"floatingButton",
-    // all the other props for the component type
-});
-</script>
 </body>
 </html>
