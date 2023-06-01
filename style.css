@@ -235,6 +235,17 @@ background:#272822;
 
 }
 
+
+.navClass button {
+  background-color: #272822; /* monoki */
+  border: 1;
+  border-color: white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+
+}
+
 button {
   background-color: #272822; /* monoki */
   border: 1;
