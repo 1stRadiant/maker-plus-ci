@@ -181,7 +181,7 @@ ccount = -1
 	//editor.setOptions(obj)
 	editor.setTheme("ace/theme/monokai");
 	editor.getSession().setUseWorker(true);
-        editor.setOption("wrap", false)
+        editor.setOption("wrap", true)
 								//editor.setOption("tooltipFollowsMouse", true)
 	editor.getSession().on("changeAnnotation", function(){
 		
@@ -193,7 +193,6 @@ ccount = -1
 		}
 	})
 	var Range = require("ace/range").Range;
-	
 	
 	
 	var e = document.getElementById('parent');
