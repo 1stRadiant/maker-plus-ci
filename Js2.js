@@ -875,6 +875,7 @@ toggle = "large";
 e.setAttribute("style","height:800px");
 		editor.resize()
 }
+		}
 		
 		if(newText.includes("Right")){
 			
