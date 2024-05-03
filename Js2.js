@@ -451,19 +451,19 @@ var toLoad = "as"+i;
 		
 	}
 	var ans;
-function runIt(input){
+
+function runIt(input){ 
 		try{
-			var rx = /<<([^}]*)>>/gm
-			var cf = rx.exec(input);
 			//alert(cf)
-			var codeToExecute = cf[1];
-			var tmpFunc = new Function(codeToExecute);
-			tmpFunc();
+			eval(input)
+			//var codeToExecute = cf[1];
+			//var tmpFunc = new Function(codeToExecute);
+			//tmpFunc();
 		}catch(err){
 			alert(err+"\n"+err.stack)
 		}
 		
-	}
+}
 
 var sc = "";//tk.readFile("sc.txt");
 
