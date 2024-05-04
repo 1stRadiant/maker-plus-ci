@@ -1,4 +1,4 @@
-//try{
+try{
 	
 	//NR
 	// if(typeof tk !== "undefined" && tk !== null) {
@@ -453,15 +453,15 @@ var toLoad = "as"+i;
 	var ans;
 
 function runIt(input){ 
-		try{
+		//try{
 			//alert(cf)
 			eval(input)
 			//var codeToExecute = cf[1];
 			//var tmpFunc = new Function(codeToExecute);
 			//tmpFunc();
-		}catch(err){
+		/*}catch(err){
 			alert(err+"\n"+err.stack)
-		}
+		}*/
 		
 }
 
@@ -1989,6 +1989,6 @@ tk.writeFile(current[0]+'data.txt',store,false);
 		//alert(evt)
 	}
 	
-/*}catch (err){
+}catch (err){
 	alert(err.stack)
-}*/
+}
