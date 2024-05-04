@@ -1,4 +1,4 @@
-try{
+//try{
 	
 	//NR
 	// if(typeof tk !== "undefined" && tk !== null) {
@@ -1989,6 +1989,6 @@ tk.writeFile(current[0]+'data.txt',store,false);
 		//alert(evt)
 	}
 	
-}catch (err){
+/*}catch (err){
 	alert(err.stack)
-}
+}*/
