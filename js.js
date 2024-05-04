@@ -43,6 +43,10 @@ client.send();
 			flashArray.push(t)
 			toFlash(t)
 		},
+		loadApp: function(t){
+			//flashArray.push(t)
+			//toFlash(t)
+	},
 		
 		ReadFromAssets: function(f){
 			return fileSystem[f]
