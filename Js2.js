@@ -750,7 +750,7 @@ lrun = lrun[1].replace(">>","");
 		}
 	}
 
-	
+	var copiedText;
 	function func(){
 		
 		
@@ -796,7 +796,8 @@ lrun = lrun[1].replace(">>","");
 		
 		if(newText.includes("Undo")){
 			
-			editor.undo();
+			execCommand("undo")
+			//editor.undo();
 			lock = true
 			editor.focus()
 			lock = false
@@ -805,7 +806,7 @@ lrun = lrun[1].replace(">>","");
 		
 		if(newText.includes("Redo")){
 			
-			editor.redo();
+			execCommand("redo");
 			lock = true
 			editor.focus()
 			lock = false
@@ -816,18 +817,21 @@ lrun = lrun[1].replace(">>","");
 		
 		if(newText.includes("Paste")){
 			newText = ""
-			navigator.clipboard.readText().then(function(text) {
+			/*navigator.clipboard.readText().then(function(text) {
 				editor.execCommand("paste", text)
 				
-			})
+			})*/
+			editor.insert("copiedText")
 			
 		}
 		
 		if(newText.includes("Copy")){
-			alert(editor.getCopyText())
-			var text = editor.getCopyText()
+			newText = ""
+			copiedText = editor.getCopyText()
+			tk.writeFile,("copiedText.txt",copiedText,false)
+			/*var text = editor.getCopyText()
 			editor.execCommand("copy") // or cut
-			navigator.clipboard.writeText(text)
+			navigator.clipboard.writeText(text)*/
 			tk.flash("Copied!");
 			
 		}
