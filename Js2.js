@@ -796,8 +796,7 @@ lrun = lrun[1].replace(">>","");
 		
 		if(newText.includes("Undo")){
 			
-			execCommand("undo")
-			//editor.undo();
+			editor.undo();
 			lock = true
 			editor.focus()
 			lock = false
@@ -806,7 +805,7 @@ lrun = lrun[1].replace(">>","");
 		
 		if(newText.includes("Redo")){
 			
-			execCommand("redo");
+			editor.redo();
 			lock = true
 			editor.focus()
 			lock = false
