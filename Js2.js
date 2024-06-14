@@ -682,7 +682,7 @@ e.setAttribute("style","height:0px");
 			const myNode = document.getElementById("card21");
 			myNode.innerHTML = '';
 			var current = tk.readFile("Current.txt")
-			var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Copy","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import","Resize"];
+			var list =  [",","\"","=",".",";","%","(",")",":","_","{\n","}","@","var","$","/","//","/*","*/","\\","<=",">=","=","'","\|\|","\|","?","-","<",">","\+\+","+","()","[]","!","#","&","*","function ","if","for","Clear Line","Select Line","Select all","Sel from here to","Paste","Cut","Undo","Redo","Codify!","Link Ai","Voice","Left","Right","Export","Import","Resize"];
 			current = current.split("\n")
 			var ext = current[0].split(".")
 			var list2 = tk.readFile("inft."+ext[1])
@@ -805,7 +805,7 @@ lrun = lrun[1].replace(">>","");
 		
 		if(newText.includes("Redo")){
 			
-			editor.redo();
+			editor.redo();q
 			lock = true
 			editor.focus()
 			lock = false
@@ -824,16 +824,16 @@ lrun = lrun[1].replace(">>","");
 			
 		}
 		
-		if(newText.includes("Copy")){
+		/*if(newText.includes("Copy")){
 			newText = ""
 			copiedText = editor.getCopyText()
-			tk.writeFile("copiedText.txt",copiedText,false)
+			tk.writeFile("copiedText.txt",copiedText,false)*/
 			/*var text = editor.getCopyText()
 			editor.execCommand("copy") // or cut
 			navigator.clipboard.writeText(text)*/
-			tk.flash("Copied!");
+			//tk.flash("Copied!");
 			
-		}
+		//}
 		
 		if(newText.includes("Cut")){
 			
