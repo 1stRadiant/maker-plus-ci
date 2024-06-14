@@ -828,7 +828,7 @@ lrun = lrun[1].replace(">>","");
 		if(newText.includes("Copy")){
 			newText = ""
 			copiedText = editor.getCopyText()
-			tk.writeFile,("copiedText.txt",copiedText,false)
+			tk.writeFile("copiedText.txt",copiedText,false)
 			/*var text = editor.getCopyText()
 			editor.execCommand("copy") // or cut
 			navigator.clipboard.writeText(text)*/
