@@ -824,6 +824,7 @@ lrun = lrun[1].replace(">>","");
 		}
 		
 		if(newText.includes("Copy")){
+			alert(editor.getCopyText())
 			var text = editor.getCopyText()
 			editor.execCommand("copy") // or cut
 			navigator.clipboard.writeText(text)
