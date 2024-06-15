@@ -820,7 +820,7 @@ lrun = lrun[1].replace(">>","");
 				editor.execCommand("paste", text)
 				
 			})*/
-			editor.insert(copiedText)
+			//editor.insert(copiedText)
 			
 		}
 		
