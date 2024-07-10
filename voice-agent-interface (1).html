@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Voice Transcription with LLM and AI Visualizer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+            overflow: hidden;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            z-index: 10;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .control-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #startButton {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        #startButton:hover {
+            background-color: #2980b9;
+        }
+        #status {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        .transcription-container, .llm-response-container {
+            background-color: rgba(236, 240, 241, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        #transcription, #llmResponse {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #34495e;
+        }
+        .api-settings {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(249, 249, 249, 0.8);
+            border-radius: 10px;
+        }
+        .api-settings input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+        }
+        #errorDetails {
+            color: #e74c3c;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #aiVisualizer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="aiVisualizer"></canvas>
+    <div class="container">
+        <h1>Interactive Voice Transcription with LLM and AI Visualizer</h1>
+        <div class="control-panel">
+            <button id="startButton">Start Transcribing</button>
+            <div id="status">Click "Start Transcribing" to begin</div>
+        </div>
+        <div class="transcription-container">
+            <div id="transcription"></div>
+        </div>
+        <div class="llm-response-container">
+            <div id="llmResponse"></div>
+        </div>
+        <div class="api-settings">
+            <h3>LLM API Settings</h3>
+            <input type="text" id="apiEndpoint" placeholder="API Endpoint URL">
+            <input type="password" id="apiKey" placeholder="API Key">
+        </div>
+        <div id="errorDetails"></div>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const statusDiv = document.getElementById('status');
+        const errorDetails = document.getElementById('errorDetails');
+        const transcriptionDiv = document.getElementById('transcription');
+        const llmResponseDiv = document.getElementById('llmResponse');
+        const apiEndpointInput = document.getElementById('apiEndpoint');
+        const apiKeyInput = document.getElementById('apiKey');
+        let recognition;
+        let isTranscribing = false;
+
+        // AI Visualizer
+        const canvas = document.getElementById('aiVisualizer');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 5 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+                this.color = `hsl(${Math.random() * 360}, 50%, 50%)`;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 5; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        function intensifyVisualization() {
+            for (let i = 0; i < 50; i++) {
+                createParticles();
+            }
+        }
+
+        // Speech Recognition and LLM Integration
+        function checkMicrophoneSupport() {
+            return navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    stream.getTracks().forEach(track => track.stop());
+                    return true;
+                })
+                .catch(err => {
+                    console.error("Error accessing microphone:", err);
+                    throw err;
+                });
+        }
+
+        function initSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window) {
+                recognition = new webkitSpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+
+                recognition.onstart = () => {
+                    statusDiv.textContent = 'Listening and transcribing...';
+                };
+
+                recognition.onend = () => {
+                    if (isTranscribing) {
+                        recognition.start();
+                    }
+                };
+
+                recognition.onresult = (event) => {
+                    let interimTranscript = '';
+                    let finalTranscript = '';
+
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        const transcript = event.results[i][0].transcript;
+                        if (event.results[i].isFinal) {
+                            finalTranscript += transcript + ' ';
+                            sendToLLM(finalTranscript);
+                        } else {
+                            interimTranscript += transcript;
+                        }
+                    }
+
+                    transcriptionDiv.innerHTML = 
+                        '<strong>Final:</strong> ' + finalTranscript + 
+                        '<br><strong>Interim:</strong> ' + interimTranscript;
+                };
+
+                recognition.onerror = (event) => {
+                    console.error('Speech recognition error', event);
+                    let errorMessage = 'Error: ' + event.error;
+                    if (event.error === 'not-allowed') {
+                        errorMessage += '. Please ensure you have given permission to use the microphone.';
+                    }
+                    statusDiv.textContent = errorMessage;
+                    errorDetails.textContent = 'Detailed error: ' + JSON.stringify(event);
+                };
+
+                startButton.addEventListener('click', () => {
+                    if (!isTranscribing) {
+                        isTranscribing = true;
+                        recognition.start();
+                        startButton.textContent = 'Stop Transcribing';
+                    } else {
+                        isTranscribing = false;
+                        recognition.stop();
+                        startButton.textContent = 'Start Transcribing';
+                        statusDiv.textContent = 'Stopped transcribing';
+                    }
+                });
+            } else {
+                startButton.style.display = 'none';
+                statusDiv.textContent = 'Speech recognition is not supported in this browser.';
+            }
+        }
+
+        function sendToLLM(text) {
+            const apiEndpoint = apiEndpointInput.value;
+            const apiKey = apiKeyInput.value;
+
+            if (!apiEndpoint || !apiKey) {
+                llmResponseDiv.textContent = 'Please provide API endpoint and key.';
+                return;
+            }
+
+            intensifyVisualization(); // Intensify visualization when sending to LLM
+
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({ prompt: text })
+            })
+            .then(response => response.json())
+            .then(data => {
+                llmResponseDiv.textContent = data.response || 'No response from LLM';
+                intensifyVisualization(); // Intensify visualization when receiving response
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                llmResponseDiv.textContent = 'Error communicating with LLM API';
+            });
+        }
+
+        // Initialize
+        checkMicrophoneSupport()
+            .then(() => {
+                initSpeechRecognition();
+                animateParticles();
+                setInterval(createParticles, 100); // Continuously create particles
+            })
+            .catch(err => {
+                statusDiv.textContent = 'Error accessing microphone. Please check your settings.';
+                errorDetails.textContent = 'Detailed error: ' + err.message;
+            });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
