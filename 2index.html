@@ -1,263 +1,147 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta content='width=device-width, initial-scale=1' name='viewport'/>
-
-<meta name="viewport" 
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-<title>Maker+ Ci</title>
-<!--script src="js.js"></script-->
-
-<!-- Latest compiled and minified CSS -->
-<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
-<link rel="stylesheet" href="style.css">
-
-
-<!-- jQuery library -->
-<script src="jquery.js"></script>
-  <script src="stringsimilarity.js"></script>
-  <script src="indenter.js"></script>
-<script src="modelist.js"></script>
-<script src="Aliases.js"></script>
-<script src="aliases2.js"></script>
-<script src="link.js"></script> 
-
-<script>
-//alert("didn't")
-    var outputBundle;
-    var toLoad;
-    var codifying = 1
-    var splRead = []
-    var spl = []
-    var commandFun
-    var settingPoints
-  </script>
-
-
-
-
-  <!-- Latest compiled JavaScript -->
-<!--cript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script-->
-
-<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
-
-
-  <style type="text/css" media="screen">
-    #editor {
-        position: absolute;
-        width:100%;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-
-#parent {
-    width:100%;
-    height: 150px;
-    display:inline-block;
-    position:relative;
-//background:#000000;
-}
-
-
- #editor *{ font-family : monospace !important;}
-
-#fileOpener {
-    display: block;
-    visibility: hidden;
-    width: 0;
-    height: 0;
-}
-
-</style>
-
-
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Maker+ Ci</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js"></script>
+    <script src="stringsimilarity.js"></script>
+    <script src="indenter.js"></script>
+    <script src="modelist.js"></script>
+    <script src="Aliases.js"></script>
+    <script src="aliases2.js"></script>
+    <script src="link.js"></script> 
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            width:100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        #parent {
+            width:100%;
+            height: 150px;
+            display:inline-block;
+            position:relative;
+        }
+        #editor * { 
+            font-family: monospace !important;
+        }
+        #fileOpener {
+            display: block;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
+    </style>
 </head>
-<body onload="printBtn();">
+<body onload="generateList();">
 
-<button onclick="openFile();" style="height:20px;" type="button" >+</button>
-<button onclick='saveFile();' style="height:20px;" type="button">save</button>
-<button id='stateofbeing' onclick="alert(this.textContent)" style="width:200px; height:20px;" type="button">Maker+ Ci</button>
-<button onclick='closeFile();' style="height:20px;" type="button">x</button>
-<button onclick='runIt(editor.getValue());  newText ="";' style="height:20px;" type="button">Run</button>
+    <button onclick="openFile();" style="height:20px;" type="button">+</button>
+    <button onclick='saveFile();' style="height:20px;" type="button">save</button>
+    <button id='stateofbeing' onclick="alert(this.textContent)" style="width:200px; height:20px;" type="button">Maker+ Ci</button>
+    <button onclick='closeFile();' style="height:20px;" type="button">x</button>
+    <button onclick='runIt(editor.getValue()); newText ="";' style="height:20px;" type="button">Run</button>
 
+    <br><br>
 
-<br>
-<br>
-<div class="card">
-  <div class="card-body">
-    <div class="form-group">
-<div class="header1">
-<!--button onclick="openFile();">+</button-->
-
-<div class="slider">
-  
-  <!--a href="#slide-1">1</a>
-  <a href="#slide-2">2</a>
-  <a href="#slide-3">3</a>
-  <a href="#slide-4">4</a>
-  <a href="#slide-5">5</a-->
-
-  <div class="slides">
-    <div class="slide--1" id="slide-1">
-
+    <div class="card">
+        <div class="card-body">
+            <div id="parent">
+                <div id="editor" tabindex="0"></div>
+            </div>
+            <br><br>
+            <div id="card21"></div>
+            <br><br>
+            <div id="card22"></div>
+        </div>
     </div>
-    </div>
-    <div class="slide--2" id="slide-2">
-     
-    </div>
-    <div class="slide--3" id="slide-3">
-     
-    </div>
-    <!--div id="slide-4">
-     
-    </div>
-    <div id="slide-5"-->
-     
-    </div>
-  </div>
-</div>
-</div>
-<br>
-<br>
-<br>
 
+    <input id="fileOpener" type="file" name="somename" size="chars" onChange="onChange(event)">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="defaults.js"></script>
+    <script src="Js2.js"></script>
 
-<div id="card2" class="card2">
-<!--form style="position: relative; top:-33px;"--><!--textarea class="form-control rounded-0" id="ta" rows="26" placeholder="Enter code or text here" style="top:-33px;">
-</textarea-->
+    <script>
+        // Function to get all function/method blocks and HTML tags with their contents
+        function getFunctionsAndTags(content) {
+            let functionBlocks = [];
+            let htmlBlocks = [];
 
-  <div id="parent">
+            // Regular expression to find complete functions/methods including their contents
+            let functionRegex = /function\s+([a-zA-Z0-9_]+)\s*\([^)]*\)\s*\{[^}]*\}/gs;
+            let match;
+            while ((match = functionRegex.exec(content)) !== null) {
+                functionBlocks.push({
+                    name: match[1],
+                    content: match[0]
+                });
+            }
 
-    <div id="editor" tabindex="0">
+            // Regular expression to find HTML tags including their contents
+            let htmlTagRegex = /<([a-zA-Z0-9]+)[^>]*>[^<]*<\/\1>/gs;
+            while ((match = htmlTagRegex.exec(content)) !== null) {
+                htmlBlocks.push({
+                    name: match[1],
+                    content: match[0]
+                });
+            }
 
-    </div>
-  </div>
-
-
-  <div class="slider">
-  <div class="slides">
-    <div class="lowSlide" id="lowSlide">
-
-    </div>
-    </div>
-   </div>
-<!--/form-->
-  <!--script>
-    
-
-
-
-
-  </script-->
-<!--a href="#x">Clear </a>
-<a href="#Punky">test </a-->
-</div><br><br>
-<div id="card21"></div>
-
-
-</div>
-  </div>
-</div>
-<input id="fileOpener" type="file" name="somename" size="chars" onChange="onChange(event)">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js" type="text/javascript" charset="utf-8">
-
-<script> 
-var select =''; 
-let newText;
-var readd;
-let quickKey = false;
-
-</script>
- <script src="defaults.js"></script> 
-<script src="Js2.js"></script>
-
-<iframe name="hiddenFrame"   style="position: absolute;width:0;height:0;border:0;"></iframe>
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-<script>
-Mendable.initialize({
-    anon_key: 'ad26e8f4-090b-4348-84d4-3e40e4637970',
-    type:"floatingButton",
-    // all the other props for the component type
-});
-</script>
-
-      <script>
-    // Function to get all function names and HTML tags
-    function getFunctionsAndTags(content) {
-        let functionNames = [];
-        let htmlTags = [];
-
-        // Regular expression to find functions
-        let functionRegex = /function\s+([a-zA-Z0-9_]+)\s*\(/g;
-        let match;
-        while ((match = functionRegex.exec(content)) !== null) {
-            functionNames.push(match[1]);
+            return { functionBlocks, htmlBlocks };
         }
 
-        // Regular expression to find HTML tags
-        let htmlTagRegex = /<([a-zA-Z0-9]+)(\s|>)/g;
-        while ((match = htmlTagRegex.exec(content)) !== null) {
-            htmlTags.push(match[1]);
+        // Function to display the list in card22
+        function displayList(functionBlocks, htmlBlocks) {
+            const card22 = document.getElementById('card22');
+            card22.innerHTML = '';  // Clear existing content
+
+            // Add function blocks to the list
+            functionBlocks.forEach(func => {
+                let listItem = document.createElement('div');
+                listItem.textContent = 'Function: ' + func.name;
+                listItem.style.cursor = 'pointer';
+                listItem.onclick = () => selectText(func.content);
+                card22.appendChild(listItem);
+            });
+
+            // Add HTML blocks to the list
+            htmlBlocks.forEach(tag => {
+                let listItem = document.createElement('div');
+                listItem.textContent = 'HTML Tag: <' + tag.name + '>';
+                listItem.style.cursor = 'pointer';
+                listItem.onclick = () => selectText(tag.content);
+                card22.appendChild(listItem);
+            });
         }
 
-        return { functionNames, htmlTags };
-    }
+        // Function to select the text in the editor
+        function selectText(block) {
+            let editor = ace.edit("editor");
+            let range = editor.find(block);
 
-    // Function to display the list in card21
-    function displayList(functionNames, htmlTags) {
-        const card21 = document.getElementById('card21');
-        card21.innerHTML = '';  // Clear existing content
+            // Move the cursor to the beginning of the selection and select the range
+            editor.selection.setRange(range);
+            editor.scrollToLine(range.start.row, true, true, function () {});
+        }
 
-        // Add function names to the list
-        functionNames.forEach(func => {
-            let listItem = document.createElement('div');
-            listItem.textContent = 'Function: ' + func;
-            listItem.style.cursor = 'pointer';
-            listItem.onclick = () => highlightText(func, true);
-            card21.appendChild(listItem);
-        });
+        // Function to initialize the list generation and display
+        function generateList() {
+            let editor = ace.edit("editor");
+            let content = editor.getValue();
+            let { functionBlocks, htmlBlocks } = getFunctionsAndTags(content);
+            displayList(functionBlocks, htmlBlocks);
+        }
 
-        // Add HTML tags to the list
-        htmlTags.forEach(tag => {
-            let listItem = document.createElement('div');
-            listItem.textContent = 'HTML Tag: <' + tag + '>';
-            listItem.style.cursor = 'pointer';
-            listItem.onclick = () => highlightText(tag, false);
-            card21.appendChild(listItem);
-        });
-    }
-
-    // Function to highlight the text in the editor
-    function highlightText(text, isFunction) {
+        // Initialize Ace Editor
         let editor = ace.edit("editor");
-        let content = editor.getValue();
-        let searchRegex = isFunction 
-            ? new RegExp(`function\\s+${text}\\s*\\(`) 
-            : new RegExp(`<${text}(\\s|>)`);
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/javascript");
 
-        editor.find(searchRegex);
-    }
-
-    // Function to initialize the list generation and display
-    function generateList() {
-        let editor = ace.edit("editor");
-        let content = editor.getValue();
-        let { functionNames, htmlTags } = getFunctionsAndTags(content);
-        displayList(functionNames, htmlTags);
-    }
-
-    // Run the generateList function whenever needed
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // For example, generate the list when the page loads
-        generateList();
-
-        // You might want to call this function when the content of the editor changes
-        let editor = ace.edit("editor");
+        // Trigger list generation when the content changes
         editor.session.on('change', generateList);
-    });
-</script>
-
+    </script>
 </body>
 </html>
