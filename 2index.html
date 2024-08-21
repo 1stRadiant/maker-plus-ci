@@ -182,5 +182,82 @@ Mendable.initialize({
     // all the other props for the component type
 });
 </script>
+
+      <script>
+    // Function to get all function names and HTML tags
+    function getFunctionsAndTags(content) {
+        let functionNames = [];
+        let htmlTags = [];
+
+        // Regular expression to find functions
+        let functionRegex = /function\s+([a-zA-Z0-9_]+)\s*\(/g;
+        let match;
+        while ((match = functionRegex.exec(content)) !== null) {
+            functionNames.push(match[1]);
+        }
+
+        // Regular expression to find HTML tags
+        let htmlTagRegex = /<([a-zA-Z0-9]+)(\s|>)/g;
+        while ((match = htmlTagRegex.exec(content)) !== null) {
+            htmlTags.push(match[1]);
+        }
+
+        return { functionNames, htmlTags };
+    }
+
+    // Function to display the list in card21
+    function displayList(functionNames, htmlTags) {
+        const card21 = document.getElementById('card21');
+        card21.innerHTML = '';  // Clear existing content
+
+        // Add function names to the list
+        functionNames.forEach(func => {
+            let listItem = document.createElement('div');
+            listItem.textContent = 'Function: ' + func;
+            listItem.style.cursor = 'pointer';
+            listItem.onclick = () => highlightText(func, true);
+            card21.appendChild(listItem);
+        });
+
+        // Add HTML tags to the list
+        htmlTags.forEach(tag => {
+            let listItem = document.createElement('div');
+            listItem.textContent = 'HTML Tag: <' + tag + '>';
+            listItem.style.cursor = 'pointer';
+            listItem.onclick = () => highlightText(tag, false);
+            card21.appendChild(listItem);
+        });
+    }
+
+    // Function to highlight the text in the editor
+    function highlightText(text, isFunction) {
+        let editor = ace.edit("editor");
+        let content = editor.getValue();
+        let searchRegex = isFunction 
+            ? new RegExp(`function\\s+${text}\\s*\\(`) 
+            : new RegExp(`<${text}(\\s|>)`);
+
+        editor.find(searchRegex);
+    }
+
+    // Function to initialize the list generation and display
+    function generateList() {
+        let editor = ace.edit("editor");
+        let content = editor.getValue();
+        let { functionNames, htmlTags } = getFunctionsAndTags(content);
+        displayList(functionNames, htmlTags);
+    }
+
+    // Run the generateList function whenever needed
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // For example, generate the list when the page loads
+        generateList();
+
+        // You might want to call this function when the content of the editor changes
+        let editor = ace.edit("editor");
+        editor.session.on('change', generateList);
+    });
+</script>
+
 </body>
 </html>
