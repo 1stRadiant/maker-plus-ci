@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet System</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { font-family: 'Open Sans', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 1000px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        form { margin-bottom: 20px; }
+        input[type="text"], input[type="date"], input[type="time"], input[type="number"], input[type="password"] { 
+            width: 100%; padding: 8px; margin: 5px 0 20px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box; 
+        }
+        input[type="submit"], button { background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%; }
+        input[type="submit"]:hover, button:hover { opacity: 0.8; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .user-info { margin-bottom: 20px; }
+        .hidden { display: none; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Timesheet System</h1>
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form id="login">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div id="timesheetSystem" class="hidden">
+            <div class="user-info">
+                <p>Welcome, <span id="userFullName"></span> (<span id="userRole"></span>)</p>
+                <p>Job Title: <span id="userJobTitle"></span></p>
+                <p>Email: <span id="userEmail"></span></p>
+            </div>
+            <button id="logoutBtn">Logout</button>
+            <div id="userPanel" class="hidden">
+                <h2>Submit Timesheet</h2>
+                <form id="timesheetForm">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                    <label for="standardHours">Standard Hours:</label>
+                    <input type="number" id="standardHours" placeholder="Standard Hours" required>
+                    <label for="extraHours">Extra Hours:</label>
+                    <input type="number" id="extraHours" placeholder="Extra Hours" required>
+                    <label for="otherHours">Other Hours:</label>
+                    <input type="number" id="otherHours" placeholder="Other Hours" required>
+                    <label for="clockIn">Clock In (Start of work):</label>
+                    <input type="time" id="clockIn" placeholder="Clock In" required>
+                    <label for="clockOut">Clock Out (End of work):</label>
+                    <input type="time" id="clockOut" placeholder="Clock Out" required>
+                    <input type="submit" value="Submit Timesheet">
+                </form>
+                <h2>Your Timesheets</h2>
+                <table id="timesheetsTable">
+                    <tr>
+                        <th>Date</th>
+                        <th>Standard Hours</th>
+                        <th>Extra Hours</th>
+                        <th>Other Hours</th>
+                        <th>Clock In</th>
+                        <th>Clock Out</th>
+                        <th>Total Time</th>
+                        <th>Authorized</th>
+                    </tr>
+                </table>
+            </div>
+            <div id="adminPanel" class="hidden">
+                <h2>Admin Panel</h2>
+                <p>As an admin, you can manage all timesheets here.</p>
+                <table id="allTimesheetsTable">
+                    <tr>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Standard Hours</th>
+                        <th>Extra Hours</th>
+                        <th>Other Hours</th>
+                        <th>Clock In</th>
+                        <th>Clock Out</th>
+                        <th>Total Time</th>
+                        <th>Authorized</th>
+                        <th>Action</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock user data (in a real application, this would be securely stored on a server)
+        const users = {
+            'user1': { password: 'pass1', firstName: 'John', lastName: 'Doe', jobTitle: 'Developer', email: 'john@example.com', role: 'user' },
+            'admin': { password: 'adminpass', firstName: 'Admin', lastName: 'User', jobTitle: 'Administrator', email: 'admin@example.com', role: 'admin' }
+        };
+
+        // DOM elements
+        const loginForm = document.getElementById('login');
+        const loginDiv = document.getElementById('loginForm');
+        const timesheetSystem = document.getElementById('timesheetSystem');
+        const userPanel = document.getElementById('userPanel');
+        const adminPanel = document.getElementById('adminPanel');
+        const timesheetForm = document.getElementById('timesheetForm');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const timesheetsTable = document.getElementById('timesheetsTable');
+        const allTimesheetsTable = document.getElementById('allTimesheetsTable');
+
+        // Helper functions
+        function showElement(element) {
+            element.classList.remove('hidden');
+        }
+
+        function hideElement(element) {
+            element.classList.add('hidden');
+        }
+
+        function updateUserInfo(user) {
+            document.getElementById('userFullName').textContent = `${user.firstName} ${user.lastName}`;
+            document.getElementById('userRole').textContent = user.role;
+            document.getElementById('userJobTitle').textContent = user.jobTitle;
+            document.getElementById('userEmail').textContent = user.email;
+        }
+
+        function calculateTotalTime(clockIn, clockOut, standardHours, extraHours, otherHours) {
+            const start = new Date(`2000-01-01T${clockIn}`);
+            const end = new Date(`2000-01-01T${clockOut}`);
+            const diff = end - start;
+            const clockedHours = diff / 3600000;
+            const totalHours = parseFloat(standardHours) + parseFloat(extraHours) + parseFloat(otherHours);
+            const totalTime = Math.max(clockedHours, totalHours);
+            const hours = Math.floor(totalTime);
+            const minutes = Math.round((totalTime - hours) * 60);
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        function loadTimesheets() {
+            return JSON.parse(localStorage.getItem('timesheets')) || {};
+        }
+
+        function saveTimesheets(timesheets) {
+            localStorage.setItem('timesheets', JSON.stringify(timesheets));
+        }
+
+        function updateTimesheetsTable(username) {
+            const timesheets = loadTimesheets();
+            const userTimesheets = timesheets[username] || [];
+            timesheetsTable.innerHTML = `
+                <tr>
+                    <th>Date</th>
+                    <th>Standard Hours</th>
+                    <th>Extra Hours</th>
+                    <th>Other Hours</th>
+                    <th>Clock In</th>
+                    <th>Clock Out</th>
+                    <th>Total Time</th>
+                    <th>Authorized</th>
+                </tr>
+            `;
+            userTimesheets.forEach(entry => {
+                const row = timesheetsTable.insertRow();
+                row.innerHTML = `
+                    <td>${entry.date}</td>
+                    <td>${entry.standardHours}</td>
+                    <td>${entry.extraHours}</td>
+                    <td>${entry.otherHours}</td>
+                    <td>${entry.clockIn}</td>
+                    <td>${entry.clockOut}</td>
+                    <td>${entry.totalTime}</td>
+                    <td>${entry.authorized ? 'Yes' : 'No'}</td>
+                `;
+            });
+        }
+
+        function updateAllTimesheetsTable() {
+            const timesheets = loadTimesheets();
+            allTimesheetsTable.innerHTML = `
+                <tr>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Standard Hours</th>
+                    <th>Extra Hours</th>
+                    <th>Other Hours</th>
+                    <th>Clock In</th>
+                    <th>Clock Out</th>
+                    <th>Total Time</th>
+                    <th>Authorized</th>
+                    <th>Action</th>
+                </tr>
+            `;
+            Object.entries(timesheets).forEach(([username, userTimesheets]) => {
+                userTimesheets.forEach((entry, index) => {
+                    const row = allTimesheetsTable.insertRow();
+                    row.innerHTML = `
+                        <td>${username}</td>
+                        <td>${entry.date}</td>
+                        <td>${entry.standardHours}</td>
+                        <td>${entry.extraHours}</td>
+                        <td>${entry.otherHours}</td>
+                        <td>${entry.clockIn}</td>
+                        <td>${entry.clockOut}</td>
+                        <td>${entry.totalTime}</td>
+                        <td>${entry.authorized ? 'Yes' : 'No'}</td>
+                        <td><button onclick="authorizeTimesheet('${username}', ${index})">${entry.authorized ? 'Unauthorize' : 'Authorize'}</button></td>
+                    `;
+                });
+            });
+        }
+
+        // Event listeners
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (users[username] && users[username].password === password) {
+                hideElement(loginDiv);
+                showElement(timesheetSystem);
+                updateUserInfo(users[username]);
+                if (users[username].role === 'admin') {
+                    showElement(adminPanel);
+                    updateAllTimesheetsTable();
+                } else {
+                    showElement(userPanel);
+                    updateTimesheetsTable(username);
+                }
+                localStorage.setItem('currentUser', username);
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        logoutBtn.addEventListener('click', function() {
+            hideElement(timesheetSystem);
+            hideElement(userPanel);
+            hideElement(adminPanel);
+            showElement(loginDiv);
+            localStorage.removeItem('currentUser');
+        });
+
+        timesheetForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const currentUser = localStorage.getItem('currentUser');
+            const standardHours = document.getElementById('standardHours').value;
+            const extraHours = document.getElementById('extraHours').value;
+            const otherHours = document.getElementById('otherHours').value;
+            const clockIn = document.getElementById('clockIn').value;
+            const clockOut = document.getElementById('clockOut').value;
+            const newEntry = {
+                date: document.getElementById('date').value,
+                standardHours: standardHours,
+                extraHours: extraHours,
+                otherHours: otherHours,
+                clockIn: clockIn,
+                clockOut: clockOut,
+                totalTime: calculateTotalTime(clockIn, clockOut, standardHours, extraHours, otherHours),
+                authorized: false
+            };
+            const timesheets = loadTimesheets();
+            if (!timesheets[currentUser]) {
+                timesheets[currentUser] = [];
+            }
+            timesheets[currentUser].push(newEntry);
+            saveTimesheets(timesheets);
+            updateTimesheetsTable(currentUser);
+            timesheetForm.reset();
+        });
+
+        function authorizeTimesheet(username, index) {
+            const timesheets = loadTimesheets();
+            timesheets[username][index].authorized = !timesheets[username][index].authorized;
+            saveTimesheets(timesheets);
+            updateAllTimesheetsTable();
+        }
+
+        // Check if user is already logged in
+        const currentUser = localStorage.getItem('currentUser');
+        if (currentUser) {
+            hideElement(loginDiv);
+            showElement(timesheetSystem);
+            updateUserInfo(users[currentUser]);
+            if (users[currentUser].role === 'admin') {
+                showElement(adminPanel);
+                updateAllTimesheetsTable();
+            } else {
+                showElement(userPanel);
+                updateTimesheetsTable(currentUser);
+            }
+        }
+    </script>
+</body>
+</html>
