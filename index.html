@@ -195,7 +195,7 @@
             return window.location.origin;
         }
 
-        function generateQR() {
+function generateQR() {
         const restaurantName = document.getElementById('restaurantName').value;
         const restaurantDescription = document.getElementById('restaurantDescription').value;
         
@@ -231,52 +231,52 @@
         
         document.getElementById('shareLink').innerText = shareUrl;
     }
-                
-                const menuData = {
-                    restaurantName,
-                    restaurantDescription,
-                    menuItems
-                };
-                
-                // Generate a unique ID for the menu
-                const menuId = Date.now().toString(36) + Math.random().toString(36).substr(2);
-                
-                // Construct the share URL
-                const baseUrl = getGitHubPagesUrl();
-                const shareUrl = `${baseUrl}/menu.html?id=${menuId}`;
-                
-                // Clear any existing QR code
-                const qrcodeDiv = document.getElementById('qrcode');
-                qrcodeDiv.innerHTML = '';
-                
-                // Generate new QR code
-                new QRCode(qrcodeDiv, {
-                    text: shareUrl,
-                    width: 256,
-                    height: 256,
-                    colorDark: "#000000",
-                    colorLight: "#ffffff",
-                    correctLevel: QRCode.CorrectLevel.H
-                });
-                
-                // Show the QR section and update the share link
-                document.getElementById('qrSection').style.display = 'block';
-                document.getElementById('shareLink').innerText = shareUrl;
-                
-                // Store the menu data
-                localStorage.setItem(`menu_${menuId}`, JSON.stringify(menuData));
-                
-                // Hide any error message
-                document.getElementById('errorMessage').style.display = 'none';
-            } catch (error) {
-                // Show error message
-                const errorDiv = document.getElementById('errorMessage');
-                errorDiv.style.display = 'block';
-                errorDiv.innerText = 'Error generating QR code: ' + error.message;
-                console.error('QR Generation Error:', error);
-            }
-        }
-
+        
+        // Generate a unique ID for the menu
+        const menuId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        
+        // Create the menu data
+        const menuData = {
+            restaurantName,
+            restaurantDescription,
+            menuItems
+        };
+        
+        // Store the menu data in localStorage
+        localStorage.setItem(`menu_${menuId}`, JSON.stringify(menuData));
+        
+        // Construct the share URL
+        const baseUrl = getGitHubPagesUrl();
+        const shareUrl = `${baseUrl}/menu.html?id=${menuId}`;
+        
+        // Clear any existing QR code
+        const qrcodeDiv = document.getElementById('qrcode');
+        qrcodeDiv.innerHTML = '';
+        
+        // Generate new QR code
+        new QRCode(qrcodeDiv, {
+            text: shareUrl,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        
+        // Show the QR section and update the share link
+        document.getElementById('qrSection').style.display = 'block';
+        document.getElementById('shareLink').innerText = shareUrl;
+        
+        // Hide any error message
+        document.getElementById('errorMessage').style.display = 'none';
+    } catch (error) {
+        // Show error message
+        const errorDiv = document.getElementById('errorMessage');
+        errorDiv.style.display = 'block';
+        errorDiv.innerText = 'Error generating QR code: ' + error.message;
+        console.error('QR Generation Error:', error);
+    }
+}
         // Check if QR Code library is loaded
         window.addEventListener('load', function() {
             if (typeof QRCode === 'undefined') {
