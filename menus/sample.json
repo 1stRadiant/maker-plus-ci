@@ -1,0 +1,11 @@
+{
+  "restaurantName": "Sample Restaurant",
+  "restaurantDescription": "A sample restaurant menu",
+  "menuItems": [
+    {
+      "name": "Sample Item",
+      "price": "9.99",
+      "description": "A delicious sample item"
+    }
+  ]
+}

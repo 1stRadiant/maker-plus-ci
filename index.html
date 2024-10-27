@@ -204,21 +204,15 @@ function generateQR() {
             return;
         }
         
+        const menuId = Date.now().toString(36) + Math.random().toString(36).substr(2);
         const menuData = {
             restaurantName,
             restaurantDescription,
             menuItems
         };
         
-        const menuId = uuidv4();
+        // The menu will be saved as JSON during build
         const shareUrl = `${baseUrl}/menu.html?id=${menuId}`;
-        
-        // In production, this would make an API call to save the menu
-        // For GitHub Pages, we'll save it during the build process
-        localStorage.setItem('currentMenu', JSON.stringify({
-            id: menuId,
-            data: menuData
-        }));
         
         // Generate QR code
         document.getElementById('qrSection').style.display = 'block';
