@@ -1,164 +1,268 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Restaurant Menu</title>
+    <base href="/" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant QR Menu Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             background: #f5f5f5;
         }
         
-        .menu-container {
+        .container {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        .restaurant-info {
-            text-align: center;
-            margin-bottom: 30px;
+        .section {
+            margin: 20px 0;
         }
         
-        .restaurant-name {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #333;
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         
-        .restaurant-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.4;
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        .menu-items {
+            margin: 20px 0;
         }
         
         .menu-item {
-            margin: 20px 0;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            position: relative;
-        }
-        
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-        
-        .item-header {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
+        }
+        
+        .qr-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        #qrcode {
+            margin: 20px auto;
+        }
+        
+        .share-link {
+            word-break: break-all;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        /* Menu display styles */
+        .menu-display {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .menu-display .menu-item {
+            display: block;
+        }
+
+        .menu-display .item-header {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 5px;
         }
-        
-        .item-name {
-            font-size: 1.3em;
-            color: #333;
-            margin: 0;
-        }
-        
-        .item-price {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #2c5282;
-        }
-        
-        .item-description {
+
+        .menu-display .item-description {
             color: #666;
-            font-size: 0.95em;
-            line-height: 1.4;
-            margin: 8px 0 0 0;
-        }
-        
-        .error-message {
-            text-align: center;
-            color: #e53e3e;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
-    <div id="content"></div>
+<div class="container" id="mainContainer">
+    <div id="generatorContent">
+        <h1>Restaurant QR Menu Generator</h1>
+        
+        <div class="section">
+            <h2>Restaurant Details</h2>
+            <input type="text" id="restaurantName" placeholder="Restaurant Name">
+            <textarea id="restaurantDescription" placeholder="Restaurant Description"></textarea>
+        </div>
+        
+        <div class="section">
+            <h2>Add Menu Item</h2>
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="text" id="itemPrice" placeholder="Price">
+            <textarea id="itemDescription" placeholder="Item Description"></textarea>
+            <button onclick="addMenuItem()">Add Item</button>
+        </div>
+        
+        <div class="menu-items" id="menuItems">
+            <h2>Menu Items</h2>
+            <!-- Menu items will be added here -->
+        </div>
+        
+        <div class="section">
+            <button onclick="generateQR()">Generate QR Code</button>
+        </div>
+        
+        <div class="qr-section" id="qrSection" style="display: none;">
+            <h2>Your QR Code</h2>
+            <div id="qrcode"></div>
+            <div class="share-link" id="shareLink"></div>
+        </div>
+    </div>
+
+    <div id="menuDisplay" style="display: none;">
+        <!-- Menu display content will be loaded here -->
+    </div>
+</div>
+
+<script>
+let menuItems = [];
+
+// Check if we should show the menu or generator
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const encodedData = urlParams.get('data');
     
-    <script>
-        function loadMenu() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const encodedData = urlParams.get('data');
-            const contentDiv = document.getElementById('content');
-            
-            if (!encodedData) {
-                showError('Menu data not found in URL');
-                return;
-            }
-            
-            try {
-                const menuData = JSON.parse(decodeURIComponent(encodedData));
-                displayMenu(menuData);
-            } catch (error) {
-                showError('Error loading menu data');
-                console.error('Error parsing menu data:', error);
-            }
-        }
+    if (encodedData) {
+        showMenu(encodedData);
+    }
+});
+
+function showMenu(encodedData) {
+    try {
+        const menuData = JSON.parse(decodeURIComponent(encodedData));
+        document.getElementById('generatorContent').style.display = 'none';
+        const menuDisplay = document.getElementById('menuDisplay');
+        menuDisplay.style.display = 'block';
         
-        function displayMenu(menuData) {
-            const { restaurantName, restaurantDescription, menuItems } = menuData;
-            
-            const menuHtml = `
-                <div class="menu-container">
-                    <div class="restaurant-info">
-                        <h1 class="restaurant-name">${escapeHtml(restaurantName)}</h1>
-                        ${restaurantDescription ? 
-                            `<p class="restaurant-description">${escapeHtml(restaurantDescription)}</p>` : 
-                            ''}
-                    </div>
-                    <div class="menu-items">
-                        ${menuItems.map(item => `
-                            <div class="menu-item">
-                                <div class="item-header">
-                                    <h3 class="item-name">${escapeHtml(item.name)}</h3>
-                                    <span class="item-price">$${escapeHtml(item.price)}</span>
-                                </div>
-                                ${item.description ? 
-                                    `<p class="item-description">${escapeHtml(item.description)}</p>` : 
-                                    ''}
+        const menuHtml = `
+            <div class="menu-display">
+                <h1>${menuData.restaurantName}</h1>
+                ${menuData.restaurantDescription ? `<p>${menuData.restaurantDescription}</p>` : ''}
+                <div class="menu-items">
+                    ${menuData.menuItems.map(item => `
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <strong>${item.name}</strong>
+                                <span>$${item.price}</span>
                             </div>
-                        `).join('')}
-                    </div>
+                            ${item.description ? `<div class="item-description">${item.description}</div>` : ''}
+                        </div>
+                    `).join('')}
                 </div>
-            `;
-            
-            document.getElementById('content').innerHTML = menuHtml;
-            document.title = `Menu - ${escapeHtml(restaurantName)}`;
-        }
+            </div>
+        `;
         
-        function showError(message) {
-            const errorHtml = `
-                <div class="error-message">
-                    <h2>Oops!</h2>
-                    <p>${escapeHtml(message)}</p>
-                </div>
-            `;
-            document.getElementById('content').innerHTML = errorHtml;
-        }
-        
-        function escapeHtml(unsafe) {
-            return unsafe
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-        
-        // Load the menu when the page loads
-        loadMenu();
-    </script>
+        menuDisplay.innerHTML = menuHtml;
+    } catch (error) {
+        menuDisplay.innerHTML = '<h1>Error loading menu</h1>';
+        console.error('Error loading menu:', error);
+    }
+}
+
+function addMenuItem() {
+    const name = document.getElementById('itemName').value;
+    const price = document.getElementById('itemPrice').value;
+    const description = document.getElementById('itemDescription').value;
+    
+    if (!name || !price) {
+        alert('Please fill in at least the name and price');
+        return;
+    }
+    
+    const item = {
+        name,
+        price,
+        description
+    };
+    
+    menuItems.push(item);
+    updateMenuItemsList();
+    clearItemInputs();
+}
+
+function clearItemInputs() {
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemPrice').value = '';
+    document.getElementById('itemDescription').value = '';
+}
+
+function updateMenuItemsList() {
+    const menuItemsDiv = document.getElementById('menuItems');
+    const items = menuItems.map((item, index) => `
+        <div class="menu-item">
+            <div>
+                <strong>${item.name}</strong> - $${item.price}
+                ${item.description ? `<br><small>${item.description}</small>` : ''}
+            </div>
+            <button onclick="removeMenuItem(${index})">Remove</button>
+        </div>
+    `).join('');
+    
+    menuItemsDiv.innerHTML = `
+        <h2>Menu Items</h2>
+        ${items}
+    `;
+}
+
+function removeMenuItem(index) {
+    menuItems.splice(index, 1);
+    updateMenuItemsList();
+}
+
+function generateQR() {
+    const restaurantName = document.getElementById('restaurantName').value;
+    const restaurantDescription = document.getElementById('restaurantDescription').value;
+    
+    if (!restaurantName || menuItems.length === 0) {
+        alert('Please add restaurant name and at least one menu item');
+        return;
+    }
+    
+    const menuData = {
+        restaurantName,
+        restaurantDescription,
+        menuItems
+    };
+    
+    const encodedData = encodeURIComponent(JSON.stringify(menuData));
+    const shareUrl = `${window.location.href.split('?')[0]}?data=${encodedData}`;
+    
+    // Generate QR code
+    document.getElementById('qrSection').style.display = 'block';
+    document.getElementById('qrcode').innerHTML = '';
+    new QRCode(document.getElementById('qrcode'), {
+        text: shareUrl,
+        width: 256,
+        height: 256
+    });
+    
+    document.getElementById('shareLink').innerText = shareUrl;
+}
+</script>
 </body>
 </html>
