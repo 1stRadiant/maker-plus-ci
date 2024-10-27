@@ -1,188 +1,210 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta content='width=device-width, initial-scale=1' name='viewport'/>
-
-<meta name="viewport" 
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-<title>Maker+ Ci</title>
-<!--script src="js.js"></script-->
-
-<!-- Latest compiled and minified CSS -->
-<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
-<link rel="stylesheet" href="style.css">
-
-
-<!-- jQuery library -->
-<script src="jquery.js"></script>
-  <script src="stringsimilarity.js"></script>
-  <script src="indenter.js"></script>
-<script src="modelist.js"></script>
-<script src="Aliases.js"></script>
-<script src="aliases2.js"></script>
-<script src="link.js"></script> 
-
-
-<script>
-//alert("didn't")
-    var outputBundle;
-    var toLoad;
-    var codifying = 1
-    var splRead = []
-    var spl = []
-    var commandFun
-    var settingPoints
-  </script>
-
-
-
-
-  <!-- Latest compiled JavaScript -->
-<!--cript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script-->
-
-<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
-
-
-  <style type="text/css" media="screen">
-    #editor {
-        position: absolute;
-        width:100%;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-
-#parent {
-    width:100%;
-    height: 150px;
-    display:inline-block;
-    position:relative;
-//background:#000000;
-}
-
-
- #editor *{ font-family : monospace !important;}
-
-#fileOpener {
-    display: block;
-    visibility: hidden;
-    width: 0;
-    height: 0;
-}
-
-</style>
-
-
+    <base href="/" />
+    <meta charset="UTF-8">
+    <title>Restaurant QR Menu Generator</title>
+    <!-- Updated to use the copied QR code library from our dist/js folder -->
+    <script src="js/qrcode.min.js"></script>
+    <style>
+        /* Your original CSS remains the same */
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section {
+            margin: 20px 0;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        .menu-items {
+            margin: 20px 0;
+        }
+        
+        .menu-item {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .qr-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        #qrcode {
+            margin: 20px auto;
+        }
+        
+        .share-link {
+            word-break: break-all;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-<body onload="printBtn();">
-
-<div class="navClass">
-<button onclick="openFile();" style="height:20px;" type="button" >+</button>
-<button onclick='saveFile();' style="height:20px;" type="button">save</button>
-<button id='stateofbeing' onclick="alert(this.textContent)" style="width:200px; height:20px;" type="button"></button>
-<button onclick='closeFile();' style="height:20px;" type="button">x</button>
-<button onclick='runIt(getValue());' style="height:20px;" type="button">Run</button>
-</div>
-
-<br>
-<br>
-<div class="card">
-  <div class="card-body">
-    <div class="form-group">
-<div class="header1">
-<!--button onclick="openFile();">+</button-->
-
-<div class="slider">
-  
-  <!--a href="#slide-1">1</a>
-  <a href="#slide-2">2</a>
-  <a href="#slide-3">3</a>
-  <a href="#slide-4">4</a>
-  <a href="#slide-5">5</a-->
-
-  <div class="slides">
-    <div class="slide--1" id="slide-1">
-
+<body>
+    <div class="container">
+        <h1>Restaurant QR Menu Generator</h1>
+        
+        <div class="section">
+            <h2>Restaurant Details</h2>
+            <input type="text" id="restaurantName" placeholder="Restaurant Name">
+            <textarea id="restaurantDescription" placeholder="Restaurant Description"></textarea>
+        </div>
+        
+        <div class="section">
+            <h2>Add Menu Item</h2>
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="text" id="itemPrice" placeholder="Price">
+            <textarea id="itemDescription" placeholder="Item Description"></textarea>
+            <button onclick="addMenuItem()">Add Item</button>
+        </div>
+        
+        <div class="menu-items" id="menuItems">
+            <h2>Menu Items</h2>
+            <!-- Menu items will be added here -->
+        </div>
+        
+        <div class="section">
+            <button onclick="generateQR()">Generate QR Code</button>
+        </div>
+        
+        <div class="qr-section" id="qrSection" style="display: none;">
+            <h2>Your QR Code</h2>
+            <div id="qrcode"></div>
+            <div class="share-link" id="shareLink"></div>
+        </div>
     </div>
-    </div>
-    <div class="slide--2" id="slide-2">
-     
-    </div>
-    <div class="slide--3" id="slide-3">
-     
-    </div>
-    <!--div id="slide-4">
-     
-    </div>
-    <div id="slide-5"-->
-     
-    </div>
-  </div>
-</div>
-</div>
-<br>
-<br>
-<br>
 
+    <script>
+        let menuItems = [];
 
-<div id="card2" class="card2">
-<!--form style="position: relative; top:-33px;"--><!--textarea class="form-control rounded-0" id="ta" rows="26" placeholder="Enter code or text here" style="top:-33px;">
-</textarea-->
+        function addMenuItem() {
+            const name = document.getElementById('itemName').value;
+            const price = document.getElementById('itemPrice').value;
+            const description = document.getElementById('itemDescription').value;
+            
+            if (!name || !price) {
+                alert('Please fill in at least the name and price');
+                return;
+            }
+            
+            const item = {
+                name,
+                price,
+                description
+            };
+            
+            menuItems.push(item);
+            updateMenuItemsList();
+            clearItemInputs();
+        }
 
-  <div id="parent">
+        function clearItemInputs() {
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemPrice').value = '';
+            document.getElementById('itemDescription').value = '';
+        }
 
-    <div id="editor" tabindex="0">
+        function updateMenuItemsList() {
+            const menuItemsDiv = document.getElementById('menuItems');
+            const items = menuItems.map((item, index) => `
+                <div class="menu-item">
+                    <div>
+                        <strong>${item.name}</strong> - $${item.price}
+                        ${item.description ? `<br><small>${item.description}</small>` : ''}
+                    </div>
+                    <button onclick="removeMenuItem(${index})">Remove</button>
+                </div>
+            `).join('');
+            
+            menuItemsDiv.innerHTML = `
+                <h2>Menu Items</h2>
+                ${items}
+            `;
+        }
 
-    </div>
-  </div>
+        function removeMenuItem(index) {
+            menuItems.splice(index, 1);
+            updateMenuItemsList();
+        }
 
-
-  <div class="slider">
-  <div class="slides">
-    <div class="lowSlide" id="lowSlide">
-
-    </div>
-    </div>
-   </div>
-<!--/form-->
-  <!--script>
-    
-
-
-
-
-  </script-->
-<!--a href="#x">Clear </a>
-<a href="#Punky">test </a-->
-</div><br><br>
-<div id="card21"></div>
-
-
-</div>
-  </div>
-</div>
-<input id="fileOpener" type="file" name="somename" size="chars" onChange="onChange(event)">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js" type="text/javascript" charset="utf-8">
-
-<script> 
-var select =''; 
-let newText;
-var readd;
-let quickKey = false;
-
-</script>
- <script src="defaults.js"></script> 
-<script src="js.js"></script>
-
-<iframe name="hiddenFrame"   style="position: absolute;width:0;height:0;border:0;"></iframe>
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-<script>
-Mendable.initialize({
-    anon_key: 'ad26e8f4-090b-4348-84d4-3e40e4637970',
-    type:"floatingButton",
-    // all the other props for the component type
-});
-</script>
+        // Modified generateQR function for GitHub Pages
+        function generateQR() {
+            const restaurantName = document.getElementById('restaurantName').value;
+            const restaurantDescription = document.getElementById('restaurantDescription').value;
+            
+            if (!restaurantName || menuItems.length === 0) {
+                alert('Please add restaurant name and at least one menu item');
+                return;
+            }
+            
+            const menuData = {
+                restaurantName,
+                restaurantDescription,
+                menuItems
+            };
+            
+            const menuId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+            // Save menu data to localStorage for the build process
+            localStorage.setItem('currentMenu', JSON.stringify({
+                id: menuId,
+                data: menuData
+            }));
+            
+            // Generate the GitHub Pages URL
+            const repoName = window.location.pathname.split('/')[1];
+            const shareUrl = `${window.location.origin}/${repoName}/menu.html?id=${menuId}`;
+            
+            // Generate QR code
+            document.getElementById('qrSection').style.display = 'block';
+            document.getElementById('qrcode').innerHTML = '';
+            new QRCode(document.getElementById('qrcode'), {
+                text: shareUrl,
+                width: 256,
+                height: 256
+            });
+            
+            document.getElementById('shareLink').innerText = shareUrl;
+        }
+    </script>
 </body>
 </html>
