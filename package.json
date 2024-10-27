@@ -1,0 +1,13 @@
+{
+  "name": "qr-menu-generator",
+  "version": "1.0.0",
+  "description": "QR Code Menu Generator with GitHub Pages Storage",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^19.0.7",
+    "uuid": "^9.0.0"
+  }
+}
