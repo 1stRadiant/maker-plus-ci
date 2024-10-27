@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Restaurant Menu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Menu</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -20,10 +20,32 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
+        .restaurant-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .restaurant-name {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .restaurant-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+        
         .menu-item {
             margin: 20px 0;
             padding: 15px;
             border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
         }
         
         .item-header {
@@ -34,123 +56,109 @@
         }
         
         .item-name {
-            font-size: 1.2em;
-            font-weight: bold;
+            font-size: 1.3em;
+            color: #333;
             margin: 0;
         }
         
         .item-price {
             font-weight: bold;
+            font-size: 1.2em;
             color: #2c5282;
         }
         
         .item-description {
             color: #666;
-            font-size: 0.9em;
-            margin-top: 5px;
+            font-size: 0.95em;
+            line-height: 1.4;
+            margin: 8px 0 0 0;
         }
-
-        .restaurant-name {
-            font-size: 2em;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
-
-        .restaurant-description {
-            color: #4a5568;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
+        
         .error-message {
-            background: #fff5f5;
-            border: 1px solid #feb2b2;
-            color: #c53030;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
             text-align: center;
-        }
-
-        .loading {
-            text-align: center;
+            color: #e53e3e;
             padding: 20px;
-            font-style: italic;
-            color: #718096;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <div id="content">
-            <div class="loading">Loading menu...</div>
-        </div>
-    </div>
-
+    <div id="content"></div>
+    
     <script>
-        // Function to get URL parameters
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
-
-        function displayError(message) {
-            document.getElementById('content').innerHTML = `
-                <div class="error-message">
-                    ${message}
-                </div>
-            `;
-        }
-
-        function displayMenu(menuData) {
-            const content = document.getElementById('content');
+        function loadMenu() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedData = urlParams.get('data');
+            const contentDiv = document.getElementById('content');
             
-            // Create the HTML for the menu
-            let html = `
-                <h1 class="restaurant-name">${menuData.restaurantName}</h1>
-                ${menuData.restaurantDescription ? `<p class="restaurant-description">${menuData.restaurantDescription}</p>` : ''}
-            `;
-
-            // Add menu items
-            html += menuData.menuItems.map(item => `
-                <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-name">${item.name}</h3>
-                        <span class="item-price">$${item.price}</span>
-                    </div>
-                    ${item.description ? `<p class="item-description">${item.description}</p>` : ''}
-                </div>
-            `).join('');
-
-            content.innerHTML = html;
-        }
-
-        // Load and display the menu
-        window.addEventListener('load', function() {
-            const menuId = getUrlParameter('id');
-            
-            if (!menuId) {
-                displayError('No menu ID provided');
+            if (!encodedData) {
+                showError('Menu data not found in URL');
                 return;
             }
-
-            // Try to get menu data from localStorage
-            const menuData = localStorage.getItem(`menu_${menuId}`);
             
-            if (menuData) {
-                try {
-                    const parsedMenu = JSON.parse(menuData);
-                    displayMenu(parsedMenu);
-                } catch (e) {
-                    displayError('Error loading menu data');
-                    console.error('Error parsing menu data:', e);
-                }
-            } else {
-                displayError('Menu not found. It may have expired or been removed.');
+            try {
+                const menuData = JSON.parse(decodeURIComponent(encodedData));
+                displayMenu(menuData);
+            } catch (error) {
+                showError('Error loading menu data');
+                console.error('Error parsing menu data:', error);
             }
-        });
+        }
+        
+        function displayMenu(menuData) {
+            const { restaurantName, restaurantDescription, menuItems } = menuData;
+            
+            const menuHtml = `
+                <div class="menu-container">
+                    <div class="restaurant-info">
+                        <h1 class="restaurant-name">${escapeHtml(restaurantName)}</h1>
+                        ${restaurantDescription ? 
+                            `<p class="restaurant-description">${escapeHtml(restaurantDescription)}</p>` : 
+                            ''}
+                    </div>
+                    <div class="menu-items">
+                        ${menuItems.map(item => `
+                            <div class="menu-item">
+                                <div class="item-header">
+                                    <h3 class="item-name">${escapeHtml(item.name)}</h3>
+                                    <span class="item-price">$${escapeHtml(item.price)}</span>
+                                </div>
+                                ${item.description ? 
+                                    `<p class="item-description">${escapeHtml(item.description)}</p>` : 
+                                    ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = menuHtml;
+            document.title = `Menu - ${escapeHtml(restaurantName)}`;
+        }
+        
+        function showError(message) {
+            const errorHtml = `
+                <div class="error-message">
+                    <h2>Oops!</h2>
+                    <p>${escapeHtml(message)}</p>
+                </div>
+            `;
+            document.getElementById('content').innerHTML = errorHtml;
+        }
+        
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+        
+        // Load the menu when the page loads
+        loadMenu();
     </script>
 </body>
 </html>
