@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="/" />
     <meta charset="UTF-8">
     <title>Restaurant QR Menu Generator</title>
-    <!-- Updated to use the copied QR code library from our dist/js folder -->
-    <script src="js/qrcode.min.js"></script>
+    <!-- Updated CDN path and added integrity check -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-        /* Your original CSS remains the same */
+        /* Your existing CSS remains the same */
         body {
             font-family: 'Arial', sans-serif;
             max-width: 1200px;
@@ -70,6 +69,8 @@
         
         #qrcode {
             margin: 20px auto;
+            display: flex;
+            justify-content: center;
         }
         
         .share-link {
@@ -77,6 +78,16 @@
             padding: 10px;
             background: #f0f0f0;
             border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: red;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid red;
+            border-radius: 5px;
+            display: none;
         }
     </style>
 </head>
@@ -110,6 +121,7 @@
         <div class="qr-section" id="qrSection" style="display: none;">
             <h2>Your QR Code</h2>
             <div id="qrcode"></div>
+            <div class="error-message" id="errorMessage"></div>
             <div class="share-link" id="shareLink"></div>
         </div>
     </div>
@@ -167,7 +179,22 @@
             updateMenuItemsList();
         }
 
-        // Modified generateQR function for GitHub Pages
+        function getGitHubPagesUrl() {
+            // Get the repository name from the URL
+            const pathSegments = window.location.pathname.split('/');
+            const repoName = pathSegments[1]; // This will be empty on localhost
+            
+            // Check if we're on GitHub Pages
+            const isGitHubPages = window.location.hostname.includes('github.io');
+            
+            if (isGitHubPages) {
+                return `https://${window.location.host}/${repoName}`;
+            }
+            
+            // Fallback for local development
+            return window.location.origin;
+        }
+
         function generateQR() {
         const restaurantName = document.getElementById('restaurantName').value;
         const restaurantDescription = document.getElementById('restaurantDescription').value;
@@ -204,35 +231,60 @@
         
         document.getElementById('shareLink').innerText = shareUrl;
     }
-            
-            const menuData = {
-                restaurantName,
-                restaurantDescription,
-                menuItems
-            };
-            
-            const menuId = Date.now().toString(36) + Math.random().toString(36).substr(2);
-            // Save menu data to localStorage for the build process
-            localStorage.setItem('currentMenu', JSON.stringify({
-                id: menuId,
-                data: menuData
-            }));
-            
-            // Generate the GitHub Pages URL
-            const repoName = window.location.pathname.split('/')[1];
-            const shareUrl = `${window.location.origin}/${repoName}/menu.html?id=${menuId}`;
-            
-            // Generate QR code
-            document.getElementById('qrSection').style.display = 'block';
-            document.getElementById('qrcode').innerHTML = '';
-            new QRCode(document.getElementById('qrcode'), {
-                text: shareUrl,
-                width: 256,
-                height: 256
-            });
-            
-            document.getElementById('shareLink').innerText = shareUrl;
+                
+                const menuData = {
+                    restaurantName,
+                    restaurantDescription,
+                    menuItems
+                };
+                
+                // Generate a unique ID for the menu
+                const menuId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                
+                // Construct the share URL
+                const baseUrl = getGitHubPagesUrl();
+                const shareUrl = `${baseUrl}/menu.html?id=${menuId}`;
+                
+                // Clear any existing QR code
+                const qrcodeDiv = document.getElementById('qrcode');
+                qrcodeDiv.innerHTML = '';
+                
+                // Generate new QR code
+                new QRCode(qrcodeDiv, {
+                    text: shareUrl,
+                    width: 256,
+                    height: 256,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                
+                // Show the QR section and update the share link
+                document.getElementById('qrSection').style.display = 'block';
+                document.getElementById('shareLink').innerText = shareUrl;
+                
+                // Store the menu data
+                localStorage.setItem(`menu_${menuId}`, JSON.stringify(menuData));
+                
+                // Hide any error message
+                document.getElementById('errorMessage').style.display = 'none';
+            } catch (error) {
+                // Show error message
+                const errorDiv = document.getElementById('errorMessage');
+                errorDiv.style.display = 'block';
+                errorDiv.innerText = 'Error generating QR code: ' + error.message;
+                console.error('QR Generation Error:', error);
+            }
         }
+
+        // Check if QR Code library is loaded
+        window.addEventListener('load', function() {
+            if (typeof QRCode === 'undefined') {
+                const errorDiv = document.getElementById('errorMessage');
+                errorDiv.style.display = 'block';
+                errorDiv.innerText = 'Error: QR Code library not loaded. Please check your internet connection.';
+            }
+        });
     </script>
 </body>
 </html>
