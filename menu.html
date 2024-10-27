@@ -1,0 +1,281 @@
+<html><head><base href="/" /><meta charset="UTF-8">
+<title>Restaurant QR Menu Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f5;
+  }
+  
+  .container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .section {
+    margin: 20px 0;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #45a049;
+  }
+  
+  .menu-items {
+    margin: 20px 0;
+  }
+  
+  .menu-item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .qr-section {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #qrcode {
+    margin: 20px auto;
+  }
+  
+  .share-link {
+    word-break: break-all;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Restaurant QR Menu Generator</h1>
+  
+  <div class="section">
+    <h2>Restaurant Details</h2>
+    <input type="text" id="restaurantName" placeholder="Restaurant Name">
+    <textarea id="restaurantDescription" placeholder="Restaurant Description"></textarea>
+  </div>
+  
+  <div class="section">
+    <h2>Add Menu Item</h2>
+    <input type="text" id="itemName" placeholder="Item Name">
+    <input type="text" id="itemPrice" placeholder="Price">
+    <textarea id="itemDescription" placeholder="Item Description"></textarea>
+    <button onclick="addMenuItem()">Add Item</button>
+  </div>
+  
+  <div class="menu-items" id="menuItems">
+    <h2>Menu Items</h2>
+    <!-- Menu items will be added here -->
+  </div>
+  
+  <div class="section">
+    <button onclick="generateQR()">Generate QR Code</button>
+  </div>
+  
+  <div class="qr-section" id="qrSection" style="display: none;">
+    <h2>Your QR Code</h2>
+    <div id="qrcode"></div>
+    <div class="share-link" id="shareLink"></div>
+  </div>
+</div>
+
+<script>
+let menuItems = [];
+
+function addMenuItem() {
+    const name = document.getElementById('itemName').value;
+    const price = document.getElementById('itemPrice').value;
+    const description = document.getElementById('itemDescription').value;
+    
+    if (!name || !price) {
+        alert('Please fill in at least the name and price');
+        return;
+    }
+    
+    const item = {
+        name,
+        price,
+        description
+    };
+    
+    menuItems.push(item);
+    updateMenuItemsList();
+    clearItemInputs();
+}
+
+function clearItemInputs() {
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemPrice').value = '';
+    document.getElementById('itemDescription').value = '';
+}
+
+function updateMenuItemsList() {
+    const menuItemsDiv = document.getElementById('menuItems');
+    const items = menuItems.map((item, index) => `
+        <div class="menu-item">
+            <div>
+                <strong>${item.name}</strong> - $${item.price}
+                ${item.description ? `<br><small>${item.description}</small>` : ''}
+            </div>
+            <button onclick="removeMenuItem(${index})">Remove</button>
+        </div>
+    `).join('');
+    
+    menuItemsDiv.innerHTML = `
+        <h2>Menu Items</h2>
+        ${items}
+    `;
+}
+
+function removeMenuItem(index) {
+    menuItems.splice(index, 1);
+    updateMenuItemsList();
+}
+
+function generateQR() {
+    const restaurantName = document.getElementById('restaurantName').value;
+    const restaurantDescription = document.getElementById('restaurantDescription').value;
+    
+    if (!restaurantName || menuItems.length === 0) {
+        alert('Please add restaurant name and at least one menu item');
+        return;
+    }
+    
+    const menuData = {
+        restaurantName,
+        restaurantDescription,
+        menuItems
+    };
+    
+    // In a real application, you would save this to a database and generate a unique URL
+    // For this demo, we'll encode it in the URL (not recommended for production)
+    const encodedData = encodeURIComponent(JSON.stringify(menuData));
+    const baseUrl = window.location.origin;
+    const shareUrl = `${baseUrl}/menu.html?data=${encodedData}`;
+    
+    // Generate QR code
+    document.getElementById('qrSection').style.display = 'block';
+    document.getElementById('qrcode').innerHTML = '';
+    new QRCode(document.getElementById('qrcode'), {
+        text: shareUrl,
+        width: 256,
+        height: 256
+    });
+    
+    document.getElementById('shareLink').innerText = shareUrl;
+}
+</script>
+
+<!-- Create a separate menu.html file with this code -->
+<script id="menuTemplate" type="text/template">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .menu-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .menu-item {
+            margin: 20px 0;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .item-price {
+            float: right;
+            font-weight: bold;
+        }
+        
+        .item-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1 id="restaurantName"></h1>
+        <p id="restaurantDescription"></p>
+        <div id="menuItems"></div>
+    </div>
+    
+    <script>
+        function loadMenu() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedData = urlParams.get('data');
+            
+            if (!encodedData) {
+                document.body.innerHTML = '<h1>Menu not found</h1>';
+                return;
+            }
+            
+            try {
+                const menuData = JSON.parse(decodeURIComponent(encodedData));
+                document.getElementById('restaurantName').textContent = menuData.restaurantName;
+                document.getElementById('restaurantDescription').textContent = menuData.restaurantDescription;
+                
+                const menuItemsHtml = menuData.menuItems.map(item => `
+                    <div class="menu-item">
+                        <div class="item-price">$${item.price}</div>
+                        <h3>${item.name}</h3>
+                        ${item.description ? `<p class="item-description">${item.description}</p>` : ''}
+                    </div>
+                `).join('');
+                
+                document.getElementById('menuItems').innerHTML = menuItemsHtml;
+            } catch (error) {
+                document.body.innerHTML = '<h1>Error loading menu</h1>';
+            }
+        }
+        
+        loadMenu();
+    </script>
+</body>
+</html>
+</script>
+</body></html>
