@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .menu-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .menu-item {
+            margin: 20px 0;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .item-price {
+            float: right;
+            font-weight: bold;
+        }
+        
+        .item-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1 id="restaurantName"></h1>
+        <p id="restaurantDescription"></p>
+        <div id="menuItems"></div>
+    </div>
+    
+    <script>
+        async function loadMenu() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const menuId = urlParams.get('id');
+            
+            if (!menuId) {
+                document.body.innerHTML = '<h1>Menu not found</h1>';
+                return;
+            }
+            
+            try {
+                const response = await fetch(`menus/${menuId}.json`);
+                if (!response.ok) {
+                    throw new Error('Menu not found');
+                }
+                const menuData = await response.json();
+                
+                document.getElementById('restaurantName').textContent = menuData.restaurantName;
+                document.getElementById('restaurantDescription').textContent = menuData.restaurantDescription;
+                
+                const menuItemsHtml = menuData.menuItems.map(item => `
+                    <div class="menu-item">
+                        <div class="item-price">$${item.price}</div>
+                        <h3>${item.name}</h3>
+                        ${item.description ? `<p class="item-description">${item.description}</p>` : ''}
+                    </div>
+                `).join('');
+                
+                document.getElementById('menuItems').innerHTML = menuItemsHtml;
+            } catch (error) {
+                document.body.innerHTML = '<h1>Error loading menu</h1>';
+            }
+        }
+        
+        loadMenu();
+    </script>
+</body>
+</html>

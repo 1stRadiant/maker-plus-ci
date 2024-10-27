@@ -1,0 +1,188 @@
+<html>
+<head>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+<meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>Maker+ Ci</title>
+<!--script src="js.js"></script-->
+
+<!-- Latest compiled and minified CSS -->
+<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
+<link rel="stylesheet" href="style.css">
+
+
+<!-- jQuery library -->
+<script src="jquery.js"></script>
+  <script src="stringsimilarity.js"></script>
+  <script src="indenter.js"></script>
+<script src="modelist.js"></script>
+<script src="Aliases.js"></script>
+<script src="aliases2.js"></script>
+<script src="link.js"></script> 
+
+
+<script>
+//alert("didn't")
+    var outputBundle;
+    var toLoad;
+    var codifying = 1
+    var splRead = []
+    var spl = []
+    var commandFun
+    var settingPoints
+  </script>
+
+
+
+
+  <!-- Latest compiled JavaScript -->
+<!--cript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script-->
+
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
+
+
+  <style type="text/css" media="screen">
+    #editor {
+        position: absolute;
+        width:100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+#parent {
+    width:100%;
+    height: 150px;
+    display:inline-block;
+    position:relative;
+//background:#000000;
+}
+
+
+ #editor *{ font-family : monospace !important;}
+
+#fileOpener {
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+</style>
+
+
+</head>
+<body onload="printBtn();">
+
+<div class="navClass">
+<button onclick="openFile();" style="height:20px;" type="button" >+</button>
+<button onclick='saveFile();' style="height:20px;" type="button">save</button>
+<button id='stateofbeing' onclick="alert(this.textContent)" style="width:200px; height:20px;" type="button"></button>
+<button onclick='closeFile();' style="height:20px;" type="button">x</button>
+<button onclick='runIt(getValue());' style="height:20px;" type="button">Run</button>
+</div>
+
+<br>
+<br>
+<div class="card">
+  <div class="card-body">
+    <div class="form-group">
+<div class="header1">
+<!--button onclick="openFile();">+</button-->
+
+<div class="slider">
+  
+  <!--a href="#slide-1">1</a>
+  <a href="#slide-2">2</a>
+  <a href="#slide-3">3</a>
+  <a href="#slide-4">4</a>
+  <a href="#slide-5">5</a-->
+
+  <div class="slides">
+    <div class="slide--1" id="slide-1">
+
+    </div>
+    </div>
+    <div class="slide--2" id="slide-2">
+     
+    </div>
+    <div class="slide--3" id="slide-3">
+     
+    </div>
+    <!--div id="slide-4">
+     
+    </div>
+    <div id="slide-5"-->
+     
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+
+
+<div id="card2" class="card2">
+<!--form style="position: relative; top:-33px;"--><!--textarea class="form-control rounded-0" id="ta" rows="26" placeholder="Enter code or text here" style="top:-33px;">
+</textarea-->
+
+  <div id="parent">
+
+    <div id="editor" tabindex="0">
+
+    </div>
+  </div>
+
+
+  <div class="slider">
+  <div class="slides">
+    <div class="lowSlide" id="lowSlide">
+
+    </div>
+    </div>
+   </div>
+<!--/form-->
+  <!--script>
+    
+
+
+
+
+  </script-->
+<!--a href="#x">Clear </a>
+<a href="#Punky">test </a-->
+</div><br><br>
+<div id="card21"></div>
+
+
+</div>
+  </div>
+</div>
+<input id="fileOpener" type="file" name="somename" size="chars" onChange="onChange(event)">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js" type="text/javascript" charset="utf-8">
+
+<script> 
+var select =''; 
+let newText;
+var readd;
+let quickKey = false;
+
+</script>
+ <script src="defaults.js"></script> 
+<script src="js.js"></script>
+
+<iframe name="hiddenFrame"   style="position: absolute;width:0;height:0;border:0;"></iframe>
+<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
+<script>
+Mendable.initialize({
+    anon_key: 'ad26e8f4-090b-4348-84d4-3e40e4637970',
+    type:"floatingButton",
+    // all the other props for the component type
+});
+</script>
+</body>
+</html>
