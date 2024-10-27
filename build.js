@@ -2,6 +2,12 @@
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const { Octokit } = require('@octokit/rest');
+
+// Initialize Octokit with GitHub token
+const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN
+});
 
 // Create dist directory
 const distDir = path.join(__dirname, 'dist');
@@ -9,63 +15,109 @@ if (!fs.existsSync(distDir)) {
     fs.mkdirSync(distDir);
 }
 
-// Create menus directory for storing individual menu JSON files
+// Create menus directory
 const menusDir = path.join(distDir, 'menus');
 if (!fs.existsSync(menusDir)) {
     fs.mkdirSync(menusDir);
 }
 
-// Copy and modify index.html
+// Modify index.html for GitHub storage
 let indexHtml = fs.readFileSync('index.html', 'utf8');
+
+// Replace the baseUrl configuration
 indexHtml = indexHtml.replace(
     'const baseUrl = window.location.origin;',
-    `const baseUrl = 'https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io/${process.env.GITHUB_REPOSITORY.split('/')[1]}';`
+    `const baseUrl = 'https://${process.env.REPOSITORY_OWNER}.github.io/${process.env.REPOSITORY_NAME}';`
 );
 
-// Modify the generateQR function to save menu data to a JSON file
+// Replace the generateQR function with GitHub storage version
 indexHtml = indexHtml.replace(
     /function generateQR\(\) {[\s\S]*?}/,
-    `function generateQR() {
-        const restaurantName = document.getElementById('restaurantName').value;
-        const restaurantDescription = document.getElementById('restaurantDescription').value;
-        
-        if (!restaurantName || menuItems.length === 0) {
-            alert('Please add restaurant name and at least one menu item');
-            return;
+    `async function generateQR() {
+        try {
+            const restaurantName = document.getElementById('restaurantName').value;
+            const restaurantDescription = document.getElementById('restaurantDescription').value;
+            
+            if (!restaurantName || menuItems.length === 0) {
+                alert('Please add restaurant name and at least one menu item');
+                return;
+            }
+            
+            const menuId = uuidv4();
+            const menuData = {
+                restaurantName,
+                restaurantDescription,
+                menuItems,
+                createdAt: new Date().toISOString()
+            };
+            
+            // Save menu data to file
+            const menuFilePath = \`menus/\${menuId}.json\`;
+            const response = await fetch('/api/save-menu', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    menuId,
+                    menuData
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save menu');
+            }
+            
+            const shareUrl = \`\${baseUrl}/menu.html?id=\${menuId}\`;
+            
+            // Generate QR code
+            document.getElementById('qrSection').style.display = 'block';
+            document.getElementById('qrcode').innerHTML = '';
+            new QRCode(document.getElementById('qrcode'), {
+                text: shareUrl,
+                width: 256,
+                height: 256
+            });
+            
+            document.getElementById('shareLink').innerText = shareUrl;
+        } catch (error) {
+            console.error('Error generating menu:', error);
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('errorMessage').innerText = 'Error generating menu: ' + error.message;
         }
-        
-        const menuData = {
-            restaurantName,
-            restaurantDescription,
-            menuItems
-        };
-        
-        const menuId = uuidv4();
-        const shareUrl = \`\${baseUrl}/menu.html?id=\${menuId}\`;
-        
-        // In production, this would make an API call to save the menu
-        // For GitHub Pages, we'll save it during the build process
-        localStorage.setItem('currentMenu', JSON.stringify({
-            id: menuId,
-            data: menuData
-        }));
-        
-        // Generate QR code
-        document.getElementById('qrSection').style.display = 'block';
-        document.getElementById('qrcode').innerHTML = '';
-        new QRCode(document.getElementById('qrcode'), {
-            text: shareUrl,
-            width: 256,
-            height: 256
-        });
-        
-        document.getElementById('shareLink').innerText = shareUrl;
     }`
 );
 
 fs.writeFileSync(path.join(distDir, 'index.html'), indexHtml);
 
-// Create menu.html
+// Create API endpoints for menu operations
+const apiDir = path.join(distDir, 'api');
+if (!fs.existsSync(apiDir)) {
+    fs.mkdirSync(apiDir);
+}
+
+// Function to save menu to GitHub
+async function saveMenuToGitHub(menuId, menuData) {
+    try {
+        const content = Buffer.from(JSON.stringify(menuData, null, 2)).toString('base64');
+        
+        await octokit.repos.createOrUpdateFileContents({
+            owner: process.env.REPOSITORY_OWNER,
+            repo: process.env.REPOSITORY_NAME,
+            path: `menus/${menuId}.json`,
+            message: `Add menu ${menuId}`,
+            content,
+            branch: 'gh-pages'
+        });
+        
+        return true;
+    } catch (error) {
+        console.error('Error saving menu to GitHub:', error);
+        return false;
+    }
+}
+
+// Modified menu.html
 const menuHtml = `
 <!DOCTYPE html>
 <html>
@@ -73,85 +125,87 @@ const menuHtml = `
     <title>Restaurant Menu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        
-        .menu-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .menu-item {
-            margin: 20px 0;
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .item-price {
-            float: right;
-            font-weight: bold;
-        }
-        
-        .item-description {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/menu.css">
 </head>
 <body>
     <div class="menu-container">
-        <h1 id="restaurantName"></h1>
-        <p id="restaurantDescription"></p>
-        <div id="menuItems"></div>
+        <div id="content">
+            <div class="loading">Loading menu...</div>
+        </div>
     </div>
-    
+
     <script>
         async function loadMenu() {
             const urlParams = new URLSearchParams(window.location.search);
             const menuId = urlParams.get('id');
             
             if (!menuId) {
-                document.body.innerHTML = '<h1>Menu not found</h1>';
+                displayError('No menu ID provided');
                 return;
             }
-            
+
             try {
                 const response = await fetch(\`menus/\${menuId}.json\`);
                 if (!response.ok) {
                     throw new Error('Menu not found');
                 }
+                
                 const menuData = await response.json();
-                
-                document.getElementById('restaurantName').textContent = menuData.restaurantName;
-                document.getElementById('restaurantDescription').textContent = menuData.restaurantDescription;
-                
-                const menuItemsHtml = menuData.menuItems.map(item => \`
-                    <div class="menu-item">
-                        <div class="item-price">$\${item.price}</div>
-                        <h3>\${item.name}</h3>
-                        \${item.description ? \`<p class="item-description">\${item.description}</p>\` : ''}
-                    </div>
-                \`).join('');
-                
-                document.getElementById('menuItems').innerHTML = menuItemsHtml;
+                displayMenu(menuData);
             } catch (error) {
-                document.body.innerHTML = '<h1>Error loading menu</h1>';
+                displayError('Error loading menu: ' + error.message);
+                console.error('Error:', error);
             }
         }
-        
-        loadMenu();
+
+        function displayMenu(menuData) {
+            const content = document.getElementById('content');
+            
+            let html = \`
+                <h1 class="restaurant-name">\${menuData.restaurantName}</h1>
+                \${menuData.restaurantDescription ? \`<p class="restaurant-description">\${menuData.restaurantDescription}</p>\` : ''}
+            \`;
+
+            html += menuData.menuItems.map(item => \`
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">\${item.name}</h3>
+                        <span class="item-price">$\${item.price}</span>
+                    </div>
+                    \${item.description ? \`<p class="item-description">\${item.description}</p>\` : ''}
+                </div>
+            \`).join('');
+
+            content.innerHTML = html;
+        }
+
+        function displayError(message) {
+            document.getElementById('content').innerHTML = \`
+                <div class="error-message">\${message}</div>
+            \`;
+        }
+
+        window.addEventListener('load', loadMenu);
     </script>
 </body>
-</html>
-`;
+</html>`;
 
 fs.writeFileSync(path.join(distDir, 'menu.html'), menuHtml);
+
+// Write the new menu data to the menus directory during build
+const demoMenu = {
+    restaurantName: "Demo Restaurant",
+    restaurantDescription: "Welcome to our demo restaurant",
+    menuItems: [
+        {
+            name: "Demo Item",
+            price: "9.99",
+            description: "A delicious demo item"
+        }
+    ]
+};
+
+fs.writeFileSync(
+    path.join(menusDir, 'demo.json'),
+    JSON.stringify(demoMenu, null, 2)
+);
