@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <title>Restaurant QR Menu Generator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
     <style>
+        /* Previous styles remain the same */
         body {
             font-family: 'Arial', sans-serif;
             max-width: 1200px;
@@ -77,7 +79,6 @@
             border-radius: 5px;
         }
 
-        /* Menu display styles */
         .menu-display {
             max-width: 800px;
             margin: 0 auto;
@@ -120,7 +121,6 @@
         
         <div class="menu-items" id="menuItems">
             <h2>Menu Items</h2>
-            <!-- Menu items will be added here -->
         </div>
         
         <div class="section">
@@ -135,7 +135,6 @@
     </div>
 
     <div id="menuDisplay" style="display: none;">
-        <!-- Menu display content will be loaded here -->
     </div>
 </div>
 
@@ -145,32 +144,33 @@ let menuItems = [];
 // Check if we should show the menu or generator
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const encodedData = urlParams.get('data');
+    const compressedData = urlParams.get('d');
     
-    if (encodedData) {
-        showMenu(encodedData);
+    if (compressedData) {
+        showMenu(compressedData);
     }
 });
 
-function showMenu(encodedData) {
+function showMenu(compressedData) {
     try {
-        const menuData = JSON.parse(decodeURIComponent(encodedData));
+        const decompressed = LZString.decompressFromEncodedURIComponent(compressedData);
+        const menuData = JSON.parse(decompressed);
         document.getElementById('generatorContent').style.display = 'none';
         const menuDisplay = document.getElementById('menuDisplay');
         menuDisplay.style.display = 'block';
         
         const menuHtml = `
             <div class="menu-display">
-                <h1>${menuData.restaurantName}</h1>
-                ${menuData.restaurantDescription ? `<p>${menuData.restaurantDescription}</p>` : ''}
+                <h1>${menuData.n}</h1>
+                ${menuData.d ? `<p>${menuData.d}</p>` : ''}
                 <div class="menu-items">
-                    ${menuData.menuItems.map(item => `
+                    ${menuData.i.map(item => `
                         <div class="menu-item">
                             <div class="item-header">
-                                <strong>${item.name}</strong>
-                                <span>$${item.price}</span>
+                                <strong>${item.n}</strong>
+                                <span>$${item.p}</span>
                             </div>
-                            ${item.description ? `<div class="item-description">${item.description}</div>` : ''}
+                            ${item.d ? `<div class="item-description">${item.d}</div>` : ''}
                         </div>
                     `).join('')}
                 </div>
@@ -195,9 +195,9 @@ function addMenuItem() {
     }
     
     const item = {
-        name,
-        price,
-        description
+        n: name,           // shortened from 'name'
+        p: price,          // shortened from 'price'
+        d: description     // shortened from 'description'
     };
     
     menuItems.push(item);
@@ -216,8 +216,8 @@ function updateMenuItemsList() {
     const items = menuItems.map((item, index) => `
         <div class="menu-item">
             <div>
-                <strong>${item.name}</strong> - $${item.price}
-                ${item.description ? `<br><small>${item.description}</small>` : ''}
+                <strong>${item.n}</strong> - $${item.p}
+                ${item.d ? `<br><small>${item.d}</small>` : ''}
             </div>
             <button onclick="removeMenuItem(${index})">Remove</button>
         </div>
@@ -243,22 +243,25 @@ function generateQR() {
         return;
     }
     
+    // Minimized data structure
     const menuData = {
-        restaurantName,
-        restaurantDescription,
-        menuItems
+        n: restaurantName,           // shortened from 'restaurantName'
+        d: restaurantDescription,    // shortened from 'restaurantDescription'
+        i: menuItems                 // shortened from 'menuItems'
     };
     
-    const encodedData = encodeURIComponent(JSON.stringify(menuData));
-    const shareUrl = `${window.location.href.split('?')[0]}?data=${encodedData}`;
+    // Compress the data
+    const compressed = LZString.compressToEncodedURIComponent(JSON.stringify(menuData));
+    const shareUrl = `${window.location.href.split('?')[0]}?d=${compressed}`;
     
-    // Generate QR code
+    // Generate QR code with error correction level L for better capacity
     document.getElementById('qrSection').style.display = 'block';
     document.getElementById('qrcode').innerHTML = '';
     new QRCode(document.getElementById('qrcode'), {
         text: shareUrl,
         width: 256,
-        height: 256
+        height: 256,
+        correctLevel: QRCode.CorrectLevel.L
     });
     
     document.getElementById('shareLink').innerText = shareUrl;
