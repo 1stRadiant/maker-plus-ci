@@ -1,0 +1,58 @@
+# File: .github/workflows/deploy.yml
+name: Deploy QR Menu Generator
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed for deployment to gh-pages
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Create project structure
+        run: |
+          # Create necessary directories
+          mkdir -p dist/menus
+          
+          # Copy static files
+          cp index.html dist/
+          cp -r styles/ dist/ || true
+          cp -r images/ dist/ || true
+          
+          # Ensure QR code library is available
+          mkdir -p dist/js
+          curl -o dist/js/qrcode.min.js https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js
+      
+      - name: Install Dependencies
+        run: |
+          npm init -y
+          # Add necessary dependencies to package.json
+          npm pkg set scripts.build="node build.js"
+          npm install --save-dev @octokit/rest uuid
+
+      - name: Build Site
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist  # The folder the action should deploy
+          branch: gh-pages  # The branch the action should deploy to
+          clean: true  # Automatically remove deleted files from the deploy branch
