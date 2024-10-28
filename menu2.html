@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Enhanced Restaurant QR Menu Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --background-color: #f5f5f5;
+            --card-background: white;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        /* Theme Classes */
+        .theme-dark {
+            --primary-color: #bb86fc;
+            --secondary-color: #9d4edd;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --text-color: #ffffff;
+            --border-color: #333;
+        }
+
+        .theme-blue {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --background-color: #E3F2FD;
+            --card-background: white;
+            --text-color: #0D47A1;
+            --border-color: #BBDEFB;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            background: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section {
+            margin: 20px 0;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--card-background);
+            color: var(--text-color);
+        }
+        
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: var(--secondary-color);
+        }
+        
+        .menu-items {
+            margin: 20px 0;
+        }
+        
+        .menu-item {
+            background: var(--background-color);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            gap: 15px;
+            align-items: start;
+        }
+
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .menu-item-content {
+            flex-grow: 1;
+        }
+
+        .menu-item-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .rating-star {
+            color: #ffd700;
+            cursor: pointer;
+        }
+
+        .reviews {
+            margin-top: 10px;
+            padding: 10px;
+            background: var(--background-color);
+            border-radius: 5px;
+        }
+
+        .review {
+            margin: 10px 0;
+            padding: 10px;
+            background: var(--card-background);
+            border-radius: 5px;
+        }
+
+        #cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed var(--border-color);
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        #themeSelector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+<select id="themeSelector" onchange="changeTheme(this.value)">
+    <option value="default">Default Theme</option>
+    <option value="dark">Dark Theme</option>
+    <option value="blue">Blue Theme</option>
+</select>
+
+<div class="container" id="mainContainer">
+    <div id="generatorContent">
+        <h1>Restaurant QR Menu Generator</h1>
+        
+        <div class="section">
+            <h2>Restaurant Details</h2>
+            <input type="text" id="restaurantName" placeholder="Restaurant Name">
+            <textarea id="restaurantDescription" placeholder="Restaurant Description"></textarea>
+        </div>
+        
+        <div class="section">
+            <h2>Add Menu Item</h2>
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="number" id="itemPrice" placeholder="Price" step="0.01">
+            <textarea id="itemDescription" placeholder="Item Description"></textarea>
+            <div class="image-preview" id="imagePreview" onclick="document.getElementById('itemImage').click()">
+                Click to add image
+            </div>
+            <input type="file" id="itemImage" accept="image/*" style="display: none" onchange="previewImage(event)">
+            <button onclick="addMenuItem()">Add Item</button>
+        </div>
+        
+        <div class="menu-items" id="menuItems">
+            <h2>Menu Items</h2>
+        </div>
+        
+        <div class="section">
+            <button onclick="generateQR()">Generate QR Code</button>
+        </div>
+        
+        <div class="qr-section" id="qrSection" style="display: none;">
+            <h2>Your QR Code</h2>
+            <div id="qrcode"></div>
+            <div class="share-link" id="shareLink"></div>
+        </div>
+    </div>
+
+    <div id="menuDisplay" style="display: none;">
+    </div>
+</div>
+
+<div id="cart" style="display: none;">
+    <h3>Cart</h3>
+    <div id="cartItems"></div>
+    <div id="cartTotal"></div>
+    <button onclick="checkout()">Checkout</button>
+</div>
+
+<script>
+let menuItems = [];
+let cart = [];
+let selectedTheme = 'default';
+
+function changeTheme(theme) {
+    document.body.className = theme === 'default' ? '' : `theme-${theme}`;
+    selectedTheme = theme;
+}
+
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('imagePreview').innerHTML = `
+                <img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover;">
+            `;
+            document.getElementById('imagePreview').dataset.image = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function addMenuItem() {
+    const name = document.getElementById('itemName').value;
+    const price = document.getElementById('itemPrice').value;
+    const description = document.getElementById('itemDescription').value;
+    const imagePreview = document.getElementById('imagePreview');
+    const image = imagePreview.dataset.image || '';
+    
+    if (!name || !price) {
+        alert('Please fill in at least the name and price');
+        return;
+    }
+    
+    const item = {
+        n: name,
+        p: parseFloat(price),
+        d: description,
+        i: image,
+        r: [], // ratings
+        f: []  // feedback
+    };
+    
+    menuItems.push(item);
+    updateMenuItemsList();
+    clearItemInputs();
+}
+
+function clearItemInputs() {
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemPrice').value = '';
+    document.getElementById('itemDescription').value = '';
+    document.getElementById('imagePreview').innerHTML = 'Click to add image';
+    document.getElementById('imagePreview').dataset.image = '';
+}
+
+function updateMenuItemsList() {
+    const menuItemsDiv = document.getElementById('menuItems');
+    const items = menuItems.map((item, index) => `
+        <div class="menu-item">
+            ${item.i ? `<img src="${item.i}" alt="${item.n}">` : ''}
+            <div class="menu-item-content">
+                <div>
+                    <strong>${item.n}</strong> - $${item.p.toFixed(2)}
+                    ${item.d ? `<br><small>${item.d}</small>` : ''}
+                </div>
+                <button onclick="removeMenuItem(${index})">Remove</button>
+            </div>
+        </div>
+    `).join('');
+    
+    menuItemsDiv.innerHTML = `
+        <h2>Menu Items</h2>
+        ${items}
+    `;
+}
+
+function removeMenuItem(index) {
+    menuItems.splice(index, 1);
+    updateMenuItemsList();
+}
+
+function generateQR() {
+    const restaurantName = document.getElementById('restaurantName').value;
+    const restaurantDescription = document.getElementById('restaurantDescription').value;
+    
+    if (!restaurantName || menuItems.length === 0) {
+        alert('Please add restaurant name and at least one menu item');
+        return;
+    }
+    
+    const menuData = {
+        n: restaurantName,
+        d: restaurantDescription,
+        i: menuItems,
+        t: selectedTheme
+    };
+    
+    const compressed = LZString.compressToEncodedURIComponent(JSON.stringify(menuData));
+    const shareUrl = `${window.location.href.split('?')[0]}?d=${compressed}`;
+    
+    document.getElementById('qrSection').style.display = 'block';
+    document.getElementById('qrcode').innerHTML = '';
+    new QRCode(document.getElementById('qrcode'), {
+        text: shareUrl,
+        width: 256,
+        height: 256,
+        correctLevel: QRCode.CorrectLevel.L
+    });
+    
+    document.getElementById('shareLink').innerText = shareUrl;
+}
+
+function addToCart(index) {
+    const item = menuItems[index];
+    cart.push({...item});
+    updateCart();
+}
+
+function updateCart() {
+    const cartDiv = document.getElementById('cart');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartTotalDiv = document.getElementById('cartTotal');
+    
+    if (cart.length === 0) {
+        cartDiv.style.display = 'none';
+        return;
+    }
+    
+    cartDiv.style.display = 'block';
+    
+    const total = cart.reduce((sum, item) => sum + item.p, 0);
+    
+    cartItemsDiv.innerHTML = cart.map((item, index) => `
+        <div>
+            ${item.n} - $${item.p.toFixed(2)}
+            <button onclick="removeFromCart(${index})">Remove</button>
+        </div>
+    `).join('');
+    
+    cartTotalDiv.innerHTML = `Total: $${total.toFixed(2)}`;
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function checkout() {
+    alert('Order placed successfully!');
+    cart = [];
+    updateCart();
+}
+
+function rateItem(index, rating) {
+    menuItems[index].r.push(rating);
+    updateMenuDisplay();
+}
+
+function addFeedback(index) {
+    const feedback = prompt('Please enter your feedback:');
+    if (feedback) {
+        menuItems[index].f.push(feedback);
+        updateMenuDisplay();
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const compressedData = urlParams.get('d');
+    
+    if (compressedData) {
+        showMenu(compressedData);
+    }
+});
+
+function showMenu(compressedData) {
+    try {
+        const decompressed = LZString.decompressFromEncodedURIComponent(compressedData);
+        const menuData = JSON.parse(decompressed);
+        
+        // Apply theme if present
+        if (menuData.t) {
+            changeTheme(menuData.t);
+        }
+        
+        document.getElementById('generatorContent').style.display = 'none';
+        const menuDisplay = document.getElementById('menuDisplay');
+        menuDisplay.style.display = 'block';
+        
+        menuItems = menuData.i;
+        updateMenuDisplay();
+    } catch (error) {
+        menuDisplay.innerHTML = '<h1>Error loading menu</h1>';
+        console.error('Error loading menu:', error);
+    }
+}
+
+function updateMenuDisplay() {
+    const menuDisplay = document.getElementById('menuDisplay');
+    menuDisplay.innerHTML = `
+        <div class="menu-display">
+            <h1>${document.getElementById('restaurantName').value}</h1>
+            <p>${document.getElementById('restaurantDescription').value}</p>
+            <div class="menu-items">
+                ${menuItems.map((item, index) => `
+                    <div class="menu-item">
+                        ${item.i ? `<img src="${item.i}" alt="${item.n}">` : ''}
+                        <div class="menu-item-content">
+                            <div class="item-header">
+                                <strong>${item.n}</strong>
+                                <span>$${item.p.toFixed(2)}</span>
+                            </div>
+                            ${item.d ? `<div class="item-description">${item.d}</div>` : ''}
+                            <div class="rating">
+                                ${[1,2,3,4,5].map(star => `
+                                    <span class="rating-star" onclick="rateItem(${index}, ${star})">
+                                        ${star <= (item.r.reduce((a,b) => a+b, 0) / (item.r.length || 1)) ? '★' : '☆'}
+                                    </span>
+                                `).join('')}
+                                (${item.r.length} ratings)
+                            </div>
+                            <div class="menu-item-actions">
+                                <button onclick="addToCart(${index})">Add to Cart</button>
+                                <button onclick="addFeedback(${index})">Leave Feedback</button>
+                            </div>
+                            ${item.f.length > 0 ? `
+<div class="reviews">
+                                        <h4>Customer Feedback</h4>
+                                        ${item.f.map(feedback => `
+                                            <div class="review">
+                                                <p>${feedback}</p>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                ` : ''}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// Local Storage functions for persisting ratings and feedback
+function saveDataToLocalStorage(menuId) {
+    localStorage.setItem(`menu_${menuId}`, JSON.stringify({
+        items: menuItems,
+        theme: selectedTheme
+    }));
+}
+
+function loadDataFromLocalStorage(menuId) {
+    const savedData = localStorage.getItem(`menu_${menuId}`);
+    if (savedData) {
+        const data = JSON.parse(savedData);
+        menuItems = data.items;
+        selectedTheme = data.theme;
+        changeTheme(selectedTheme);
+    }
+}
+
+// Image handling functions
+function resizeImage(dataUrl, maxWidth, maxHeight) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = function() {
+            let width = img.width;
+            let height = img.height;
+            
+            if (width > maxWidth) {
+                height = height * (maxWidth / width);
+                width = maxWidth;
+            }
+            
+            if (height > maxHeight) {
+                width = width * (maxHeight / height);
+                height = maxHeight;
+            }
+            
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            resolve(canvas.toDataURL('image/jpeg', 0.7));
+        };
+        img.src = dataUrl;
+    });
+}
+
+async function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+            const resizedImage = await resizeImage(e.target.result, 800, 800);
+            document.getElementById('imagePreview').innerHTML = `
+                <img src="${resizedImage}" style="width: 100%; height: 100%; object-fit: cover;">
+            `;
+            document.getElementById('imagePreview').dataset.image = resizedImage;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+// Replace the previous image input handler with the new one
+document.getElementById('itemImage').onchange = handleImageUpload;
+
+// Add offline support
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registration successful');
+        }).catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
+
+// Add export/import functionality
+function exportMenu() {
+    const menuData = {
+        restaurantName: document.getElementById('restaurantName').value,
+        restaurantDescription: document.getElementById('restaurantDescription').value,
+        items: menuItems,
+        theme: selectedTheme
+    };
+    
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(menuData));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "menu.json");
+    document.body.appendChild(downloadAnchorNode);
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+}
+
+function importMenu() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const menuData = JSON.parse(e.target.result);
+                document.getElementById('restaurantName').value = menuData.restaurantName;
+                document.getElementById('restaurantDescription').value = menuData.restaurantDescription;
+                menuItems = menuData.items;
+                selectedTheme = menuData.theme;
+                changeTheme(selectedTheme);
+                updateMenuItemsList();
+            } catch (error) {
+                alert('Error importing menu: ' + error.message);
+            }
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
+// Add export/import buttons to the UI
+document.querySelector('.section:last-of-type').innerHTML += `
+    <button onclick="exportMenu()" style="margin-left: 10px;">Export Menu</button>
+    <button onclick="importMenu()" style="margin-left: 10px;">Import Menu</button>
+`;
+</script>
+</body>
+</html>
